@@ -15,16 +15,19 @@ public class mainApplication extends Application {
     @Override
     public void start(Stage stage) throws IOException {
         mInstance = this;
-        scene = new Scene(loadFXML("mainView"), 700, 800);
+
+        Parent root =FXMLLoader.load(getClass().getResource("mainView.fxml"));
+        scene = new Scene(root);
         stage.setTitle("Klotski");
-        stage.setFullScreen(true);
+        //stage.setFullScreen(true);
         stage.setScene(scene);
         stage.show();
     }
-    private static Parent loadFXML(String fxml) throws IOException {
+
+    /*private static Parent loadFXML(String fxml) throws IOException {
         FXMLLoader fxmlLoader = new FXMLLoader(mainApplication.class.getResource(fxml + ".fxml"));
         return fxmlLoader.load();
-    }
+    }*/
 
     private static Application mInstance;
     public static Application getInstance() {

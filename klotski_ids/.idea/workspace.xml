@@ -5,18 +5,13 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="6bfdf0fa-9483-4758-a1c0-5debc05e40e9" name="Changes" comment="Basic Structure">
-      <change afterPath="$PROJECT_DIR$/src/main/resources/klotski_ids/views/frameMenu/levelMenu.fxml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/resources/klotski_ids/views/frameMenu/mainGame.fxml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/resources/klotski_ids/views/frameMenu/startMenu.fxml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/resources/klotski_ids/views/panes/errorPane.fxml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/pom.xml" beforeDir="false" afterPath="$PROJECT_DIR$/pom.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/klotski_ids/controllers/frameMenu/levelMenuController.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/klotski_ids/controllers/frameMenu/levelMenuController.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/klotski_ids/controllers/frameMenu/mainGameController.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/klotski_ids/controllers/frameMenu/mainGameController.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/java/klotski_ids/controllers/frameMenu/startMenuController.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/klotski_ids/controllers/frameMenu/startMenuController.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/klotski_ids/controllers/mainController.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/klotski_ids/controllers/mainController.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/java/klotski_ids/mainApplication.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/klotski_ids/mainApplication.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/java/module-info.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/module-info.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/resources/klotski_ids/mainView.fxml" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/resources/klotski_ids/mainView.fxml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/resources/klotski_ids/views/frameMenu/levelMenu.fxml" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/resources/klotski_ids/views/frameMenu/levelMenu.fxml" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -54,7 +49,7 @@
     "SHARE_PROJECT_CONFIGURATION_FILES": "true",
     "WebServerToolWindowFactoryState": "false",
     "git-widget-placeholder": "main",
-    "last_opened_file_path": "/home/eris/Documents/Uni/IDS/klotski_ids/klotski_ids",
+    "last_opened_file_path": "C:/Users/zanon/Desktop/SceneBuilder.lnk",
     "node.js.detected.package.eslint": "true",
     "node.js.detected.package.tslint": "true",
     "node.js.selected.package.eslint": "(autodetect)",
@@ -89,10 +84,9 @@
       <workItem from="1683178845277" duration="1345000" />
       <workItem from="1683185518470" duration="2235000" />
       <workItem from="1683190938935" duration="759000" />
-      <workItem from="1683199174811" duration="12885000" />
-      <workItem from="1683226234198" duration="4584000" />
-      <workItem from="1683231233364" duration="1285000" />
-      <workItem from="1683232686003" duration="92000" />
+      <workItem from="1683199174811" duration="11950000" />
+      <workItem from="1683226755314" duration="1023000" />
+      <workItem from="1683233654510" duration="6019000" />
     </task>
     <task id="LOCAL-00001" summary="Basic Structure">
       <created>1683102485156</created>
@@ -157,21 +151,7 @@
       <option name="project" value="LOCAL" />
       <updated>1683202577355</updated>
     </task>
-    <task id="LOCAL-00010" summary="Basic Structure">
-      <created>1683211439298</created>
-      <option name="number" value="00010" />
-      <option name="presentableId" value="LOCAL-00010" />
-      <option name="project" value="LOCAL" />
-      <updated>1683211439298</updated>
-    </task>
-    <task id="LOCAL-00011" summary="Basic Structure">
-      <created>1683211471706</created>
-      <option name="number" value="00011" />
-      <option name="presentableId" value="LOCAL-00011" />
-      <option name="project" value="LOCAL" />
-      <updated>1683211471706</updated>
-    </task>
-    <option name="localTasksCounter" value="12" />
+    <option name="localTasksCounter" value="10" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">

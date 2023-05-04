@@ -5,7 +5,9 @@
 
      // Opens
          opens klotski_ids.controllers to javafx.fxml;
+         opens klotski_ids.controllers.frameMenu to javafx.fxml;
 
          // Exports
          exports klotski_ids;
-}
+
+        }
