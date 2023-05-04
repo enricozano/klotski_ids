@@ -3,7 +3,7 @@
          requires javafx.controls;
          requires javafx.fxml;
 
-         // Opens
+     // Opens
          opens klotski_ids.controllers to javafx.fxml;
 
          // Exports

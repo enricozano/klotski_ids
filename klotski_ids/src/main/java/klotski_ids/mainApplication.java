@@ -15,7 +15,9 @@ public class mainApplication extends Application {
     @Override
     public void start(Stage stage) throws IOException {
         mInstance = this;
-        scene = new Scene(loadFXML("mainView"), 640, 480);
+        scene = new Scene(loadFXML("mainView"), 700, 800);
+        stage.setTitle("Klotski");
+        stage.setFullScreen(true);
         stage.setScene(scene);
         stage.show();
     }
