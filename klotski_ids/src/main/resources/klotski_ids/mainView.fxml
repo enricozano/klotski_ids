@@ -1,0 +1,16 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.control.Button?>
+<?import javafx.scene.layout.AnchorPane?>
+<?import javafx.scene.layout.HBox?>
+
+<AnchorPane prefHeight="643.0" prefWidth="847.0" xmlns="http://javafx.com/javafx/19" xmlns:fx="http://javafx.com/fxml/1" fx:controller="klotski_ids.controllers.mainController">
+   <children>
+      <HBox alignment="CENTER_RIGHT" layoutY="597.0" prefHeight="46.0" prefWidth="848.0" AnchorPane.rightAnchor="0.0">
+         <children>
+            <Button fx:id="wikiButton" mnemonicParsing="false" onAction="#goToWiki" prefHeight="26.0" prefWidth="57.0" text="WIki" />
+            <Button fx:id="gitHubButton" contentDisplay="RIGHT" mnemonicParsing="false" onAction="#goToGithub" prefHeight="26.0" prefWidth="63.0" text="gitHub" />
+         </children>
+      </HBox>
+   </children>
+</AnchorPane>

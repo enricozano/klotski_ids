@@ -70,7 +70,7 @@
                 <executions>
                     <execution>
                         <configuration>
-                            <mainClass>org.example.App</mainClass>
+                            <mainClass>klotski_ids.Launcher</mainClass>
                         </configuration>
                     </execution>
                 </executions>
