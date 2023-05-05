@@ -1,0 +1,28 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.geometry.*?>
+<?import javafx.scene.control.*?>
+<?import javafx.scene.image.*?>
+<?import javafx.scene.layout.*?>
+
+<HBox fx:id="myHbox" alignment="CENTER_RIGHT" prefHeight="44.0" prefWidth="602.0" stylesheets="@../../assets/styles/mainViewStyle.css" BorderPane.alignment="CENTER" xmlns:fx="http://javafx.com/fxml/1" xmlns="http://javafx.com/javafx/17.0.2-ea" fx:controller="klotski_ids.controllers.panes.bottomBarController">
+    <Button fx:id="wikiButton" alignment="CENTER_RIGHT" mnemonicParsing="false" onAction="#goToWiki" text="wiki">
+        <graphic>
+            <ImageView fitHeight="20.0" fitWidth="26.0" pickOnBounds="true" preserveRatio="true">
+                <image>
+                    <Image url="@../../assets/images/icons/wikipedia-w.png" />
+                </image>
+            </ImageView>
+        </graphic>
+    </Button>
+    <Button fx:id="gitHubButton" alignment="CENTER_RIGHT" mnemonicParsing="false" onAction="#goToGithub" text="gitHub">
+        <graphic>
+            <ImageView fitHeight="20.0" fitWidth="24.0" pickOnBounds="true" preserveRatio="true">
+                <image>
+                    <Image url="@../../assets/images/icons/github.png" />
+                </image>
+            </ImageView>
+        </graphic>
+    </Button>
+
+</HBox>

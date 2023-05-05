@@ -16,7 +16,7 @@ public class mainApplication extends Application {
     public void start(Stage stage){
         mInstance = this;
         try{
-            Parent root =FXMLLoader.load(getClass().getResource("mainView.fxml"));
+            Parent root = FXMLLoader.load(getClass().getResource("mainView.fxml"));
             scene = new Scene(root);
             stage.setTitle("Klotski");
             String css = this.getClass().getResource("assets/styles/mainViewStyle.css").toExternalForm();

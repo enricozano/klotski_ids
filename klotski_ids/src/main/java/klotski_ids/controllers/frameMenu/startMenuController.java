@@ -14,20 +14,7 @@ import klotski_ids.mainApplication;
 import java.io.IOException;
 
 public class startMenuController {
-    @FXML
-    private Button gitHubButton;
-    @FXML
-    private Button wikiButton;
 
-
-
-    public void goToWiki(ActionEvent actionEvent) {
-        wikiButton.setOnAction(e -> mainApplication.getInstance().getHostServices().showDocument("https://github.com/enricozano/klotski_ids"));
-    }
-
-    public void goToGithub(ActionEvent actionEvent) {
-        gitHubButton.setOnAction(e -> mainApplication.getInstance().getHostServices().showDocument("https://github.com/enricozano/klotski_ids"));
-    }
 
     public void switchToSelectLevelScene(ActionEvent actionEvent) throws IOException {
         String css = this.getClass().getResource("/klotski_ids/assets/styles/levelMenuStyle.css").toExternalForm();
