@@ -1,0 +1,60 @@
+.borderPane{
+    -fx-background-color: #eef2f5;
+}
+
+#titlelabel{
+    -fx-font-family: "JetBrains Mono ExtraBold";
+    -fx-font-size: 25;
+}
+
+#myHbox{
+    -fx-background-color: #7f00ea;
+    -fx-spacing: 10px;
+}
+
+#wikiButton, #gitHubButton {
+    -fx-background-color: transparent;
+    -fx-border-color: transparent;
+    -fx-background-radius: 0;
+    -fx-padding: 10px;
+    -fx-cursor: hand;
+    -fx-content-display: graphic-only;
+}
+
+#wikiButton:hover, #gitHubButton:hover {
+    -fx-background-color: #333333;
+}
+
+#wikiButton .label, #gitHubButton .label {
+    -fx-text-fill: white;
+    -fx-font-size: 14px;
+}
+
+#wikiButton .graphic, #gitHubButton .graphic {
+    -fx-padding: 0;
+}
+
+#wikiButton .graphic > ImageView, #gitHubButton .graphic > ImageView {
+    -fx-fit-width: 24px;
+    -fx-fit-height: 24px;
+}
+
+
+#newgamebutton{
+    -fx-background-color: #4CAF50;
+    -fx-text-fill: white;
+    -fx-font-size: 14px;
+    -fx-font-weight: bold;
+    -fx-padding: 8px 16px;
+    -fx-border-radius: 4px;
+    -fx-cursor: hand;
+}
+
+#newgamebutton:hover{
+    -fx-background-color: #3e8e41;
+}
+
+#newgamebutton:pressed{
+    -fx-background-color: #2c683c;
+    -fx-text-fill: #ddd;
+}

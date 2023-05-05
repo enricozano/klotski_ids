@@ -13,15 +13,20 @@ import java.io.IOException;
 public class mainApplication extends Application {
     private static Scene scene;
     @Override
-    public void start(Stage stage) throws IOException {
+    public void start(Stage stage){
         mInstance = this;
+        try{
+            Parent root =FXMLLoader.load(getClass().getResource("mainView.fxml"));
+            scene = new Scene(root);
+            stage.setTitle("Klotski");
+            String css = this.getClass().getResource("assets/styles/mainViewStyle.css").toExternalForm();
+            scene.getStylesheets().add(css);
+            stage.setScene(scene);
+            stage.show();
+        }catch (Exception e){
+            e.printStackTrace();
+        }
 
-        Parent root =FXMLLoader.load(getClass().getResource("mainView.fxml"));
-        scene = new Scene(root);
-        stage.setTitle("Klotski");
-        //stage.setFullScreen(true);
-        stage.setScene(scene);
-        stage.show();
     }
 
     /*private static Parent loadFXML(String fxml) throws IOException {
