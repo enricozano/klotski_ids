@@ -17,14 +17,14 @@ public class startMenuController {
 
 
     public void switchToSelectLevelScene(ActionEvent actionEvent) throws IOException {
-        String css = this.getClass().getResource("/klotski_ids/assets/styles/levelMenuStyle.css").toExternalForm();
-
         FXMLLoader loader = new FXMLLoader(getClass().getResource("/klotski_ids/views/frameMenu/levelMenu.fxml"));
         Parent root = loader.load();
         Scene scene = new Scene(root);
-        scene.getStylesheets().add(css);
         Stage stage = (Stage) ((Node) actionEvent.getSource()).getScene().getWindow();
         stage.setScene(scene);
         stage.show();
+    }
+    public void resumeGame(ActionEvent actionEvent) throws  IOException{
+        System.out.println("DIOBUBU SARÁ da fare cosa con upload da file server merda");
     }
 }

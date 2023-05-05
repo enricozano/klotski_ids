@@ -6,6 +6,13 @@
 
 <BorderPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="400.0" prefWidth="600.0" xmlns="http://javafx.com/javafx/19" xmlns:fx="http://javafx.com/fxml/1" fx:controller="klotski_ids.controllers.frameMenu.levelMenuController">
    <top>
-      <Label alignment="CENTER" contentDisplay="CENTER" prefHeight="18.0" prefWidth="635.0" text="SELEZIONA IL LIVELLO" BorderPane.alignment="CENTER" />
+      <fx:include source="../panes/topBar.fxml"/>
    </top>
+   <center>
+      <Label alignment="CENTER" contentDisplay="CENTER" prefHeight="18.0" prefWidth="635.0" text="SELEZIONA IL LIVELLO" BorderPane.alignment="CENTER" />
+
+   </center>
+   <bottom>
+      <fx:include source="../panes/bottomBar.fxml"/>
+   </bottom>
 </BorderPane>

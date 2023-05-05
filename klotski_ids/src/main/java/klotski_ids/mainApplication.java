@@ -21,6 +21,7 @@ public class mainApplication extends Application {
             stage.setTitle("Klotski");
             String css = this.getClass().getResource("assets/styles/mainViewStyle.css").toExternalForm();
             scene.getStylesheets().add(css);
+            stage.setResizable(false);
             stage.setScene(scene);
             stage.show();
         }catch (Exception e){

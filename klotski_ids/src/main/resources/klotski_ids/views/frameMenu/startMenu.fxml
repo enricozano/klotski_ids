@@ -6,9 +6,31 @@
 <?import javafx.scene.control.*?>
 <?import javafx.scene.layout.*?>
 
-<AnchorPane xmlns="http://javafx.com/javafx"
+<?import javafx.scene.text.Font?>
+
+<BorderPane xmlns="http://javafx.com/javafx"
             xmlns:fx="http://javafx.com/fxml"
             fx:controller="klotski_ids.controllers.frameMenu.startMenuController"
-            prefHeight="400.0" prefWidth="600.0">
-
-</AnchorPane>
+            prefHeight="400.0" prefWidth="600.0" stylesheets="@../../assets/styles/mainViewStyle.css">
+    <top>
+        <Label fx:id="titlelabel" alignment="CENTER" contentDisplay="CENTER" prefHeight="58.0" prefWidth="604.0" text="KLOTSKI" BorderPane.alignment="CENTER">
+            <font>
+                <Font size="40.0" />
+            </font>
+        </Label>
+    </top>
+    <center>
+        <Button fx:id="newgamebutton" onAction="#switchToSelectLevelScene" prefHeight="80.0" prefWidth="143.0" text="NEW GAME" BorderPane.alignment="CENTER">
+            <font>
+                <Font size="18.0" />
+            </font>
+        </Button>
+    </center>
+    <bottom>
+        <Button fx:id="resumeGame" onAction="#resumeGame" prefHeight="80.0" prefWidth="143.0" text="RESUME GAME" BorderPane.alignment="BOTTOM_CENTER">
+            <font>
+                <Font size="18.0" />
+            </font>
+        </Button>
+    </bottom>
+</BorderPane>

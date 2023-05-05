@@ -1,5 +1,6 @@
 .borderPane{
-    -fx-background-color: #eef2f5;
+    -fx-background-color: #808080;
+
 }
 
 #titlelabel{
@@ -40,7 +41,7 @@
 }
 
 
-#newgamebutton{
+#newgamebutton, #resumeGame{
     -fx-background-color: #4CAF50;
     -fx-text-fill: white;
     -fx-font-size: 14px;
@@ -50,11 +51,11 @@
     -fx-cursor: hand;
 }
 
-#newgamebutton:hover{
+#newgamebutton:hover, #resumeGame:hover{
     -fx-background-color: #3e8e41;
 }
 
-#newgamebutton:pressed{
+#newgamebutton:pressed, #resumeGame:pressed{
     -fx-background-color: #2c683c;
     -fx-text-fill: #ddd;
 }
