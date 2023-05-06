@@ -1,18 +1,78 @@
 <?xml version="1.0" encoding="UTF-8"?>
 
+<?import javafx.scene.control.Button?>
 <?import javafx.scene.control.Label?>
+<?import javafx.scene.control.ScrollBar?>
+<?import javafx.scene.image.ImageView?>
+<?import javafx.scene.layout.AnchorPane?>
 <?import javafx.scene.layout.BorderPane?>
+<?import javafx.scene.layout.ColumnConstraints?>
+<?import javafx.scene.layout.GridPane?>
+<?import javafx.scene.layout.RowConstraints?>
+<?import javafx.scene.image.Image?>
 
+<BorderPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="400.0"
+            prefWidth="600.0" stylesheets="@../../assets/styles/levelMenuStyle.css" xmlns="http://javafx.com/javafx/19"
+            xmlns:fx="http://javafx.com/fxml/1" fx:controller="klotski_ids.controllers.frameMenu.levelMenuController">
+    <top>
+        <fx:include source="../panes/topBar.fxml"/>
+    </top>
 
-<BorderPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="400.0" prefWidth="600.0" xmlns="http://javafx.com/javafx/19" xmlns:fx="http://javafx.com/fxml/1" fx:controller="klotski_ids.controllers.frameMenu.levelMenuController">
-   <top>
-      <fx:include source="../panes/topBar.fxml"/>
-   </top>
-   <center>
-      <Label alignment="CENTER" contentDisplay="CENTER" prefHeight="18.0" prefWidth="635.0" text="SELEZIONA IL LIVELLO" BorderPane.alignment="CENTER" />
-
-   </center>
-   <bottom>
-      <fx:include source="../panes/bottomBar.fxml"/>
-   </bottom>
+    <center>
+        <GridPane BorderPane.alignment="CENTER">
+            <columnConstraints>
+                <ColumnConstraints hgrow="SOMETIMES" minWidth="10.0" prefWidth="100.0"/>
+                <ColumnConstraints hgrow="SOMETIMES" minWidth="10.0" prefWidth="100.0"/>
+                <ColumnConstraints hgrow="SOMETIMES" minWidth="10.0" prefWidth="100.0"/>
+            </columnConstraints>
+            <rowConstraints>
+                <RowConstraints maxHeight="95.0" minHeight="10.0" prefHeight="57.0" vgrow="SOMETIMES"/>
+                <RowConstraints maxHeight="233.0" minHeight="10.0" prefHeight="209.0" vgrow="SOMETIMES"/>
+                <RowConstraints maxHeight="93.0" minHeight="10.0" prefHeight="32.0" vgrow="SOMETIMES"/>
+            </rowConstraints>
+            <Label fx:id="levelLableTitle" alignment="CENTER" contentDisplay="TOP" prefHeight="18.0"
+                   prefWidth="201.0" text="Seleziona un livello" GridPane.columnIndex="1"
+                   GridPane.valignment="TOP"/>
+            <AnchorPane prefHeight="200.0" prefWidth="200.0" GridPane.rowIndex="1">
+                <Button fx:id="btnLevel1" onAction="#goToLevel1" alignment="BOTTOM_CENTER" layoutX="1.0"
+                        mnemonicParsing="false" prefHeight="208.0"
+                        prefWidth="204.0" text="Livello 1">
+                    <graphic>
+                        <ImageView fitHeight="150.0" fitWidth="200.0" layoutX="3.0" layoutY="1.0"
+                                   pickOnBounds="true" preserveRatio="true">
+                            <Image url="@../../assets/images/klotski.png"/>
+                        </ImageView>
+                    </graphic>
+                </Button>
+            </AnchorPane>
+            <AnchorPane prefHeight="200.0" prefWidth="200.0" GridPane.columnIndex="1" GridPane.rowIndex="1">
+                <Button fx:id="btnLevel2" onAction="#goToLevel2" alignment="BOTTOM_CENTER" layoutX="2.0"
+                        mnemonicParsing="false" prefHeight="208.0"
+                        prefWidth="200.0" text="Livello 2">
+                    <graphic>
+                        <ImageView fitHeight="150.0" fitWidth="200.0" layoutY="1.0" pickOnBounds="true"
+                                   preserveRatio="true">
+                            <Image url="@../../assets/images/klotski.png"/>
+                        </ImageView>
+                    </graphic>
+                </Button>
+            </AnchorPane>
+            <AnchorPane prefHeight="200.0" prefWidth="200.0" GridPane.columnIndex="2" GridPane.rowIndex="1">
+                <Button fx:id="btnLevel3" onAction="#goToLevel3" alignment="BOTTOM_CENTER" mnemonicParsing="false"
+                        prefHeight="208.0" prefWidth="200.0"
+                        text="Livello 3">
+                    <graphic>
+                        <ImageView fitHeight="150.0" fitWidth="200.0" layoutY="1.0" pickOnBounds="true"
+                                   preserveRatio="true">
+                            <Image url="@../../assets/images/klotski.png"/>
+                        </ImageView>
+                    </graphic>
+                </Button>
+            </AnchorPane>
+            <ScrollBar GridPane.columnIndex="1" GridPane.rowIndex="2"/>
+        </GridPane>
+    </center>
+    <bottom>
+        <fx:include source="../panes/bottomBar.fxml"/>
+    </bottom>
 </BorderPane>

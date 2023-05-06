@@ -1,14 +1,21 @@
 <?xml version="1.0" encoding="UTF-8"?>
 
-<?import java.lang.*?>
-<?import java.util.*?>
-<?import javafx.scene.*?>
-<?import javafx.scene.control.*?>
-<?import javafx.scene.layout.*?>
+<?import javafx.scene.control.Label?>
+<?import javafx.scene.layout.BorderPane?>
 
-<AnchorPane xmlns="http://javafx.com/javafx"
-            xmlns:fx="http://javafx.com/fxml"
-            fx:controller="klotski_ids.controllers.frameMenu.mainGameController"
-            prefHeight="400.0" prefWidth="600.0">
+<BorderPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="400.0" prefWidth="600.0" stylesheets="@../../assets/styles/levelMenuStyle.css" xmlns="http://javafx.com/javafx/19" xmlns:fx="http://javafx.com/fxml/1" fx:controller="klotski_ids.controllers.frameMenu.mainGameController">
+    <top>
+        <fx:include source="../panes/topBarBack.fxml" />
+    </top>
 
-</AnchorPane>
+    <center>
+
+    </center>
+
+   <center>
+      <Label fx:id="titlelabel" alignment="CENTER" contentDisplay="CENTER" prefHeight="18.0" prefWidth="119.0" text="Label" BorderPane.alignment="TOP_CENTER" />
+   </center>
+    <bottom>
+        <fx:include source="../panes/bottomBar.fxml" />
+    </bottom>
+</BorderPane>

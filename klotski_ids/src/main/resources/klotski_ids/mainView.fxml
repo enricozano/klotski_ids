@@ -1,15 +1,22 @@
 <?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.control.Label?>
 <?import javafx.scene.layout.BorderPane?>
 
-<BorderPane maxHeight="-Infinity" style="-fx-background-color: #808080" maxWidth="-Infinity" minHeight="400.0" minWidth="600.0" prefHeight="403.0" prefWidth="602.0" xmlns="http://javafx.com/javafx/19" xmlns:fx="http://javafx.com/fxml/1" fx:controller="klotski_ids.controllers.frameMenu.startMenuController">
-    <bottom>
-        <fx:include source="views/panes/bottomBar.fxml"/>
-    </bottom>
+<BorderPane maxHeight="400" maxWidth="600" minHeight="400.0" minWidth="600.0"
+            stylesheets="@assets/styles/mainViewStyle.css" xmlns="http://javafx.com/javafx/19"
+            xmlns:fx="http://javafx.com/fxml/1" fx:controller="klotski_ids.controllers.frameMenu.startMenuController">
+    <top>
+        <Label alignment="CENTER" contentDisplay="TOP" prefHeight="72.0" prefWidth="600.0" text="KLOTSKI"
+               BorderPane.alignment="CENTER"/>
+    </top>
+
     <center>
         <fx:include source="views/frameMenu/startMenu.fxml"/>
     </center>
-    <top>
-        <fx:include source="views/panes/topBar.fxml"/>
-    </top>
+
+    <bottom>
+        <fx:include source="views/panes/bottomBar.fxml"/>
+    </bottom>
 
 </BorderPane>

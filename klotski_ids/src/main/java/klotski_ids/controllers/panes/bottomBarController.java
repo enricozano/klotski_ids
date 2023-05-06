@@ -7,20 +7,13 @@ import javafx.scene.layout.HBox;
 import klotski_ids.mainApplication;
 
 public class bottomBarController {
-    @FXML
-    private HBox myHbox;
-    @FXML
-    private Button gitHubButton;
-    @FXML
-    private Button wikiButton;
 
     public void goToWiki(ActionEvent actionEvent) {
-
-        wikiButton.setOnAction(e -> mainApplication.getInstance().getHostServices().showDocument("https://github.com/enricozano/klotski_ids"));
+        mainApplication.getInstance().getHostServices().showDocument("https://github.com/enricozano/klotski_ids");
     }
 
     public void goToGithub(ActionEvent actionEvent) {
-        gitHubButton.setOnAction(e -> mainApplication.getInstance().getHostServices().showDocument("https://github.com/enricozano/klotski_ids"));
+        mainApplication.getInstance().getHostServices().showDocument("https://github.com/enricozano/klotski_ids");
     }
 
 }

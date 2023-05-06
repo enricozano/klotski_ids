@@ -1,0 +1,66 @@
+#root {
+    -fx-background-color: #FFFFFF;
+}
+
+#levelLableTitle {
+    -fx-font-size: 20px;
+    -fx-font-weight: bold;
+    -fx-font-family: "Arial Black";
+    -fx-text-fill: #FFA500;
+    -fx-effect: dropshadow( gaussian , rgba(0,0,0,0.8) , 4,0,0,1 );
+}
+
+#levelMenu {
+    -fx-background-color: #f7f7f7;
+    -fx-alignment: center;
+}
+
+#titleLabel {
+    -fx-text-fill: #ff8c00;
+    -fx-font-size: 28px;
+    -fx-font-weight: bold;
+    -fx-alignment: center;
+}
+
+.button {
+    -fx-cursor: hand;
+    -fx-background-color: #fff;
+    -fx-background-radius: 5px;
+    -fx-border-radius: 5px;
+    -fx-border-width: 2px;
+    -fx-border-color: #ccc;
+    -fx-font-size: 16px;
+    -fx-font-weight: bold;
+    -fx-text-fill: #4d4d4d;
+    -fx-content-display: top;
+    -fx-graphic-text-gap: 10px;
+    -fx-alignment: center;
+}
+
+Button .graphic {
+    -fx-padding: 0;
+    -fx-alignment: center;
+}
+
+Button .graphic > ImageView {
+    -fx-fit-width: 24px;
+    -fx-fit-height: 24px;
+}
+
+.button .text {
+    -fx-padding: 5px 0;
+}
+
+.scroll-bar {
+    -fx-background-color: #fff;
+    -fx-background-radius: 10px;
+    -fx-border-radius: 10px;
+    -fx-border-color: #e8e8e8;
+    -fx-border-width: 2px;
+}
+
+.scroll-bar .thumb {
+    -fx-background-color: #ff8c00;
+    -fx-background-radius: 10px;
+    -fx-border-radius: 10px;
+}
