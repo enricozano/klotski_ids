@@ -1,0 +1,46 @@
+#startMenu {
+    -fx-background-color: #444444;
+}
+
+#titlelabel {
+    -fx-font-size: 60px;
+    -fx-font-weight: bold;
+    -fx-font-family: "Arial Black";
+    -fx-text-fill: #FFA500;
+    -fx-effect: dropshadow( gaussian , rgba(0,0,0,0.8) , 4,0,0,1 );
+}
+
+#newgamebutton, #resumeGame {
+    -fx-background-color: #FFA500;
+    -fx-background-radius: 4px;
+    -fx-border-color: transparent;
+    -fx-cursor: hand;
+    -fx-font-size: 18px;
+    -fx-font-weight: bold;
+    -fx-text-fill: white;
+    -fx-padding: 8px 16px;
+    -fx-pref-height: 50px;
+}
+
+#newgamebutton:hover, #resumeGame:hover {
+    -fx-background-color: #FF8C00;
+}
+
+#newgamebutton:pressed, #resumeGame:pressed {
+    -fx-background-color: #FF6600;
+}
+
+.bottom-box {
+    -fx-background-color: #444444;
+    -fx-padding: 10px;
+    -fx-alignment: center;
+}
+
+.bottom-box Button {
+    -fx-pref-height: 40px;
+    -fx-spacing: 5px;
+}
+
+.button {
+    -fx-pref-width: 170px;
+}

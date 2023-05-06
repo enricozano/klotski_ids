@@ -3,6 +3,7 @@
          requires javafx.controls;
          requires javafx.fxml;
 
+
      // Opens
          opens klotski_ids.controllers to javafx.fxml;
          opens klotski_ids.controllers.frameMenu to javafx.fxml;

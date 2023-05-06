@@ -1,0 +1,34 @@
+#myHbox {
+    -fx-background-color: #444444;
+    -fx-spacing: 10px;
+    -fx-padding: 10px;
+}
+
+#myHbox Button {
+    -fx-background-color: #FFA500;
+    -fx-background-radius: 4px;
+    -fx-border-color: transparent;
+    -fx-cursor: hand;
+    -fx-font-size: 14px;
+    -fx-font-weight: bold;
+    -fx-text-fill: white;
+    -fx-padding: 8px 16px;
+    -fx-content-display: graphic-only;
+}
+
+#myHbox Button:hover {
+    -fx-background-color: #FF8C00;
+}
+
+#myHbox Button:pressed {
+    -fx-background-color: #FF6600;
+}
+
+#myHbox Button .graphic {
+    -fx-padding: 0;
+}
+
+#myHbox Button .graphic > ImageView {
+    -fx-fit-width: 24px;
+    -fx-fit-height: 24px;
+}
