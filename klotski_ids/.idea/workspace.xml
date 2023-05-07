@@ -4,10 +4,10 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="6bfdf0fa-9483-4758-a1c0-5debc05e40e9" name="Changes" comment="levels">
-      <change afterPath="$PROJECT_DIR$/src/main/java/klotski_ids/controllers/panes/levelController.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/resources/klotski_ids/assets/styles/levelsSytle.css" afterDir="false" />
+    <list default="true" id="6bfdf0fa-9483-4758-a1c0-5debc05e40e9" name="Changes" comment="level controller">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/klotski_ids/controllers/panes/levelController.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/klotski_ids/controllers/panes/levelController.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/resources/klotski_ids/assets/styles/levelsSytle.css" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/resources/klotski_ids/assets/styles/levelsSytle.css" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/resources/klotski_ids/views/panes/level_1.fxml" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/resources/klotski_ids/views/panes/level_1.fxml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/resources/klotski_ids/views/panes/level_2.fxml" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/resources/klotski_ids/views/panes/level_2.fxml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/resources/klotski_ids/views/panes/level_3.fxml" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/resources/klotski_ids/views/panes/level_3.fxml" afterDir="false" />
@@ -109,7 +109,7 @@
       <workItem from="1683354669441" duration="24195000" />
       <workItem from="1683381872423" duration="378000" />
       <workItem from="1683382322617" duration="60000" />
-      <workItem from="1683457330242" duration="5703000" />
+      <workItem from="1683457330242" duration="16841000" />
     </task>
     <task id="LOCAL-00001" summary="Basic Structure">
       <created>1683102485156</created>
@@ -202,7 +202,14 @@
       <option name="project" value="LOCAL" />
       <updated>1683382152051</updated>
     </task>
-    <option name="localTasksCounter" value="14" />
+    <task id="LOCAL-00014" summary="level controller">
+      <created>1683463280960</created>
+      <option name="number" value="00014" />
+      <option name="presentableId" value="LOCAL-00014" />
+      <option name="project" value="LOCAL" />
+      <updated>1683463280960</updated>
+    </task>
+    <option name="localTasksCounter" value="15" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -225,7 +232,8 @@
     <MESSAGE value="acdc" />
     <MESSAGE value="style and menu" />
     <MESSAGE value="levels" />
-    <option name="LAST_COMMIT_MESSAGE" value="levels" />
+    <MESSAGE value="level controller" />
+    <option name="LAST_COMMIT_MESSAGE" value="level controller" />
   </component>
   <component name="XSLT-Support.FileAssociations.UIState">
     <expand />
