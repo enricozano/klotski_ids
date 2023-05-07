@@ -1,0 +1,11 @@
+#rect1,#rect2,#rect3,#rect4,#rect5,#rect6,#rect7,#rect8,#rect9,#rect10{
+    -fx-border-color: black;
+    -fx-border-width: 5px;
+    -fx-border-radius: 5px;
+    -fx-effect: dropshadow(three-pass-box, #888888, 10, 0, 0, 0);
+}
+
+
+#empty1, #empty2 {
+    -fx-opacity: 0;
+}
