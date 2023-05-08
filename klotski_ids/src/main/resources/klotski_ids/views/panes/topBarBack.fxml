@@ -7,7 +7,7 @@
 <?import javafx.scene.layout.HBox?>
 
 <?import javafx.scene.layout.Region?>
-<HBox fx:id="myHbox" alignment="CENTER_LEFT" prefHeight="44.0" prefWidth="602.0" stylesheets="@../../assets/styles/topBarStyle.css" BorderPane.alignment="CENTER" xmlns="http://javafx.com/javafx/19" xmlns:fx="http://javafx.com/fxml/1" fx:controller="klotski_ids.controllers.panes.topBarController">
+<HBox fx:id="myHbox" alignment="CENTER_LEFT" prefHeight="44.0" prefWidth="602.0" stylesheets="@../../assets/styles/topBarStyle.css" BorderPane.alignment="CENTER" xmlns="http://javafx.com/javafx/19" xmlns:fx="http://javafx.com/fxml/1" fx:controller="klotski_ids.controllers.panes.TopBarController">
     <Button fx:id="Home"  mnemonicParsing="false" onAction="#goHome" text="HOME">
         <graphic>
             <ImageView fitHeight="20.0" fitWidth="26.0" pickOnBounds="true" preserveRatio="true">
