@@ -1,6 +1,13 @@
-package klotski_ids.controllers.panes;
+package klotski_ids.controllers.util;
 
+import com.fasterxml.jackson.databind.ObjectMapper;
+
+import java.io.File;
+import java.io.IOException;
+import java.net.URL;
 import java.util.List;
+import java.util.Objects;
+import java.util.ResourceBundle;
 
 public class Level{
     private int maxWidth;
@@ -44,4 +51,17 @@ public class Level{
     public void setMinWidth(int minWidth) {
         this.minWidth = minWidth;
     }
+
+    public Level readJson(String dir) {
+        Level level = null;
+        try {
+            File file = new File(getClass().getResource(dir).getFile());
+            level = JsonUtil.readValue(file, Level.class);
+
+        } catch (IOException e) {
+            e.printStackTrace();
+        }
+        return level;
+    }
+
 }

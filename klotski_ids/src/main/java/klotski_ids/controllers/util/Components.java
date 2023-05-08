@@ -1,6 +1,4 @@
-package klotski_ids.controllers.panes;
-
-import javafx.scene.shape.Rectangle;
+package klotski_ids.controllers.util;
 
 public class Components {
     private String id;

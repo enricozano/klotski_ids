@@ -7,72 +7,95 @@
     {
       "id": "rect1",
       "width": 100,
-      "height": 50,
+      "height": 100,
       "row": 0,
-      "col": 0
+      "col": 0,
+      "colSpan": 2,
+      "rowSpan": 2
     },
     {
       "id": "rect2",
       "width": 50,
       "height": 100,
       "row": 2,
-      "col": 1
+      "col": 1,
+
+      "colSpan": 1,
+      "rowSpan": 2
     },
     {
       "id": "rect3",
       "width": 50,
       "height": 100,
       "row": 2,
-      "col": 1
+      "col": 1,
+
+      "colSpan": 1,
+      "rowSpan": 2
     },
     {
       "id": "rect4",
       "width": 50,
       "height": 100,
       "row": 2,
-      "col": 1
+      "col": 1,
+
+      "colSpan": 1,
+      "rowSpan": 2
     },
     {
       "id": "rect5",
       "width": 50,
       "height": 100,
       "row": 2,
-      "col": 1
+      "col": 1,
+      "colSpan": 1,
+      "rowSpan": 2
     },
     {
       "id": "rect6",
       "width": 50,
       "height": 100,
       "row": 2,
-      "col": 1
+      "col": 1,
+      "colSpan": 1,
+      "rowSpan": 2
     },
     {
       "id": "rect7",
       "width": 50,
       "height": 100,
       "row": 2,
-      "col": 1
+      "col": 1,
+      "colSpan": 1,
+      "rowSpan": 2
     },
     {
       "id": "rect8",
       "width": 50,
       "height": 100,
       "row": 2,
-      "col": 1
+      "col": 1,
+      "colSpan": 1,
+      "rowSpan": 2
     },
     {
       "id": "rect9",
       "width": 50,
       "height": 100,
       "row": 2,
-      "col": 1
+      "col": 1,
+      "colSpan": 1,
+      "rowSpan": 2
     },
     {
       "id": "rect10",
       "width": 50,
       "height": 100,
       "row": 2,
-      "col": 1
+      "col": 1,
+      "colSpan": 1,
+      "rowSpan": 2
     }
   ]
 }

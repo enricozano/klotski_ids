@@ -58,6 +58,7 @@
             <resource>
                 <directory>src/main/resources</directory>
                 <includes>
+                    <include>klotski_ids/jsons/level_1.json</include>
                     <include>**/*.json</include>
                     <include>**/*.fxml</include>
                     <include>**/*.css</include>

@@ -1,16 +1,14 @@
 package klotski_ids.controllers.panes;
 
-import com.fasterxml.jackson.databind.ObjectMapper;
 import javafx.fxml.FXML;
 import javafx.fxml.Initializable;
 import javafx.scene.layout.GridPane;
 import javafx.scene.shape.Rectangle;
+import klotski_ids.controllers.util.Components;
+import klotski_ids.controllers.util.Level;
 
-import java.io.File;
-import java.io.IOException;
 import java.net.URL;
 import java.util.List;
-import java.util.Objects;
 import java.util.ResourceBundle;
 
 
@@ -19,24 +17,9 @@ public class LevelController implements Initializable {
     @FXML
     private GridPane gridPane;
 
-    private Level readJson() {
-        ObjectMapper objectMapper = new ObjectMapper();
-        Level level = null;
-        try {
-            ClassLoader classLoader = getClass().getClassLoader();
-
-            File file = new File(Objects.requireNonNull(classLoader.getResource("level_1.json")).getFile());
-            level = objectMapper.readValue(file, Level.class);
-
-        } catch (IOException e) {
-            e.printStackTrace();
-        }
-        return level;
-    }
-
     @Override
     public void initialize(URL url, ResourceBundle resourceBundle) {
-        Level level_1 = readJson();
+        Level level_1 = new Level().readJson("/klotski_ids/data/level_1.json");
 
         List<Components> rectangles = level_1.getRectangles();
 
