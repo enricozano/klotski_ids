@@ -20,17 +20,16 @@ public class LevelController implements Initializable {
     @Override
     public void initialize(URL url, ResourceBundle resourceBundle) {
         Level level_1 = new Level().readJson("/klotski_ids/data/level_1.json");
+        if (level_1 == null) {
+            System.err.println("Errore durante la lettura del file JSON");
+            return;
+        }
+        List<Components> components = level_1.getRectangles();
 
-        List<Components> rectangles = level_1.getRectangles();
-
-        for (Components rectangle : rectangles) {
+        for (Components rectangle : components) {
             System.out.println(rectangle.getId());
         }
 
-        //creare costruttore di rectangle con id, width, height, row and col, rowSpan, colSpan
-        Rectangle rectangle_1 = new Rectangle(rectangles.get(0).getWidth(),rectangles.get(0).getHeight());
-        rectangle_1.setId(rectangles.get(0).getId());
-
-        gridPane.add(rectangle_1,rectangles.get(0).getCol(),rectangles.get(0).getRow(),rectangles.get(0).getColSpan(),rectangles.get(0).getRowSpan());
+        level_1.setGridPane(gridPane, components);
     }
 }
