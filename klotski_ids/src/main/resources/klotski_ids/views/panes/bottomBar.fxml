@@ -4,7 +4,7 @@
 <?import javafx.scene.image.*?>
 <?import javafx.scene.layout.*?>
 
-<HBox fx:id="myHbox" alignment="CENTER_RIGHT" prefHeight="44.0" prefWidth="602.0" stylesheets="@../../assets/styles/bottomBarStyle.css" BorderPane.alignment="CENTER" xmlns:fx="http://javafx.com/fxml/1" xmlns="http://javafx.com/javafx/17.0.2-ea" fx:controller="klotski_ids.controllers.panes.BottomBarController">
+<HBox fx:id="myHbox" alignment="CENTER_RIGHT" prefHeight="44.0" prefWidth="602.0" stylesheets="@stylesheets/bottomBarStyle.css" BorderPane.alignment="CENTER" xmlns:fx="http://javafx.com/fxml/1" xmlns="http://javafx.com/javafx/17.0.2-ea" fx:controller="klotski_ids.controllers.panes.BottomBarController">
     <Button fx:id="wikiButton" alignment="CENTER_RIGHT" mnemonicParsing="false" onAction="#goToWiki" text="wiki">
         <graphic>
             <ImageView fitHeight="20.0" fitWidth="26.0" pickOnBounds="true" preserveRatio="true">

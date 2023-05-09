@@ -12,8 +12,7 @@
       "col": 1,
       "colSpan": 2,
       "rowSpan": 2
-    },
-    {
+    },{
       "id": "rect2",
       "width": 50,
       "height": 100,
@@ -94,5 +93,6 @@
       "colSpan": 1,
       "rowSpan": 1
     }
+
   ]
 }

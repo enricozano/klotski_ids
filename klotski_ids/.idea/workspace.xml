@@ -4,14 +4,27 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="6bfdf0fa-9483-4758-a1c0-5debc05e40e9" name="Changes" comment="components from json">
+    <list default="true" id="6bfdf0fa-9483-4758-a1c0-5debc05e40e9" name="Changes" comment="components from json (final?)">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/pom.xml" beforeDir="false" afterPath="$PROJECT_DIR$/pom.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/java/klotski_ids/controllers/panes/LevelController.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/klotski_ids/controllers/panes/LevelController.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/klotski_ids/controllers/util/JsonUtil.java" beforeDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/java/klotski_ids/controllers/util/Level.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/klotski_ids/controllers/util/Level.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/module-info.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/module-info.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/resources/klotski_ids/assets/styles/bottomBarStyle.css" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/resources/klotski_ids/views/panes/stylesheets/bottomBarStyle.css" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/resources/klotski_ids/assets/styles/levelMenuStyle.css" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/resources/klotski_ids/views/frameMenu/stylesheet/levelMenuStyle.css" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/resources/klotski_ids/assets/styles/levelsSytle.css" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/resources/klotski_ids/views/panes/stylesheets/levelsSytle.css" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/resources/klotski_ids/assets/styles/mainGameStyle.css" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/resources/klotski_ids/views/frameMenu/stylesheet/mainGameStyle.css" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/resources/klotski_ids/assets/styles/startMenuStyle.css" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/resources/klotski_ids/views/frameMenu/stylesheet/startMenuStyle.css" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/resources/klotski_ids/assets/styles/topBarStyle.css" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/resources/klotski_ids/views/panes/stylesheets/topBarStyle.css" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/resources/klotski_ids/data/level_1.json" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/resources/klotski_ids/data/level_1.json" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/resources/klotski_ids/views/frameMenu/levelMenu.fxml" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/resources/klotski_ids/views/frameMenu/levelMenu.fxml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/resources/klotski_ids/views/frameMenu/mainGame.fxml" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/resources/klotski_ids/views/frameMenu/mainGame.fxml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/resources/klotski_ids/views/frameMenu/startMenu.fxml" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/resources/klotski_ids/views/frameMenu/startMenu.fxml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/resources/klotski_ids/views/panes/bottomBar.fxml" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/resources/klotski_ids/views/panes/bottomBar.fxml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/resources/klotski_ids/views/panes/level_1.fxml" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/resources/klotski_ids/views/panes/level_1.fxml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/resources/klotski_ids/views/panes/level_2.fxml" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/resources/klotski_ids/views/panes/level_2.fxml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/resources/klotski_ids/views/panes/level_3.fxml" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/resources/klotski_ids/views/panes/level_3.fxml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/resources/klotski_ids/views/panes/topBar.fxml" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/resources/klotski_ids/views/panes/topBar.fxml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/resources/klotski_ids/views/panes/topBarBack.fxml" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/resources/klotski_ids/views/panes/topBarBack.fxml" afterDir="false" />
     </list>
     <list id="09855262-e7fe-4115-8869-69c02f2c6753" name="Changes by eris" comment="" />
     <option name="SHOW_DIALOG" value="false" />
@@ -71,7 +84,7 @@
     "SHARE_PROJECT_CONFIGURATION_FILES": "true",
     "WebServerToolWindowFactoryState": "false",
     "git-widget-placeholder": "main",
-    "last_opened_file_path": "/home/eris/Documents/Uni/IDS/klotski_ids/klotski_ids/src/main/resources",
+    "last_opened_file_path": "/home/eris/Documents/Uni/IDS/klotski_ids/klotski_ids/src/main/resources/klotski_ids/views/panes/stylesheet",
     "list.type.of.created.stylesheet": "CSS",
     "node.js.detected.package.eslint": "true",
     "node.js.detected.package.tslint": "true",
@@ -87,17 +100,18 @@
 }]]></component>
   <component name="RecentsManager">
     <key name="CopyFile.RECENT_KEYS">
+      <recent name="$PROJECT_DIR$/src/main/resources/klotski_ids/views/panes/stylesheet" />
       <recent name="$PROJECT_DIR$/src/main/resources" />
       <recent name="$PROJECT_DIR$/src/main/resources/klotski_ids/views/panes/levels" />
       <recent name="$PROJECT_DIR$/src/main/resources/klotski_ids/json" />
       <recent name="$PROJECT_DIR$/src/main/java/klotski_ids/controllers/panes" />
     </key>
     <key name="MoveFile.RECENT_KEYS">
+      <recent name="$PROJECT_DIR$/src/main/resources/klotski_ids/views/panes/stylesheets" />
+      <recent name="$PROJECT_DIR$/src/main/resources/klotski_ids/views/frameMenu/stylesheet" />
+      <recent name="$PROJECT_DIR$/src/main/resources/klotski_ids/assets/styles" />
       <recent name="$PROJECT_DIR$/src/main/resources/klotski_ids/views/panes" />
       <recent name="$PROJECT_DIR$/src/main/resources" />
-      <recent name="$PROJECT_DIR$/src/main/resources/klotski_ids/level_json" />
-      <recent name="$PROJECT_DIR$/src/main/resources/klotski_ids" />
-      <recent name="$PROJECT_DIR$/src/main/resources/klotski_ids/views/panes/levels/json" />
     </key>
   </component>
   <component name="SpellCheckerSettings" RuntimeDictionaries="0" Folders="0" CustomDictionaries="0" DefaultDictionary="application-level" UseSingleDictionary="true" transferred="true" />
@@ -133,7 +147,8 @@
       <workItem from="1683561133306" duration="1869000" />
       <workItem from="1683563058517" duration="63000" />
       <workItem from="1683567826865" duration="607000" />
-      <workItem from="1683573763240" duration="2396000" />
+      <workItem from="1683573763240" duration="11220000" />
+      <workItem from="1683614572217" duration="12890000" />
     </task>
     <task id="LOCAL-00001" summary="Basic Structure">
       <created>1683102485156</created>
@@ -247,7 +262,14 @@
       <option name="project" value="LOCAL" />
       <updated>1683557769255</updated>
     </task>
-    <option name="localTasksCounter" value="17" />
+    <task id="LOCAL-00017" summary="components from json (final?)">
+      <created>1683576178728</created>
+      <option name="number" value="00017" />
+      <option name="presentableId" value="LOCAL-00017" />
+      <option name="project" value="LOCAL" />
+      <updated>1683576178728</updated>
+    </task>
+    <option name="localTasksCounter" value="18" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -273,7 +295,8 @@
     <MESSAGE value="level controller" />
     <MESSAGE value="styling" />
     <MESSAGE value="components from json" />
-    <option name="LAST_COMMIT_MESSAGE" value="components from json" />
+    <MESSAGE value="components from json (final?)" />
+    <option name="LAST_COMMIT_MESSAGE" value="components from json (final?)" />
   </component>
   <component name="XDebuggerManager">
     <breakpoint-manager>
