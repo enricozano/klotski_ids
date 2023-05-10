@@ -1,9 +1,0 @@
-@import "levelMenuStyle.css";
-
-#nMosse{
-    -fx-text-fill: red;
-    -fx-font-size: 10px;
-    -fx-font-weight: bold;
-    -fx-alignment: center;
-    -fx-effect: dropshadow( gaussian , rgb(255, 255, 255), 0,0,0,0 );
-}

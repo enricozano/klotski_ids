@@ -1,3 +1,12 @@
+@import "levelMenuStyle.css";
+
+#nMosse{
+    -fx-text-fill: red;
+    -fx-font-size: 10px;
+    -fx-font-weight: bold;
+    -fx-alignment: center;
+    -fx-effect: dropshadow( gaussian , rgb(255, 255, 255), 0,0,0,0 );
+}
 #rect1, #rect2, #rect3, #rect4, #rect5, #rect6, #rect7, #rect8, #rect9, #rect10 {
     -fx-fill: #e6e6e6; /* colore di riempimento */
     -fx-stroke: #333; /* colore del bordo */
@@ -19,3 +28,14 @@
     -fx-border-color: #818181;
     -fx-border-width: 1px;
 }
+
+#gridPane{
+    -fx-grid-lines-visible: false;
+}
+
+#borderPane {
+    -fx-border-width: 3px;
+    -fx-border-color: #fab872;
+    -fx-border-style: solid;
+}
+

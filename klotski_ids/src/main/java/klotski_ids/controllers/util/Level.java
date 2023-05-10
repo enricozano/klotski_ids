@@ -5,12 +5,15 @@ import javafx.collections.ObservableList;
 import javafx.geometry.Point2D;
 import javafx.scene.Cursor;
 import javafx.scene.Node;
+import javafx.scene.control.Cell;
+import javafx.scene.effect.Light;
 import javafx.scene.layout.ColumnConstraints;
 import javafx.scene.layout.GridPane;
 import javafx.scene.layout.RowConstraints;
 import javafx.scene.shape.Rectangle;
 
 import java.io.*;
+import java.util.ArrayList;
 import java.util.List;
 import java.util.concurrent.atomic.AtomicReference;
 
@@ -93,17 +96,7 @@ public class Level {
         int numRows = gridPane.getRowConstraints().size();
         int numCols = gridPane.getColumnConstraints().size();
 
-        System.out.println("NumRows: " + numRows);
-        System.out.println("NumCol: " + numCols);
-
-        gridPane.setGridLinesVisible(true);
-
         rectangle.setOnMousePressed(event -> {
-            System.out.println();
-            System.out.println();
-            System.out.println("NUOVO CLICK");
-            System.out.println();
-
 
             startX = GridPane.getColumnIndex(rectangle);
             startY = GridPane.getRowIndex(rectangle);
@@ -112,18 +105,8 @@ public class Level {
             startMouseX = event.getSceneX();
             startMouseY = event.getSceneY();
 
-            System.out.println("startMouseX: " + startMouseX);
-            System.out.println("startMouseY: " + startMouseY);
-            System.out.println();
-
-
             startTranslateX = rectangle.getTranslateX();
             startTranslateY = rectangle.getTranslateY();
-
-            System.out.println("startTranslateX: " + startTranslateX);
-            System.out.println("startTranslateY: " + startTranslateY);
-            System.out.println();
-
 
             rectangle.setCursor(Cursor.CLOSED_HAND);
         });
@@ -143,20 +126,8 @@ public class Level {
             int newRow = (int) (startY + row);
 
 
-            System.out.println();
-            System.out.println("ColonnaRettangolo: " + startX);
-            System.out.println("RigaRettangolo: " + startY);
-            System.out.println();
-
-            System.out.println("Colonna: " + col);
-            System.out.println("riga: " + row);
-            System.out.println();
-
-            System.out.println("Nuova Colonna: " + newCol);
-            System.out.println("Nuova riga: " + newRow);
-            System.out.println();
-
             if (newCol >= 0 && newRow >= 0) {
+
                 int maxCol, maxRow;
                 if (rectangle.getWidth() <= CELL_WIDTH && rectangle.getHeight() <= CELL_HEIGHT) {
                     maxCol = NUM_COLS;
@@ -173,10 +144,15 @@ public class Level {
                 }
 
                 if (newCol <= maxCol && newRow <= maxRow) {
-                    System.out.println("dentro");
+
+                    if(overlaps(gridPane, rectangle, newCol, newRow)){
+                        System.out.println("STRONSO SOVRAPPONE");
+                    }
+
                     rectangle.setTranslateX(col * (gridPane.getWidth() / numCols));
                     rectangle.setTranslateY(row * (gridPane.getHeight() / numRows));
                 }
+
 
             }
 
@@ -185,6 +161,50 @@ public class Level {
         rectangle.setOnMouseReleased(event -> {
             rectangle.setCursor(Cursor.DEFAULT);
         });
+    }
+
+    //restituisce il valore di ogni riga e colonna occupati dal rettangolo
+    private List<Point2D> getRectangleAreaPoints(Rectangle rectangle) {
+        int height = (int) rectangle.getHeight();
+        int width = (int) rectangle.getWidth();
+        int colIndex = GridPane.getColumnIndex(rectangle);
+        int rowIndex = GridPane.getRowIndex(rectangle);
+
+        List<Point2D> points = new ArrayList<>();
+        points.add(new Point2D(colIndex, rowIndex));
+
+        if (height > CELL_HEIGHT && width == CELL_WIDTH) {
+            points.add(new Point2D(colIndex, rowIndex + 1));
+        } else if (height == CELL_HEIGHT && width > CELL_WIDTH) {
+            points.add(new Point2D(colIndex + 1, rowIndex));
+        } else if (height > CELL_HEIGHT && width > CELL_WIDTH) {
+            points.add(new Point2D(colIndex + 1, rowIndex));
+            points.add(new Point2D(colIndex, rowIndex + 1));
+            points.add(new Point2D(colIndex + 1, rowIndex + 1));
+        }
+
+        return points;
+    }
+
+    private boolean overlaps(GridPane gridPane, Rectangle rectangle, int newCol, int newRow){
+        boolean isOverlapping = false;
+        Point2D newPoint = new Point2D(newCol, newRow);
+
+        for (Node x : gridPane.getChildren()) {
+
+            if (!rectangle.getId().equals(x.getId())) {
+                List<Point2D> points = getRectangleAreaPoints((Rectangle) x);
+
+                for(Point2D p: points){
+                    if(newPoint.equals(p)){
+                        isOverlapping = true;
+                    }else {
+                        isOverlapping = false;
+                    }
+                }
+            }
+        }
+        return isOverlapping;
     }
 
     private Rectangle createRectangle(Components component) {
@@ -203,7 +223,6 @@ public class Level {
             setMouseEvent(rectangle, gridPane);
             gridPane.getChildren().add(rectangle);
         }
-
     }
 
 }

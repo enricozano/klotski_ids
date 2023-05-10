@@ -1,0 +1,66 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.control.Button?>
+<?import javafx.scene.control.Label?>
+<?import javafx.scene.layout.BorderPane?>
+<?import javafx.scene.layout.ColumnConstraints?>
+<?import javafx.scene.layout.GridPane?>
+<?import javafx.scene.layout.Pane?>
+<?import javafx.scene.layout.RowConstraints?>
+
+<BorderPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="500.0" prefWidth="600.0" stylesheets="@../../assets/styles/mainGameStyle.css" xmlns="http://javafx.com/javafx/19" xmlns:fx="http://javafx.com/fxml/1" fx:controller="klotski_ids.controllers.frameMenu.GameController">
+    <top>
+        <fx:include source="../panes/topBarBack.fxml" />
+    </top>
+
+    <center>
+        <GridPane alignment="TOP_CENTER" BorderPane.alignment="TOP_CENTER">
+            <columnConstraints>
+                <ColumnConstraints hgrow="SOMETIMES" maxWidth="194.0" minWidth="10.0" prefWidth="120.0" />
+                <ColumnConstraints hgrow="SOMETIMES" maxWidth="350.0" minWidth="10.0" prefWidth="345.0" />
+                <ColumnConstraints hgrow="SOMETIMES" maxWidth="159.0" minWidth="10.0" prefWidth="120.0" />
+            </columnConstraints>
+            <rowConstraints>
+                <RowConstraints maxHeight="93.0" minHeight="0.0" prefHeight="41.0" vgrow="SOMETIMES" />
+                <RowConstraints maxHeight="334.0" minHeight="10.0" prefHeight="320.0" vgrow="SOMETIMES" />
+                <RowConstraints maxHeight="48.0" minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
+            </rowConstraints>
+            <children>
+                <Label fx:id="titlelabel" alignment="CENTER" contentDisplay="CENTER" prefHeight="18.0" prefWidth="405.0" text="Label" BorderPane.alignment="TOP_CENTER" GridPane.columnIndex="1" />
+                <Button fx:id="undo" mnemonicParsing="false" text="undo" GridPane.halignment="CENTER" GridPane.rowIndex="1" GridPane.valignment="BASELINE" />
+                <Button fx:id="nextBestMove" mnemonicParsing="false" text="next best" GridPane.columnIndex="2" GridPane.halignment="CENTER" GridPane.rowIndex="1" GridPane.valignment="TOP" />
+                <Button fx:id="reset" mnemonicParsing="false" text="reset" GridPane.halignment="CENTER" GridPane.rowIndex="1" GridPane.valignment="CENTER" />
+                <Button fx:id="save" mnemonicParsing="false" text="save" GridPane.columnIndex="2" GridPane.halignment="CENTER" GridPane.rowIndex="1" GridPane.valignment="CENTER" />
+                <Label fx:id="nMosse" alignment="CENTER" prefHeight="18.0" prefWidth="127.0" text="nMosse" GridPane.columnIndex="2" GridPane.rowIndex="2" GridPane.valignment="CENTER" />
+
+                <Pane fx:id="mainPane" prefHeight="320.0" prefWidth="350" GridPane.columnIndex="1" GridPane.rowIndex="1" xmlns="http://javafx.com/javafx/19" xmlns:fx="http://javafx.com/fxml/1">
+                    <Pane fx:id="borderPane" styleClass="no-border" layoutX="71.0" layoutY="28.0" prefHeight="258.0" prefWidth="209.0">
+                        <GridPane fx:id="gridPane" layoutX="4" layoutY="4" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="250.0" prefWidth="200.0">
+                            <columnConstraints>
+                                <ColumnConstraints hgrow="NEVER" maxWidth="-Infinity" minWidth="50.0" percentWidth="0.0" prefWidth="50.0" />
+                                <ColumnConstraints hgrow="NEVER" maxWidth="-Infinity" minWidth="50.0" percentWidth="0.0" prefWidth="50.0" />
+                                <ColumnConstraints hgrow="NEVER" maxWidth="-Infinity" minWidth="50.0" percentWidth="0.0" prefWidth="50.0" />
+                                <ColumnConstraints hgrow="NEVER" maxWidth="-Infinity" minWidth="50.0" percentWidth="0.0" prefWidth="50.0" />
+                            </columnConstraints>
+                            <rowConstraints>
+                                <RowConstraints maxHeight="50.0" minHeight="50.0" percentHeight="0.0" prefHeight="50.0" vgrow="NEVER" />
+                                <RowConstraints maxHeight="50.0" minHeight="50.0" percentHeight="0.0" prefHeight="50.0" vgrow="NEVER" />
+                                <RowConstraints maxHeight="50.0" minHeight="50.0" percentHeight="0.0" prefHeight="50.0" vgrow="NEVER" />
+                                <RowConstraints maxHeight="50.0" minHeight="50.0" percentHeight="0.0" prefHeight="50.0" vgrow="NEVER" />
+                                <RowConstraints maxHeight="50.0" minHeight="50.0" percentHeight="0.0" prefHeight="50.0" vgrow="NEVER" />
+                            </rowConstraints>
+
+                        </GridPane>
+
+                    </Pane>
+
+                </Pane>
+            </children>
+        </GridPane>
+    </center>
+
+    <bottom>
+        <fx:include source="../panes/bottomBar.fxml" />
+    </bottom>
+
+</BorderPane>
