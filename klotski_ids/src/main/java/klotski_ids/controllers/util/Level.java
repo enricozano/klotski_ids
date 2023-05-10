@@ -91,7 +91,6 @@ public class Level {
         return level;
     }
 
-
     private void setMouseEvent(Rectangle rectangle, GridPane gridPane) {
         int numRows = gridPane.getRowConstraints().size();
         int numCols = gridPane.getColumnConstraints().size();
@@ -100,7 +99,6 @@ public class Level {
 
             startX = GridPane.getColumnIndex(rectangle);
             startY = GridPane.getRowIndex(rectangle);
-
 
             startMouseX = event.getSceneX();
             startMouseY = event.getSceneY();
@@ -125,7 +123,9 @@ public class Level {
             int newCol = (int) (startX + col);
             int newRow = (int) (startY + row);
 
-
+            if (overlaps(gridPane, rectangle, newCol, newRow)) {
+                System.out.println("DIOCAN");
+            }
             if (newCol >= 0 && newRow >= 0) {
 
                 int maxCol, maxRow;
@@ -143,16 +143,10 @@ public class Level {
                     maxRow = NUM_ROWS - 1;
                 }
 
-                if (newCol <= maxCol && newRow <= maxRow) {
-
-                    if(overlaps(gridPane, rectangle, newCol, newRow)){
-                        System.out.println("STRONSO SOVRAPPONE");
-                    }
-
-                    rectangle.setTranslateX(col * (gridPane.getWidth() / numCols));
-                    rectangle.setTranslateY(row * (gridPane.getHeight() / numRows));
+                if (newCol <= maxCol && newRow <= maxRow && !overlaps(gridPane,rectangle,newCol,newRow)) {
+                    GridPane.setRowIndex(rectangle, newRow);
+                    GridPane.setColumnIndex(rectangle, newCol);
                 }
-
 
             }
 
@@ -160,10 +154,15 @@ public class Level {
 
         rectangle.setOnMouseReleased(event -> {
             rectangle.setCursor(Cursor.DEFAULT);
+
+            System.out.println("COL INDEX DOPO: " + GridPane.getColumnIndex(rectangle));
+            System.out.println("ROW INDEX DOPO: " + GridPane.getRowIndex(rectangle));
+
         });
+
+
     }
 
-    //restituisce il valore di ogni riga e colonna occupati dal rettangolo
     private List<Point2D> getRectangleAreaPoints(Rectangle rectangle) {
         int height = (int) rectangle.getHeight();
         int width = (int) rectangle.getWidth();
@@ -186,25 +185,26 @@ public class Level {
         return points;
     }
 
-    private boolean overlaps(GridPane gridPane, Rectangle rectangle, int newCol, int newRow){
-        boolean isOverlapping = false;
+    private boolean overlaps(GridPane gridPane, Rectangle rectangle, int newCol, int newRow) {
+
         Point2D newPoint = new Point2D(newCol, newRow);
+        //aggiungere calcolo areea partendo da newCol e newRow, nuovo oggetto rectangole
+
+        //List<Point2D> newPoints = getRectangleAreaPoints(newRect);
 
         for (Node x : gridPane.getChildren()) {
 
-            if (!rectangle.getId().equals(x.getId())) {
-                List<Point2D> points = getRectangleAreaPoints((Rectangle) x);
+            List<Point2D> points = getRectangleAreaPoints((Rectangle) x);
 
-                for(Point2D p: points){
-                    if(newPoint.equals(p)){
-                        isOverlapping = true;
-                    }else {
-                        isOverlapping = false;
+            if (!rectangle.getId().equals(x.getId())) {
+                for(int i = 0; i < points.size(); i++){
+                    if(newPoint.equals(points.get(i))){
+                        return true;
                     }
                 }
             }
         }
-        return isOverlapping;
+        return false;
     }
 
     private Rectangle createRectangle(Components component) {
