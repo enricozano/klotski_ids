@@ -4,7 +4,7 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="6bfdf0fa-9483-4758-a1c0-5debc05e40e9" name="Changes" comment="improvements">
+    <list default="true" id="6bfdf0fa-9483-4758-a1c0-5debc05e40e9" name="Changes" comment="overlaps v1">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/java/klotski_ids/controllers/util/Level.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/klotski_ids/controllers/util/Level.java" afterDir="false" />
     </list>
@@ -132,7 +132,7 @@
       <workItem from="1683573763240" duration="11220000" />
       <workItem from="1683614572217" duration="12890000" />
       <workItem from="1683712698752" duration="1723000" />
-      <workItem from="1683720509336" duration="15675000" />
+      <workItem from="1683720509336" duration="16142000" />
     </task>
     <task id="LOCAL-00001" summary="Basic Structure">
       <created>1683102485156</created>
@@ -260,7 +260,14 @@
       <option name="project" value="LOCAL" />
       <updated>1683732949364</updated>
     </task>
-    <option name="localTasksCounter" value="19" />
+    <task id="LOCAL-00019" summary="overlaps v1">
+      <created>1683737633270</created>
+      <option name="number" value="00019" />
+      <option name="presentableId" value="LOCAL-00019" />
+      <option name="project" value="LOCAL" />
+      <updated>1683737633270</updated>
+    </task>
+    <option name="localTasksCounter" value="20" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -288,7 +295,8 @@
     <MESSAGE value="components from json" />
     <MESSAGE value="components from json (final?)" />
     <MESSAGE value="improvements" />
-    <option name="LAST_COMMIT_MESSAGE" value="improvements" />
+    <MESSAGE value="overlaps v1" />
+    <option name="LAST_COMMIT_MESSAGE" value="overlaps v1" />
   </component>
   <component name="XDebuggerManager">
     <breakpoint-manager>

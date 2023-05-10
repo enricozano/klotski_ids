@@ -163,11 +163,9 @@ public class Level {
 
     }
 
-    private List<Point2D> getRectangleAreaPoints(Rectangle rectangle) {
+    private List<Point2D> getRectangleAreaPoints(Rectangle rectangle, int colIndex, int rowIndex) {
         int height = (int) rectangle.getHeight();
         int width = (int) rectangle.getWidth();
-        int colIndex = GridPane.getColumnIndex(rectangle);
-        int rowIndex = GridPane.getRowIndex(rectangle);
 
         List<Point2D> points = new ArrayList<>();
         points.add(new Point2D(colIndex, rowIndex));
@@ -187,19 +185,20 @@ public class Level {
 
     private boolean overlaps(GridPane gridPane, Rectangle rectangle, int newCol, int newRow) {
 
-        Point2D newPoint = new Point2D(newCol, newRow);
-        //aggiungere calcolo areea partendo da newCol e newRow, nuovo oggetto rectangole
-
-        //List<Point2D> newPoints = getRectangleAreaPoints(newRect);
+        List<Point2D> newPoints = getRectangleAreaPoints(rectangle, newCol, newRow);
 
         for (Node x : gridPane.getChildren()) {
+            int colIndex = GridPane.getColumnIndex(x);
+            int rowIndex = GridPane.getRowIndex(x);
 
-            List<Point2D> points = getRectangleAreaPoints((Rectangle) x);
+            List<Point2D> points = getRectangleAreaPoints((Rectangle) x, colIndex, rowIndex);
 
             if (!rectangle.getId().equals(x.getId())) {
-                for(int i = 0; i < points.size(); i++){
-                    if(newPoint.equals(points.get(i))){
-                        return true;
+                for(Point2D pRect: newPoints){
+                    for (Point2D allRectPoints: points){
+                        if(pRect.equals(allRectPoints)){
+                            return true;
+                        }
                     }
                 }
             }
