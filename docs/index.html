@@ -21,6 +21,7 @@
 <link rel="stylesheet" type="text/css" href="assets/vendor/highlight.js/styles/github.css" />
 <!-- Custom Stylesheet -->
 <link rel="stylesheet" type="text/css" href="assets/css/stylesheet.css" />
+<link rel="stylesheet" type="text/css" href="assets/css/color-orange.css" />
 </head>
 
 <body data-spy="scroll" data-target=".idocs-navigation" data-offset="125">
@@ -48,42 +49,12 @@
       <div class="container-fluid">
         <!-- Sidebar Toggler -->
 		<button id="sidebarCollapse" class="navbar-toggler d-block d-md-none" type="button"><span></span><span class="w-75"></span><span class="w-50"></span></button>
-		
+      
 		<!-- Logo --> 
         <a class="logo ml-md-3" href="index.html" title="iDocs Template"> <img src="assets/images/logo-light.png" alt="iDocs Template"/> </a> 
-		<span class="text-2 text-light ml-2">v1.0</span> 
+		
         <!-- Logo End -->
         
-		<!-- Navbar Toggler -->
-		<button class="navbar-toggler ml-auto" type="button" data-toggle="collapse" data-target="#header-nav"><span></span><span></span><span></span></button>
-        
-		<div id="header-nav" class="collapse navbar-collapse justify-content-end">
-          <ul class="navbar-nav">
-            <li class="dropdown"> <a class="dropdown-toggle" href="#">Dropdown</a>
-              <ul class="dropdown-menu">
-                <li><a class="dropdown-item" href="#">Action</a></li>
-                <li class="dropdown"><a class="dropdown-item dropdown-toggle" href="#">Dropdown Action</a>
-                  <ul class="dropdown-menu">
-                    <li><a class="dropdown-item" href="index.html">Action</a></li>
-                    <li><a class="dropdown-item" href="feature-header-dark.html">Another Action</a></li>
-                    <li><a class="dropdown-item" href="feature-header-primary.html">Something Else Here</a></li>
-                    <li><a class="dropdown-item" href="index-2.html">Another Link</a></li>
-                  </ul>
-                </li>
-                <li><a class="dropdown-item" href="#">Another Action</a>
-                <li><a class="dropdown-item" href="#">Something Else Here</a></li>
-              </ul>
-            </li>
-            <li><a target="_blank" href="https://themeforest.net/user/harnishdesign/portfolio?ref=HarnishDesign">Other Template</a></li>
-            <li><a target="_blank" href="https://themeforest.net/user/harnishdesign/#contact?ref=HarnishDesign">Support</a></li>
-          </ul>
-        </div>
-        <ul class="social-icons social-icons-sm ml-lg-2 mr-2">
-          <li class="social-icons-twitter"><a data-toggle="tooltip" href="http://www.twitter.com/harnishdesign/" target="_blank" title="" data-original-title="Twitter"><i class="fab fa-twitter"></i></a></li>
-          <li class="social-icons-facebook"><a data-toggle="tooltip" href="http://www.facebook.com/harnishdesign/" target="_blank" title="" data-original-title="Facebook"><i class="fab fa-facebook-f"></i></a></li>
-          <li class="social-icons-dribbble"><a data-toggle="tooltip" href="http://www.dribbble.com/harnishdesign/" target="_blank" title="" data-original-title="Dribbble"><i class="fab fa-dribbble"></i></a></li>
-        </ul>
-      </div>
     </nav>
     <!-- Navbar End --> 
   </header>
@@ -95,115 +66,158 @@
     
 	<!-- Sidebar Navigation
 	============================ -->
-	<div class="idocs-navigation bg-light">
-      <ul class="nav flex-column ">
-        <li class="nav-item"><a class="nav-link active" href="#idocs_start">Getting Started</a>
-          <ul class="nav flex-column">
-            <li class="nav-item"><a class="nav-link" href="#idocs_installation">Installation</a></li>
-            <li class="nav-item"><a class="nav-link" href="#idocs_html_structure">HTML Structure</a></li>
-            <li class="nav-item"><a class="nav-link" href="#idocs_sass">Sass</a></li>
-            <li class="nav-item"><a class="nav-link" href="#idocs_color_schemes">Color Schemes</a></li>
-            <li class="nav-item"><a class="nav-link" href="#idocs_theme_customization">Customization</a></li>
-            <li class="nav-item"><a class="nav-link" href="#idocs_logo_settings">Logo Settings</a></li>
-          </ul>
-        </li>
-        <li class="nav-item"><a class="nav-link" href="#idocs_layout">Layout</a>
-          <ul class="nav flex-column">
-			<li class="nav-item"><a class="nav-link" href="#idocs_header">Header</a></li>
-			<li class="nav-item"><a class="nav-link" href="#idocs_navbar">Navbar</a></li>
-			<li class="nav-item"><a class="nav-link" href="#idocs_sidebar">Sidebar</a></li>
-			<li class="nav-item"><a class="nav-link" href="#idocs_footer">Footer</a></li>
-			<li class="nav-item"><a class="nav-link" href="#idocs_box_layout">Box Layout</a></li>
-          </ul>
-        </li>
-        <li class="nav-item"><a class="nav-link" href="#idocs_content">Content</a>
-			<ul class="nav flex-column">
-            <li class="nav-item"><a class="nav-link" href="#idocs_typography">Typography</a></li>
-            <li class="nav-item"><a class="nav-link" href="#idocs_code">Code</a></li>
-            <li class="nav-item"><a class="nav-link" href="#idocs_table">Table</a></li>
-			<li class="nav-item"><a class="nav-link" href="#idocs_icons">Icons</a></li>
-            <li class="nav-item"><a class="nav-link" href="#idocs_image">Image</a></li>
-			<li class="nav-item"><a class="nav-link" href="#idocs_video">Video</a></li>
-          </ul>
-		</li>
-        <li class="nav-item"><a class="nav-link" href="#idocs_components">Components</a>
-          <ul class="nav flex-column">
-            <li class="nav-item"><a class="nav-link" href="#idocs_accordion">Accordion</a></li>
-            <li class="nav-item"><a class="nav-link" href="#idocs_tabs">Tabs</a></li>
-            <li class="nav-item"><a class="nav-link" href="#idocs_social_icon">Social Icon</a></li>
-            <li class="nav-item"><a class="nav-link" href="#idocs_helper_classes">Helper Classes</a></li>
-          </ul>
-        </li>
-		<li class="nav-item"><a class="nav-link" href="#idocs_faq">FAQ</a></li>
-        <li class="nav-item"><a class="nav-link" href="#idocs_source_credits">Source & Credits</a></li>
-        <li class="nav-item"><a class="nav-link" href="#idocs_support">Support</a></li>
-		<li class="nav-item"><a class="nav-link" href="#idocs_templates">More Templates</a></li>
-		<li class="nav-item"><a class="nav-link" href="#idocs_changelog">Changelog</a>
-			<ul class="nav flex-column">
-            <li class="nav-item"><a class="nav-link" href="#v1-1">v1.1</a></li>
-            <li class="nav-item"><a class="nav-link" href="#v1-0">v1.0</a></li>
-          </ul>
-		</li>
+  <div class="idocs-navigation bg-light">
+    <ul class="nav flex-column ">
+      <li class="nav-item"><a class="nav-link active" href="#kl_introduction">Introduction</a></li>
+      <li class="nav-item"><a class="nav-link" href="#kl_systemdesign">System Design</a>
+        <ul class="nav flex-column">
+          <li class="nav-item"><a class="nav-link" href="#kl_usecases">Use cases</a></li>
+          <li class="nav-item"><a class="nav-link" href="kl_usecasediagram">Use case diagram</a></li>
+          <li class="nav-item"><a class="nav-link" href="#kl_uc1">Use case #1</a></li>
+          <li class="nav-item"><a class="nav-link" href="#kl_uc2">Use case #2</a></li>
+          <li class="nav-item"><a class="nav-link" href="#kl_uc3">Use case #3</a></li>
+          <li class="nav-item"><a class="nav-link" href="#kl_uc4">Use case #4</a></li>
+          <li class="nav-item"><a class="nav-link" href="#kl_uc5">Use case #5</a></li>
+          <li class="nav-item"><a class="nav-link" href="#kl_uc6">Use case #6</a></li>
+          <li class="nav-item"><a class="nav-link" href="#kl_uc7">Use case #7</a></li>
+          <li class="nav-item"><a class="nav-link" href="#kl_uc8">Use case #8</a></li>
+          <li class="nav-item"><a class="nav-link" href="#kl_uc9">Use case #9</a></li>
+          <li class="nav-item"><a class="nav-link" href="#kl_uc10">Use case #10</a></li>
+          <li class="nav-item"><a class="nav-link" href="#kl_uc11">Use case #11</a></li>
+        </ul>
+      </li>
+      <li class="nav-item"><a class="nav-link" href="#kl_domain">Domain model</a></li>
+      <li class="nav-item"><a class="nav-link" href="#kl_design">Design model</a>
+        <ul class="nav flex-column">
+          <li class="nav-item"><a class="nav-link" href="#kl_packagedesign">Packages</a></li>
+          <li class="nav-item"><a class="nav-link" href="#kl_modeldesign">Model</a></li>
+          <li class="nav-item"><a class="nav-link" href="#kl_viewdesign">View</a></li>
+          <li class="nav-item"><a class="nav-link" href="#kl_controllerdesign">Controller</a></li>
+        </ul>
+      </li>
+      <li class="nav-item"><a class="nav-link" href="#kl_sequence">Internal interaction diagram</a>
+        <ul class="nav flex-column">
+          <li class="nav-item"><a class="nav-link" href="#kl_datainit">Data initialization</a></li>
+          <li class="nav-item"><a class="nav-link" href="#kl_viewlist">View list</a></li>
+          <li class="nav-item"><a class="nav-link" href="#kl_search">Search</a></li>
+        </ul>
+      </li>
+      <li class="nav-item"><a href="#kl_tests" class="nav-link">Tests</a>
+      <ul class="nav flex-column">
+        <li class="nav-item"><a class="nav-link" href="#kl_unit">Unit test cases</a></li>
+        <li class="nav-item"><a class="nav-link" href="#kl_system">System test cases</a></li>
       </ul>
-    </div>
+      </li>
+      <li class="nav-item"><a class="nav-link" href="#kl_manual">Manual</a>
+        <ul class="nav flex-column">
+          <li class="nav-item"><a class="nav-link" href="#kl_download">Download</a></li>
+          <li class="nav-item"><a class="nav-link" href="#kl_execute">Execute</a></li>
+          <li class="nav-item"><a class="nav-link" href="#kl_features">Features</a></li>
+          <li class="nav-item"><a class="nav-link" href="#kl_libraries">Libraries</a></li>
+        </ul>
+      </li>
+    </ul>
+  </div>
     
     <!-- Docs Content
 	============================ -->
     <div class="idocs-content">
       <div class="container"> 
         
-        <!-- Getting Started
+        <!-- kl_introduction
 		============================ -->
-        <section id="idocs_start">
-        <h1>Documentation</h1>
-        <h2>Your ThemeForest Item Name Here</h2>
-        <p class="lead">Thank you so much for purchasing our item from themeforest.</p>
-		<hr>
-		<div class="row">
-			<div class="col-sm-6 col-lg-4">
-				<ul class="list-unstyled">
-					<li><strong>Version:</strong> 1.0</li>
-					<li><strong>Author:</strong> <a href="http://www.harnishdesign.net" target="_blank">Harnish Design</a></li>
-				</ul>
-			</div>
-			<div class="col-sm-6 col-lg-4">
-				<ul class="list-unstyled">
-					<li><strong class="font-weight-700">Created:</strong> 8 April, 2020</li>
-					<li><strong>Update:</strong> 12 May, 2020</li>
-				</ul>
-			</div>
-		</div>
-        <p class="alert alert-info">If you have any questions that are beyond the scope of this help file, Please feel free to email via <a target="_blank" href="https://themeforest.net/user/harnishdesign/#contact?ref=HarnishDesign">Item Support Page</a>.</p>
-        </section>
-        
+        <section id="kl_introduction">
+        <h1>Introduction</h1>
+        <p class="lead">This is an introduction!</p>
+		
 		<hr class="divider">
 		
-        <!-- Installation
+        <!-- kl_systemdesign
 		============================ -->
-        <section id="idocs_installation">
-          <h2>Installation</h2>
-          <p class="lead">Follow the steps below to setup your site template:</p>
-          <ol>
-            <li>Unzip the downloaded package and open the <strong>/HTML</strong> folder to find all the template files. You will need to upload these files to your hosting web server using FTP or localhost in order to use it on your website.</li>
-            <li>Below is the folder structure and needs to be uploaded to your website or localhost root directory:
-            <ul>
-			<li><code>HTML/assets</code> - Contains all of the assets referenced
-			  <ul>
-                <li><code>HTML/css</code> - Stylesheet files</li>
-                <li><code>HTML/images</code> - Images files</li>
-                <li><code>HTML/js</code> - Javacript files</li>
-                <li><code>HTML/sass</code> - Sass files</li>
-                <li><code>HTML/vendor</code> – All external libs.</li>
-              </ul>
-			</li>
-			<li><code>HTML/index.html</code> - Homepage
-			</ul>
-            </li>
-            <li>You should upload all or specific HTML files as per your need.</li>
-            <li>You are good to go for adding your content now!</li>
-          </ol>
+      <section id="kl_systemdesign">
+        <h1>System design</h1>
+        <p class="lead">
+         System design section!
+        </p>
+      </section>
+
+      <section id="kl_usecases">
+        <h2 class="my-2">Use cases</h2>
+        <p>
+          Lorem ipsum dolor sit amet consectetur, adipisicing elit. Quisquam, blanditiis?
+        </p>
+
+        <section id="kl_usecasediagram">
+          <h3>Use case diagram</h3>
+          <img class="w-100" src="./assets/images/Use-Case.jpg" alt="Use case diagram"> 
         </section>
         
+        <div class="use-case my-4">
+          <div class="w-100 text-center">
+            <h4 id="kl_uc1">Use case #1</h4>
+          </div>
+          <table class="table w-sm-100 w-lg-75 mx-auto table-striped table-bordered">
+            <tbody>
+              <tr>
+                <td>
+                  <p><strong>Use case name</strong></p>
+                </td>
+                <td>
+                  <p><span style="font-weight: 400;">Visualize Home Page</span></p>
+                </td>
+              </tr>
+              <tr>
+                <td>
+                  <p><strong>Actors</strong></p>
+                </td>
+                <td>
+                  <ul>
+                    <li style="font-weight: 400;"><span style="font-weight: 400;">User</span></li>
+                  </ul>
+                </td>
+              </tr>
+              <tr>
+                <td>
+                  <p><strong>Description</strong></p>
+                </td>
+                <td>
+                  <p><span style="font-weight: 400;">The player visualizes the home page interface of the game where it is possible to start a new game, resume a game (if one is saved), go to the github page and go to the documentation page</span></p>
+                </td>
+              </tr>
+              <tr>
+                <td>
+                  <p><strong>Preconditions</strong></p>
+                </td>
+                <td>
+                  <p><span style="font-weight: 400;">None&nbsp;</span></p>
+                </td>
+              </tr>
+              <tr>
+                <td>
+                  <p><strong>Flow</strong></p>
+                </td>
+                <td>
+                  <ul>
+                    <li style="font-weight: 400;"><span style="font-weight: 400;">The player starts the application</span></li>
+                    <li style="font-weight: 400;"><span style="font-weight: 400;">The player clicks on the &ldquo;Home&rdquo; button on the top bar on either scene #2 or scene #3</span></li>
+                  </ul>
+                </td>
+              </tr>
+              <tr>
+                <td>
+                  <p><strong>Postconditions</strong></p>
+                </td>
+                <td>
+                  <p><span style="font-weight: 400;">The player is viewing the home page interface</span></p>
+                </td>
+              </tr>
+            </tbody>
+          </table>
+        </div>
+
+         
+        
+      </section>
 		<hr class="divider">
 		
         <!-- HTML Structure
