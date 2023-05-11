@@ -17,6 +17,7 @@ public class Level{
         this.minHeight = minHeight;
         this.rectangles = rectangles;
     }
+
     public Level(List<Components> rectangles) {
         this.rectangles = rectangles;
     }

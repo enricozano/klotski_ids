@@ -51,8 +51,6 @@ public class GameController {
     private static int MIN_WIDTH = 50;
     private static int MIN_HEIGTH = 50;
 
-    private String levelName;
-
     public int numMosse;
 
     private final List<Rectangle> gridPaneList = new ArrayList<>();
@@ -87,26 +85,41 @@ public class GameController {
         titlelabel.setText(text);
     }
 
+
     public void setnMosse(String mosse) {
         nMosse.setText(mosse);
     }
 
     @FXML
     private void reset(ActionEvent actionEvent) {
-
+        //
     }
 
     @FXML
-    public void save(ActionEvent actionEvent) {
+    public void save(ActionEvent actionEvent) throws IOException {
         Gson gson = new Gson();
         Level save = new Level(getComponents(), MAX_WIDTH, MAX_HEIGTH, MIN_WIDTH, MIN_HEIGTH);
         String json = gson.toJson(save);
 
+
+        System.out.println(json);
+
+        File file = new File("src/main/resources/klotski_ids/data/resume/level_1_SAVE.json");
+
+        if (file.delete()) {
+            System.out.println("File eliminato con successo.");
+        } else {
+            System.out.println("Impossibile eliminare il file.");
+        }
+        //file.createNewFile();
         try (FileWriter writer = new FileWriter("src/main/resources/klotski_ids/data/resume/level_1_SAVE.json")) {
             writer.write(json);
+            System.out.println("File Salvato con successo ");
         } catch (IOException e) {
             e.printStackTrace();
         }
+
+
     }
 
     @FXML
@@ -221,7 +234,13 @@ public class GameController {
     }
 
     private boolean isMoveValid(Rectangle rectangle, int col, int row) {
-        return GridPane.getRowIndex(rectangle) == row || GridPane.getColumnIndex(rectangle) == col;
+        int rectangleRow = GridPane.getRowIndex(rectangle);
+        int rectangleCol = GridPane.getColumnIndex(rectangle);
+
+        if((rectangleRow == row || rectangleCol == col)){
+            return Math.abs(row - rectangleRow) == 1 || Math.abs(col - rectangleCol) == 1;
+        }
+    return false;
     }
 
     //aggiungere funzione che non faccia andare i blocchi nelle diagonali
@@ -308,9 +327,9 @@ public class GameController {
 
     }
 
-    public void initialize() {
+    public void initialize(String levelName) {
 
-        Level level_1 = readJson("/klotski_ids/data/level_1.json");
+        Level level_1 = readJson(levelName);
 
         if (level_1 == null) {
             System.err.println("Errore durante la lettura del file JSON");
@@ -319,6 +338,12 @@ public class GameController {
 
         setComponents(level_1.getRectangles());
         setRectangles(createRectangle(components));
+
+        for(Components x: components){
+            System.out.println("ID: " + x.getId());
+            System.out.println("COL: " + x.getCol());
+            System.out.println("ROW: " + x.getRow());
+        }
 
         setGridPaneElements(gridPane, components, rectangles);
         setMouseEvent(gridPane, rectangles);

@@ -23,7 +23,6 @@ public class StartMenuController {
     private Scene scene;
     private Parent root;
 
-
     @FXML
     public void switchToSelectLevelScene(ActionEvent actionEvent) throws IOException {
         Parent root = FXMLLoader.load(Objects.requireNonNull(getClass().getResource("/klotski_ids/views/frameMenu/levelMenu.fxml")));
@@ -34,9 +33,28 @@ public class StartMenuController {
     }
 
     @FXML
-    public void resumeGame(ActionEvent actionEvent) throws IOException {
-       //implementare
+    private void resumeGame(ActionEvent actionEvent) throws IOException {
+        Button button = (Button) actionEvent.getSource();
+        String text = "/klotski_ids/data/resume/level_1_SAVE.json";
+        loadGameScene();
+        gameController.initialize(text);
+        setStageWindow(button);
     }
+
+    private void loadGameScene() throws IOException {
+        FXMLLoader loader = new FXMLLoader(getClass().getResource("/klotski_ids/views/frameMenu/game.fxml"));
+        root = loader.load();
+        gameController = loader.getController();
+    }
+
+
+    private void setStageWindow(Button button) {
+        stage = (Stage) button.getScene().getWindow();
+        scene = new Scene(root);
+        stage.setScene(scene);
+        stage.show();
+    }
+
 
 
 

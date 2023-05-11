@@ -31,6 +31,7 @@ public class LevelMenuController {
         String text = button.getText();
         loadGameScene();
         gameController.setTitle(text);
+        gameController.initialize("/klotski_ids/data/level_1.json");
         setStageWindow(button);
     }
 
