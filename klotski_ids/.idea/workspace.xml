@@ -4,9 +4,14 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="6bfdf0fa-9483-4758-a1c0-5debc05e40e9" name="Changes" comment="overlaps v1">
+    <list default="true" id="6bfdf0fa-9483-4758-a1c0-5debc05e40e9" name="Changes" comment="overlaps Completo">
+      <change afterPath="$PROJECT_DIR$/src/main/resources/klotski_ids/data/resume/level_1_SAVE.json" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/klotski_ids/controllers/frameMenu/GameController.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/klotski_ids/controllers/frameMenu/GameController.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/klotski_ids/controllers/frameMenu/LevelMenuController.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/klotski_ids/controllers/frameMenu/LevelMenuController.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/klotski_ids/controllers/frameMenu/StartMenuController.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/klotski_ids/controllers/frameMenu/StartMenuController.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/java/klotski_ids/controllers/util/Level.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/klotski_ids/controllers/util/Level.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/resources/klotski_ids/views/frameMenu/game.fxml" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/resources/klotski_ids/views/frameMenu/game.fxml" afterDir="false" />
     </list>
     <list id="09855262-e7fe-4115-8869-69c02f2c6753" name="Changes by eris" comment="" />
     <option name="SHOW_DIALOG" value="false" />
@@ -19,8 +24,8 @@
       <list>
         <option value="JavaScript File" />
         <option value="CSS File" />
-        <option value="Class" />
         <option value="FxmlFile" />
+        <option value="Class" />
       </list>
     </option>
   </component>
@@ -89,11 +94,11 @@
       <recent name="$PROJECT_DIR$/src/main/java/klotski_ids/controllers/panes" />
     </key>
     <key name="MoveFile.RECENT_KEYS">
+      <recent name="$PROJECT_DIR$/src/main/resources/klotski_ids/data/resume" />
       <recent name="$PROJECT_DIR$/src/main/resources/klotski_ids/assets/styles" />
       <recent name="$PROJECT_DIR$/src/main/resources/klotski_ids/views/panes/stylesheets" />
       <recent name="$PROJECT_DIR$/src/main/resources/klotski_ids/views/frameMenu/stylesheet" />
       <recent name="$PROJECT_DIR$/src/main/resources/klotski_ids/views/panes" />
-      <recent name="$PROJECT_DIR$/src/main/resources" />
     </key>
   </component>
   <component name="SpellCheckerSettings" RuntimeDictionaries="0" Folders="0" CustomDictionaries="0" DefaultDictionary="application-level" UseSingleDictionary="true" transferred="true" />
@@ -132,7 +137,10 @@
       <workItem from="1683573763240" duration="11220000" />
       <workItem from="1683614572217" duration="12890000" />
       <workItem from="1683712698752" duration="1723000" />
-      <workItem from="1683720509336" duration="16142000" />
+      <workItem from="1683720509336" duration="17106000" />
+      <workItem from="1683745739571" duration="2125000" />
+      <workItem from="1683793021619" duration="6555000" />
+      <workItem from="1683804570269" duration="6265000" />
     </task>
     <task id="LOCAL-00001" summary="Basic Structure">
       <created>1683102485156</created>
@@ -267,7 +275,14 @@
       <option name="project" value="LOCAL" />
       <updated>1683737633270</updated>
     </task>
-    <option name="localTasksCounter" value="20" />
+    <task id="LOCAL-00020" summary="overlaps Completo">
+      <created>1683738139869</created>
+      <option name="number" value="00020" />
+      <option name="presentableId" value="LOCAL-00020" />
+      <option name="project" value="LOCAL" />
+      <updated>1683738139869</updated>
+    </task>
+    <option name="localTasksCounter" value="21" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -296,7 +311,8 @@
     <MESSAGE value="components from json (final?)" />
     <MESSAGE value="improvements" />
     <MESSAGE value="overlaps v1" />
-    <option name="LAST_COMMIT_MESSAGE" value="overlaps v1" />
+    <MESSAGE value="overlaps Completo" />
+    <option name="LAST_COMMIT_MESSAGE" value="overlaps Completo" />
   </component>
   <component name="XDebuggerManager">
     <breakpoint-manager>

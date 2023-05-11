@@ -14,6 +14,7 @@
     </top>
 
     <center>
+        
         <GridPane alignment="TOP_CENTER" BorderPane.alignment="TOP_CENTER">
             <columnConstraints>
                 <ColumnConstraints hgrow="SOMETIMES" maxWidth="194.0" minWidth="10.0" prefWidth="120.0" />
@@ -27,14 +28,14 @@
             </rowConstraints>
             <children>
                 <Label fx:id="titlelabel" alignment="CENTER" contentDisplay="CENTER" prefHeight="18.0" prefWidth="405.0" text="Label" BorderPane.alignment="TOP_CENTER" GridPane.columnIndex="1" />
-                <Button fx:id="undo" mnemonicParsing="false" text="undo" GridPane.halignment="CENTER" GridPane.rowIndex="1" GridPane.valignment="BASELINE" />
-                <Button fx:id="nextBestMove" mnemonicParsing="false" text="next best" GridPane.columnIndex="2" GridPane.halignment="CENTER" GridPane.rowIndex="1" GridPane.valignment="TOP" />
-                <Button fx:id="reset" mnemonicParsing="false" text="reset" GridPane.halignment="CENTER" GridPane.rowIndex="1" GridPane.valignment="CENTER" />
-                <Button fx:id="save" mnemonicParsing="false" text="save" GridPane.columnIndex="2" GridPane.halignment="CENTER" GridPane.rowIndex="1" GridPane.valignment="CENTER" />
+                <Button fx:id="undo" mnemonicParsing="false" onAction="#undo" text="undo" GridPane.halignment="CENTER" GridPane.rowIndex="1" GridPane.valignment="BASELINE" />
+                <Button fx:id="nextBestMove" mnemonicParsing="false" onAction="#nextBestMove" text="next best" GridPane.columnIndex="2" GridPane.halignment="CENTER" GridPane.rowIndex="1" GridPane.valignment="TOP" />
+                <Button fx:id="reset" mnemonicParsing="false" onAction="#reset" text="reset" GridPane.halignment="CENTER" GridPane.rowIndex="1" GridPane.valignment="CENTER" />
+                <Button fx:id="save" mnemonicParsing="false" onAction="#save" text="save" GridPane.columnIndex="2" GridPane.halignment="CENTER" GridPane.rowIndex="1" GridPane.valignment="CENTER" />
                 <Label fx:id="nMosse" alignment="CENTER" prefHeight="18.0" prefWidth="127.0" text="nMosse" GridPane.columnIndex="2" GridPane.rowIndex="2" GridPane.valignment="CENTER" />
 
                 <Pane fx:id="mainPane" prefHeight="320.0" prefWidth="350" GridPane.columnIndex="1" GridPane.rowIndex="1" xmlns="http://javafx.com/javafx/19" xmlns:fx="http://javafx.com/fxml/1">
-                    <Pane fx:id="borderPane" styleClass="no-border" layoutX="71.0" layoutY="28.0" prefHeight="258.0" prefWidth="209.0">
+                    <Pane fx:id="borderPane" layoutX="71.0" layoutY="28.0" prefHeight="258.0" prefWidth="209.0" styleClass="no-border">
                         <GridPane fx:id="gridPane" layoutX="4" layoutY="4" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="250.0" prefWidth="200.0">
                             <columnConstraints>
                                 <ColumnConstraints hgrow="NEVER" maxWidth="-Infinity" minWidth="50.0" percentWidth="0.0" prefWidth="50.0" />

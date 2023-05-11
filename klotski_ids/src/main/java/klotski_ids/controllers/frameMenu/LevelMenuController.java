@@ -26,11 +26,11 @@ public class LevelMenuController {
     private GameController gameController;
 
     @FXML
-    private void goToLevel(ActionEvent event) throws IOException {
-        Button button = (Button) event.getSource();
+    private void goToLevel(ActionEvent actionEvent) throws IOException {
+        Button button = (Button) actionEvent.getSource();
         String text = button.getText();
         loadGameScene();
-        setGameTitle(text);
+        gameController.setTitle(text);
         setStageWindow(button);
     }
 
@@ -38,10 +38,6 @@ public class LevelMenuController {
         FXMLLoader loader = new FXMLLoader(getClass().getResource("/klotski_ids/views/frameMenu/game.fxml"));
         root = loader.load();
         gameController = loader.getController();
-    }
-
-    private void setGameTitle(String text) {
-        gameController.setTitle(text);
     }
 
 
