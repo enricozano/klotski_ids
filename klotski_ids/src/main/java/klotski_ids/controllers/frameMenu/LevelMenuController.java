@@ -3,7 +3,6 @@ package klotski_ids.controllers.frameMenu;
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
 import javafx.fxml.FXMLLoader;
-import javafx.scene.Node;
 import javafx.scene.Parent;
 import javafx.scene.Scene;
 import javafx.scene.control.Button;
@@ -13,14 +12,11 @@ import java.io.IOException;
 
 public class LevelMenuController {
     @FXML
-    Button btnLevel1;
+    Button level_1;
     @FXML
-    Button btnLevel2;
+    Button level_2;
     @FXML
-    Button btnLevel3;
-
-    private Stage stage;
-    private Scene scene;
+    Button level_3;
     private Parent root;
 
     private GameController gameController;
@@ -31,7 +27,9 @@ public class LevelMenuController {
         String text = button.getText();
         loadGameScene();
         gameController.setTitle(text);
-        gameController.initialize("/klotski_ids/data/level_1.json");
+        String levelName = button.getId();
+        System.out.println(levelName);
+        gameController.initialize("/klotski_ids/data/" + levelName + ".json");
         setStageWindow(button);
     }
 
@@ -43,8 +41,8 @@ public class LevelMenuController {
 
 
     private void setStageWindow(Button button) {
-        stage = (Stage) button.getScene().getWindow();
-        scene = new Scene(root);
+        Stage stage = (Stage) button.getScene().getWindow();
+        Scene scene = new Scene(root);
         stage.setScene(scene);
         stage.show();
     }

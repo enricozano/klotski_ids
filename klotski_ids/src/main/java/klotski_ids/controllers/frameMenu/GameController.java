@@ -1,27 +1,35 @@
 package klotski_ids.controllers.frameMenu;
 
 import com.google.gson.Gson;
+import javafx.application.Platform;
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
-import javafx.geometry.Point2D;
+import javafx.fxml.FXMLLoader;
 import javafx.scene.Cursor;
-import javafx.scene.Node;
+import javafx.scene.Parent;
 import javafx.scene.Scene;
 import javafx.scene.control.Button;
 import javafx.scene.control.Label;
 import javafx.scene.layout.GridPane;
 import javafx.scene.shape.Rectangle;
-import javafx.scene.text.Text;
 import klotski_ids.controllers.util.Components;
 import klotski_ids.controllers.util.Level;
+import klotski_ids.controllers.util.Helper;
 
 import java.io.*;
 import java.util.ArrayList;
 import java.util.List;
-import java.util.concurrent.Callable;
 
+/**
+ * The GameController class controls the behavior of the game. It handles mouse events to allow
+ * <p>
+ * the user to drag and drop puzzle pieces, and updates the number of moves made.
+ */
 public class GameController {
 
+    /*******************************************************************************
+     *                              FXML VARIABLES                                 *
+     *******************************************************************************/
     @FXML
     public Button undo;
     @FXML
@@ -39,27 +47,100 @@ public class GameController {
     @FXML
     private Label titlelabel;
 
-    /*******************************************************************************************************/
-    private double startX, startY, startTranslateX, startTranslateY, startMouseX, startMouseY, col, row;
+
+    /*******************************************************************************
+     *                              LOCAL VARIABLES                                *
+     *******************************************************************************/
+    /**
+     * The starting X coordinate of the mouse event.
+     */
+    private double startX;
+
+    /**
+     * The starting Y coordinate of the mouse event.
+     */
+    private double startY;
+
+    /**
+     * The starting translate X value of the rectangle being dragged.
+     */
+    private double startTranslateX;
+
+    /**
+     * The starting translate Y value of the rectangle being dragged.
+     */
+    private double startTranslateY;
+
+    /**
+     * The starting X coordinate of the mouse event relative to the rectangle being dragged.
+     */
+    private double startMouseX;
+
+    /**
+     * The starting Y coordinate of the mouse event relative to the rectangle being dragged.
+     */
+    private double startMouseY;
+
+    /**
+     * The column index of the grid cell containing the top-left corner of the rectangle being dragged.
+     */
+    private double col;
+
+    /**
+     * The row index of the grid cell containing the top-left corner of the rectangle being dragged.
+     */
+    private double row;
+
+    /**
+     * The width of each cell in the grid.
+     */
     private static final int CELL_WIDTH = 50;
+
+    /**
+     * The height of each cell in the grid.
+     */
     private static final int CELL_HEIGHT = 50;
+
+    /**
+     * The number of columns in the grid.
+     */
     private static final int NUM_COLS = 3;
+
+    /**
+     * The number of rows in the grid.
+     */
     private static final int NUM_ROWS = 4;
 
-    private static int MAX_WIDTH = 100;
-    private static int MAX_HEIGTH = 100;
-    private static int MIN_WIDTH = 50;
-    private static int MIN_HEIGTH = 50;
-
+    /**
+     * The number of moves made by the player.
+     */
     public int numMosse;
 
-    private final List<Rectangle> gridPaneList = new ArrayList<>();
+    /**
+     * A list of the components (rectangles) currently in the grid.
+     */
+    private List<Components> components = new ArrayList<>();
 
-    List<Components> components = new ArrayList<>();
-    List<Rectangle> rectangles = new ArrayList<>();
+    /**
+     * A list of the rectangles currently in the grid.
+     */
+    private List<Rectangle> rectangles = new ArrayList<>();
 
-    /*******************************************************************************************************/
+    private List<List<Components>> hystoryRectanglesMovements = new ArrayList<>();
 
+    /**
+     * An instance of the Helper class.
+     */
+    private final Helper helper = new Helper();
+
+    /**
+     * name of the level
+     */
+    private String levelName;
+
+    /*******************************************************************************
+     *                              SETTERS FUNCTIONS                              *
+     *******************************************************************************/
     public void setComponents(List<Components> components) {
         this.components = components;
     }
@@ -68,6 +149,107 @@ public class GameController {
         this.rectangles = rectangles;
     }
 
+    public void setTitle(String text) {
+        titlelabel.setText(text);
+    }
+
+    public void setnMosse(String mosse) {
+        nMosse.setText(mosse);
+    }
+
+    public void setLevelName(String level) {
+        levelName = level;
+    }
+
+    public void setHystoryRectanglesMovements(List<Components> hystoryRectanglesMovements) {
+        this.hystoryRectanglesMovements.add(hystoryRectanglesMovements);
+    }
+
+    private void setMousePressed(Rectangle rectangle) {
+        rectangle.setOnMousePressed(event -> {
+            startX = GridPane.getColumnIndex(rectangle);
+            startY = GridPane.getRowIndex(rectangle);
+
+            startMouseX = event.getSceneX();
+            startMouseY = event.getSceneY();
+
+            startTranslateX = rectangle.getTranslateX();
+            startTranslateY = rectangle.getTranslateY();
+
+            rectangle.setCursor(Cursor.CLOSED_HAND);
+        });
+    }
+
+    private void setMouseDragged(GridPane gridPane, Rectangle rectangle) {
+        rectangle.setOnMouseDragged(event -> {
+            double offsetX = event.getSceneX() - startMouseX;
+            double offsetY = event.getSceneY() - startMouseY;
+
+            double newTranslateX = startTranslateX + offsetX;
+            double newTranslateY = startTranslateY + offsetY;
+
+            col = (int) Math.round(newTranslateX / (gridPane.getWidth() / NUM_COLS));
+            row = (int) Math.round(newTranslateY / (gridPane.getHeight() / NUM_ROWS));
+
+            int newCol = (int) (startX + col);
+            int newRow = (int) (startY + row);
+
+            if (newCol >= 0 && newRow >= 0) {
+                int maxCol, maxRow;
+                if (rectangle.getWidth() <= CELL_WIDTH && rectangle.getHeight() <= CELL_HEIGHT) {
+                    maxCol = NUM_COLS;
+                    maxRow = NUM_ROWS;
+                } else if (rectangle.getWidth() <= CELL_WIDTH && rectangle.getHeight() > CELL_HEIGHT) {
+                    maxCol = NUM_COLS;
+                    maxRow = NUM_ROWS - 1;
+                } else if (rectangle.getWidth() > CELL_WIDTH && rectangle.getHeight() <= CELL_HEIGHT) {
+                    maxCol = NUM_COLS - 1;
+                    maxRow = NUM_ROWS;
+                } else {
+                    maxCol = NUM_COLS - 1;
+                    maxRow = NUM_ROWS - 1;
+                }
+                //TODO modificare movimento limitandolo a un solo blocco alla volta
+                if ((newCol <= maxCol && newRow <= maxRow) && helper.isMoveValid(rectangle, newCol, newRow) && !helper.overlaps(gridPane, rectangle, newCol, newRow)) {
+                    GridPane.setRowIndex(rectangle, newRow);
+                    GridPane.setColumnIndex(rectangle, newCol);
+
+                    List<Components> updateList = getComponents();
+                    for (Components x : updateList) {
+                        if (x.getId().equals(rectangle.getId())) {
+                            x.setRow(newRow);
+                            x.setCol(newCol);
+                        }
+                    }
+
+                    setComponents(updateList);
+                    setHystoryRectanglesMovements(getComponents());
+                }
+            }
+        });
+    }
+
+    //TODO: modificare conteggio delle mosse
+    private void setMouseReleased(Rectangle rectangle) {
+        rectangle.setOnMouseReleased(event -> {
+            rectangle.setCursor(Cursor.DEFAULT);
+            numMosse++;
+            setnMosse(Integer.toString(numMosse));
+        });
+    }
+
+    private void setMouseEvent(GridPane gridPane, List<Rectangle> rectangleList) {
+        for (Rectangle rectangle : rectangleList) {
+            setMousePressed(rectangle);
+            setMouseDragged(gridPane, rectangle);
+            setMouseReleased(rectangle);
+        }
+    }
+
+
+    /*******************************************************************************
+     *                              GETTERS FUNCTIONS                              *
+     *******************************************************************************/
     public List<Components> getComponents() {
         return components;
     }
@@ -76,260 +258,106 @@ public class GameController {
         return rectangles;
     }
 
-    //Aggiungere metodo di controllo delle diagonali per il movimento
-    //aggiungere controllo delle mosse per l'incremento delle mosse
-    //Save su file json
-    //Creare classe da passare al salvataggio su json
+    public String getLevelName() {
+        return levelName;
+    }
 
-    public void setTitle(String text) {
-        titlelabel.setText(text);
+    public List<List<Components>> getHystoryRectanglesMovements() {
+        return hystoryRectanglesMovements;
     }
 
 
-    public void setnMosse(String mosse) {
-        nMosse.setText(mosse);
-    }
+    /*******************************************************************************
+     *                              FXML BUTTON FUNCTIONS                           *
+     *******************************************************************************/
 
+
+    //TODO controllare come impostare nome label dopo reset
     @FXML
-    private void reset(ActionEvent actionEvent) {
-        //
+    private void reset(ActionEvent actionEvent) throws IOException {
+        FXMLLoader loader = new FXMLLoader(getClass().getResource("/klotski_ids/views/frameMenu/game.fxml"));
+        Parent root = loader.load();
+
+        GameController gameController = loader.getController();
+        gameController.initialize(getLevelName());
+
+        Scene scene = gridPane.getScene();
+        scene.setRoot(root);
     }
 
+    //TODO controllare funzione di save
     @FXML
     public void save(ActionEvent actionEvent) throws IOException {
         Gson gson = new Gson();
-        Level save = new Level(getComponents(), MAX_WIDTH, MAX_HEIGTH, MIN_WIDTH, MIN_HEIGTH);
+        int maxWidth = 100;
+        int maxHeight = 100;
+        int minWidth = 50;
+        int minHeight = 50;
+
+        Level save = new Level(getComponents(), maxWidth, maxHeight, minWidth, minHeight);
         String json = gson.toJson(save);
 
+        String filePath = "src/main/resources/klotski_ids/data/resume/level_1_SAVE.json";
+        File file = new File(filePath);
 
-        System.out.println(json);
+        try {
+            if (file.delete()) {
+                System.out.println("File eliminato con successo.");
+            } else {
+                System.out.println("Impossibile eliminare il file.");
+            }
 
-        File file = new File("src/main/resources/klotski_ids/data/resume/level_1_SAVE.json");
-
-        if (file.delete()) {
-            System.out.println("File eliminato con successo.");
-        } else {
-            System.out.println("Impossibile eliminare il file.");
+            if (file.createNewFile()) {
+                try (FileWriter writer = new FileWriter(file)) {
+                    writer.write(json);
+                    System.out.println("File salvato con successo.");
+                } catch (IOException e) {
+                    System.err.println("Errore durante la scrittura del file: " + e.getMessage());
+                }
+            } else {
+                System.err.println("Impossibile creare il file " + filePath);
+            }
+        } catch (SecurityException e) {
+            System.err.println("Accesso negato: " + e.getMessage());
         }
-        //file.createNewFile();
-        try (FileWriter writer = new FileWriter("src/main/resources/klotski_ids/data/resume/level_1_SAVE.json")) {
-            writer.write(json);
-            System.out.println("File Salvato con successo ");
-        } catch (IOException e) {
-            e.printStackTrace();
-        }
-
-
     }
 
+
+    //TODO implementare next best move
     @FXML
     public void nextBestMove(ActionEvent actionEvent) {
         System.out.println("BESTMOVE");
     }
 
+    //TODO implementare undo function, controllare come vengono salvati i dati su getHystoryREctanglesMovements
     @FXML
     public void undo(ActionEvent actionEvent) {
-        System.out.println("UNDO");
-    }
+        System.out.println("all components moves");
 
+        int size = getHystoryRectanglesMovements().size();
 
-    private Level readJson(String dir) {
-        Level level = null;
-        try {
+        helper.setGridPaneElements(gridPane, getHystoryRectanglesMovements().get(size - 1), rectangles);
 
-            InputStream inputStream = getClass().getResourceAsStream(dir);
-            if (inputStream == null) {
-                throw new FileNotFoundException("File non trovato: " + dir);
+        //for (List<Components> x : getHystoryRectanglesMovements()) {
+          List<Components> x = getHystoryRectanglesMovements().get(0);
+            for (Components y : x) {
+                System.out.println("id: " + y.getId());
+                System.out.println("col: " + y.getCol());
+                System.out.println("row: " + y.getRow());
             }
+        //}
 
-            Gson gson = new Gson();
-            InputStreamReader reader = new InputStreamReader(inputStream);
-            level = gson.fromJson(reader, Level.class);
-        } catch (IOException e) {
-            System.err.println("Errore durante la lettura del file JSON: " + e.getMessage());
-            e.printStackTrace();
-        }
-        return level;
+
     }
 
 
-    private List<Rectangle> createRectangle(List<Components> components) {
-        List<Rectangle> rectangleList = new ArrayList<>();
+    /*******************************************************************************
+     *                              INITIALIZE FUNCTION                            *
+     *******************************************************************************/
 
-        if (components == null) {
-            throw new IllegalArgumentException("La lista components non può essere null.");
-        }
-        for (Components element : components) {
-            Rectangle rectangle = new Rectangle(element.getWidth(), element.getHeight());
-            rectangle.setId(element.getId());
-            rectangleList.add(rectangle);
-        }
-        return rectangleList;
-    }
-
-    private List<Point2D> getRectangleAreaPoints(Rectangle rectangle, int colIndex, int rowIndex) {
-        int height = (int) rectangle.getHeight();
-        int width = (int) rectangle.getWidth();
-
-        List<Point2D> points = new ArrayList<>();
-        points.add(new Point2D(colIndex, rowIndex));
-
-        if (height > CELL_HEIGHT && width == CELL_WIDTH) {
-            points.add(new Point2D(colIndex, rowIndex + 1));
-        } else if (height == CELL_HEIGHT && width > CELL_WIDTH) {
-            points.add(new Point2D(colIndex + 1, rowIndex));
-        } else if (height > CELL_HEIGHT && width > CELL_WIDTH) {
-            points.add(new Point2D(colIndex + 1, rowIndex));
-            points.add(new Point2D(colIndex, rowIndex + 1));
-            points.add(new Point2D(colIndex + 1, rowIndex + 1));
-        }
-
-        return points;
-    }
-
-
-    /**
-     * Aggiunge alla griglia i rettangoli associati ai componenti specificati, posizionandoli secondo le informazioni
-     * contenute nei rispettivi oggetti Components. Se il numero di componenti o di rettangoli è maggiore rispetto all'altro,
-     * verranno considerate solo le prime n coppie, dove n è il minimo tra i due numeri.
-     *
-     * @param gridPane   la griglia a cui aggiungere i rettangoli
-     * @param components la lista di componenti
-     * @param rectangles la lista di rettangoli
-     */
-    private void setGridPaneElements(GridPane gridPane, List<Components> components, List<Rectangle> rectangles) {
-        int size = Math.min(components.size(), rectangles.size());
-
-        for (int i = 0; i < size; i++) {
-            Components component = components.get(i);
-            Rectangle rectangle = rectangles.get(i);
-
-            GridPane.setConstraints(rectangle, component.getCol(), component.getRow(), component.getColSpan(), component.getRowSpan());
-
-            gridPane.getChildren().add(rectangle);
-        }
-    }
-
-    private boolean overlaps(GridPane gridPane, Rectangle rectangle, int newCol, int newRow) {
-
-        List<Point2D> newPoints = getRectangleAreaPoints(rectangle, newCol, newRow);
-
-        for (Node x : gridPane.getChildren()) {
-            int colIndex = GridPane.getColumnIndex(x);
-            int rowIndex = GridPane.getRowIndex(x);
-
-            List<Point2D> points = getRectangleAreaPoints((Rectangle) x, colIndex, rowIndex);
-
-            if (!rectangle.getId().equals(x.getId())) {
-                for (Point2D pRect : newPoints) {
-                    for (Point2D allRectPoints : points) {
-                        if (pRect.equals(allRectPoints)) {
-                            return true;
-                        }
-                    }
-                }
-            }
-        }
-        return false;
-    }
-
-    private boolean isMoveValid(Rectangle rectangle, int col, int row) {
-        int rectangleRow = GridPane.getRowIndex(rectangle);
-        int rectangleCol = GridPane.getColumnIndex(rectangle);
-
-        if((rectangleRow == row || rectangleCol == col)){
-            return Math.abs(row - rectangleRow) == 1 || Math.abs(col - rectangleCol) == 1;
-        }
-    return false;
-    }
-
-    //aggiungere funzione che non faccia andare i blocchi nelle diagonali
-
-    private void setMouseEvent(GridPane gridPane, List<Rectangle> rectangleList) {
-        int numRows = gridPane.getRowConstraints().size();
-        int numCols = gridPane.getColumnConstraints().size();
-
-        for (Rectangle rectangle : rectangleList) {
-            rectangle.setOnMousePressed(event -> {
-
-                startX = GridPane.getColumnIndex(rectangle);
-                startY = GridPane.getRowIndex(rectangle);
-
-                startMouseX = event.getSceneX();
-                startMouseY = event.getSceneY();
-
-                startTranslateX = rectangle.getTranslateX();
-                startTranslateY = rectangle.getTranslateY();
-
-                rectangle.setCursor(Cursor.CLOSED_HAND);
-            });
-
-            rectangle.setOnMouseDragged(event -> {
-
-                double offsetX = event.getSceneX() - startMouseX;
-                double offsetY = event.getSceneY() - startMouseY;
-
-                double newTranslateX = startTranslateX + offsetX;
-                double newTranslateY = startTranslateY + offsetY;
-
-                col = (int) Math.round(newTranslateX / (gridPane.getWidth() / numCols));
-                row = (int) Math.round(newTranslateY / (gridPane.getHeight() / numRows));
-
-                int newCol = (int) (startX + col);
-                int newRow = (int) (startY + row);
-
-                if (newCol >= 0 && newRow >= 0) {
-
-                    int maxCol, maxRow;
-                    if (rectangle.getWidth() <= CELL_WIDTH && rectangle.getHeight() <= CELL_HEIGHT) {
-                        maxCol = NUM_COLS;
-                        maxRow = NUM_ROWS;
-                    } else if (rectangle.getWidth() <= CELL_WIDTH && rectangle.getHeight() > CELL_HEIGHT) {
-                        maxCol = NUM_COLS;
-                        maxRow = NUM_ROWS - 1;
-                    } else if (rectangle.getWidth() > CELL_WIDTH && rectangle.getHeight() <= CELL_HEIGHT) {
-                        maxCol = NUM_COLS - 1;
-                        maxRow = NUM_ROWS;
-                    } else {
-                        maxCol = NUM_COLS - 1;
-                        maxRow = NUM_ROWS - 1;
-                    }
-
-                    //Aggiungere controllo diagonale
-                    if (newCol <= maxCol && newRow <= maxRow && !overlaps(gridPane, rectangle, newCol, newRow) && isMoveValid(rectangle, newCol, newRow)) {
-                        GridPane.setRowIndex(rectangle, newRow);
-                        GridPane.setColumnIndex(rectangle, newCol);
-
-                        List<Components> updateList = getComponents();
-                        for (Components x : updateList) {
-                            if (x.getId().equals(rectangle.getId())) {
-                                x.setRow(newRow);
-                                x.setCol(newCol);
-                            }
-                        }
-
-                        setComponents(updateList);
-
-                    }
-
-                }
-
-            });
-
-            rectangle.setOnMouseReleased(event -> {
-                rectangle.setCursor(Cursor.DEFAULT);
-                numMosse++;
-                setnMosse(Integer.toString(numMosse));
-
-            });
-
-        }
-
-    }
-
-    public void initialize(String levelName) {
-
-        Level level_1 = readJson(levelName);
+    public void initialize(String levelName) throws IOException {
+        setLevelName(levelName);
+        Level level_1 = helper.readJson(levelName);
 
         if (level_1 == null) {
             System.err.println("Errore durante la lettura del file JSON");
@@ -337,17 +365,18 @@ public class GameController {
         }
 
         setComponents(level_1.getRectangles());
-        setRectangles(createRectangle(components));
-
-        for(Components x: components){
+        setRectangles(helper.createRectangle(components));
+        setHystoryRectanglesMovements(getComponents());
+        for (Components x : components) {
             System.out.println("ID: " + x.getId());
             System.out.println("COL: " + x.getCol());
             System.out.println("ROW: " + x.getRow());
         }
 
-        setGridPaneElements(gridPane, components, rectangles);
+        helper.setGridPaneElements(gridPane, components, rectangles);
         setMouseEvent(gridPane, rectangles);
 
     }
+
 
 }

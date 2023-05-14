@@ -4,13 +4,28 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="6bfdf0fa-9483-4758-a1c0-5debc05e40e9" name="Changes" comment="implemented Save function">
+    <list default="true" id="6bfdf0fa-9483-4758-a1c0-5debc05e40e9" name="Changes" comment="improvements">
+      <change afterPath="$PROJECT_DIR$/src/main/java/klotski_ids/controllers/util/Helper.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/resources/klotski_ids/assets/styles/BarStyle.css" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/resources/klotski_ids/data/level_2.json" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/resources/klotski_ids/data/level_3.json" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/resources/klotski_ids/data/level_4.json" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/pom.xml" beforeDir="false" afterPath="$PROJECT_DIR$/pom.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/java/klotski_ids/controllers/frameMenu/GameController.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/klotski_ids/controllers/frameMenu/GameController.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/java/klotski_ids/controllers/frameMenu/LevelMenuController.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/klotski_ids/controllers/frameMenu/LevelMenuController.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/java/klotski_ids/controllers/frameMenu/StartMenuController.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/klotski_ids/controllers/frameMenu/StartMenuController.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/klotski_ids/controllers/mainController.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/klotski_ids/controllers/panes/BottomBarController.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/klotski_ids/controllers/panes/BottomBarController.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/klotski_ids/controllers/util/Components.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/klotski_ids/controllers/util/Components.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/java/klotski_ids/controllers/util/Level.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/klotski_ids/controllers/util/Level.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/resources/klotski_ids/views/frameMenu/game.fxml" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/resources/klotski_ids/views/frameMenu/game.fxml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/module-info.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/module-info.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/resources/klotski_ids/assets/styles/bottomBarStyle.css" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/resources/klotski_ids/assets/styles/topBarStyle.css" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/resources/klotski_ids/views/frameMenu/levelMenu.fxml" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/resources/klotski_ids/views/frameMenu/levelMenu.fxml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/resources/klotski_ids/views/panes/bottomBar.fxml" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/resources/klotski_ids/views/panes/bottomBar.fxml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/resources/klotski_ids/views/panes/topBar.fxml" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/resources/klotski_ids/views/panes/topBar.fxml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/resources/klotski_ids/views/panes/topBarBack.fxml" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/resources/klotski_ids/views/panes/topBarBack.fxml" afterDir="false" />
     </list>
     <list id="09855262-e7fe-4115-8869-69c02f2c6753" name="Changes by eris" comment="" />
     <option name="SHOW_DIALOG" value="false" />
@@ -70,7 +85,7 @@
     &quot;SHARE_PROJECT_CONFIGURATION_FILES&quot;: &quot;true&quot;,
     &quot;WebServerToolWindowFactoryState&quot;: &quot;false&quot;,
     &quot;git-widget-placeholder&quot;: &quot;main&quot;,
-    &quot;last_opened_file_path&quot;: &quot;/home/eris/Documents/Uni/IDS/klotski_ids/klotski_ids&quot;,
+    &quot;last_opened_file_path&quot;: &quot;/home/eris/Documents/Uni/IDS/klotski_ids/klotski_ids/src/main/resources/klotski_ids/assets/fonts&quot;,
     &quot;list.type.of.created.stylesheet&quot;: &quot;CSS&quot;,
     &quot;node.js.detected.package.eslint&quot;: &quot;true&quot;,
     &quot;node.js.detected.package.tslint&quot;: &quot;true&quot;,
@@ -86,18 +101,18 @@
 }</component>
   <component name="RecentsManager">
     <key name="CopyFile.RECENT_KEYS">
+      <recent name="$PROJECT_DIR$/src/main/resources/klotski_ids/assets/fonts" />
       <recent name="$PROJECT_DIR$/src/main/resources/klotski_ids/views/panes/stylesheet" />
       <recent name="$PROJECT_DIR$/src/main/resources" />
       <recent name="$PROJECT_DIR$/src/main/resources/klotski_ids/views/panes/levels" />
       <recent name="$PROJECT_DIR$/src/main/resources/klotski_ids/json" />
-      <recent name="$PROJECT_DIR$/src/main/java/klotski_ids/controllers/panes" />
     </key>
     <key name="MoveFile.RECENT_KEYS">
+      <recent name="$PROJECT_DIR$/src/main/resources/klotski_ids/assets/fonts" />
       <recent name="$PROJECT_DIR$/src/main/resources/klotski_ids/data/resume" />
       <recent name="$PROJECT_DIR$/src/main/resources/klotski_ids/assets/styles" />
       <recent name="$PROJECT_DIR$/src/main/resources/klotski_ids/views/panes/stylesheets" />
       <recent name="$PROJECT_DIR$/src/main/resources/klotski_ids/views/frameMenu/stylesheet" />
-      <recent name="$PROJECT_DIR$/src/main/resources/klotski_ids/views/panes" />
     </key>
   </component>
   <component name="SpellCheckerSettings" RuntimeDictionaries="0" Folders="0" CustomDictionaries="0" DefaultDictionary="application-level" UseSingleDictionary="true" transferred="true" />
@@ -140,7 +155,12 @@
       <workItem from="1683745739571" duration="2125000" />
       <workItem from="1683793021619" duration="6555000" />
       <workItem from="1683804570269" duration="9108000" />
-      <workItem from="1683831586809" duration="1753000" />
+      <workItem from="1683831586809" duration="2177000" />
+      <workItem from="1683833783957" duration="70000" />
+      <workItem from="1683879117198" duration="7529000" />
+      <workItem from="1683888610515" duration="836000" />
+      <workItem from="1683889463908" duration="1681000" />
+      <workItem from="1684059075911" duration="3942000" />
     </task>
     <task id="LOCAL-00001" summary="Basic Structure">
       <created>1683102485156</created>
@@ -289,7 +309,21 @@
       <option name="project" value="LOCAL" />
       <updated>1683811034765</updated>
     </task>
-    <option name="localTasksCounter" value="22" />
+    <task id="LOCAL-00022" summary="improvements">
+      <created>1683833708391</created>
+      <option name="number" value="00022" />
+      <option name="presentableId" value="LOCAL-00022" />
+      <option name="project" value="LOCAL" />
+      <updated>1683833708391</updated>
+    </task>
+    <task id="LOCAL-00023" summary="improvements">
+      <created>1683833797109</created>
+      <option name="number" value="00023" />
+      <option name="presentableId" value="LOCAL-00023" />
+      <option name="project" value="LOCAL" />
+      <updated>1683833797109</updated>
+    </task>
+    <option name="localTasksCounter" value="24" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -316,11 +350,11 @@
     <MESSAGE value="styling" />
     <MESSAGE value="components from json" />
     <MESSAGE value="components from json (final?)" />
-    <MESSAGE value="improvements" />
     <MESSAGE value="overlaps v1" />
     <MESSAGE value="overlaps Completo" />
     <MESSAGE value="implemented Save function" />
-    <option name="LAST_COMMIT_MESSAGE" value="implemented Save function" />
+    <MESSAGE value="improvements" />
+    <option name="LAST_COMMIT_MESSAGE" value="improvements" />
   </component>
   <component name="XDebuggerManager">
     <breakpoint-manager>

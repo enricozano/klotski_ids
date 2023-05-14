@@ -6,7 +6,6 @@ module klotski_ids {
     requires javafx.graphics;
 
     // Opens
-    opens klotski_ids.controllers to javafx.fxml;
     opens klotski_ids.controllers.frameMenu to javafx.fxml;
     opens klotski_ids.controllers.panes to javafx.fxml,com.google.gson;
     opens klotski_ids.controllers.util to com.google.gson, javafx.fxml;

@@ -19,8 +19,6 @@ public class StartMenuController {
     public Button resumeGame;
     private GameController gameController;
 
-    private Stage stage;
-    private Scene scene;
     private Parent root;
 
     @FXML
@@ -49,8 +47,8 @@ public class StartMenuController {
 
 
     private void setStageWindow(Button button) {
-        stage = (Stage) button.getScene().getWindow();
-        scene = new Scene(root);
+        Stage stage = (Stage) button.getScene().getWindow();
+        Scene scene = new Scene(root);
         stage.setScene(scene);
         stage.show();
     }

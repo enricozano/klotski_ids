@@ -1,7 +1,7 @@
 #myHbox {
-    -fx-background-color: #444444;
-    -fx-spacing: 10px;
-    -fx-padding: 10px;
+    -fx-background-color: #424242;
+    -fx-spacing: 10;
+    -fx-padding: 0 20;
 }
 
 #myHbox Button {
@@ -14,14 +14,17 @@
     -fx-text-fill: white;
     -fx-padding: 8px 16px;
     -fx-content-display: graphic-only;
+    -fx-effect: dropshadow(gaussian, rgba(0, 0, 0, 0.2), 2, 0, 0, 1);
 }
 
 #myHbox Button:hover {
     -fx-background-color: #FF8C00;
+    -fx-effect: dropshadow(gaussian, rgba(0, 0, 0, 0.2), 5, 0, 0, 1);
 }
 
 #myHbox Button:pressed {
     -fx-background-color: #FF6600;
+    -fx-effect: dropshadow(gaussian, rgba(0, 0, 0, 0.2), 10, 0, 0, 1);
 }
 
 #myHbox Button .graphic {
@@ -31,4 +34,22 @@
 #myHbox Button .graphic > ImageView {
     -fx-fit-width: 24px;
     -fx-fit-height: 24px;
+}
+
+
+#wikiButton {
+    -fx-font-family: 'FontAwesome';
+    -fx-font-size: 16px;
+}
+
+#gitHubButton {
+
+}
+
+#home {
+
+}
+
+#back {
+
 }

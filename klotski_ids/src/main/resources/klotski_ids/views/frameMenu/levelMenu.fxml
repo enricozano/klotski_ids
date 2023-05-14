@@ -30,7 +30,7 @@
             </rowConstraints>
             <Label fx:id="levelLableTitle" alignment="CENTER" contentDisplay="TOP" prefHeight="18.0" prefWidth="201.0" text="Livelli" GridPane.columnIndex="1" GridPane.valignment="TOP" />
             <AnchorPane prefHeight="200.0" prefWidth="200.0" GridPane.rowIndex="1">
-                <Button fx:id="btnLevel1" alignment="BOTTOM_CENTER" layoutX="1.0" mnemonicParsing="false" onAction="#goToLevel" prefHeight="208.0" prefWidth="204.0" text="Livello 1">
+                <Button fx:id="level_1" alignment="BOTTOM_CENTER" layoutX="1.0" mnemonicParsing="false" onAction="#goToLevel" prefHeight="208.0" prefWidth="204.0" text="Livello 1">
                     <graphic>
                         <ImageView fitHeight="150.0" fitWidth="200.0" layoutX="3.0" layoutY="1.0" pickOnBounds="true" preserveRatio="true">
                             <Image url="@../../assets/images/klotski.png" />
@@ -39,7 +39,7 @@
                 </Button>
             </AnchorPane>
             <AnchorPane prefHeight="200.0" prefWidth="200.0" GridPane.columnIndex="1" GridPane.rowIndex="1">
-                <Button fx:id="btnLevel2" alignment="BOTTOM_CENTER" layoutX="2.0" mnemonicParsing="false" onAction="#goToLevel" prefHeight="208.0" prefWidth="200.0" text="Livello 2">
+                <Button fx:id="level_2" alignment="BOTTOM_CENTER" layoutX="2.0" mnemonicParsing="false" onAction="#goToLevel" prefHeight="208.0" prefWidth="200.0" text="Livello 2">
                     <graphic>
                         <ImageView fitHeight="150.0" fitWidth="200.0" layoutY="1.0" pickOnBounds="true" preserveRatio="true">
                             <Image url="@../../assets/images/klotski.png" />
@@ -48,7 +48,7 @@
                 </Button>
             </AnchorPane>
             <AnchorPane prefHeight="200.0" prefWidth="200.0" GridPane.columnIndex="2" GridPane.rowIndex="1">
-                <Button fx:id="btnLevel3" alignment="BOTTOM_CENTER" mnemonicParsing="false" onAction="#goToLevel" prefHeight="208.0" prefWidth="200.0" text="Livello 3">
+                <Button fx:id="level_3" alignment="BOTTOM_CENTER" mnemonicParsing="false" onAction="#goToLevel" prefHeight="208.0" prefWidth="200.0" text="Livello 3">
                     <graphic>
                         <ImageView fitHeight="150.0" fitWidth="200.0" layoutY="1.0" pickOnBounds="true" preserveRatio="true">
                             <Image url="@../../assets/images/klotski.png" />
@@ -56,6 +56,7 @@
                     </graphic>
                 </Button>
             </AnchorPane>
+
             <ScrollBar GridPane.columnIndex="1" GridPane.rowIndex="2" />
         </GridPane>
     </center>
