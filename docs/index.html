@@ -1,0 +1,927 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8" />
+<meta http-equiv="X-UA-Compatible" content="IE=edge">
+<meta name="viewport" content="width=device-width, initial-scale=1, minimum-scale=1.0, shrink-to-fit=no">
+<link href="assets/images/klotski_icon.png" rel="icon" />
+<title>Klotski | Documentation</title>
+<meta name="docs" content="klotski_ids documentation">
+<meta name="author" content="https://github.com/enricozano/klotski_ids">
+
+<!-- Stylesheet
+============================== -->
+<!-- Bootstrap -->
+<link rel="stylesheet" type="text/css" href="assets/vendor/bootstrap/css/bootstrap.min.css" />
+<!-- Font Awesome Icon -->
+<link rel="stylesheet" type="text/css" href="assets/vendor/font-awesome/css/all.min.css" />
+<!-- Magnific Popup -->
+<link rel="stylesheet" type="text/css" href="assets/vendor/magnific-popup/magnific-popup.min.css" />
+<!-- Highlight Syntax -->
+<link rel="stylesheet" type="text/css" href="assets/vendor/highlight.js/styles/github.css" />
+<!-- Custom Stylesheet -->
+<link rel="stylesheet" type="text/css" href="assets/css/stylesheet.css" />
+<link rel="stylesheet" type="text/css" href="assets/css/color-orange.css" />
+</head>
+
+<body data-spy="scroll" data-target=".idocs-navigation" data-offset="125">
+
+<!-- Preloader -->
+<div class="preloader">
+  <div class="lds-ellipsis">
+    <div></div>
+    <div></div>
+    <div></div>
+    <div></div>
+  </div>
+</div>
+<!-- Preloader End --> 
+
+<!-- Document Wrapper   
+=============================== -->
+<div id="main-wrapper"> 
+  
+  <!-- Header
+  ============================ -->
+  <header id="header" class="sticky-top"> 
+    <!-- Navbar -->
+    <nav class="primary-menu navbar navbar-expand-lg bg-dark navbar-text-light navbar-dropdown-dark border-0">
+      <div class="container-fluid">
+        <!-- Sidebar Toggler -->
+		<button id="sidebarCollapse" class="navbar-toggler d-block d-md-none" type="button"><span></span><span class="w-75"></span><span class="w-50"></span></button>
+      
+		<!-- Logo --> 
+        <a class="logo ml-md-3" href="index.html" title="klotski_logo"> <img src="" alt="logo"/> </a> 
+		
+    <!-- Logo End -->
+        
+    </nav>
+    <!-- Navbar End --> 
+  </header>
+  <!-- Header End --> 
+  
+  <!-- Content
+  ============================ -->
+  <div id="content" role="main">
+    
+	<!-- Sidebar Navigation
+	============================ -->
+  <div class="idocs-navigation bg-light">
+    <ul class="nav flex-column ">
+      <li class="nav-item"><a class="nav-link active" href="#kl_introduction">Introduction</a></li>
+      <li class="nav-item"><a class="nav-link" href="#kl_systemdesign">System Design</a>
+        <ul class="nav flex-column">
+          <li class="nav-item"><a class="nav-link" href="#kl_usecases">Use cases</a></li>
+          <li class="nav-item"><a class="nav-link" href="#kl_ucdiagram">Use case diagram</a></li>
+          <li class="nav-item"><a class="nav-link" href="#kl_uc1">Use case #1</a></li>
+          <li class="nav-item"><a class="nav-link" href="#kl_uc2">Use case #2</a></li>
+          <li class="nav-item"><a class="nav-link" href="#kl_uc3">Use case #3</a></li>
+          <li class="nav-item"><a class="nav-link" href="#kl_uc4">Use case #4</a></li>
+          <li class="nav-item"><a class="nav-link" href="#kl_uc5">Use case #5</a></li>
+          <li class="nav-item"><a class="nav-link" href="#kl_uc6">Use case #6</a></li>
+          <li class="nav-item"><a class="nav-link" href="#kl_uc7">Use case #7</a></li>
+          <li class="nav-item"><a class="nav-link" href="#kl_uc8">Use case #8</a></li>
+          <li class="nav-item"><a class="nav-link" href="#kl_uc9">Use case #9</a></li>
+          <li class="nav-item"><a class="nav-link" href="#kl_uc10">Use case #10</a></li>
+          <li class="nav-item"><a class="nav-link" href="#kl_uc11">Use case #11</a></li>
+        </ul>
+      </li>
+      <li class="nav-item"><a class="nav-link" href="#kl_domain">Domain model</a></li>
+      <li class="nav-item"><a class="nav-link" href="#kl_design">Design model</a>
+        <ul class="nav flex-column">
+          <li class="nav-item"><a class="nav-link" href="#kl_packagedesign">Packages</a></li>
+          <li class="nav-item"><a class="nav-link" href="#kl_modeldesign">Model</a></li>
+          <li class="nav-item"><a class="nav-link" href="#kl_viewdesign">View</a></li>
+          <li class="nav-item"><a class="nav-link" href="#kl_controllerdesign">Controller</a></li>
+        </ul>
+      </li>
+      <li class="nav-item"><a class="nav-link" href="#kl_sequence">Internal interaction diagram</a>
+        <ul class="nav flex-column">
+          <li class="nav-item"><a class="nav-link" href="#kl_datainit">Data initialization</a></li>
+          <li class="nav-item"><a class="nav-link" href="#kl_viewlist">View list</a></li>
+          <li class="nav-item"><a class="nav-link" href="#kl_search">Search</a></li>
+        </ul>
+      </li>
+      <li class="nav-item"><a href="#kl_tests" class="nav-link">Tests</a>
+      <ul class="nav flex-column">
+        <li class="nav-item"><a class="nav-link" href="#kl_unit">Unit test cases</a></li>
+        <li class="nav-item"><a class="nav-link" href="#kl_system">System test cases</a></li>
+      </ul>
+      </li>
+      <li class="nav-item"><a class="nav-link" href="#kl_manual">Manual</a>
+        <ul class="nav flex-column">
+          <li class="nav-item"><a class="nav-link" href="#kl_download">Download</a></li>
+          <li class="nav-item"><a class="nav-link" href="#kl_execute">Execute</a></li>
+          <li class="nav-item"><a class="nav-link" href="#kl_features">Features</a></li>
+          <li class="nav-item"><a class="nav-link" href="#kl_libraries">Libraries</a></li>
+        </ul>
+      </li>
+    </ul>
+  </div>
+    
+    <!-- Docs Content
+	============================ -->
+    <div class="idocs-content">
+      <div class="container"> 
+        
+        <!-- kl_introduction
+		============================ -->
+        <section id="kl_introduction">
+        <h1>Introduction</h1>
+        <p class="lead">This is an introduction!</p>
+		
+		<hr class="divider">
+		
+        <!-- kl_systemdesign
+		============================ -->
+      <section id="kl_systemdesign">
+        <h1>System design</h1>
+        <p class="lead">
+         System design section!
+        </p>
+      </section>
+
+      <section id="kl_usecases">
+        <h2 class="my-2">Use cases</h2>
+        <p>
+          Lorem ipsum dolor sit amet consectetur, adipisicing elit. Quisquam, blanditiis?
+        </p>
+
+        <div id="kl_ucdiagram">
+          <h3>Use case diagram</h3>
+          <img class="w-100" src="./assets/images/UseCase_Diagram.jpg" alt="Use case diagram"> 
+        </div>
+        
+
+        <!--use case 1-->
+        <div class="use-case my-4">
+          <div class="w-100 text-center">
+            <h4 id="kl_uc1">Use case #1</h4>
+          </div>
+          <table class="table w-sm-100 w-lg-75 mx-auto table-striped table-bordered">
+            <tbody>
+              <tr>
+                <td>
+                  <p><strong>Use case name</strong></p>
+                </td>
+                <td>
+                  <p><span style="font-weight: 400;">Visualize Home Page</span></p>
+                </td>
+              </tr>
+              <tr>
+                <td>
+                  <p><strong>Actors</strong></p>
+                </td>
+                <td>
+                  <ul>
+                    <li style="font-weight: 400;"><span style="font-weight: 400;">User</span></li>
+                  </ul>
+                </td>
+              </tr>
+              <tr>
+                <td>
+                  <p><strong>Description</strong></p>
+                </td>
+                <td>
+                  <p><span style="font-weight: 400;">The player visualizes the home page GUI of the game where it is possible to go to the level selection menu, resume a game (if one is saved), go to the github page and go to the documentation page</span></p>
+                </td>
+              </tr>
+              <tr>
+                <td>
+                  <p><strong>Preconditions</strong></p>
+                </td>
+                <td>
+                  <p><span style="font-weight: 400;">None&nbsp;</span></p>
+                </td>
+              </tr>
+              <tr>
+                <td>
+                  <p><strong>Flow</strong></p>
+                </td>
+                <td>
+                  <ul>
+                    <li style="font-weight: 400;"><span style="font-weight: 400;">The player starts the application</span></li>
+                    <li style="font-weight: 400;"><span style="font-weight: 400;">The player clicks on the &ldquo;Home&rdquo; button on the top bar on either scene #2 or scene #3</span></li>
+                  </ul>
+                </td>
+              </tr>
+              <tr>
+                <td>
+                  <p><strong>Postconditions</strong></p>
+                </td>
+                <td>
+                  <p><span style="font-weight: 400;">The player is viewing the home page GUI</span></p>
+                </td>
+              </tr>
+            </tbody>
+          </table>
+        </div>
+
+
+        <!--use case 2-->
+        <div class="use-case my-4">
+          <div class="w-100 text-center">
+            <h4 id="kl_uc2">Use case #2</h4>
+          </div>
+          <table class="table w-sm-100 w-lg-75 mx-auto table-striped table-bordered">
+            <tbody>
+              <tr>
+                <td>
+                  <p><strong>Use case name</strong></p>
+                </td>
+                <td>
+                  <p><span style="font-weight: 400;">Go to level selection menù</span></p>
+                </td>
+              </tr>
+              <tr>
+                <td>
+                  <p><strong>Actors</strong></p>
+                </td>
+                <td>
+                  <ul>
+                    <li style="font-weight: 400;"><span style="font-weight: 400;">User</span></li>
+                  </ul>
+                </td>
+              </tr>
+              <tr>
+                <td>
+                  <p><strong>Description</strong></p>
+                </td>
+                <td>
+                  <p><span style="font-weight: 400;">The player visualizes the level selection menu GUI where it is possible to select a level and start a new game.</span></p>
+                </td>
+              </tr>
+              <tr>
+                <td>
+                  <p><strong>Preconditions</strong></p>
+                </td>
+                <td>
+                  <p><span style="font-weight: 400;">None&nbsp;</span></p>
+                </td>
+              </tr>
+              <tr>
+                <td>
+                  <p><strong>Flow</strong></p>
+                </td>
+                <td>
+                  <ul>
+                    <li style="font-weight: 400;"><span style="font-weight: 400;">The player clicks on the &ldquo;new game&rdquo; on the Home menu</span></li>
+                    <li style="font-weight: 400;"><span style="font-weight: 400;">The player clicks on the &ldquo;Go Back&rdquo; button on the top bar on scene #3</span></li>
+                  </ul>
+                </td>
+              </tr>
+              <tr>
+                <td>
+                  <p><strong>Postconditions</strong></p>
+                </td>
+                <td>
+                  <p><span style="font-weight: 400;">The player is viewing the level selection GUI</span></p>
+                </td>
+              </tr>
+            </tbody>
+          </table>
+        </div>
+
+
+        <!--use case 3-->
+        <div class="use-case my-4">
+          <div class="w-100 text-center">
+            <h4 id="kl_uc3">Use case #3</h4>
+          </div>
+          <table class="table w-sm-100 w-lg-75 mx-auto table-striped table-bordered">
+            <tbody>
+              <tr>
+                <td>
+                  <p><strong>Use case name</strong></p>
+                </td>
+                <td>
+                  <p><span style="font-weight: 400;">Start a new game</span></p>
+                </td>
+              </tr>
+              <tr>
+                <td>
+                  <p><strong>Actors</strong></p>
+                </td>
+                <td>
+                  <ul>
+                    <li style="font-weight: 400;"><span style="font-weight: 400;">User</span></li>
+                  </ul>
+                </td>
+              </tr>
+              <tr>
+                <td>
+                  <p><strong>Description</strong></p>
+                </td>
+                <td>
+                  <p><span style="font-weight: 400;">The player starts a new game.</span></p>
+                </td>
+              </tr>
+              <tr>
+                <td>
+                  <p><strong>Preconditions</strong></p>
+                </td>
+                <td>
+                  <p><span style="font-weight: 400;">Use case #2&nbsp;</span></p>
+                </td>
+              </tr>
+              <tr>
+                <td>
+                  <p><strong>Flow</strong></p>
+                </td>
+                <td>
+                  <ul>
+                    
+                      <ol>
+                        <li style="font-weight: 400;"><span style="font-weight: 400;">Performing use case #1</span></li>
+                        <li style="font-weight: 400;"><span style="font-weight: 400;">The player clicks on the &ldquo;new game&rdquo; button</span></li>
+                        <li style="font-weight: 400;"><span style="font-weight: 400;">Performing use case #2</span></li>
+                        <li style="font-weight: 400;"><span style="font-weight: 400;">The player selects a level clicking on one of the configurations images</span></li>
+                      </ol>
+                    
+                      <hr class="divider">
+
+                      <ol>
+                        <li style="font-weight: 400;"><span style="font-weight: 400;">Player is in scene #3</span></li>
+                        <li style="font-weight: 400;"><span style="font-weight: 400;">The player clicks on the &ldquo;Go Back&rdquo; scene #3</span></li>
+                        <li style="font-weight: 400;"><span style="font-weight: 400;">Performing use case #2</span></li>
+                        <li style="font-weight: 400;"><span style="font-weight: 400;">The player selects a level clicking on one of the configurations images</span></li>
+                      </ol>
+                    
+                  </ul>
+                </td>
+              </tr>
+              <tr>
+                <td>
+                  <p><strong>Postconditions</strong></p>
+                </td>
+                <td>
+                  <p><span style="font-weight: 400;">The player is on scene #3 and can start playing from one of the default configurations</span></p>
+                </td>
+              </tr>
+            </tbody>
+          </table>
+        </div>
+
+
+        <!--use case 4-->
+        <div class="use-case my-4">
+          <div class="w-100 text-center">
+            <h4 id="kl_uc4">Use case #4</h4>
+          </div>
+          <table class="table w-sm-100 w-lg-75 mx-auto table-striped table-bordered">
+            <tbody>
+              <tr>
+                <td>
+                  <p><strong>Use case name</strong></p>
+                </td>
+                <td>
+                  <p><span style="font-weight: 400;">Solve a level</span></p>
+                </td>
+              </tr>
+              <tr>
+                <td>
+                  <p><strong>Actors</strong></p>
+                </td>
+                <td>
+                  <ul>
+                    <li style="font-weight: 400;"><span style="font-weight: 400;">User</span></li>
+                  </ul>
+                </td>
+              </tr>
+              <tr>
+                <td>
+                  <p><strong>Description</strong></p>
+                </td>
+                <td>
+                  <p><span style="font-weight: 400;">The player can move the blocks according to klotski rules and solve a puzzle</span></p>
+                </td>
+              </tr>
+              <tr>
+                <td>
+                  <p><strong>Preconditions</strong></p>
+                </td>
+                <td>
+                  <p><span style="font-weight: 400;">User must have performed use case #3 or use case #8</span></p>
+                </td>
+              </tr>
+              <tr>
+                <td>
+                  <p><strong>Flow</strong></p>
+                </td>
+                <td>
+                  <ol>
+                    <li style="font-weight: 400;"><span style="font-weight: 400;">The player is on scene #3 after performing use case #3 or use case #8</span></li>
+                    <li style="font-weight: 400;"><span style="font-weight: 400;">The player moves the blocks according to the klotski rules</span></li>
+                    <li style="font-weight: 400;"><span style="font-weight: 400;">If final configuration ir reached the player sees "Level Completed"</span></li>
+                  </ol>
+                </td>
+              </tr>
+              <tr>
+                <td>
+                  <p><strong>Postconditions</strong></p>
+                </td>
+                <td>
+                  <p><span style="font-weight: 400;">"Level Completed" message appears if final configuration is reached</span></p>
+                </td>
+              </tr>
+            </tbody>
+          </table>
+        </div>
+
+
+        <!--use case 5-->
+        <div class="use-case my-4">
+          <div class="w-100 text-center">
+            <h4 id="kl_uc5">Use case #5</h4>
+          </div>
+          <table class="table w-sm-100 w-lg-75 mx-auto table-striped table-bordered">
+            <tbody>
+              <tr>
+                <td>
+                  <p><strong>Use case name</strong></p>
+                </td>
+                <td>
+                  <p><span style="font-weight: 400;">Perform Best Move</span></p>
+                </td>
+              </tr>
+              <tr>
+                <td>
+                  <p><strong>Actors</strong></p>
+                </td>
+                <td>
+                  <ul>
+                    <li style="font-weight: 400;"><span style="font-weight: 400;">User</span></li>
+                  </ul>
+                </td>
+              </tr>
+              <tr>
+                <td>
+                  <p><strong>Description</strong></p>
+                </td>
+                <td>
+                  <p><span style="font-weight: 400;">The player clicks on the "Next Best Move" button on scene #3 to perform the best move on board</span></p>
+                </td>
+              </tr>
+              <tr>
+                <td>
+                  <p><strong>Preconditions</strong></p>
+                </td>
+                <td>
+                  <ul>
+                    <li><span style="font-weight: 400;">Player must be on scene #3</span></li>
+                    <li><span style="font-weight: 400;">The configuration on board must be the starting configuration or player must have performed all the best moves until clicking on the "Next Best Move" button</span></li>
+                  </ul>
+                </td>
+              </tr>
+              <tr>
+                <td>
+                  <p><strong>Flow</strong></p>
+                </td>
+                <td>
+                  <ul>
+                    <li style="font-weight: 400;"><span style="font-weight: 400;">The player clicks the "Next Best Move" button on scene 3</span></li>
+                    
+                  </ul>
+                </td>
+              </tr>
+              <tr>
+                <td>
+                  <p><strong>Postconditions</strong></p>
+                </td>
+                <td>
+                  <p><span style="font-weight: 400;">The player sees the automatic performing of the next best move</span></p>
+                </td>
+              </tr>
+            </tbody>
+          </table>
+        </div>
+
+
+        <!--use case 6-->
+        <div class="use-case my-4">
+          <div class="w-100 text-center">
+            <h4 id="kl_uc6">Use case #6</h4>
+          </div>
+          <table class="table w-sm-100 w-lg-75 mx-auto table-striped table-bordered">
+            <tbody>
+              <tr>
+                <td>
+                  <p><strong>Use case name</strong></p>
+                </td>
+                <td>
+                  <p><span style="font-weight: 400;">Undo latest move</span></p>
+                </td>
+              </tr>
+              <tr>
+                <td>
+                  <p><strong>Actors</strong></p>
+                </td>
+                <td>
+                  <ul>
+                    <li style="font-weight: 400;"><span style="font-weight: 400;">User</span></li>
+                  </ul>
+                </td>
+              </tr>
+              <tr>
+                <td>
+                  <p><strong>Description</strong></p>
+                </td>
+                <td>
+                  <p><span style="font-weight: 400;">The player undo the latest move by clicking on the "Undo" button on scene #3</span></p>
+                </td>
+              </tr>
+              <tr>
+                <td>
+                  <p><strong>Preconditions</strong></p>
+                </td>
+                <td>
+                  <ul>
+                    <li><span style="font-weight: 400;">Player must be on scene #3</span></li>
+                    <li><span style="font-weight: 400;">At least one move must have been performed</span></li>
+                  </ul>
+                </td>
+              </tr>
+              <tr>
+                <td>
+                  <p><strong>Flow</strong></p>
+                </td>
+                <td>
+                  <ul>
+                    <li style="font-weight: 400;"><span style="font-weight: 400;">The player clicks on the "Undo" button on scene #3</span></li>
+                  </ul>
+                </td>
+              </tr>
+              <tr>
+                <td>
+                  <p><strong>Postconditions</strong></p>
+                </td>
+                <td>
+                  <p><span style="font-weight: 400;">The board configuration return as it was before the latest move was performed</span></p>
+                </td>
+              </tr>
+            </tbody>
+          </table>
+        </div>
+
+
+        <!--use case 7-->
+        <div class="use-case my-4">
+          <div class="w-100 text-center">
+            <h4 id="kl_uc7">Use case #7</h4>
+          </div>
+          <table class="table w-sm-100 w-lg-75 mx-auto table-striped table-bordered">
+            <tbody>
+              <tr>
+                <td>
+                  <p><strong>Use case name</strong></p>
+                </td>
+                <td>
+                  <p><span style="font-weight: 400;">Save Game</span></p>
+                </td>
+              </tr>
+              <tr>
+                <td>
+                  <p><strong>Actors</strong></p>
+                </td>
+                <td>
+                  <ul>
+                    <li style="font-weight: 400;"><span style="font-weight: 400;">User</span></li>
+                  </ul>
+                </td>
+              </tr>
+              <tr>
+                <td>
+                  <p><strong>Description</strong></p>
+                </td>
+                <td>
+                  <p><span style="font-weight: 400;">The player saves the configuration</span></p>
+                </td>
+              </tr>
+              <tr>
+                <td>
+                  <p><strong>Preconditions</strong></p>
+                </td>
+                <td>
+                  <p><span style="font-weight: 400;">At least one move must have benn performed</span></p>
+                </td>
+              </tr>
+              <tr>
+                <td>
+                  <p><strong>Flow</strong></p>
+                </td>
+                <td>
+                  <ul>
+                    <li style="font-weight: 400;"><span style="font-weight: 400;">The player clicks on the "save" button on scene #3</span></li>
+                   
+                  </ul>
+                </td>
+              </tr>
+              <tr>
+                <td>
+                  <p><strong>Postconditions</strong></p>
+                </td>
+                <td>
+                  <p><span style="font-weight: 400;">The configuration must be saved</span></p>
+                </td>
+              </tr>
+            </tbody>
+          </table>
+        </div>
+
+
+        <!--use case 8-->
+        <div class="use-case my-4">
+          <div class="w-100 text-center">
+            <h4 id="kl_uc8">Use case #8</h4>
+          </div>
+          <table class="table w-sm-100 w-lg-75 mx-auto table-striped table-bordered">
+            <tbody>
+              <tr>
+                <td>
+                  <p><strong>Use case name</strong></p>
+                </td>
+                <td>
+                  <p><span style="font-weight: 400;">Resume Game</span></p>
+                </td>
+              </tr>
+              <tr>
+                <td>
+                  <p><strong>Actors</strong></p>
+                </td>
+                <td>
+                  <ul>
+                    <li style="font-weight: 400;"><span style="font-weight: 400;">User</span></li>
+                  </ul>
+                </td>
+              </tr>
+              <tr>
+                <td>
+                  <p><strong>Description</strong></p>
+                </td>
+                <td>
+                  <p><span style="font-weight: 400;">The player resume a saved game</span></p>
+                </td>
+              </tr>
+              <tr>
+                <td>
+                  <p><strong>Preconditions</strong></p>
+                </td>
+                <td>
+                  <p><span style="font-weight: 400;">use case #7 must have been performed</span></p>
+                </td>
+              </tr>
+              <tr>
+                <td>
+                  <p><strong>Flow</strong></p>
+                </td>
+                <td>
+                  <ul>
+                    <li style="font-weight: 400;"><span style="font-weight: 400;">The player clicks on the "resume game" button on scene #1</span></li>
+                  </ul>
+                </td>
+              </tr>
+              <tr>
+                <td>
+                  <p><strong>Postconditions</strong></p>
+                </td>
+                <td>
+                  <p><span style="font-weight: 400;">The player re-start playing the game that was saved</span></p>
+                </td>
+              </tr>
+            </tbody>
+          </table>
+        </div>
+
+
+        <!--use case 9-->
+        <div class="use-case my-4">
+          <div class="w-100 text-center">
+            <h4 id="kl_uc9">Use case #9</h4>
+          </div>
+          <table class="table w-sm-100 w-lg-75 mx-auto table-striped table-bordered">
+            <tbody>
+              <tr>
+                <td>
+                  <p><strong>Use case name</strong></p>
+                </td>
+                <td>
+                  <p><span style="font-weight: 400;">Reset Game</span></p>
+                </td>
+              </tr>
+              <tr>
+                <td>
+                  <p><strong>Actors</strong></p>
+                </td>
+                <td>
+                  <ul>
+                    <li style="font-weight: 400;"><span style="font-weight: 400;">User</span></li>
+                  </ul>
+                </td>
+              </tr>
+              <tr>
+                <td>
+                  <p><strong>Description</strong></p>
+                </td>
+                <td>
+                  <p><span style="font-weight: 400;">The player reset the default configuration</span></p>
+                </td>
+              </tr>
+              <tr>
+                <td>
+                  <p><strong>Preconditions</strong></p>
+                </td>
+                <td>
+                  <p><span style="font-weight: 400;">At least one move must have been performed</span></p>
+                </td>
+              </tr>
+              <tr>
+                <td>
+                  <p><strong>Flow</strong></p>
+                </td>
+                <td>
+                  <ul>
+                    <li style="font-weight: 400;"><span style="font-weight: 400;">The player clicks on the "reset" button on scene #3</span></li>
+                  </ul>
+                </td>
+              </tr>
+              <tr>
+                <td>
+                  <p><strong>Postconditions</strong></p>
+                </td>
+                <td>
+                  <p><span style="font-weight: 400;">Default configuration set on board</span></p>
+                </td>
+              </tr>
+            </tbody>
+          </table>
+        </div>
+
+
+        <!--use case 10-->
+        <div class="use-case my-4">
+          <div class="w-100 text-center">
+            <h4 id="kl_uc10">Use case #10</h4>
+          </div>
+          <table class="table w-sm-100 w-lg-75 mx-auto table-striped table-bordered">
+            <tbody>
+              <tr>
+                <td>
+                  <p><strong>Use case name</strong></p>
+                </td>
+                <td>
+                  <p><span style="font-weight: 400;">Show Documentation</span></p>
+                </td>
+              </tr>
+              <tr>
+                <td>
+                  <p><strong>Actors</strong></p>
+                </td>
+                <td>
+                  <ul>
+                    <li style="font-weight: 400;"><span style="font-weight: 400;">User</span></li>
+                  </ul>
+                </td>
+              </tr>
+              <tr>
+                <td>
+                  <p><strong>Description</strong></p>
+                </td>
+                <td>
+                  <p><span style="font-weight: 400;">The player open the documentation web page</span></p>
+                </td>
+              </tr>
+              <tr>
+                <td>
+                  <p><strong>Preconditions</strong></p>
+                </td>
+                <td>
+                  <p><span style="font-weight: 400;">internet connection</span></p>
+                </td>
+              </tr>
+              <tr>
+                <td>
+                  <p><strong>Flow</strong></p>
+                </td>
+                <td>
+                  <ul>
+                    <li style="font-weight: 400;"><span style="font-weight: 400;">The player clicks on the "wiki" button on scene #1</span></li>
+                  </ul>
+                </td>
+              </tr>
+              <tr>
+                <td>
+                  <p><strong>Postconditions</strong></p>
+                </td>
+                <td>
+                  <p><span style="font-weight: 400;">The wiki web page is open on the browser</span></p>
+                </td>
+              </tr>
+            </tbody>
+          </table>
+        </div>
+
+
+        <!--use case 11-->
+        <div class="use-case my-4">
+          <div class="w-100 text-center">
+            <h4 id="kl_uc11">Use case #11</h4>
+          </div>
+          <table class="table w-sm-100 w-lg-75 mx-auto table-striped table-bordered">
+            <tbody>
+              <tr>
+                <td>
+                  <p><strong>Use case name</strong></p>
+                </td>
+                <td>
+                  <p><span style="font-weight: 400;">Open GitHub repo</span></p>
+                </td>
+              </tr>
+              <tr>
+                <td>
+                  <p><strong>Actors</strong></p>
+                </td>
+                <td>
+                  <ul>
+                    <li style="font-weight: 400;"><span style="font-weight: 400;">User</span></li>
+                  </ul>
+                </td>
+              </tr>
+              <tr>
+                <td>
+                  <p><strong>Description</strong></p>
+                </td>
+                <td>
+                  <p><span style="font-weight: 400;">The player open the GitHub repo</span></p>
+                </td>
+              </tr>
+              <tr>
+                <td>
+                  <p><strong>Preconditions</strong></p>
+                </td>
+                <td>
+                  <p><span style="font-weight: 400;">Internet connection</span></p>
+                </td>
+              </tr>
+              <tr>
+                <td>
+                  <p><strong>Flow</strong></p>
+                </td>
+                <td>
+                  <ul>
+                    <li style="font-weight: 400;"><span style="font-weight: 400;">The player clicks on the "GitHub" button on scene #1</span></li>
+                  </ul>
+                </td>
+              </tr>
+              <tr>
+                <td>
+                  <p><strong>Postconditions</strong></p>
+                </td>
+                <td>
+                  <p><span style="font-weight: 400;">The GitHub repo webpage is open</span></p>
+                </td>
+              </tr>
+            </tbody>
+          </table>
+        </div>
+
+         
+        
+      </section>
+		<hr class="divider">
+		
+ 
+  <!-- Content end --> 
+  
+  <!-- Footer
+  ============================ -->
+  <footer id="footer" class="section bg-dark footer-text-light">
+    <div class="container">
+      <ul class="social-icons social-icons-lg social-icons-muted justify-content-center mb-3">
+        
+        <li><a data-toggle="tooltip" href="https://github.com/enricozano/klotski_ids" target="_blank" title="" data-original-title="GitHub"><i class="fab fa-github"></i></a></li>
+      </ul>
+      <p class="text-center">Copyright &copy; 2020 <a href="https://github.com/enricozano/klotski_ids">enricozano</a>. All Rights Reserved.</p>
+    </div>
+  </footer>
+  <!-- Footer end -->
+  
+</div>
+<!-- Document Wrapper end --> 
+
+<!-- Back To Top --> 
+<a id="back-to-top" data-toggle="tooltip" title="Back to Top" href="javascript:void(0)"><i class="fa fa-chevron-up"></i></a> 
+
+<!-- JavaScript
+============================ -->
+<script src="assets/vendor/jquery/jquery.min.js"></script> 
+<script src="assets/vendor/bootstrap/js/bootstrap.bundle.min.js"></script> 
+<!-- Highlight JS -->
+<script src="assets/vendor/highlight.js/highlight.min.js"></script> 
+<!-- Easing --> 
+<script src="assets/vendor/jquery.easing/jquery.easing.min.js"></script> 
+<!-- Magnific Popup --> 
+<script src="assets/vendor/magnific-popup/jquery.magnific-popup.min.js"></script> 
+<!-- Custom Script -->
+<script src="assets/js/theme.js"></script>
+</body>
+</html>

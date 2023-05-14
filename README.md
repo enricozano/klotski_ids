@@ -1,9 +1,9 @@
 # klotski_ids
 Progetto Klotksi ingegneria del software unipd
 
-## link Overleaf per documentazione
+## link per documentazione
     
-    https://www.overleaf.com/6915538726bkbbhsdgskfw
+   https://enricozano.github.io/klotski_ids/
 
 ### Specifiche codice github
     • Codice, files di compilazione, etc.
