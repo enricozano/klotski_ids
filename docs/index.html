@@ -84,6 +84,7 @@
           <li class="nav-item"><a class="nav-link" href="#kl_uc9">Use case #9</a></li>
           <li class="nav-item"><a class="nav-link" href="#kl_uc10">Use case #10</a></li>
           <li class="nav-item"><a class="nav-link" href="#kl_uc11">Use case #11</a></li>
+          <li class="nav-item"><a class="nav-link" href="#kl_uc12">Use case #12</a></li>
         </ul>
       </li>
       <li class="nav-item"><a class="nav-link" href="#kl_domain">Domain model</a></li>
@@ -144,7 +145,14 @@
       <section id="kl_usecases">
         <h2 class="my-2">Use cases</h2>
         <p>
-          Lorem ipsum dolor sit amet consectetur, adipisicing elit. Quisquam, blanditiis?
+          The first design meetings tackled about the actions the user would have to be able to perform. The team decided
+          to work on an application with three main scenes:
+            <ul>
+              <li>Scene #1: The starting menù</li>
+              <li>Scene #2: The level selection menù</li>
+              <li>Scene #3: The main playing menù</li>
+            </ul>
+          Later, a set of use cases were developed for each scene. <br> The team so proceded by creating the use case diagram.
         </p>
 
         <div id="kl_ucdiagram">
@@ -165,7 +173,7 @@
                   <p><strong>Use case name</strong></p>
                 </td>
                 <td>
-                  <p><span style="font-weight: 400;">Visualize Home Page</span></p>
+                  <p><span style="font-weight: 400;">Start a game</span></p>
                 </td>
               </tr>
               <tr>
@@ -174,7 +182,7 @@
                 </td>
                 <td>
                   <ul>
-                    <li style="font-weight: 400;"><span style="font-weight: 400;">User</span></li>
+                    <li style="font-weight: 400;"><span style="font-weight: 400;">Player</span></li>
                   </ul>
                 </td>
               </tr>
@@ -183,7 +191,7 @@
                   <p><strong>Description</strong></p>
                 </td>
                 <td>
-                  <p><span style="font-weight: 400;">The player visualizes the home page GUI of the game where it is possible to go to the level selection menu, resume a game (if one is saved), go to the github page and go to the documentation page</span></p>
+                  <p><span style="font-weight: 400;">The player starts a game, either performing use case #2 or use case #3.</span></p>
                 </td>
               </tr>
               <tr>
@@ -199,10 +207,15 @@
                   <p><strong>Flow</strong></p>
                 </td>
                 <td>
-                  <ul>
-                    <li style="font-weight: 400;"><span style="font-weight: 400;">The player starts the application</span></li>
-                    <li style="font-weight: 400;"><span style="font-weight: 400;">The player clicks on the &ldquo;Home&rdquo; button on the top bar on either scene #2 or scene #3</span></li>
-                  </ul>
+                  <ol>
+                    <li style="font-weight: 400;"><span style="font-weight: 400;">The player is on Scene #1</span></li>
+                    <li> 
+                      <ul>
+                      <li style="font-weight: 400;"><span style="font-weight: 400;">The player performs use case #2</span></li>
+                      <li style="font-weight: 400;"><span style="font-weight: 400;">The player performs use case #3</span></li>
+                      </ul>
+                    </li>
+                  </ol>
                 </td>
               </tr>
               <tr>
@@ -210,7 +223,7 @@
                   <p><strong>Postconditions</strong></p>
                 </td>
                 <td>
-                  <p><span style="font-weight: 400;">The player is viewing the home page GUI</span></p>
+                  <p><span style="font-weight: 400;">The player is on scene #3 viewing the game board with the chosen configuration.</span></p>
                 </td>
               </tr>
             </tbody>
@@ -230,7 +243,7 @@
                   <p><strong>Use case name</strong></p>
                 </td>
                 <td>
-                  <p><span style="font-weight: 400;">Go to level selection menù</span></p>
+                  <p><span style="font-weight: 400;">Start a new game</span></p>
                 </td>
               </tr>
               <tr>
@@ -239,7 +252,7 @@
                 </td>
                 <td>
                   <ul>
-                    <li style="font-weight: 400;"><span style="font-weight: 400;">User</span></li>
+                    <li style="font-weight: 400;"><span style="font-weight: 400;">Player</span></li>
                   </ul>
                 </td>
               </tr>
@@ -248,7 +261,7 @@
                   <p><strong>Description</strong></p>
                 </td>
                 <td>
-                  <p><span style="font-weight: 400;">The player visualizes the level selection menu GUI where it is possible to select a level and start a new game.</span></p>
+                  <p><span style="font-weight: 400;">The player starts a new game.</span></p>
                 </td>
               </tr>
               <tr>
@@ -265,8 +278,18 @@
                 </td>
                 <td>
                   <ul>
-                    <li style="font-weight: 400;"><span style="font-weight: 400;">The player clicks on the &ldquo;new game&rdquo; on the Home menu</span></li>
-                    <li style="font-weight: 400;"><span style="font-weight: 400;">The player clicks on the &ldquo;Go Back&rdquo; button on the top bar on scene #3</span></li>
+                    <li>
+                      <ol>
+                        <li style="font-weight: 400;"><span style="font-weight: 400;">The player clicks on the &ldquo;New Game&rdquo; on scene #1</span></li>
+                        <li style="font-weight: 400;"><span style="font-weight: 400;">The player performs use case #4</span></li>
+                      </ol>
+                    </li>
+                    <li>
+                      <ol>
+                        <li style="font-weight: 400;"><span style="font-weight: 400;">The player clicks on the &ldquo;Back&rdquo; on the top bar in scene #3</span></li>
+                        <li style="font-weight: 400;"><span style="font-weight: 400;">The player performs use case #4</span></li>
+                      </ol>
+                    </li>
                   </ul>
                 </td>
               </tr>
@@ -275,7 +298,7 @@
                   <p><strong>Postconditions</strong></p>
                 </td>
                 <td>
-                  <p><span style="font-weight: 400;">The player is viewing the level selection GUI</span></p>
+                  <p><span style="font-weight: 400;">The player is on scene #3 viewing the game board with one of the default configurations.</span></p>
                 </td>
               </tr>
             </tbody>
@@ -295,7 +318,7 @@
                   <p><strong>Use case name</strong></p>
                 </td>
                 <td>
-                  <p><span style="font-weight: 400;">Start a new game</span></p>
+                  <p><span style="font-weight: 400;">Resume Game</span></p>
                 </td>
               </tr>
               <tr>
@@ -304,7 +327,7 @@
                 </td>
                 <td>
                   <ul>
-                    <li style="font-weight: 400;"><span style="font-weight: 400;">User</span></li>
+                    <li style="font-weight: 400;"><span style="font-weight: 400;">Player</span></li>
                   </ul>
                 </td>
               </tr>
@@ -313,7 +336,7 @@
                   <p><strong>Description</strong></p>
                 </td>
                 <td>
-                  <p><span style="font-weight: 400;">The player starts a new game.</span></p>
+                  <p><span style="font-weight: 400;">The player resume the saved game.</span></p>
                 </td>
               </tr>
               <tr>
@@ -321,7 +344,7 @@
                   <p><strong>Preconditions</strong></p>
                 </td>
                 <td>
-                  <p><span style="font-weight: 400;">Use case #2&nbsp;</span></p>
+                  <p><span style="font-weight: 400;">Use case #10&nbsp;</span></p>
                 </td>
               </tr>
               <tr>
@@ -330,23 +353,7 @@
                 </td>
                 <td>
                   <ul>
-                    
-                      <ol>
-                        <li style="font-weight: 400;"><span style="font-weight: 400;">Performing use case #1</span></li>
-                        <li style="font-weight: 400;"><span style="font-weight: 400;">The player clicks on the &ldquo;new game&rdquo; button</span></li>
-                        <li style="font-weight: 400;"><span style="font-weight: 400;">Performing use case #2</span></li>
-                        <li style="font-weight: 400;"><span style="font-weight: 400;">The player selects a level clicking on one of the configurations images</span></li>
-                      </ol>
-                    
-                      <hr class="divider">
-
-                      <ol>
-                        <li style="font-weight: 400;"><span style="font-weight: 400;">Player is in scene #3</span></li>
-                        <li style="font-weight: 400;"><span style="font-weight: 400;">The player clicks on the &ldquo;Go Back&rdquo; scene #3</span></li>
-                        <li style="font-weight: 400;"><span style="font-weight: 400;">Performing use case #2</span></li>
-                        <li style="font-weight: 400;"><span style="font-weight: 400;">The player selects a level clicking on one of the configurations images</span></li>
-                      </ol>
-                    
+                    <li style="font-weight: 400;"><span style="font-weight: 400;">The player clicks on the &ldquo;Resume Game&rdquo; on Scene #1</span></li>
                   </ul>
                 </td>
               </tr>
@@ -355,7 +362,7 @@
                   <p><strong>Postconditions</strong></p>
                 </td>
                 <td>
-                  <p><span style="font-weight: 400;">The player is on scene #3 and can start playing from one of the default configurations</span></p>
+                  <p><span style="font-weight: 400;">The player is on scene #3 viewing the game board with the previously saved configuration.</span></p>
                 </td>
               </tr>
             </tbody>
@@ -375,7 +382,7 @@
                   <p><strong>Use case name</strong></p>
                 </td>
                 <td>
-                  <p><span style="font-weight: 400;">Solve a level</span></p>
+                  <p><span style="font-weight: 400;">Choose initial configuration</span></p>
                 </td>
               </tr>
               <tr>
@@ -384,7 +391,7 @@
                 </td>
                 <td>
                   <ul>
-                    <li style="font-weight: 400;"><span style="font-weight: 400;">User</span></li>
+                    <li style="font-weight: 400;"><span style="font-weight: 400;">Player</span></li>
                   </ul>
                 </td>
               </tr>
@@ -393,7 +400,7 @@
                   <p><strong>Description</strong></p>
                 </td>
                 <td>
-                  <p><span style="font-weight: 400;">The player can move the blocks according to klotski rules and solve a puzzle</span></p>
+                  <p><span style="font-weight: 400;">The player choose the initial configuration from four default configurations.</span></p>
                 </td>
               </tr>
               <tr>
@@ -401,7 +408,7 @@
                   <p><strong>Preconditions</strong></p>
                 </td>
                 <td>
-                  <p><span style="font-weight: 400;">User must have performed use case #3 or use case #8</span></p>
+                  <p><span style="font-weight: 400;">None</span></p>
                 </td>
               </tr>
               <tr>
@@ -410,9 +417,8 @@
                 </td>
                 <td>
                   <ol>
-                    <li style="font-weight: 400;"><span style="font-weight: 400;">The player is on scene #3 after performing use case #3 or use case #8</span></li>
-                    <li style="font-weight: 400;"><span style="font-weight: 400;">The player moves the blocks according to the klotski rules</span></li>
-                    <li style="font-weight: 400;"><span style="font-weight: 400;">If final configuration ir reached the player sees "Level Completed"</span></li>
+                    <li style="font-weight: 400;"><span style="font-weight: 400;">The player is on Scene #2</span></li>
+                    <li style="font-weight: 400;"><span style="font-weight: 400;">The player clicks on one of the default configurations</span></li>
                   </ol>
                 </td>
               </tr>
@@ -421,7 +427,7 @@
                   <p><strong>Postconditions</strong></p>
                 </td>
                 <td>
-                  <p><span style="font-weight: 400;">"Level Completed" message appears if final configuration is reached</span></p>
+                  <p><span style="font-weight: 400;"></span>The player is on scene #3 viewing the game board with the chosen default configuration.</p>
                 </td>
               </tr>
             </tbody>
@@ -429,72 +435,68 @@
         </div>
 
 
-        <!--use case 5-->
-        <div class="use-case my-4">
-          <div class="w-100 text-center">
-            <h4 id="kl_uc5">Use case #5</h4>
-          </div>
-          <table class="table w-sm-100 w-lg-75 mx-auto table-striped table-bordered">
-            <tbody>
-              <tr>
-                <td>
-                  <p><strong>Use case name</strong></p>
-                </td>
-                <td>
-                  <p><span style="font-weight: 400;">Perform Best Move</span></p>
-                </td>
-              </tr>
-              <tr>
-                <td>
-                  <p><strong>Actors</strong></p>
-                </td>
-                <td>
-                  <ul>
-                    <li style="font-weight: 400;"><span style="font-weight: 400;">User</span></li>
-                  </ul>
-                </td>
-              </tr>
-              <tr>
-                <td>
-                  <p><strong>Description</strong></p>
-                </td>
-                <td>
-                  <p><span style="font-weight: 400;">The player clicks on the "Next Best Move" button on scene #3 to perform the best move on board</span></p>
-                </td>
-              </tr>
-              <tr>
-                <td>
-                  <p><strong>Preconditions</strong></p>
-                </td>
-                <td>
-                  <ul>
-                    <li><span style="font-weight: 400;">Player must be on scene #3</span></li>
-                    <li><span style="font-weight: 400;">The configuration on board must be the starting configuration or player must have performed all the best moves until clicking on the "Next Best Move" button</span></li>
-                  </ul>
-                </td>
-              </tr>
-              <tr>
-                <td>
-                  <p><strong>Flow</strong></p>
-                </td>
-                <td>
-                  <ul>
-                    <li style="font-weight: 400;"><span style="font-weight: 400;">The player clicks the "Next Best Move" button on scene 3</span></li>
-                    
-                  </ul>
-                </td>
-              </tr>
-              <tr>
-                <td>
-                  <p><strong>Postconditions</strong></p>
-                </td>
-                <td>
-                  <p><span style="font-weight: 400;">The player sees the automatic performing of the next best move</span></p>
-                </td>
-              </tr>
-            </tbody>
-          </table>
+       <!--use case 5-->
+       <div class="use-case my-4">
+        <div class="w-100 text-center">
+          <h4 id="kl_uc5">Use case #5</h4>
         </div>
+        <table class="table w-sm-100 w-lg-75 mx-auto table-striped table-bordered">
+          <tbody>
+            <tr>
+              <td>
+                <p><strong>Use case name</strong></p>
+              </td>
+              <td>
+                <p><span style="font-weight: 400;">Play the game</span></p>
+              </td>
+            </tr>
+            <tr>
+              <td>
+                <p><strong>Actors</strong></p>
+              </td>
+              <td>
+                <ul>
+                  <li style="font-weight: 400;"><span style="font-weight: 400;">Player</span></li>
+                </ul>
+              </td>
+            </tr>
+            <tr>
+              <td>
+                <p><strong>Description</strong></p>
+              </td>
+              <td>
+                <p><span style="font-weight: 400;">The player can play the game according to klotski rules and solve a puzzle.</span></p>
+              </td>
+            </tr>
+            <tr>
+              <td>
+                <p><strong>Preconditions</strong></p>
+              </td>
+              <td>
+                <p><span style="font-weight: 400;">Use case #1</span></p>
+              </td>
+            </tr>
+            <tr>
+              <td>
+                <p><strong>Flow</strong></p>
+              </td>
+              <td>
+                <ol>
+                  <li style="font-weight: 400;"><span style="font-weight: 400;">After performing use case #1 the player can start to play the game according to the klotski rules and use the other funcionality described in the use cases #8, #9 and #10</span></li>
+                </ol>
+              </td>
+            </tr>
+            <tr>
+              <td>
+                <p><strong>Postconditions</strong></p>
+              </td>
+              <td>
+                <p><span style="font-weight: 400;">"Level Completed" message appears if final configuration is reached</span></p>
+              </td>
+            </tr>
+          </tbody>
+        </table>
+      </div>
 
 
         <!--use case 6-->
@@ -509,7 +511,7 @@
                   <p><strong>Use case name</strong></p>
                 </td>
                 <td>
-                  <p><span style="font-weight: 400;">Undo latest move</span></p>
+                  <p><span style="font-weight: 400;">Move the blocks</span></p>
                 </td>
               </tr>
               <tr>
@@ -527,7 +529,7 @@
                   <p><strong>Description</strong></p>
                 </td>
                 <td>
-                  <p><span style="font-weight: 400;">The player undo the latest move by clicking on the "Undo" button on scene #3</span></p>
+                  <p><span style="font-weight: 400;">The player can move the blocks according to the klotksi rules.</span></p>
                 </td>
               </tr>
               <tr>
@@ -536,8 +538,7 @@
                 </td>
                 <td>
                   <ul>
-                    <li><span style="font-weight: 400;">Player must be on scene #3</span></li>
-                    <li><span style="font-weight: 400;">At least one move must have been performed</span></li>
+                    <li><span style="font-weight: 400;">Use case #1</span></li>
                   </ul>
                 </td>
               </tr>
@@ -547,7 +548,7 @@
                 </td>
                 <td>
                   <ul>
-                    <li style="font-weight: 400;"><span style="font-weight: 400;">The player clicks on the "Undo" button on scene #3</span></li>
+                    <li style="font-weight: 400;"><span style="font-weight: 400;">The player drag a block in the board according to the klotski rules.</span></li>
                   </ul>
                 </td>
               </tr>
@@ -556,7 +557,7 @@
                   <p><strong>Postconditions</strong></p>
                 </td>
                 <td>
-                  <p><span style="font-weight: 400;">The board configuration return as it was before the latest move was performed</span></p>
+                  <p><span style="font-weight: 400;">The board configuration modifies according to the moved blocks</span></p>
                 </td>
               </tr>
             </tbody>
@@ -576,7 +577,7 @@
                   <p><strong>Use case name</strong></p>
                 </td>
                 <td>
-                  <p><span style="font-weight: 400;">Save Game</span></p>
+                  <p><span style="font-weight: 400;">Undo last move</span></p>
                 </td>
               </tr>
               <tr>
@@ -585,7 +586,7 @@
                 </td>
                 <td>
                   <ul>
-                    <li style="font-weight: 400;"><span style="font-weight: 400;">User</span></li>
+                    <li style="font-weight: 400;"><span style="font-weight: 400;">Player</span></li>
                   </ul>
                 </td>
               </tr>
@@ -594,7 +595,7 @@
                   <p><strong>Description</strong></p>
                 </td>
                 <td>
-                  <p><span style="font-weight: 400;">The player saves the configuration</span></p>
+                  <p><span style="font-weight: 400;">The board configuration return as it was before the latest move was performed.</span></p>
                 </td>
               </tr>
               <tr>
@@ -602,7 +603,7 @@
                   <p><strong>Preconditions</strong></p>
                 </td>
                 <td>
-                  <p><span style="font-weight: 400;">At least one move must have benn performed</span></p>
+                  <p><span style="font-weight: 400;">Use case #6 must have been performed at least once</span></p>
                 </td>
               </tr>
               <tr>
@@ -611,7 +612,7 @@
                 </td>
                 <td>
                   <ul>
-                    <li style="font-weight: 400;"><span style="font-weight: 400;">The player clicks on the "save" button on scene #3</span></li>
+                    <li style="font-weight: 400;"><span style="font-weight: 400;">The player clicks on the &ldquo;Undo&rdquo; button on Scene #3.</span></li>
                    
                   </ul>
                 </td>
@@ -621,7 +622,7 @@
                   <p><strong>Postconditions</strong></p>
                 </td>
                 <td>
-                  <p><span style="font-weight: 400;">The configuration must be saved</span></p>
+                  <p><span style="font-weight: 400;">The board configuration must return as it was before the latest move was performed.</span></p>
                 </td>
               </tr>
             </tbody>
@@ -641,7 +642,7 @@
                   <p><strong>Use case name</strong></p>
                 </td>
                 <td>
-                  <p><span style="font-weight: 400;">Resume Game</span></p>
+                  <p><span style="font-weight: 400;">Reset</span></p>
                 </td>
               </tr>
               <tr>
@@ -650,7 +651,7 @@
                 </td>
                 <td>
                   <ul>
-                    <li style="font-weight: 400;"><span style="font-weight: 400;">User</span></li>
+                    <li style="font-weight: 400;"><span style="font-weight: 400;">Player</span></li>
                   </ul>
                 </td>
               </tr>
@@ -659,7 +660,7 @@
                   <p><strong>Description</strong></p>
                 </td>
                 <td>
-                  <p><span style="font-weight: 400;">The player resume a saved game</span></p>
+                  <p><span style="font-weight: 400;">The player reset the board configuration to the default one.</span></p>
                 </td>
               </tr>
               <tr>
@@ -667,7 +668,7 @@
                   <p><strong>Preconditions</strong></p>
                 </td>
                 <td>
-                  <p><span style="font-weight: 400;">use case #7 must have been performed</span></p>
+                  <p><span style="font-weight: 400;">Use case #6 must have been performed at least once</span></p>
                 </td>
               </tr>
               <tr>
@@ -676,7 +677,7 @@
                 </td>
                 <td>
                   <ul>
-                    <li style="font-weight: 400;"><span style="font-weight: 400;">The player clicks on the "resume game" button on scene #1</span></li>
+                    <li style="font-weight: 400;"><span style="font-weight: 400;">The player clicks on the &ldquo;Reset&rdquo; button on Scene #3</span></li>
                   </ul>
                 </td>
               </tr>
@@ -685,7 +686,7 @@
                   <p><strong>Postconditions</strong></p>
                 </td>
                 <td>
-                  <p><span style="font-weight: 400;">The player re-start playing the game that was saved</span></p>
+                  <p><span style="font-weight: 400;">The board configuration returns to the default one chosen</span></p>
                 </td>
               </tr>
             </tbody>
@@ -705,7 +706,7 @@
                   <p><strong>Use case name</strong></p>
                 </td>
                 <td>
-                  <p><span style="font-weight: 400;">Reset Game</span></p>
+                  <p><span style="font-weight: 400;">Next Best Move</span></p>
                 </td>
               </tr>
               <tr>
@@ -723,7 +724,7 @@
                   <p><strong>Description</strong></p>
                 </td>
                 <td>
-                  <p><span style="font-weight: 400;">The player reset the default configuration</span></p>
+                  <p><span style="font-weight: 400;">The player makes the system playing the next best move.</span></p>
                 </td>
               </tr>
               <tr>
@@ -731,7 +732,7 @@
                   <p><strong>Preconditions</strong></p>
                 </td>
                 <td>
-                  <p><span style="font-weight: 400;">At least one move must have been performed</span></p>
+                  <p><span style="font-weight: 400;">The player must have performed no moves or only the best moves</span></p>
                 </td>
               </tr>
               <tr>
@@ -740,7 +741,7 @@
                 </td>
                 <td>
                   <ul>
-                    <li style="font-weight: 400;"><span style="font-weight: 400;">The player clicks on the "reset" button on scene #3</span></li>
+                    <li style="font-weight: 400;"><span style="font-weight: 400;">The player clicks on the &ldquo;Next Best Move&rdquo; button on Scene #3</span></li>
                   </ul>
                 </td>
               </tr>
@@ -749,13 +750,12 @@
                   <p><strong>Postconditions</strong></p>
                 </td>
                 <td>
-                  <p><span style="font-weight: 400;">Default configuration set on board</span></p>
+                  <p><span style="font-weight: 400;">The next best move must be performed</span></p>
                 </td>
               </tr>
             </tbody>
           </table>
         </div>
-
 
         <!--use case 10-->
         <div class="use-case my-4">
@@ -769,7 +769,7 @@
                   <p><strong>Use case name</strong></p>
                 </td>
                 <td>
-                  <p><span style="font-weight: 400;">Show Documentation</span></p>
+                  <p><span style="font-weight: 400;">Save</span></p>
                 </td>
               </tr>
               <tr>
@@ -778,7 +778,7 @@
                 </td>
                 <td>
                   <ul>
-                    <li style="font-weight: 400;"><span style="font-weight: 400;">User</span></li>
+                    <li style="font-weight: 400;"><span style="font-weight: 400;">Player</span></li>
                   </ul>
                 </td>
               </tr>
@@ -787,7 +787,7 @@
                   <p><strong>Description</strong></p>
                 </td>
                 <td>
-                  <p><span style="font-weight: 400;">The player open the documentation web page</span></p>
+                  <p><span style="font-weight: 400;">The player saves the current board configuration.</span></p>
                 </td>
               </tr>
               <tr>
@@ -795,7 +795,7 @@
                   <p><strong>Preconditions</strong></p>
                 </td>
                 <td>
-                  <p><span style="font-weight: 400;">internet connection</span></p>
+                  <p><span style="font-weight: 400;"></span>Use case #6 must have been performed at least once</p>
                 </td>
               </tr>
               <tr>
@@ -804,7 +804,7 @@
                 </td>
                 <td>
                   <ul>
-                    <li style="font-weight: 400;"><span style="font-weight: 400;">The player clicks on the "wiki" button on scene #1</span></li>
+                    <li style="font-weight: 400;"><span style="font-weight: 400;">The player clicks on the &ldquo;Save&rdquo; button on Scene #3</span></li>
                   </ul>
                 </td>
               </tr>
@@ -813,7 +813,7 @@
                   <p><strong>Postconditions</strong></p>
                 </td>
                 <td>
-                  <p><span style="font-weight: 400;">The wiki web page is open on the browser</span></p>
+                  <p><span style="font-weight: 400;">The current board configuration must be saved.</span></p>
                 </td>
               </tr>
             </tbody>
@@ -833,7 +833,7 @@
                   <p><strong>Use case name</strong></p>
                 </td>
                 <td>
-                  <p><span style="font-weight: 400;">Open GitHub repo</span></p>
+                  <p><span style="font-weight: 400;">Go to GitHub</span></p>
                 </td>
               </tr>
               <tr>
@@ -842,7 +842,7 @@
                 </td>
                 <td>
                   <ul>
-                    <li style="font-weight: 400;"><span style="font-weight: 400;">User</span></li>
+                    <li style="font-weight: 400;"><span style="font-weight: 400;">Player</span></li>
                   </ul>
                 </td>
               </tr>
@@ -851,7 +851,7 @@
                   <p><strong>Description</strong></p>
                 </td>
                 <td>
-                  <p><span style="font-weight: 400;">The player open the GitHub repo</span></p>
+                  <p><span style="font-weight: 400;">The player opens the GitHub repository</span></p>
                 </td>
               </tr>
               <tr>
@@ -868,7 +868,7 @@
                 </td>
                 <td>
                   <ul>
-                    <li style="font-weight: 400;"><span style="font-weight: 400;">The player clicks on the "GitHub" button on scene #1</span></li>
+                    <li style="font-weight: 400;"><span style="font-weight: 400;">The player clicks on the &ldquo;GitHub&rdquo; button</span></li>
                   </ul>
                 </td>
               </tr>
@@ -883,6 +883,73 @@
             </tbody>
           </table>
         </div>
+
+
+        <!--use case 12-->
+        <div class="use-case my-4">
+          <div class="w-100 text-center">
+            <h4 id="kl_uc12">Use case #12</h4>
+          </div>
+          <table class="table w-sm-100 w-lg-75 mx-auto table-striped table-bordered">
+            <tbody>
+              <tr>
+                <td>
+                  <p><strong>Use case name</strong></p>
+                </td>
+                <td>
+                  <p><span style="font-weight: 400;">Show Documentation</span></p>
+                </td>
+              </tr>
+              <tr>
+                <td>
+                  <p><strong>Actors</strong></p>
+                </td>
+                <td>
+                  <ul>
+                    <li style="font-weight: 400;"><span style="font-weight: 400;">Player</span></li>
+                  </ul>
+                </td>
+              </tr>
+              <tr>
+                <td>
+                  <p><strong>Description</strong></p>
+                </td>
+                <td>
+                  <p><span style="font-weight: 400;">The player opens the documentation web page.</span></p>
+                </td>
+              </tr>
+              <tr>
+                <td>
+                  <p><strong>Preconditions</strong></p>
+                </td>
+                <td>
+                  <p><span style="font-weight: 400;">Internet connection</span></p>
+                </td>
+              </tr>
+              <tr>
+                <td>
+                  <p><strong>Flow</strong></p>
+                </td>
+                <td>
+                  <ul>
+                    <li style="font-weight: 400;"><span style="font-weight: 400;">The player clicks on the &ldquo;Wiki&rdquo; button</span></li>
+                  </ul>
+                </td>
+              </tr>
+              <tr>
+                <td>
+                  <p><strong>Postconditions</strong></p>
+                </td>
+                <td>
+                  <p><span style="font-weight: 400;">The documentation web page is open on the browser</span></p>
+                </td>
+              </tr>
+            </tbody>
+          </table>
+        </div>
+
+
+        
 
          
         
