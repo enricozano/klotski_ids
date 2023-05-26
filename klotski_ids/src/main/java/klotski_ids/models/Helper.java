@@ -1,4 +1,4 @@
-package klotski_ids.controllers.util;
+package klotski_ids.models;
 
 import com.google.gson.Gson;
 import com.google.gson.JsonSyntaxException;
@@ -29,8 +29,8 @@ public class Helper {
      * @throws IOException           if an error occurs while reading the JSON file
      * @throws JsonSyntaxException   if the JSON file is not formatted correctly
      */
-    public Level readJson(String filePath) throws FileNotFoundException, IOException, JsonSyntaxException {
-        Level level = null;
+    public klotski_ids.models.Level readJson(String filePath) throws FileNotFoundException, IOException, JsonSyntaxException {
+        klotski_ids.models.Level level = null;
         try (InputStream inputStream = getClass().getResourceAsStream(filePath)) {
             assert inputStream != null;
             try (InputStreamReader reader = new InputStreamReader(inputStream)) {
@@ -140,13 +140,13 @@ public class Helper {
      * @return a list of Rectangle objects created from the Components objects.
      * @throws IllegalArgumentException if the components list is null.
      */
-    public List<Rectangle> createRectangle(List<Components> components) {
+    public List<Rectangle> createRectangle(List<klotski_ids.models.Components> components) {
         List<Rectangle> rectangleList = new ArrayList<>();
 
         if (components == null) {
             throw new IllegalArgumentException("La lista components non può essere null.");
         }
-        for (Components element : components) {
+        for (klotski_ids.models.Components element : components) {
             Rectangle rectangle = new Rectangle(element.getWidth(), element.getHeight());
             rectangle.setId(element.getId());
             rectangleList.add(rectangle);
@@ -164,7 +164,7 @@ public class Helper {
      * @param components the list of components
      * @param rectangles the list of rectangles
      */
-    public void setGridPaneElements(GridPane gridPane, List<Components> components, List<Rectangle> rectangles) {
+    public void setGridPaneElements(GridPane gridPane, List<klotski_ids.models.Components> components, List<Rectangle> rectangles) {
         gridPane.getChildren().clear();
         int size = Math.min(components.size(), rectangles.size());
 

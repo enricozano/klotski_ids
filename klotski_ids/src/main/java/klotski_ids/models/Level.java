@@ -1,4 +1,5 @@
-package klotski_ids.controllers.util;
+package klotski_ids.models;
+
 
 import java.util.List;
 
@@ -32,7 +33,7 @@ public class Level {
     /**
      * The list of components (rectangles) that make up the level.
      */
-    private final List<Components> rectangles;
+    private final List<klotski_ids.models.Components> rectangles;
 
     /*******************************************************************************
      *                              Constructors                                   *
@@ -48,7 +49,7 @@ public class Level {
      * @param minWidth   the minimum width of the playing area
      * @param minHeight  the minimum height of the playing area
      */
-    public Level(List<Components> rectangles, int maxWidth, int maxHeight, int minWidth, int minHeight) {
+    public Level(List<klotski_ids.models.Components> rectangles, int maxWidth, int maxHeight, int minWidth, int minHeight) {
         this.maxWidth = maxWidth;
         this.maxHeight = maxHeight;
         this.minWidth = minWidth;
@@ -61,7 +62,7 @@ public class Level {
      *
      * @param rectangles the list of components (rectangles) that make up the level
      */
-    public Level(List<Components> rectangles) {
+    public Level(List<klotski_ids.models.Components> rectangles) {
         this.rectangles = rectangles;
     }
 

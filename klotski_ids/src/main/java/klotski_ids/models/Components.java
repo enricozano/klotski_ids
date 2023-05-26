@@ -1,7 +1,6 @@
-package klotski_ids.controllers.util;
+package klotski_ids.models;
 
 /**
-
  This class represents a component in a grid, with its size and position information.
  */
 public class Components {

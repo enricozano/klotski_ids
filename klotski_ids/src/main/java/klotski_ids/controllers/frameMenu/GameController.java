@@ -1,7 +1,6 @@
 package klotski_ids.controllers.frameMenu;
 
 import com.google.gson.Gson;
-import javafx.application.Platform;
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
 import javafx.fxml.FXMLLoader;
@@ -12,9 +11,9 @@ import javafx.scene.control.Button;
 import javafx.scene.control.Label;
 import javafx.scene.layout.GridPane;
 import javafx.scene.shape.Rectangle;
-import klotski_ids.controllers.util.Components;
-import klotski_ids.controllers.util.Level;
-import klotski_ids.controllers.util.Helper;
+import klotski_ids.models.Components;
+import klotski_ids.models.Level;
+import klotski_ids.models.Helper;
 
 import java.io.*;
 import java.util.ArrayList;
@@ -51,6 +50,7 @@ public class GameController {
     /*******************************************************************************
      *                              LOCAL VARIABLES                                *
      *******************************************************************************/
+
     /**
      * The starting X coordinate of the mouse event.
      */
