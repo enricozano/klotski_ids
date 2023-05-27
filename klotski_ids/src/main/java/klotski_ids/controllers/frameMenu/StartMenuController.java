@@ -14,7 +14,7 @@ import javafx.stage.Stage;
 import java.io.IOException;
 import java.util.Objects;
 
-public class StartMenuController {
+public class    StartMenuController {
     @FXML
     public Button resumeGame;
     private GameController gameController;
