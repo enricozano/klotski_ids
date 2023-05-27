@@ -47,10 +47,6 @@ public class GameController {
     private Label titlelabel;
 
 
-    /*******************************************************************************
-     *                              LOCAL VARIABLES                                *
-     *******************************************************************************/
-
     /**
      * The starting X coordinate of the mouse event.
      */
@@ -126,7 +122,7 @@ public class GameController {
      */
     private List<Rectangle> rectangles = new ArrayList<>();
 
-    private List<List<Components>> hystoryRectanglesMovements = new ArrayList<>();
+    private static final List<List<Components>> hystoryRectanglesMovements = new ArrayList<>();
 
     /**
      * An instance of the Helper class.
@@ -137,6 +133,10 @@ public class GameController {
      * name of the level
      */
     private String levelName;
+
+    private String levelTitle;
+
+
 
     /*******************************************************************************
      *                              SETTERS FUNCTIONS                              *
@@ -150,7 +150,12 @@ public class GameController {
     }
 
     public void setTitle(String text) {
+        setLevelTitle(text);
         titlelabel.setText(text);
+    }
+
+    public void setLevelTitle(String levelTitle){
+        this.levelTitle = levelTitle;
     }
 
     public void setnMosse(String mosse) {
@@ -161,12 +166,14 @@ public class GameController {
         levelName = level;
     }
 
-    public void setHystoryRectanglesMovements(List<Components> hystoryRectanglesMovements) {
-        this.hystoryRectanglesMovements.add(hystoryRectanglesMovements);
+    public void setHystoryRectanglesMovements(List<Components> componentsList) {
+        hystoryRectanglesMovements.add(helper.copyComponentsList(componentsList));
     }
+
 
     private void setMousePressed(Rectangle rectangle) {
         rectangle.setOnMousePressed(event -> {
+
             startX = GridPane.getColumnIndex(rectangle);
             startY = GridPane.getRowIndex(rectangle);
 
@@ -177,6 +184,7 @@ public class GameController {
             startTranslateY = rectangle.getTranslateY();
 
             rectangle.setCursor(Cursor.CLOSED_HAND);
+            System.out.println("RECTANGLE ID: " + rectangle.getId());
         });
     }
 
@@ -209,12 +217,19 @@ public class GameController {
                     maxCol = NUM_COLS - 1;
                     maxRow = NUM_ROWS - 1;
                 }
-                //TODO modificare movimento limitandolo a un solo blocco alla volta
+
                 if ((newCol <= maxCol && newRow <= maxRow) && helper.isMoveValid(rectangle, newCol, newRow) && !helper.overlaps(gridPane, rectangle, newCol, newRow)) {
+
+                    int deltaCol = Math.abs(GridPane.getColumnIndex(rectangle) - newCol);
+                    int deltaRow = Math.abs(GridPane.getRowIndex(rectangle) - newRow);
+
+                    numMosse += (deltaRow + deltaCol);
+
                     GridPane.setRowIndex(rectangle, newRow);
                     GridPane.setColumnIndex(rectangle, newCol);
 
                     List<Components> updateList = getComponents();
+
                     for (Components x : updateList) {
                         if (x.getId().equals(rectangle.getId())) {
                             x.setRow(newRow);
@@ -223,17 +238,17 @@ public class GameController {
                     }
 
                     setComponents(updateList);
-                    setHystoryRectanglesMovements(getComponents());
+                    setHystoryRectanglesMovements(updateList);
+
                 }
+
             }
         });
     }
 
-    //TODO: modificare conteggio delle mosse
     private void setMouseReleased(Rectangle rectangle) {
         rectangle.setOnMouseReleased(event -> {
             rectangle.setCursor(Cursor.DEFAULT);
-            numMosse++;
             setnMosse(Integer.toString(numMosse));
         });
     }
@@ -267,6 +282,11 @@ public class GameController {
     }
 
 
+    public String getLevelTitle (){
+        return levelTitle;
+    }
+
+
     /*******************************************************************************
      *                              FXML BUTTON FUNCTIONS                           *
      *******************************************************************************/
@@ -279,11 +299,11 @@ public class GameController {
         Parent root = loader.load();
 
         GameController gameController = loader.getController();
-        gameController.initialize(getLevelName());
-
+        gameController.initialize(getLevelName(), getLevelTitle());
         Scene scene = gridPane.getScene();
         scene.setRoot(root);
     }
+
 
     //TODO controllare funzione di save
     @FXML
@@ -297,7 +317,7 @@ public class GameController {
         Level save = new Level(getComponents(), maxWidth, maxHeight, minWidth, minHeight);
         String json = gson.toJson(save);
 
-        String filePath = "src/main/resources/klotski_ids/data/resume/level_1_SAVE.json";
+        String filePath = "src/main/resources/klotski_ids/data/resume/level_SAVE.json";
         File file = new File(filePath);
 
         try {
@@ -329,53 +349,53 @@ public class GameController {
         System.out.println("BESTMOVE");
     }
 
-    //TODO implementare undo function, controllare come vengono salvati i dati su getHystoryREctanglesMovements
+
+    //TODO controllare il remove
     @FXML
     public void undo(ActionEvent actionEvent) {
-        System.out.println("all components moves");
+        int lastIndex = hystoryRectanglesMovements.size() - 1;
 
-        int size = getHystoryRectanglesMovements().size();
-
-        helper.setGridPaneElements(gridPane, getHystoryRectanglesMovements().get(size - 1), rectangles);
-
-        //for (List<Components> x : getHystoryRectanglesMovements()) {
-          List<Components> x = getHystoryRectanglesMovements().get(0);
-            for (Components y : x) {
-                System.out.println("id: " + y.getId());
-                System.out.println("col: " + y.getCol());
-                System.out.println("row: " + y.getRow());
+        if (lastIndex >= 0 && numMosse >=0) {
+            if (lastIndex > 0) {
+                hystoryRectanglesMovements.remove(lastIndex);
+                lastIndex--;
+                numMosse--;
+                setnMosse(Integer.toString(numMosse));
             }
-        //}
 
+            List<Components> componentsList = new ArrayList<>(hystoryRectanglesMovements.get(lastIndex));
+            gridPane.getChildren().clear();
+            helper.setGridPaneElements(gridPane, componentsList, rectangles);
 
+            setComponents(helper.copyComponentsList(componentsList));
+        }
     }
+
 
 
     /*******************************************************************************
      *                              INITIALIZE FUNCTION                            *
      *******************************************************************************/
 
-    public void initialize(String levelName) throws IOException {
+    public void initialize(String levelName, String levelTitle) throws IOException {
         setLevelName(levelName);
-        Level level_1 = helper.readJson(levelName);
 
-        if (level_1 == null) {
+        setTitle(levelTitle);
+
+        Level level = helper.readJson(levelName);
+
+        if (level == null) {
             System.err.println("Errore durante la lettura del file JSON");
             return;
         }
 
-        setComponents(level_1.getRectangles());
+        setComponents(level.getRectangles());
         setRectangles(helper.createRectangle(components));
-        setHystoryRectanglesMovements(getComponents());
-        for (Components x : components) {
-            System.out.println("ID: " + x.getId());
-            System.out.println("COL: " + x.getCol());
-            System.out.println("ROW: " + x.getRow());
-        }
+
+        setHystoryRectanglesMovements(components);
 
         helper.setGridPaneElements(gridPane, components, rectangles);
         setMouseEvent(gridPane, rectangles);
-
     }
 
 

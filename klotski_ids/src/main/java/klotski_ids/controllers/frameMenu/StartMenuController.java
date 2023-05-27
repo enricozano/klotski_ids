@@ -11,6 +11,7 @@ import javafx.scene.control.Button;
 import javafx.stage.Stage;
 
 
+import java.io.File;
 import java.io.IOException;
 import java.util.Objects;
 
@@ -30,12 +31,15 @@ public class StartMenuController {
         stage.show();
     }
 
+    //TODO aggiungere nome titole nel save di json
     @FXML
     private void resumeGame(ActionEvent actionEvent) throws IOException {
         Button button = (Button) actionEvent.getSource();
-        String text = "/klotski_ids/data/resume/level_1_SAVE.json";
-        loadGameScene();
-        gameController.initialize(text);
+        String text = "/klotski_ids/data/resume/level_SAVE.json";
+        if (gameController == null) {
+            loadGameScene();
+        }
+        gameController.initialize(text, gameController.getLevelTitle());
         setStageWindow(button);
     }
 
@@ -45,15 +49,12 @@ public class StartMenuController {
         gameController = loader.getController();
     }
 
-
     private void setStageWindow(Button button) {
         Stage stage = (Stage) button.getScene().getWindow();
         Scene scene = new Scene(root);
         stage.setScene(scene);
         stage.show();
     }
-
-
 
 
 }

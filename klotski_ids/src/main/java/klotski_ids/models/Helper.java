@@ -34,10 +34,12 @@ public class Helper {
         try (InputStream inputStream = getClass().getResourceAsStream(filePath)) {
             assert inputStream != null;
             try (InputStreamReader reader = new InputStreamReader(inputStream)) {
+
                 Gson gson = new Gson();
                 JsonReader jsonReader = new JsonReader(reader);
                 jsonReader.setLenient(true);
                 level = gson.fromJson(jsonReader, Level.class);
+
             }
         } catch (FileNotFoundException e) {
             System.err.println("File non trovato: " + filePath);
@@ -48,6 +50,7 @@ public class Helper {
         }
         return level;
     }
+
 
     /**
      * Returns a list of points representing the area covered by the specified rectangle at the given column and row index
@@ -174,6 +177,15 @@ public class Helper {
             GridPane.setConstraints(rectangle, component.getCol(), component.getRow(), component.getColSpan(), component.getRowSpan());
             gridPane.getChildren().add(rectangle);
         }
+    }
+
+    public List<Components> copyComponentsList(List<Components> originalList) {
+        List<Components> copyList = new ArrayList<>();
+        for (Components component : originalList) {
+            Components copy = new Components(component.getId(), component.getRow(), component.getCol(), component.getColSpan(), component.getRowSpan());
+            copyList.add(copy);
+        }
+        return copyList;
     }
 
 

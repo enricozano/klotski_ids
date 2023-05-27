@@ -12,6 +12,14 @@ public class Components {
     private int colSpan;
     private int rowSpan;
 
+    public Components(String id, int row, int col, int colSpan, int rowSpan){
+        this.id = id;
+        this.row = row;
+        this.col = col;
+        this.colSpan = colSpan;
+        this.rowSpan = rowSpan;
+    }
+
     /**
      Returns the height of this component.
      @return the height of this component

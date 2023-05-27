@@ -26,10 +26,10 @@ public class LevelMenuController {
         Button button = (Button) actionEvent.getSource();
         String text = button.getText();
         loadGameScene();
-        gameController.setTitle(text);
+
         String levelName = button.getId();
         System.out.println(levelName);
-        gameController.initialize("/klotski_ids/data/" + levelName + ".json");
+        gameController.initialize("/klotski_ids/data/" + levelName + ".json", text);
         setStageWindow(button);
     }
 

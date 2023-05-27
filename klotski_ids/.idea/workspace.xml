@@ -5,22 +5,14 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="6bfdf0fa-9483-4758-a1c0-5debc05e40e9" name="Changes" comment="improvements">
-      <change afterPath="$PROJECT_DIR$/src/main/java/klotski_ids/controllers/frameMenu/package-info.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/java/klotski_ids/controllers/package-info.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/java/klotski_ids/controllers/panes/package-info.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/java/klotski_ids/models/package-info.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/test/java/module-info.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/shelf/Uncommitted_changes_before_Update_at_5_6_23__4_04_PM__Changes_.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/shelf/Uncommitted_changes_before_Update_at_5_6_23__4_04_PM__Changes_.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/resources/klotski_ids/data/resume/level_SAVE.json" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/pom.xml" beforeDir="false" afterPath="$PROJECT_DIR$/pom.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/java/klotski_ids/controllers/frameMenu/GameController.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/klotski_ids/controllers/frameMenu/GameController.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/klotski_ids/controllers/util/Components.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/klotski_ids/models/Components.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/klotski_ids/controllers/util/Helper.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/klotski_ids/models/Helper.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/klotski_ids/controllers/util/Level.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/klotski_ids/models/Level.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/module-info.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/module-info.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/resources/klotski_ids/assets/styles/BarStyle.css" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/resources/klotski_ids/assets/styles/BarStyle.css" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/resources/klotski_ids/data/resume/level_1_SAVE.json" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/resources/klotski_ids/data/resume/level_1_SAVE.json" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/test/java/Sample.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/klotski_ids/controllers/frameMenu/LevelMenuController.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/klotski_ids/controllers/frameMenu/LevelMenuController.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/klotski_ids/controllers/frameMenu/StartMenuController.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/klotski_ids/controllers/frameMenu/StartMenuController.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/klotski_ids/models/Components.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/klotski_ids/models/Components.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/klotski_ids/models/Helper.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/klotski_ids/models/Helper.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/resources/klotski_ids/data/resume/level_1_SAVE.json" beforeDir="false" />
     </list>
     <list id="09855262-e7fe-4115-8869-69c02f2c6753" name="Changes by eris" comment="" />
     <option name="SHOW_DIALOG" value="false" />
@@ -41,6 +33,11 @@
     </option>
   </component>
   <component name="Git.Settings">
+    <option name="PREVIOUS_COMMIT_AUTHORS">
+      <list>
+        <option value="SansonEris &lt;sansoneris5@gmail.com&gt;" />
+      </list>
+    </option>
     <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$/.." />
   </component>
   <component name="GitHubPullRequestSearchHistory">{
@@ -175,7 +172,8 @@
       <workItem from="1684922171174" duration="647000" />
       <workItem from="1685029157935" duration="2709000" />
       <workItem from="1685086464333" duration="2074000" />
-      <workItem from="1685089854367" duration="3276000" />
+      <workItem from="1685089854367" duration="18307000" />
+      <workItem from="1685174119653" duration="11602000" />
     </task>
     <task id="LOCAL-00001" summary="Basic Structure">
       <created>1683102485156</created>
@@ -352,7 +350,21 @@
       <option name="project" value="LOCAL" />
       <updated>1684063353860</updated>
     </task>
-    <option name="localTasksCounter" value="26" />
+    <task id="LOCAL-00026" summary="improvements">
+      <created>1685093250203</created>
+      <option name="number" value="00026" />
+      <option name="presentableId" value="LOCAL-00026" />
+      <option name="project" value="LOCAL" />
+      <updated>1685093250203</updated>
+    </task>
+    <task id="LOCAL-00027" summary="improvements">
+      <created>1685093260078</created>
+      <option name="number" value="00027" />
+      <option name="presentableId" value="LOCAL-00027" />
+      <option name="project" value="LOCAL" />
+      <updated>1685093260078</updated>
+    </task>
+    <option name="localTasksCounter" value="28" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
