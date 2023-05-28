@@ -8,6 +8,7 @@ import javafx.scene.Node;
 import javafx.scene.Parent;
 import javafx.scene.Scene;
 import javafx.scene.control.Button;
+import javafx.stage.FileChooser;
 import javafx.stage.Stage;
 
 
@@ -31,17 +32,30 @@ public class StartMenuController {
         stage.show();
     }
 
-    //TODO aggiungere nome titole nel save di json
+    //TODO capire come aggiornare la direcory per la lettura del file
     @FXML
     private void resumeGame(ActionEvent actionEvent) throws IOException {
         Button button = (Button) actionEvent.getSource();
-        String text = "/klotski_ids/data/resume/level_SAVE.json";
-        if (gameController == null) {
-            loadGameScene();
+
+        String folderPath = "/klotski_ids/data/resume/";
+        File folder = new File(getClass().getResource(folderPath).getFile());
+        File[] files = folder.listFiles();
+
+        if (files != null && files.length == 1) {
+            String fileName = files[0].getName();
+            String filePath = folderPath + fileName;
+
+            if (gameController == null) {
+                loadGameScene();
+            }
+            gameController.initialize(filePath, gameController.getLevelTitle());
+            setStageWindow(button);
+        } else {
+            System.out.println("No or multiple files found in the directory.");
         }
-        gameController.initialize(text, gameController.getLevelTitle());
-        setStageWindow(button);
     }
+
+
 
     private void loadGameScene() throws IOException {
         FXMLLoader loader = new FXMLLoader(getClass().getResource("/klotski_ids/views/frameMenu/game.fxml"));

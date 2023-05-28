@@ -5,15 +5,15 @@ import com.google.gson.JsonSyntaxException;
 import com.google.gson.stream.JsonReader;
 import javafx.geometry.Point2D;
 import javafx.scene.Node;
+import javafx.scene.control.Alert;
+import javafx.scene.control.ButtonType;
 import javafx.scene.layout.GridPane;
 import javafx.scene.shape.Rectangle;
 
-import java.io.FileNotFoundException;
-import java.io.IOException;
-import java.io.InputStream;
-import java.io.InputStreamReader;
+import java.io.*;
 import java.util.ArrayList;
 import java.util.List;
+import java.util.Optional;
 
 public class Helper {
     private static final int CELL_WIDTH = 50;
@@ -29,27 +29,27 @@ public class Helper {
      * @throws IOException           if an error occurs while reading the JSON file
      * @throws JsonSyntaxException   if the JSON file is not formatted correctly
      */
-    public klotski_ids.models.Level readJson(String filePath) throws FileNotFoundException, IOException, JsonSyntaxException {
+    public klotski_ids.models.Level readJson(String filePath) throws IOException {
         klotski_ids.models.Level level = null;
         try (InputStream inputStream = getClass().getResourceAsStream(filePath)) {
-            assert inputStream != null;
-            try (InputStreamReader reader = new InputStreamReader(inputStream)) {
-
-                Gson gson = new Gson();
-                JsonReader jsonReader = new JsonReader(reader);
-                jsonReader.setLenient(true);
-                level = gson.fromJson(jsonReader, Level.class);
-
+            if (inputStream == null) {
+                throw new FileNotFoundException("File non trovato: " + filePath);
             }
-        } catch (FileNotFoundException e) {
-            System.err.println("File non trovato: " + filePath);
-            throw e;
-        } catch (IOException | JsonSyntaxException e) {
-            System.err.println("Errore durante la lettura del file JSON: " + e.getMessage());
-            throw e;
+
+            Gson gson = new Gson();
+            InputStreamReader reader = new InputStreamReader(inputStream);
+            JsonReader jsonReader = new JsonReader(reader);
+            jsonReader.setLenient(true);
+            level = gson.fromJson(jsonReader, klotski_ids.models.Level.class);
+
+            // Stampa del JSON
+            System.out.println("Contenuto del JSON:");
+            System.out.println(gson.toJson(level));
         }
+
         return level;
     }
+
 
 
     /**
@@ -188,5 +188,19 @@ public class Helper {
         return copyList;
     }
 
+    public boolean confermationAllert() {
+        Alert alert = new Alert(Alert.AlertType.CONFIRMATION);
+        alert.setTitle("Reset");
+        alert.setHeaderText("");
+        alert.setContentText("Are you sure you want to continue? \nAll progress will be lost");
+
+        ButtonType confirmButton = new ButtonType("Confirm");
+        ButtonType cancelButton = new ButtonType("Cancel");
+
+        alert.getButtonTypes().setAll(confirmButton, cancelButton);
+
+        Optional<ButtonType> result = alert.showAndWait();
+        return result.isPresent() && result.get() == confirmButton;
+    }
 
 }

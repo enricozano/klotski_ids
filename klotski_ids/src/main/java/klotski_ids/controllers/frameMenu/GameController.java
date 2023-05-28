@@ -7,7 +7,9 @@ import javafx.fxml.FXMLLoader;
 import javafx.scene.Cursor;
 import javafx.scene.Parent;
 import javafx.scene.Scene;
+import javafx.scene.control.Alert;
 import javafx.scene.control.Button;
+import javafx.scene.control.ButtonType;
 import javafx.scene.control.Label;
 import javafx.scene.layout.GridPane;
 import javafx.scene.shape.Rectangle;
@@ -16,8 +18,13 @@ import klotski_ids.models.Level;
 import klotski_ids.models.Helper;
 
 import java.io.*;
+import java.text.SimpleDateFormat;
+import java.time.LocalDateTime;
+import java.time.format.DateTimeFormatter;
 import java.util.ArrayList;
+import java.util.Date;
 import java.util.List;
+import java.util.Optional;
 
 /**
  * The GameController class controls the behavior of the game. It handles mouse events to allow
@@ -122,7 +129,7 @@ public class GameController {
      */
     private List<Rectangle> rectangles = new ArrayList<>();
 
-    private static final List<List<Components>> hystoryRectanglesMovements = new ArrayList<>();
+    private static List<List<Components>> hystoryRectanglesMovements = new ArrayList<>();
 
     /**
      * An instance of the Helper class.
@@ -291,21 +298,30 @@ public class GameController {
      *                              FXML BUTTON FUNCTIONS                           *
      *******************************************************************************/
 
-
-    //TODO controllare come impostare nome label dopo reset
     @FXML
     private void reset(ActionEvent actionEvent) throws IOException {
-        FXMLLoader loader = new FXMLLoader(getClass().getResource("/klotski_ids/views/frameMenu/game.fxml"));
-        Parent root = loader.load();
+        if (helper.confermationAllert()) {
+            System.out.println("Action confirmed");
 
-        GameController gameController = loader.getController();
-        gameController.initialize(getLevelName(), getLevelTitle());
-        Scene scene = gridPane.getScene();
-        scene.setRoot(root);
+            FXMLLoader loader = new FXMLLoader(getClass().getResource("/klotski_ids/views/frameMenu/game.fxml"));
+            Parent root = loader.load();
+
+            GameController gameController = loader.getController();
+            gameController.initialize(getLevelName(), getLevelTitle());
+
+            Scene scene = gridPane.getScene();
+            scene.setRoot(root);
+        } else {
+            System.out.println("Action canceled");
+        }
+    }
+    private void resetVariables() {
+        numMosse = 0;
+        components = new ArrayList<>();
+        rectangles = new ArrayList<>();
+        hystoryRectanglesMovements = new ArrayList<>();
     }
 
-
-    //TODO controllare funzione di save
     @FXML
     public void save(ActionEvent actionEvent) throws IOException {
         Gson gson = new Gson();
@@ -317,30 +333,46 @@ public class GameController {
         Level save = new Level(getComponents(), maxWidth, maxHeight, minWidth, minHeight);
         String json = gson.toJson(save);
 
-        String filePath = "src/main/resources/klotski_ids/data/resume/level_SAVE.json";
-        File file = new File(filePath);
+        String originalFilePath = "src/main/resources/klotski_ids/data/resume/level_SAVE.json";
+        String timestamp = new SimpleDateFormat("yyyyMMdd_HHmmss").format(new Date());
+        String newFileName = "level_SAVE_" + timestamp + ".json";
+        String newFilePath = "src/main/resources/klotski_ids/data/resume/" + newFileName;
+
+        File originalFile = new File(originalFilePath);
+        File newFile = new File(newFilePath);
+
+        String folderPath = "src/main/resources/klotski_ids/data/resume/";
+        File folder = new File(folderPath);
+        File[] files = folder.listFiles();
+
+        if (files != null) {
+            for (File file : files) {
+                if (file.delete()) {
+                    System.out.println("File eliminato: " + file.getAbsolutePath());
+                } else {
+                    System.err.println("Impossibile eliminare il file: " + file.getAbsolutePath());
+                }
+            }
+        } else {
+            System.out.println("Nessun file trovato nella cartella: " + folderPath);
+        }
 
         try {
-            if (file.delete()) {
-                System.out.println("File eliminato con successo.");
-            } else {
-                System.out.println("Impossibile eliminare il file.");
-            }
-
-            if (file.createNewFile()) {
-                try (FileWriter writer = new FileWriter(file)) {
+            if (newFile.createNewFile()) {
+                try (FileWriter writer = new FileWriter(newFile)) {
                     writer.write(json);
-                    System.out.println("File salvato con successo.");
+                    System.out.println("File salvato con successo: " + newFilePath);
                 } catch (IOException e) {
                     System.err.println("Errore durante la scrittura del file: " + e.getMessage());
                 }
             } else {
-                System.err.println("Impossibile creare il file " + filePath);
+                System.err.println("Impossibile creare il file: " + newFilePath);
             }
         } catch (SecurityException e) {
             System.err.println("Accesso negato: " + e.getMessage());
         }
     }
+
 
 
     //TODO implementare next best move
@@ -350,15 +382,15 @@ public class GameController {
     }
 
 
-    //TODO controllare il remove
     @FXML
     public void undo(ActionEvent actionEvent) {
         int lastIndex = hystoryRectanglesMovements.size() - 1;
 
-        if (lastIndex >= 0 && numMosse >=0) {
-            if (lastIndex > 0) {
-                hystoryRectanglesMovements.remove(lastIndex);
-                lastIndex--;
+        if (lastIndex >= 1) {
+            hystoryRectanglesMovements.remove(lastIndex);
+            lastIndex--;
+
+            if (numMosse > 0) {
                 numMosse--;
                 setnMosse(Integer.toString(numMosse));
             }
@@ -371,15 +403,14 @@ public class GameController {
         }
     }
 
-
-
     /*******************************************************************************
      *                              INITIALIZE FUNCTION                            *
      *******************************************************************************/
 
     public void initialize(String levelName, String levelTitle) throws IOException {
-        setLevelName(levelName);
+        resetVariables();
 
+        setLevelName(levelName);
         setTitle(levelTitle);
 
         Level level = helper.readJson(levelName);
