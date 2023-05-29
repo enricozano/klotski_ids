@@ -52,7 +52,7 @@ public class StartMenuController {
 
             if (level != null) {
                 System.out.println("Level: " + level.getLevelTitle());
-                gameController.initialize(level, level.getLevelTitle());
+                gameController.initialize(level, level.getLevelTitle(), filePath);
                 setStageWindow(button);
             } else {
                 System.err.println("Error loading the selected file.");
@@ -64,7 +64,7 @@ public class StartMenuController {
             Level level = helper.readJson(filePath);
 
             if (level != null) {
-                gameController.initialize(level, level.getLevelTitle());
+                gameController.initialize(level, level.getLevelTitle(), filePath);
                 setStageWindow(button);
             } else {
                 System.err.println("Error loading the default file.");

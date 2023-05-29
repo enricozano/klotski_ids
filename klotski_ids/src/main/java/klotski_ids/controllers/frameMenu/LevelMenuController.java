@@ -27,14 +27,15 @@ public class LevelMenuController {
     private void goToLevel(ActionEvent actionEvent) throws IOException {
         Helper helper = new Helper();
         Button button = (Button) actionEvent.getSource();
-        String text = button.getText();
+        String levelTitle = button.getText();
         loadGameScene();
 
-        String levelName = button.getId();
-        String filePath = "/klotski_ids/data/" + levelName + ".json";
+        String levelFileName = button.getId();
+        String filePath = "/klotski_ids/data/" + levelFileName + ".json";
 
         Level level = helper.readJson(filePath);
-        gameController.initialize(level, text);
+
+        gameController.initialize(level, levelTitle, filePath);
         setStageWindow(button);
     }
 

@@ -9,15 +9,6 @@
       <change beforePath="$PROJECT_DIR$/src/main/java/klotski_ids/controllers/frameMenu/GameController.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/klotski_ids/controllers/frameMenu/GameController.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/java/klotski_ids/controllers/frameMenu/LevelMenuController.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/klotski_ids/controllers/frameMenu/LevelMenuController.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/java/klotski_ids/controllers/frameMenu/StartMenuController.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/klotski_ids/controllers/frameMenu/StartMenuController.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/klotski_ids/controllers/panes/TopBarController.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/klotski_ids/controllers/panes/TopBarController.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/klotski_ids/models/Helper.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/klotski_ids/models/Helper.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/klotski_ids/models/Level.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/klotski_ids/models/Level.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/klotski_ids/models/MyAlerts.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/klotski_ids/models/MyAlerts.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/resources/klotski_ids/data/level_1.json" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/resources/klotski_ids/data/level_1.json" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/resources/klotski_ids/data/level_2.json" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/resources/klotski_ids/data/level_2.json" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/resources/klotski_ids/data/level_3.json" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/resources/klotski_ids/data/level_3.json" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/resources/klotski_ids/data/level_4.json" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/resources/klotski_ids/data/level_4.json" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/resources/klotski_ids/data/resume/level_SAVE_20230528_201903.json" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/resources/klotski_ids/data/resume/level_SAVE.json" afterDir="false" />
     </list>
     <list id="09855262-e7fe-4115-8869-69c02f2c6753" name="Changes by eris" comment="" />
     <option name="SHOW_DIALOG" value="false" />

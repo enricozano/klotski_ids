@@ -174,11 +174,11 @@ public class GameController {
     }
 
     public void setnMosse(String mosse) {
-        nMosse.setText(mosse);
+        this.nMosse.setText(mosse);
     }
 
-    public void setLevelName(String level) {
-        levelName = level;
+    public void setLevelFilePath(String level) {
+        this.levelName = level;
     }
 
     public void setHystoryRectanglesMovements(List<Components> componentsList) {
@@ -288,7 +288,7 @@ public class GameController {
         return rectangles;
     }
 
-    public String getLevelName() {
+    public String getLevelFilePath() {
         return levelName;
     }
 
@@ -315,8 +315,13 @@ public class GameController {
             Parent root = loader.load();
 
             GameController gameController = loader.getController();
-            Level level = helper.readJson(getLevelName());
-            gameController.initialize(level, getLevelTitle());
+            try {
+                Level level = helper.readJson(getLevelFilePath());
+                gameController.initialize(level, getLevelTitle(), getLevelFilePath());
+            } catch (NullPointerException e){
+                Level level = helper.readJsonAbsolutePath(getLevelFilePath());
+                gameController.initialize(level, getLevelTitle(), getLevelFilePath());
+            }
 
             Scene scene = gridPane.getScene();
             scene.setRoot(root);
@@ -395,16 +400,16 @@ public class GameController {
      *                              INITIALIZE FUNCTION                            *
      *******************************************************************************/
 
-    public void initialize(Level level, String levelTitle) throws IOException {
+    public void initialize(Level level, String levelTitle, String filePath) throws IOException {
         resetVariables();
 
-        setLevelName(levelName);
+        System.out.println("level file name init: " + filePath);
+        setLevelFilePath(filePath);
+
+        //Scritta per il pane
         setTitle(levelTitle);
+
         numMosse = level.getCountedMoves();
-        if (level == null) {
-            System.err.println("Errore durante la lettura del file JSON");
-            return;
-        }
 
         setComponents(level.getRectangles());
         setRectangles(helper.createRectangle(components));
