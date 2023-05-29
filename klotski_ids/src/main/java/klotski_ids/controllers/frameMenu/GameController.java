@@ -13,6 +13,7 @@ import javafx.scene.control.ButtonType;
 import javafx.scene.control.Label;
 import javafx.scene.layout.GridPane;
 import javafx.scene.shape.Rectangle;
+import javafx.stage.FileChooser;
 import klotski_ids.models.MyAlerts;
 import klotski_ids.models.Components;
 import klotski_ids.models.Level;
@@ -141,7 +142,7 @@ public class GameController {
     /**
      * An instance of the myAlerts class.
      */
-    MyAlerts myAlert=new MyAlerts();
+    MyAlerts resetAlert = new MyAlerts("Reset");
 
     /**
      * name of the level
@@ -307,14 +308,15 @@ public class GameController {
 
     @FXML
     private void reset(ActionEvent actionEvent) throws IOException {
-        if (myAlert.confermationAlert("Reset")) {
+        if (resetAlert.confermationAlert()) {
             System.out.println("Action confirmed");
 
             FXMLLoader loader = new FXMLLoader(getClass().getResource("/klotski_ids/views/frameMenu/game.fxml"));
             Parent root = loader.load();
 
             GameController gameController = loader.getController();
-            gameController.initialize(getLevelName(), getLevelTitle());
+            Level level = helper.readJson(getLevelName());
+            gameController.initialize(level, getLevelTitle());
 
             Scene scene = gridPane.getScene();
             scene.setRoot(root);
@@ -336,50 +338,30 @@ public class GameController {
         int maxHeight = 100;
         int minWidth = 50;
         int minHeight = 50;
+        int countedMoves = numMosse;
+        String levelTitle = getLevelTitle();
 
-        Level save = new Level(getComponents(), maxWidth, maxHeight, minWidth, minHeight);
+        Level save = new Level(getComponents(), maxWidth, maxHeight, minWidth, minHeight, countedMoves, levelTitle);
         String json = gson.toJson(save);
 
-        String originalFilePath = "src/main/resources/klotski_ids/data/resume/level_SAVE.json";
-        String timestamp = new SimpleDateFormat("yyyyMMdd_HHmmss").format(new Date());
-        String newFileName = "level_SAVE_" + timestamp + ".json";
-        String newFilePath = "src/main/resources/klotski_ids/data/resume/" + newFileName;
+        FileChooser fileChooser = new FileChooser();
+        fileChooser.setTitle("Salva file");
+        fileChooser.setInitialFileName("level_SAVE.json");
+        File selectedFile = fileChooser.showSaveDialog(null);
 
-        File originalFile = new File(originalFilePath);
-        File newFile = new File(newFilePath);
+        if (selectedFile != null) {
+            String filePath = selectedFile.getAbsolutePath();
 
-        String folderPath = "src/main/resources/klotski_ids/data/resume/";
-        File folder = new File(folderPath);
-        File[] files = folder.listFiles();
-
-        if (files != null) {
-            for (File file : files) {
-                if (file.delete()) {
-                    System.out.println("File eliminato: " + file.getAbsolutePath());
-                } else {
-                    System.err.println("Impossibile eliminare il file: " + file.getAbsolutePath());
-                }
+            try (FileWriter writer = new FileWriter(selectedFile)) {
+                writer.write(json);
+                System.out.println("File salvato con successo.");
+            } catch (IOException e) {
+                System.err.println("Errore durante la scrittura del file: " + e.getMessage());
             }
         } else {
-            System.out.println("Nessun file trovato nella cartella: " + folderPath);
-        }
-
-        try {
-            if (newFile.createNewFile()) {
-                try (FileWriter writer = new FileWriter(newFile)) {
-                    writer.write(json);
-                    System.out.println("File salvato con successo: " + newFilePath);
-                } catch (IOException e) {
-                    System.err.println("Errore durante la scrittura del file: " + e.getMessage());
-                }
-            } else {
-                System.err.println("Impossibile creare il file: " + newFilePath);
-            }
-        } catch (SecurityException e) {
-            System.err.println("Accesso negato: " + e.getMessage());
+            System.out.println("Operazione di salvataggio annullata.");
         }
     }
-
 
 
     //TODO implementare next best move
@@ -387,7 +369,6 @@ public class GameController {
     public void nextBestMove(ActionEvent actionEvent) {
         System.out.println("BESTMOVE");
     }
-
 
     @FXML
     public void undo(ActionEvent actionEvent) {
@@ -414,14 +395,12 @@ public class GameController {
      *                              INITIALIZE FUNCTION                            *
      *******************************************************************************/
 
-    public void initialize(String levelName, String levelTitle) throws IOException {
+    public void initialize(Level level, String levelTitle) throws IOException {
         resetVariables();
 
         setLevelName(levelName);
         setTitle(levelTitle);
-
-        Level level = helper.readJson(levelName);
-
+        numMosse = level.getCountedMoves();
         if (level == null) {
             System.err.println("Errore durante la lettura del file JSON");
             return;

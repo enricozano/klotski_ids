@@ -14,10 +14,11 @@ import java.io.IOException;
 import java.util.Objects;
 
 public class TopBarController {
-    MyAlerts myAlert=new MyAlerts();
+
     @FXML
     public void goHome(ActionEvent actionEvent) throws IOException {
-        if(myAlert.confermationAlert("Go Home")){
+        MyAlerts HomeAlert = new MyAlerts("Go Home");
+        if(HomeAlert.confermationAlert()){
             Parent root = FXMLLoader.load(Objects.requireNonNull(getClass().getResource("/klotski_ids/mainView.fxml")));
             Stage stage = (Stage) ((Node) actionEvent.getSource()).getScene().getWindow();
             Scene scene = new Scene(root);
@@ -26,11 +27,10 @@ public class TopBarController {
         }
     }
 
-
-    //TODO mettere solo nei livelli l'allert non anche nella selezione
     @FXML
     public void goBack(ActionEvent actionEvent) throws IOException {
-        if(myAlert.confermationAlert("Go Back")){
+        MyAlerts goBackAlert =  new MyAlerts("Go Back");
+        if(goBackAlert.confermationAlert()){
             Parent root = FXMLLoader.load(Objects.requireNonNull(getClass().getResource("/klotski_ids/views/frameMenu/levelMenu.fxml")));
             Stage stage = (Stage) ((Node) actionEvent.getSource()).getScene().getWindow();
             Scene scene = new Scene(root);

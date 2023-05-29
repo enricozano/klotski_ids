@@ -10,6 +10,8 @@ import javafx.scene.Scene;
 import javafx.scene.control.Button;
 import javafx.stage.FileChooser;
 import javafx.stage.Stage;
+import klotski_ids.models.Helper;
+import klotski_ids.models.Level;
 
 
 import java.io.File;
@@ -20,7 +22,6 @@ public class StartMenuController {
     @FXML
     public Button resumeGame;
     private GameController gameController;
-
     private Parent root;
 
     @FXML
@@ -35,27 +36,41 @@ public class StartMenuController {
     //TODO capire come aggiornare la direcory per la lettura del file
     @FXML
     private void resumeGame(ActionEvent actionEvent) throws IOException {
+        Helper helper = new Helper();
         Button button = (Button) actionEvent.getSource();
 
-        String folderPath = "/klotski_ids/data/resume/";
-        File folder = new File(getClass().getResource(folderPath).getFile());
-        File[] files = folder.listFiles();
+        FileChooser fileChooser = new FileChooser();
+        fileChooser.setTitle("Carica file");
+        fileChooser.setInitialFileName("level_SAVE.json");
+        File selectedFile = fileChooser.showOpenDialog(null);
 
-        if (files != null && files.length == 1) {
-            String fileName = files[0].getName();
-            String filePath = folderPath + fileName;
+        if (selectedFile != null) {
+            String filePath = selectedFile.getPath();
+            loadGameScene();
+            System.out.println("File path: " + filePath);
+            Level level = helper.readJsonAbsolutePath(filePath);
 
-            if (gameController == null) {
-                loadGameScene();
+            if (level != null) {
+                System.out.println("Level: " + level.getLevelTitle());
+                gameController.initialize(level, level.getLevelTitle());
+                setStageWindow(button);
+            } else {
+                System.err.println("Error loading the selected file.");
             }
-            gameController.initialize(filePath, gameController.getLevelTitle());
-            setStageWindow(button);
         } else {
-            System.out.println("No or multiple files found in the directory.");
+            String filePath = "/klotski_ids/data/resume/level_SAVE.json";
+            loadGameScene();
+            System.out.println("File path: " + filePath);
+            Level level = helper.readJson(filePath);
+
+            if (level != null) {
+                gameController.initialize(level, level.getLevelTitle());
+                setStageWindow(button);
+            } else {
+                System.err.println("Error loading the default file.");
+            }
         }
     }
-
-
 
     private void loadGameScene() throws IOException {
         FXMLLoader loader = new FXMLLoader(getClass().getResource("/klotski_ids/views/frameMenu/game.fxml"));

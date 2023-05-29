@@ -29,26 +29,46 @@ public class Helper {
      * @throws IOException           if an error occurs while reading the JSON file
      * @throws JsonSyntaxException   if the JSON file is not formatted correctly
      */
-    public klotski_ids.models.Level readJson(String filePath) throws IOException {
-        klotski_ids.models.Level level = null;
+    public Level readJson(String filePath) throws FileNotFoundException, IOException, JsonSyntaxException {
+        System.out.println("file path: " + filePath);
+        Level level = null;
         try (InputStream inputStream = getClass().getResourceAsStream(filePath)) {
-            if (inputStream == null) {
-                throw new FileNotFoundException("File non trovato: " + filePath);
+            assert inputStream != null;
+            try (InputStreamReader reader = new InputStreamReader(inputStream)) {
+                Gson gson = new Gson();
+                JsonReader jsonReader = new JsonReader(reader);
+                jsonReader.setLenient(true);
+                level = gson.fromJson(jsonReader, Level.class);
             }
-
-            Gson gson = new Gson();
-            InputStreamReader reader = new InputStreamReader(inputStream);
-            JsonReader jsonReader = new JsonReader(reader);
-            jsonReader.setLenient(true);
-            level = gson.fromJson(jsonReader, klotski_ids.models.Level.class);
-
-            // Stampa del JSON
-            System.out.println("Contenuto del JSON:");
-            System.out.println(gson.toJson(level));
+        } catch (FileNotFoundException e) {
+            System.err.println("File not found: " + filePath);
+            throw e;
+        } catch (IOException | JsonSyntaxException e) {
+            System.err.println("Error while reading JSON file: " + e.getMessage());
+            throw e;
         }
-
         return level;
     }
+
+    public Level readJsonAbsolutePath(String filePath) throws FileNotFoundException, IOException, JsonSyntaxException {
+        Level level = null;
+        try (InputStream inputStream = new FileInputStream(filePath)) {
+            try (InputStreamReader reader = new InputStreamReader(inputStream)) {
+                Gson gson = new Gson();
+                JsonReader jsonReader = new JsonReader(reader);
+                jsonReader.setLenient(true);
+                level = gson.fromJson(jsonReader, Level.class);
+            }
+        } catch (FileNotFoundException e) {
+            System.err.println("File not found: " + filePath);
+            throw e;
+        } catch (IOException | JsonSyntaxException e) {
+            System.err.println("Error while reading JSON file: " + e.getMessage());
+            throw e;
+        }
+        return level;
+    }
+
 
 
 

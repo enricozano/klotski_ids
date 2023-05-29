@@ -7,9 +7,14 @@ import java.util.Optional;
 
 public class MyAlerts {
 
-        public boolean confermationAlert(String s) {
+        private String allertType;
+        public MyAlerts(String allertType){
+            this.allertType = allertType;
+        }
+
+    public boolean confermationAlert() {
             Alert alert = new Alert(Alert.AlertType.CONFIRMATION);
-            alert.setTitle(s);
+            alert.setTitle(allertType);
             alert.setHeaderText("");
             alert.setContentText("Are you sure you want to continue? \nAll progress will be lost");
 

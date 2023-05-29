@@ -7,6 +7,8 @@ import javafx.scene.Parent;
 import javafx.scene.Scene;
 import javafx.scene.control.Button;
 import javafx.stage.Stage;
+import klotski_ids.models.Helper;
+import klotski_ids.models.Level;
 
 import java.io.IOException;
 
@@ -23,13 +25,16 @@ public class LevelMenuController {
 
     @FXML
     private void goToLevel(ActionEvent actionEvent) throws IOException {
+        Helper helper = new Helper();
         Button button = (Button) actionEvent.getSource();
         String text = button.getText();
         loadGameScene();
 
         String levelName = button.getId();
+        String filePath = "/klotski_ids/data/" + levelName + ".json";
 
-        gameController.initialize("/klotski_ids/data/" + levelName + ".json", text);
+        Level level = helper.readJson(filePath);
+        gameController.initialize(level, text);
         setStageWindow(button);
     }
 

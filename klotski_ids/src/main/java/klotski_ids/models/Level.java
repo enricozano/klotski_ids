@@ -30,6 +30,9 @@ public class Level {
      */
     private int minHeight;
 
+    private int countedMoves;
+
+    private String levelTitle;
     /**
      * The list of components (rectangles) that make up the level.
      */
@@ -49,12 +52,14 @@ public class Level {
      * @param minWidth   the minimum width of the playing area
      * @param minHeight  the minimum height of the playing area
      */
-    public Level(List<klotski_ids.models.Components> rectangles, int maxWidth, int maxHeight, int minWidth, int minHeight) {
+    public Level(List<klotski_ids.models.Components> rectangles, int maxWidth, int maxHeight, int minWidth, int minHeight, int countedMoves, String levelTitle) {
         this.maxWidth = maxWidth;
         this.maxHeight = maxHeight;
         this.minWidth = minWidth;
         this.minHeight = minHeight;
         this.rectangles = rectangles;
+        this.countedMoves = countedMoves;
+        this.levelTitle = levelTitle;
     }
 
     /**
@@ -108,7 +113,13 @@ public class Level {
         this.minWidth = minWidth;
     }
 
+    public void setLevelTitle(String levelTitle){
+        this.levelTitle = levelTitle;
+    }
 
+    public void setCountedMoves(int countedMoves){
+        this.countedMoves = countedMoves;
+    }
     /*******************************************************************************
      *                              Getter Functions                               *
      *******************************************************************************/
@@ -158,5 +169,11 @@ public class Level {
         return rectangles;
     }
 
+    public String getLevelTitle(){
+        return this.levelTitle;
+    }
 
+    public int getCountedMoves(){
+        return this.countedMoves;
+    }
 }
