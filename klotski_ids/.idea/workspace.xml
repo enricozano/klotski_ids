@@ -5,42 +5,11 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="6bfdf0fa-9483-4758-a1c0-5debc05e40e9" name="Changes" comment="Merge remote-tracking branch 'origin/main'&#10;&#10;# Conflicts:&#10;#&#9;klotski_ids/.idea/workspace.xml">
-      <change afterPath="$PROJECT_DIR$/src/main/resources/klotski_ids/data/resume/level_SAVE_20230528_201903.json" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.gitignore" beforeDir="false" afterPath="$PROJECT_DIR$/.gitignore" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/klotski_ids/models/Allerts.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/klotski_ids/Launcher.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/klotski_ids/Launcher.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/java/klotski_ids/controllers/frameMenu/GameController.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/klotski_ids/controllers/frameMenu/GameController.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/klotski_ids/controllers/frameMenu/LevelMenuController.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/klotski_ids/controllers/frameMenu/LevelMenuController.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/klotski_ids/controllers/frameMenu/StartMenuController.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/klotski_ids/controllers/frameMenu/StartMenuController.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/klotski_ids/controllers/frameMenu/package-info.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/klotski_ids/controllers/frameMenu/package-info.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/klotski_ids/controllers/package-info.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/klotski_ids/controllers/package-info.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/klotski_ids/controllers/panes/BottomBarController.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/klotski_ids/controllers/panes/BottomBarController.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/java/klotski_ids/controllers/panes/TopBarController.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/klotski_ids/controllers/panes/TopBarController.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/klotski_ids/controllers/panes/package-info.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/klotski_ids/controllers/panes/package-info.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/klotski_ids/mainApplication.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/klotski_ids/mainApplication.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/klotski_ids/models/Components.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/klotski_ids/models/Components.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/java/klotski_ids/models/Helper.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/klotski_ids/models/Helper.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/klotski_ids/models/Level.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/klotski_ids/models/Level.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/klotski_ids/models/package-info.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/klotski_ids/models/package-info.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/module-info.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/module-info.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/resources/klotski_ids/assets/styles/BarStyle.css" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/resources/klotski_ids/assets/styles/BarStyle.css" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/resources/klotski_ids/assets/styles/levelMenuStyle.css" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/resources/klotski_ids/assets/styles/levelMenuStyle.css" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/resources/klotski_ids/assets/styles/mainGameStyle.css" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/resources/klotski_ids/assets/styles/mainGameStyle.css" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/resources/klotski_ids/assets/styles/mainViewStyle.css" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/resources/klotski_ids/assets/styles/mainViewStyle.css" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/resources/klotski_ids/assets/styles/startMenuStyle.css" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/resources/klotski_ids/assets/styles/startMenuStyle.css" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/resources/klotski_ids/data/level_1.json" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/resources/klotski_ids/data/level_1.json" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/resources/klotski_ids/data/level_2.json" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/resources/klotski_ids/data/level_2.json" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/resources/klotski_ids/data/level_3.json" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/resources/klotski_ids/data/level_3.json" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/resources/klotski_ids/data/level_4.json" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/resources/klotski_ids/data/level_4.json" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/resources/klotski_ids/data/resume/level_SAVE.json" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/resources/klotski_ids/mainView.fxml" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/resources/klotski_ids/mainView.fxml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/resources/klotski_ids/views/frameMenu/game.fxml" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/resources/klotski_ids/views/frameMenu/game.fxml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/resources/klotski_ids/views/frameMenu/levelMenu.fxml" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/resources/klotski_ids/views/frameMenu/levelMenu.fxml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/resources/klotski_ids/views/frameMenu/startMenu.fxml" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/resources/klotski_ids/views/frameMenu/startMenu.fxml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/resources/klotski_ids/views/panes/bottomBar.fxml" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/resources/klotski_ids/views/panes/bottomBar.fxml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/resources/klotski_ids/views/panes/topBar.fxml" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/resources/klotski_ids/views/panes/topBar.fxml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/resources/klotski_ids/views/panes/topBarBack.fxml" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/resources/klotski_ids/views/panes/topBarBack.fxml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/test/java/module-info.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/test/java/module-info.java" afterDir="false" />
     </list>
     <list id="09855262-e7fe-4115-8869-69c02f2c6753" name="Changes by eris" comment="" />
     <option name="SHOW_DIALOG" value="false" />
@@ -53,10 +22,10 @@
       <list>
         <option value="JavaScript File" />
         <option value="CSS File" />
-        <option value="Class" />
         <option value="package-info" />
         <option value="module-info" />
         <option value="FxmlFile" />
+        <option value="Class" />
       </list>
     </option>
   </component>
@@ -110,7 +79,7 @@
     "SHARE_PROJECT_CONFIGURATION_FILES": "true",
     "WebServerToolWindowFactoryState": "false",
     "git-widget-placeholder": "main",
-    "last_opened_file_path": "C:/Users/sanso/Documents/klotski_ids/klotski_ids",
+    "last_opened_file_path": "C:/Users/zanon/Desktop/klotski_ids/klotski_ids",
     "list.type.of.created.stylesheet": "CSS",
     "node.js.detected.package.eslint": "true",
     "node.js.detected.package.tslint": "true",
@@ -197,6 +166,7 @@
       <workItem from="1685086464333" duration="2074000" />
       <workItem from="1685089854367" duration="3276000" />
       <workItem from="1685289680771" duration="8351000" />
+      <workItem from="1685350304940" duration="470000" />
     </task>
     <task id="LOCAL-00001" summary="Basic Structure">
       <created>1683102485156</created>

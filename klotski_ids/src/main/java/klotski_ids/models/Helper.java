@@ -188,19 +188,6 @@ public class Helper {
         return copyList;
     }
 
-    public boolean confermationAllert() {
-        Alert alert = new Alert(Alert.AlertType.CONFIRMATION);
-        alert.setTitle("Reset");
-        alert.setHeaderText("");
-        alert.setContentText("Are you sure you want to continue? \nAll progress will be lost");
 
-        ButtonType confirmButton = new ButtonType("Confirm");
-        ButtonType cancelButton = new ButtonType("Cancel");
-
-        alert.getButtonTypes().setAll(confirmButton, cancelButton);
-
-        Optional<ButtonType> result = alert.showAndWait();
-        return result.isPresent() && result.get() == confirmButton;
-    }
 
 }

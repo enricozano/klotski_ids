@@ -13,6 +13,7 @@ import javafx.scene.control.ButtonType;
 import javafx.scene.control.Label;
 import javafx.scene.layout.GridPane;
 import javafx.scene.shape.Rectangle;
+import klotski_ids.models.Allerts;
 import klotski_ids.models.Components;
 import klotski_ids.models.Level;
 import klotski_ids.models.Helper;
@@ -135,6 +136,11 @@ public class GameController {
      * An instance of the Helper class.
      */
     private final Helper helper = new Helper();
+
+    /**
+     * An instance of the Allerts class.
+     */
+    Allerts allerts=new Allerts();
 
     /**
      * name of the level
@@ -300,7 +306,7 @@ public class GameController {
 
     @FXML
     private void reset(ActionEvent actionEvent) throws IOException {
-        if (helper.confermationAllert()) {
+        if (allerts.confermationAllert()) {
             System.out.println("Action confirmed");
 
             FXMLLoader loader = new FXMLLoader(getClass().getResource("/klotski_ids/views/frameMenu/game.fxml"));
