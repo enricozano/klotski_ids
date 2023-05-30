@@ -33,7 +33,7 @@
                 <Button fx:id="nextBestMove" mnemonicParsing="false" onAction="#nextBestMove" text="next best" GridPane.columnIndex="2" GridPane.halignment="CENTER" GridPane.rowIndex="1" GridPane.valignment="TOP" />
                 <Button fx:id="reset" mnemonicParsing="false" onAction="#reset" text="reset" GridPane.halignment="CENTER" GridPane.rowIndex="1" GridPane.valignment="CENTER" />
                 <Button fx:id="save" mnemonicParsing="false" onAction="#save" text="save" GridPane.columnIndex="2" GridPane.halignment="CENTER" GridPane.rowIndex="1" GridPane.valignment="CENTER" />
-                <Label fx:id="nMosse" alignment="CENTER" prefHeight="18.0" prefWidth="127.0" text="nMosse" GridPane.columnIndex="2" GridPane.rowIndex="2" GridPane.valignment="CENTER" />
+                <Label fx:id="nMosse" alignment="CENTER" prefHeight="18.0" prefWidth="127.0" text="Counter" GridPane.columnIndex="2" GridPane.rowIndex="2" GridPane.valignment="CENTER" />
 
                 <Pane fx:id="mainPane" prefHeight="320.0" prefWidth="350" GridPane.columnIndex="1" GridPane.rowIndex="1" xmlns="http://javafx.com/javafx/19" xmlns:fx="http://javafx.com/fxml/1">
                     <Pane fx:id="borderPane" layoutX="71.0" layoutY="28.0" prefHeight="258.0" prefWidth="209.0" styleClass="no-border">

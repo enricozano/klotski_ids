@@ -4,6 +4,7 @@ module klotski_ids {
     requires javafx.fxml;
     requires com.google.gson;
     requires javafx.graphics;
+    requires org.junit.jupiter.api;
 
     // Opens
     opens klotski_ids.controllers.frameMenu to javafx.fxml;

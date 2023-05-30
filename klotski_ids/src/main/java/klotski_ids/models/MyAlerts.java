@@ -27,4 +27,12 @@ public class MyAlerts {
             return result.isPresent() && result.get() == confirmButton;
         }
 
+        public void errorAlert(){
+            Alert alert = new Alert(Alert.AlertType.CONFIRMATION);
+            alert.setTitle(allertType);
+            alert.setHeaderText("");
+            alert.setContentText("Something went wrong");
+
+            alert.showAndWait();
+        }
 }

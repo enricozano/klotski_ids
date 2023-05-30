@@ -1,5 +1,6 @@
 package klotski_ids.controllers.frameMenu;
 
+import com.google.gson.JsonSyntaxException;
 import javafx.event.ActionEvent;
 
 import javafx.fxml.FXML;
@@ -12,6 +13,7 @@ import javafx.stage.FileChooser;
 import javafx.stage.Stage;
 import klotski_ids.models.Helper;
 import klotski_ids.models.Level;
+import klotski_ids.models.MyAlerts;
 
 
 import java.io.File;
@@ -24,6 +26,7 @@ public class StartMenuController {
     private GameController gameController;
     private Parent root;
 
+    MyAlerts alerts;
     @FXML
     public void switchToSelectLevelScene(ActionEvent actionEvent) throws IOException {
         Parent root = FXMLLoader.load(Objects.requireNonNull(getClass().getResource("/klotski_ids/views/frameMenu/levelMenu.fxml")));
@@ -34,30 +37,55 @@ public class StartMenuController {
     }
 
     @FXML
-    private void resumeGame(ActionEvent actionEvent) throws IOException {
+    private void resumeGame(ActionEvent actionEvent) {
+        alerts = new MyAlerts("Error");
         Helper helper = new Helper();
         Button button = (Button) actionEvent.getSource();
 
         FileChooser fileChooser = new FileChooser();
         fileChooser.setTitle("Carica file");
         fileChooser.setInitialFileName("level_SAVE.json");
-        File selectedFile = fileChooser.showOpenDialog(null);
 
-        if (selectedFile != null) {
-            String filePath = selectedFile.getPath();
-            loadGameScene();
-            System.out.println("File path: " + filePath);
-            Level level = helper.readJsonAbsolutePath(filePath);
+        FileChooser.ExtensionFilter extensionFilter = new FileChooser.ExtensionFilter("JSON Files", "*.json");
+        fileChooser.getExtensionFilters().add(extensionFilter);
 
-            if (level != null) {
-                System.out.println("Level: " + level.getLevelTitle());
-                gameController.initialize(level, level.getLevelTitle(), filePath);
-                setStageWindow(button);
-            } else {
-                System.err.println("Error loading the selected file.");
+        try {
+            File selectedFile = fileChooser.showOpenDialog(null);
+
+            if (selectedFile != null) {
+                String filePath = selectedFile.getPath();
+                loadGameScene();
+                System.out.println("File path: " + filePath);
+                Level level = helper.readJsonAbsolutePath(filePath);
+
+                if (level != null) {
+                    System.out.println("Level: " + level.getLevelTitle());
+                    gameController.initialize(level, level.getLevelTitle(), filePath);
+                    setStageWindow(button);
+                } else {
+                    System.err.println("Error loading the selected file.");
+                    alerts.errorAlert();
+                }
             }
+        } catch (IOException e) {
+            System.err.println("IOException occurred: " + e.getMessage());
+            e.printStackTrace();
+            alerts.errorAlert();
+        } catch (JsonSyntaxException e) {
+            System.err.println("JsonSyntaxException occurred: " + e.getMessage());
+            e.printStackTrace();
+            alerts.errorAlert();
+        } catch (IllegalStateException e){
+            System.err.println("IllegalStateException occurred: " + e.getMessage());
+            e.printStackTrace();
+            alerts.errorAlert();
+        } catch (IllegalArgumentException e){
+            System.err.println("IllegalArgumentException occurred: " + e.getMessage());
+            e.printStackTrace();
+            alerts.errorAlert();
         }
     }
+
 
     private void loadGameScene() throws IOException {
         FXMLLoader loader = new FXMLLoader(getClass().getResource("/klotski_ids/views/frameMenu/game.fxml"));
