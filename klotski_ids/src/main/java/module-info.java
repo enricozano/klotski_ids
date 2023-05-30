@@ -16,4 +16,5 @@ module klotski_ids {
     exports klotski_ids;
     exports klotski_ids.controllers.panes to com.google.gson;
     exports klotski_ids.models to com.google.gson;
+
 }

@@ -19,15 +19,9 @@ import klotski_ids.models.Components;
 import klotski_ids.models.Level;
 import klotski_ids.models.Helper;
 
-
 import java.io.*;
-import java.text.SimpleDateFormat;
-import java.time.LocalDateTime;
-import java.time.format.DateTimeFormatter;
 import java.util.ArrayList;
-import java.util.Date;
 import java.util.List;
-import java.util.Optional;
 
 /**
  * The GameController class controls the behavior of the game. It handles mouse events to allow
@@ -372,7 +366,7 @@ public class GameController {
     //TODO implementare next best move
     @FXML
     public void nextBestMove(ActionEvent actionEvent) {
-        System.out.println("BESTMOVE");
+
     }
 
     @FXML

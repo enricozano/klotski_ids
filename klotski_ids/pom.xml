@@ -2,9 +2,9 @@
          xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
          xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 https://maven.apache.org/xsd/maven-4.0.0.xsd">
     <modelVersion>4.0.0</modelVersion>
-    <groupId>Klotski_IDS</groupId>
+    <groupId>klotski_ids</groupId>
     <artifactId>klotski_ids</artifactId>
-    <version>1.0-SNAPSHOT</version>
+    <version>1.0</version>
     <name>Klotski</name>
 
     <properties>
@@ -81,6 +81,7 @@
             <version>11.5.1</version>
         </dependency>
 
+
     </dependencies>
     <build>
         <resources>
@@ -136,21 +137,21 @@
                 </executions>
             </plugin>
 
-
             <plugin>
                 <groupId>org.apache.maven.plugins</groupId>
                 <artifactId>maven-assembly-plugin</artifactId>
                 <version>3.3.0</version>
                 <configuration>
+                    <descriptorRefs>
+                        <descriptorRef>jar-with-dependencies</descriptorRef>
+                    </descriptorRefs>
                     <archive>
                         <manifest>
                             <mainClass>klotski_ids.Launcher</mainClass>
                         </manifest>
                     </archive>
-                    <outputDirectory>${project.basedir}/out/</outputDirectory>
-                    <descriptorRefs>
-                        <descriptorRef>jar-with-dependencies</descriptorRef>
-                    </descriptorRefs>
+                    <outputDirectory>${project.build.directory}/../out/artifacts/klotski_ids_jar/</outputDirectory>
+                    <finalName>klotski</finalName>
                 </configuration>
                 <executions>
                     <execution>
@@ -162,7 +163,6 @@
                     </execution>
                 </executions>
             </plugin>
-
         </plugins>
     </build>
 </project>
