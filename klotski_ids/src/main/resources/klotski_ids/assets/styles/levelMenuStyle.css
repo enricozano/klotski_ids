@@ -18,10 +18,10 @@
 
 .button {
     -fx-cursor: hand;
-    -fx-background-color: transparent;
+    -fx-background-color: #fff;
     -fx-background-radius: 5px;
     -fx-border-radius: 5px;
-    -fx-border-color: transparent;
+    -fx-border-color: #ccc;
     -fx-font-size: 14px;
     -fx-font-weight: bold;
     -fx-text-fill: #4d4d4d;
@@ -29,6 +29,7 @@
     -fx-graphic-text-gap: 10px;
     -fx-alignment: center;
 }
+
 
 Button .graphic {
     -fx-padding: 0;
@@ -68,4 +69,9 @@ Button .graphic > ImageView {
 #nextButton:pressed, #previousButton:pressed {
     -fx-background-color: #FF6600;
     -fx-effect: dropshadow(gaussian, rgba(0, 0, 0, 0.2), 10, 0, 0, 1);
+}
+
+#level_1,#level_2,#level_3,#level_4{
+    -fx-background-color: transparent;
+    -fx-border-color: transparent;
 }
