@@ -4,11 +4,31 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="6bfdf0fa-9483-4758-a1c0-5debc05e40e9" name="Changes" comment="improvements">
+    <list default="true" id="6bfdf0fa-9483-4758-a1c0-5debc05e40e9" name="Changes" comment="fixes">
+      <change afterPath="$PROJECT_DIR$/src/main/resources/klotski_ids/assets/images/Level1.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/resources/klotski_ids/assets/images/Level2.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/resources/klotski_ids/assets/images/Level3.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/resources/klotski_ids/assets/images/Level4.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/resources/klotski_ids/assets/images/icons/back.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/resources/klotski_ids/assets/images/icons/docs.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/resources/klotski_ids/assets/images/icons/home.png" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/klotski_ids/controllers/frameMenu/GameController.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/klotski_ids/controllers/frameMenu/GameController.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/pom.xml" beforeDir="false" afterPath="$PROJECT_DIR$/pom.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/java/klotski_ids/controllers/frameMenu/LevelMenuController.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/klotski_ids/controllers/frameMenu/LevelMenuController.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/java/klotski_ids/controllers/frameMenu/StartMenuController.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/klotski_ids/controllers/frameMenu/StartMenuController.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/klotski_ids/controllers/panes/BottomBarController.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/klotski_ids/controllers/panes/BottomBarController.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/klotski_ids/mainApplication.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/klotski_ids/mainApplication.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/resources/klotski_ids/assets/images/icons/backward-step-solid.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/resources/klotski_ids/assets/images/icons/github.png" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/resources/klotski_ids/assets/images/icons/github.png" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/resources/klotski_ids/assets/images/icons/github.svg" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/resources/klotski_ids/assets/images/icons/house-solid.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/resources/klotski_ids/assets/images/icons/wikipedia-w.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/resources/klotski_ids/assets/styles/BarStyle.css" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/resources/klotski_ids/assets/styles/BarStyle.css" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/resources/klotski_ids/assets/styles/levelMenuStyle.css" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/resources/klotski_ids/assets/styles/levelMenuStyle.css" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/resources/klotski_ids/views/frameMenu/levelMenu.fxml" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/resources/klotski_ids/views/frameMenu/levelMenu.fxml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/resources/klotski_ids/views/panes/bottomBar.fxml" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/resources/klotski_ids/views/panes/bottomBar.fxml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/resources/klotski_ids/views/panes/topBar.fxml" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/resources/klotski_ids/views/panes/topBar.fxml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/resources/klotski_ids/views/panes/topBarBack.fxml" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/resources/klotski_ids/views/panes/topBarBack.fxml" afterDir="false" />
     </list>
     <list id="09855262-e7fe-4115-8869-69c02f2c6753" name="Changes by eris" comment="" />
     <option name="SHOW_DIALOG" value="false" />
@@ -76,6 +96,7 @@
     &quot;RunOnceActivity.OpenProjectViewOnStart&quot;: &quot;true&quot;,
     &quot;RunOnceActivity.ShowReadmeOnStart&quot;: &quot;true&quot;,
     &quot;SHARE_PROJECT_CONFIGURATION_FILES&quot;: &quot;true&quot;,
+    &quot;ToolWindowRun.ShowToolbar&quot;: &quot;false&quot;,
     &quot;WebServerToolWindowFactoryState&quot;: &quot;false&quot;,
     &quot;git-widget-placeholder&quot;: &quot;main&quot;,
     &quot;last_opened_file_path&quot;: &quot;C:/Users/zanon/Desktop/klotski_ids/klotski_ids&quot;,
@@ -101,11 +122,11 @@
       <recent name="$PROJECT_DIR$/src/main/resources/klotski_ids/json" />
     </key>
     <key name="MoveFile.RECENT_KEYS">
+      <recent name="C:\Users\sanso\Documents\klotski_ids\klotski_ids\src\main\resources\klotski_ids\assets\images" />
+      <recent name="C:\Users\sanso\Documents\klotski_ids\klotski_ids\src\main\java\klotski_ids" />
+      <recent name="C:\Users\sanso\Documents\klotski_ids\klotski_ids\src\main\java" />
+      <recent name="C:\Users\sanso\Documents\klotski_ids\klotski_ids\src\main\resources\klotski_ids\assets\fonts" />
       <recent name="$PROJECT_DIR$/src/main/resources/klotski_ids/assets/fonts" />
-      <recent name="$PROJECT_DIR$/src/main/resources/klotski_ids/data/resume" />
-      <recent name="$PROJECT_DIR$/src/main/resources/klotski_ids/assets/styles" />
-      <recent name="$PROJECT_DIR$/src/main/resources/klotski_ids/views/panes/stylesheets" />
-      <recent name="$PROJECT_DIR$/src/main/resources/klotski_ids/views/frameMenu/stylesheet" />
     </key>
   </component>
   <component name="SpellCheckerSettings" RuntimeDictionaries="0" Folders="0" CustomDictionaries="0" DefaultDictionary="application-level" UseSingleDictionary="true" transferred="true" />
@@ -168,6 +189,8 @@
       <workItem from="1685350304940" duration="470000" />
       <workItem from="1685351761365" duration="383000" />
       <workItem from="1685358149717" duration="4375000" />
+      <workItem from="1685383907637" duration="6180000" />
+      <workItem from="1685429988413" duration="10013000" />
     </task>
     <task id="LOCAL-00001" summary="Basic Structure">
       <created>1683102485156</created>
@@ -351,7 +374,21 @@
       <option name="project" value="LOCAL" />
       <updated>1685187803393</updated>
     </task>
-    <option name="localTasksCounter" value="27" />
+    <task id="LOCAL-00027" summary="fixes">
+      <created>1685372655156</created>
+      <option name="number" value="00027" />
+      <option name="presentableId" value="LOCAL-00027" />
+      <option name="project" value="LOCAL" />
+      <updated>1685372655156</updated>
+    </task>
+    <task id="LOCAL-00028" summary="fixes">
+      <created>1685372672661</created>
+      <option name="number" value="00028" />
+      <option name="presentableId" value="LOCAL-00028" />
+      <option name="project" value="LOCAL" />
+      <updated>1685372672661</updated>
+    </task>
+    <option name="localTasksCounter" value="29" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -384,7 +421,8 @@
     <MESSAGE value="aggiunto undo" />
     <MESSAGE value="Merge remote-tracking branch 'origin/main'&#10;&#10;# Conflicts:&#10;#&#9;klotski_ids/.idea/workspace.xml" />
     <MESSAGE value="improvements" />
-    <option name="LAST_COMMIT_MESSAGE" value="improvements" />
+    <MESSAGE value="fixes" />
+    <option name="LAST_COMMIT_MESSAGE" value="fixes" />
   </component>
   <component name="XSLT-Support.FileAssociations.UIState">
     <expand />

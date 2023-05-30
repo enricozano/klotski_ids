@@ -1,18 +1,22 @@
 #myHbox {
     -fx-background-color: #424242;
-    -fx-spacing: 10;
-    -fx-padding: 0 20;
+    -fx-spacing: 5;
+    -fx-padding: 5;
+    -fx-max-height: 30px;
+    -fx-max-width: 602px;
 }
 
 #myHbox Button {
-    -fx-background-color: #FFA500;
-    -fx-background-radius: 4px;
-    -fx-border-color: transparent;
+    -fx-padding: 3px 8px;
+    -fx-font-size: 12px;
     -fx-cursor: hand;
-    -fx-font-size: 14px;
+    -fx-border-radius: 3px;
     -fx-font-weight: bold;
+    -fx-alignment: center;
+    -fx-background-color: #FFA500;
+    -fx-background-radius: 5px;
+    -fx-border-color: transparent;
     -fx-text-fill: white;
-    -fx-padding: 8px 16px;
     -fx-content-display: graphic-only;
     -fx-effect: dropshadow(gaussian, rgba(0, 0, 0, 0.2), 2, 0, 0, 1);
 }
@@ -29,9 +33,4 @@
 
 #myHbox Button .graphic {
     -fx-padding: 0;
-}
-
-#myHbox Button .graphic > ImageView {
-    -fx-fit-width: 24px;
-    -fx-fit-height: 24px;
 }

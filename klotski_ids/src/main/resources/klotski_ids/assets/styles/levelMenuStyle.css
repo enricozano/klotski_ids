@@ -21,9 +21,8 @@
     -fx-background-color: #fff;
     -fx-background-radius: 5px;
     -fx-border-radius: 5px;
-    -fx-border-width: 2px;
     -fx-border-color: #ccc;
-    -fx-font-size: 16px;
+    -fx-font-size: 14px;
     -fx-font-weight: bold;
     -fx-text-fill: #4d4d4d;
     -fx-content-display: top;
@@ -57,4 +56,14 @@ Button .graphic > ImageView {
     -fx-background-color: #ff8c00;
     -fx-background-radius: 10px;
     -fx-border-radius: 10px;
+}
+
+.scroll-pane {
+    -fx-background-color: transparent;
+    -fx-background-insets: 0;
+    -fx-padding: 0;
+    -fx-border-color: transparent;
+    -fx-border-width: 0;
+    -fx-border-radius: 0;
+    -fx-effect: null;
 }

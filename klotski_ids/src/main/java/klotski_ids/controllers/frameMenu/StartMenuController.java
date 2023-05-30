@@ -33,7 +33,6 @@ public class StartMenuController {
         stage.show();
     }
 
-    //TODO capire come aggiornare la direcory per la lettura del file
     @FXML
     private void resumeGame(ActionEvent actionEvent) throws IOException {
         Helper helper = new Helper();
@@ -56,18 +55,6 @@ public class StartMenuController {
                 setStageWindow(button);
             } else {
                 System.err.println("Error loading the selected file.");
-            }
-        } else {
-            String filePath = "/klotski_ids/data/resume/level_SAVE.json";
-            loadGameScene();
-            System.out.println("File path: " + filePath);
-            Level level = helper.readJson(filePath);
-
-            if (level != null) {
-                gameController.initialize(level, level.getLevelTitle(), filePath);
-                setStageWindow(button);
-            } else {
-                System.err.println("Error loading the default file.");
             }
         }
     }
