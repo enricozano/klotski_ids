@@ -18,10 +18,10 @@
 
 .button {
     -fx-cursor: hand;
-    -fx-background-color: #fff;
+    -fx-background-color: transparent;
     -fx-background-radius: 5px;
     -fx-border-radius: 5px;
-    -fx-border-color: #ccc;
+    -fx-border-color: transparent;
     -fx-font-size: 14px;
     -fx-font-weight: bold;
     -fx-text-fill: #4d4d4d;
@@ -44,26 +44,28 @@ Button .graphic > ImageView {
     -fx-padding: 5px 0;
 }
 
-.scroll-bar {
-    -fx-background-color: #fff;
-    -fx-background-radius: 10px;
-    -fx-border-radius: 10px;
-    -fx-border-color: #e8e8e8;
-    -fx-border-width: 2px;
-}
-
-.scroll-bar .thumb {
-    -fx-background-color: #ff8c00;
-    -fx-background-radius: 10px;
-    -fx-border-radius: 10px;
-}
-
-.scroll-pane {
-    -fx-background-color: transparent;
-    -fx-background-insets: 0;
-    -fx-padding: 0;
+#nextButton, #previousButton{
+    -fx-padding: 3px 8px;
+    -fx-font-size: 12px;
+    -fx-cursor: hand;
+    -fx-border-radius: 3px;
+    -fx-font-weight: bold;
+    -fx-alignment: center;
+    -fx-background-color: #FFA500;
+    -fx-background-radius: 5px;
     -fx-border-color: transparent;
-    -fx-border-width: 0;
-    -fx-border-radius: 0;
-    -fx-effect: null;
+    -fx-text-fill: white;
+    -fx-content-display: graphic-only;
+    -fx-effect: dropshadow(gaussian, rgba(0, 0, 0, 0.2), 2, 0, 0, 1);
+}
+
+
+#nextButton:hover, #previousButton:hover {
+    -fx-background-color: #FF8C00;
+    -fx-effect: dropshadow(gaussian, rgba(0, 0, 0, 0.2), 5, 0, 0, 1);
+}
+
+#nextButton:pressed, #previousButton:pressed {
+    -fx-background-color: #FF6600;
+    -fx-effect: dropshadow(gaussian, rgba(0, 0, 0, 0.2), 10, 0, 0, 1);
 }

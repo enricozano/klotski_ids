@@ -19,8 +19,11 @@ import java.io.IOException;
 import java.net.URL;
 import java.util.ResourceBundle;
 
-public class LevelMenuController implements Initializable {
-
+public class LevelMenuController implements Initializable{
+    @FXML
+    public Button nextButton;
+    @FXML
+    public Button previousButton;
     @FXML
     Button level_1;
 
@@ -32,9 +35,6 @@ public class LevelMenuController implements Initializable {
 
     @FXML
     Button level_4;
-
-    @FXML
-    private ScrollPane scrollPane;
 
     @FXML
     private GridPane gridPane;
@@ -85,7 +85,6 @@ public class LevelMenuController implements Initializable {
         setStageWindow(button);
     }
 
-
     private void updateAnchorPanePositions(double scrollPosition) {
         double anchorPaneWidth = 200.0;
         int numLevels = 4;
@@ -99,16 +98,40 @@ public class LevelMenuController implements Initializable {
         int level3ColumnIndex = 2;
         int level4ColumnIndex = 3;
 
-        GridPane.setColumnIndex(level1AnchorPane, level1ColumnIndex);
+
         GridPane.setColumnIndex(level2AnchorPane, level2ColumnIndex);
         GridPane.setColumnIndex(level3AnchorPane, level3ColumnIndex);
         GridPane.setColumnIndex(level4AnchorPane, level4ColumnIndex);
     }
 
+    private int currentLevel = 1;
+
     @Override
-    public void initialize(URL url, ResourceBundle resourceBundle) {
-        scrollPane.hvalueProperty().addListener((observable, oldValue, newValue) -> updateAnchorPanePositions(newValue.doubleValue()));
-        updateAnchorPanePositions(scrollPane.getHvalue());
+    public void initialize(URL url, ResourceBundle resourceBundle){
+        showLevel(currentLevel);
     }
 
+    public void showPreviousLevel(ActionEvent actionEvent) {
+        if (currentLevel > 1) {
+            currentLevel--;
+            showLevel(currentLevel);
+        }
+    }
+
+    public void showNextLevel(ActionEvent actionEvent) {
+        if (currentLevel < 4) {
+            currentLevel++;
+            showLevel(currentLevel);
+        }
+    }
+
+    private void showLevel(int level) {
+        level1AnchorPane.setVisible(level == 1);
+        level2AnchorPane.setVisible(level == 2);
+        level3AnchorPane.setVisible(level == 3);
+        level4AnchorPane.setVisible(level == 4);
+
+        previousButton.setDisable(level == 1);
+        nextButton.setDisable(level == 4);
+    }
 }
