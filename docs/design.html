@@ -5,7 +5,7 @@
 <meta http-equiv="X-UA-Compatible" content="IE=edge">
 <meta name="viewport" content="width=device-width, initial-scale=1, minimum-scale=1.0, shrink-to-fit=no">
 <link href="assets/images/klotski_icon.png" rel="icon" />
-<title>Klotski | Documentation</title>
+<title>Klotski | Class Design</title>
 <meta name="docs" content="klotski_ids documentation">
 <meta name="author" content="https://github.com/enricozano/klotski_ids">
 
@@ -48,13 +48,13 @@
     <nav class="primary-menu navbar navbar-expand-lg bg-dark navbar-text-light navbar-dropdown-dark border-0">
       <div class="container-fluid">
         <!-- Sidebar Toggler -->
-		<button id="sidebarCollapse" class="navbar-toggler d-block d-md-none" type="button"><span></span><span class="w-75"></span><span class="w-50"></span></button>
+		    <button id="sidebarCollapse" class="navbar-toggler d-block d-md-none" type="button"><span></span><span class="w-75"></span><span class="w-50"></span></button>
       
 		<!-- Logo --> 
         <a class="logo ml-md-3" href="index.html" title="klotski_logo"> <img src="" alt=" klotski logo"/> </a> 
     <!-- Logo End -->
-
-    </div>
+      
+      </div>  
     </nav>
     <!-- Navbar End --> 
   </header>
@@ -68,30 +68,18 @@
 	============================ -->
   <div class="idocs-navigation bg-dark">
     <ul class="nav flex-column ">
-
-      <li class="nav-item"><a class="nav-link active" href="#kl_introduction">Introduction</a></li>
+      <li class="nav-item"><a class="nav-link disable-scroll" href="index.html">Introduction</a></li>
       <li class="nav-item"><a class="nav-link disable-scroll" href="usecase.html">Use cases</a></li>
       <li class="nav-item"><a class="nav-link disable-scroll" href="domain.html">Domain model</a></li>
-      <li class="nav-item"><a class="nav-link disable-scroll" href="sequence.html">Model Design</a></li>
-      <li class="nav-item"><a class="nav-link disable-scroll" href="sequence.html">Sequence Diagrams</a></li>
-
-
-      <!--da modificare-->
-      
-      <li class="nav-item"><a href="#kl_tests" class="nav-link">Tests</a>
-      <ul class="nav flex-column">
-        <li class="nav-item"><a class="nav-link" href="#kl_unit">Unit test cases</a></li>
-        <li class="nav-item"><a class="nav-link" href="#kl_system">System test cases</a></li>
-      </ul>
-      </li>
-      <li class="nav-item"><a class="nav-link" href="#kl_manual">Manual</a>
+      <li class="nav-item"><a class="nav-link active" href="#kl_design">Design Model</a>
         <ul class="nav flex-column">
-          <li class="nav-item"><a class="nav-link" href="#kl_download">Download</a></li>
-          <li class="nav-item"><a class="nav-link" href="#kl_execute">Execute</a></li>
-          <li class="nav-item"><a class="nav-link" href="#kl_features">Features</a></li>
-          <li class="nav-item"><a class="nav-link" href="#kl_libraries">Libraries</a></li>
+          <li class="nave-item"><a class="nav-link" href="#kl_packagedesign">Package Design</a></li>
+          <li class="nave-item"><a class="nav-link" href="#kl_modeldesign">Models</a></li>
+          <li class="nave-item"><a class="nav-link" href="#kl_viewdesign">Views</a></li>
+          <li class="nave-item"><a class="nav-link" href="#kl_controllerdesign">Controllers</a></li>
         </ul>
       </li>
+      <li class="nav-item"><a class="nav-link disable-scroll" href="sequence.html">Sequence Diagrams</a></li>
     </ul>
   </div>
     
@@ -99,21 +87,53 @@
 	============================ -->
     <div class="idocs-content">
       <div class="container"> 
-        
-        <!-- kl_introduction
-		============================ -->
-        <section id="kl_introduction">
-        <h1 class="my-2">Introduction</h1>
-        <p class="lead">This is an introduction! </p>
-        <p class="lead">to see the documentation use the links in the sidebar!</p>
-        
-        </section>
-		
-	
+
+        <section id="kl_design">
+
+            <h2>Design model</h2>
+            
+            <p class="lead">
+              In the following section you will find all the information found during the design phase, identifying 
+              all the software entities that will eventually make up the program in its entirety
+            </p>
+            
+            <h4 id="kl_packagedesign" class="mt-5">Package design</h4>
+            <p>
+              Lorem ipsum dolor, sit amet consectetur adipisicing elit. Molestias exercitationem tempore delectus cum, eius illum dolor mollitia sapiente culpa iure? Excepturi vitae fugit optio quaerat unde laborum labore animi voluptatum!
+            </p>
+            <a class="popup-img" href="./assets/images/design/package-design.png">
+              <img class="img-fluid" src="./assets/images/design/package-design.png" width="400" height="300" alt="Packages model">
+            </a>  
+            <h4 id="kl_modeldesign" class="mt-5">Models design</h4>
+            <p>
+              Lorem ipsum dolor sit amet consectetur, adipisicing elit. Nobis, debitis?
+            </p>
+            <a class="popup-img" href="./assets/images/design/models-design.png">
+              <img class="img-fluid" src="./assets/images/design/models-design.png"  width="800" alt="Models model">
+            </a>  
+            <h4 id="kl_viewdesign" class="mt-5">Views design</h4>
+            <p>
+              Lorem, ipsum dolor sit amet consectetur adipisicing elit. Error, iure.
+            </p>
+            <a class="popup-img" href="./assets/images/design/views-design.png">
+              <img class="img-fluid" src="./assets/images/design/views-design.png"  width="800" alt="Views model">
+            </a>  
+
+            <h4 id="kl_controllerdesign" class="mt-5">Controllers design</h4>
+            <p>
+              Lorem ipsum dolor sit amet consectetur adipisicing elit. Tenetur, magni?
+            </p>
+            <a class="popup-img" href="./assets/images/design/controllers-design.png">
+              <img class="img-fluid" src="./assets/images/design/controllers-design.png"  width="800" alt="Controllers model">
+            </a>  
+
+          </section>
+
       </div>
     </div>
-  
-  <!-- Content end --> 
+  </div>
+
+   <!-- Content end --> 
   
   <!-- Footer
   ============================ -->
@@ -126,7 +146,6 @@
     </div>
   </footer>
   <!-- Footer end -->
-
 
 </div>
 <!-- Document Wrapper end --> 

@@ -1,0 +1,205 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8" />
+<meta http-equiv="X-UA-Compatible" content="IE=edge">
+<meta name="viewport" content="width=device-width, initial-scale=1, minimum-scale=1.0, shrink-to-fit=no">
+<link href="assets/images/klotski_icon.png" rel="icon" />
+<title>Klotski | System Design</title>
+<meta name="docs" content="klotski_ids documentation">
+<meta name="author" content="https://github.com/enricozano/klotski_ids">
+
+<!-- Stylesheet
+============================== -->
+<!-- Bootstrap -->
+<link rel="stylesheet" type="text/css" href="assets/vendor/bootstrap/css/bootstrap.min.css" />
+<!-- Font Awesome Icon -->
+<link rel="stylesheet" type="text/css" href="assets/vendor/font-awesome/css/all.min.css" />
+<!-- Magnific Popup -->
+<link rel="stylesheet" type="text/css" href="assets/vendor/magnific-popup/magnific-popup.min.css" />
+<!-- Highlight Syntax -->
+<link rel="stylesheet" type="text/css" href="assets/vendor/highlight.js/styles/github.css" />
+<!-- Custom Stylesheet -->
+<link rel="stylesheet" type="text/css" href="assets/css/stylesheet.css" />
+<link rel="stylesheet" type="text/css" href="assets/css/color-orange.css" />
+</head>
+
+<body data-spy="scroll" data-target=".idocs-navigation" data-offset="125">
+
+<!-- Preloader -->
+<div class="preloader">
+  <div class="lds-ellipsis">
+    <div></div>
+    <div></div>
+    <div></div>
+    <div></div>
+  </div>
+</div>
+<!-- Preloader End --> 
+
+<!-- Document Wrapper   
+=============================== -->
+<div id="main-wrapper"> 
+  
+  <!-- Header
+  ============================ -->
+  <header id="header" class="sticky-top"> 
+    <!-- Navbar -->
+    <nav class="primary-menu navbar navbar-expand-lg bg-dark navbar-text-light navbar-dropdown-dark border-0">
+      <div class="container-fluid">
+        <!-- Sidebar Toggler -->
+		    <button id="sidebarCollapse" class="navbar-toggler d-block d-md-none" type="button"><span></span><span class="w-75"></span><span class="w-50"></span></button>
+      
+		<!-- Logo --> 
+        <a class="logo ml-md-3" href="index.html" title="klotski_logo"> <img src="" alt=" klotski logo"/> </a> 
+    <!-- Logo End -->
+
+      </div>  
+    </nav>
+    <!-- Navbar End --> 
+  </header>
+  <!-- Header End --> 
+  
+  <!-- Content
+  ============================ -->
+  <div id="content" role="main">
+    
+	<!-- Sidebar Navigation
+	============================ -->
+
+  <div class="idocs-navigation bg-dark">
+    <ul class="nav flex-column ">
+        <li class="nav-item"><a class="nav-link disable-scroll" href="index.html">Introduction</a></li>
+        <li class="nav-item"><a class="nav-link disable-scroll" href="usecase.html">Use cases</a></li>
+        <li class="nav-item"><a class="nav-link disable-scroll" href="domain.html">Domain model</a></li>
+        <li class="nav-item"><a class="nav-link disable-scroll" href="design.html">Design model</a></li>
+        <li class="nav-item"><a class="nav-link active" href="#kl_sequence">Sequence Diagrams</a>
+          <ul class="nav flex-column">
+            <li class="nav-item"><a class="nav-link" href="#kl_startgame">Start a game</a></li>
+            <li class="nav-item"><a class="nav-link" href="#kl_playgame">Play a game</a></li>
+            <li class="nav-item"><a class="nav-link" href="#kl_extlinks">Links</a></li>
+            <li class="nav-item"><a class="nav-link" href="#kl_utils">Utils</a></li>
+          </ul>
+        </li>
+    </ul>
+  </div>
+    
+    <!-- Docs Content
+	============================ -->
+    <div class="idocs-content">
+      <div class="container"> 
+
+        <section id="kl_sequence">
+            <h2>Sequence Diagrams</h2>
+            <p class="lead">Lorem ipsum dolor sit amet consectetur adipisicing elit. Quos, provident.</p>
+
+            <section id="kl_startgame">
+              <h3>Start a game</h3>
+              <h5>System Sequence Diagram</h5>
+              <p> Lorem ipsum dolor sit amet consectetur adipisicing elit. Vero, laborum!</p>
+              <a class="popup-img" href="./assets/images/sequence/startgame-ext.png">
+                <img class="img-fluid" src="./assets/images/sequence/startgame-ext.png"  width="500" height="500" alt="Start a game ext sequence diagram">
+              </a> 
+
+              <h5>Start a new game: Internal Sequence Diagram</h5>
+              <p> Lorem ipsum dolor sit amet consectetur adipisicing elit. Vero, laborum!
+              <a class="btn btn-primary popup-img" href="assets/images/sequence/newgame-int.png">New Game</a>
+              </p>
+
+              <h5>Resume Game: Internal Sequence Diagram</h5>
+              <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Ipsa, perferendis.
+              <a class="btn btn-primary popup-img" href="assets/images/sequence/resumegame-int.png">Resume Game</a>
+              </p>
+            </section>
+
+            <hr>
+
+            <section id="kl_playgame">
+              <h3>Start a game</h3>
+              <h5>System Sequence Diagram</h5>
+              <p> Lorem ipsum dolor sit amet consectetur adipisicing elit. Vero, laborum!</p>
+              <a class="popup-img" href="./assets/images/sequence/playgame-ext.png">
+                <img class="img-fluid" src="./assets/images/sequence/playgame-ext.png"  width="500" height="500" alt="Play a game ext sequence diagram">
+              </a> 
+
+              <h5>Drag Blocks: Internal Sequence Diagram</h5>
+              <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Ipsa, perferendis.
+                <a class="btn btn-primary popup-img" href="assets/images/sequence/man-int.png">Manually</a>
+              </p>
+              
+              <h5>Next Best Move: Internal Sequence Diagram</h5>
+              <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Ipsa, perferendis.
+                <a class="btn btn-primary popup-img" href="assets/images/sequence/next-int.png">Next Best Game</a>
+              </p>
+
+              <h5>Undo: Internal Sequence Diagram</h5>
+              <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Ipsa, perferendis.
+                <a class="btn btn-primary popup-img" href="assets/images/sequence/undo-int.png">Undo</a>
+              </p>
+
+              <h5>Reset: Internal Sequence Diagram</h5>
+              <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Ipsa, perferendis.
+                <a class="btn btn-primary popup-img" href="assets/images/sequence/reset-int.png">Reset</a>
+              </p>
+            
+            </section>
+
+            <hr>
+
+            <section id="kl_links">
+              <h3>Links</h3>
+
+            </section>
+          
+            <hr>
+
+            <section id="kl_utils">
+              <h3>Utils</h3>
+
+              <h4>Initialize</h4>
+              <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Ipsa, perferendis.
+                <a class="btn btn-primary popup-img" href="assets/images/sequence/init-int.png">Initialize</a>
+              </p>
+
+            </section>
+
+          </section>
+
+      </div>
+    </div>
+  </div>
+
+   <!-- Content end --> 
+  
+  <!-- Footer
+  ============================ -->
+  <footer id="footer" class="section bg-dark footer-text-light">
+    <div class="container">
+      <ul class="social-icons social-icons-lg social-icons-muted justify-content-center mb-3">
+        <li><a data-toggle="tooltip" href="https://github.com/enricozano/klotski_ids" target="_blank" title="" data-original-title="GitHub"><i class="fab fa-github"></i></a></li>
+      </ul>
+      <p class="text-center">Copyright &copy; 2023 <a href="https://github.com/enricozano/klotski_ids">enricozano</a>. All Rights Reserved.</p>
+    </div>
+  </footer>
+  <!-- Footer end -->
+
+</div>
+<!-- Document Wrapper end --> 
+
+<!-- Back To Top --> 
+<a id="back-to-top" data-toggle="tooltip" title="Back to Top" href="javascript:void(0)"><i class="fa fa-chevron-up"></i></a> 
+
+<!-- JavaScript
+============================ -->
+<script src="assets/vendor/jquery/jquery.min.js"></script> 
+<script src="assets/vendor/bootstrap/js/bootstrap.bundle.min.js"></script> 
+<!-- Highlight JS -->
+<script src="assets/vendor/highlight.js/highlight.min.js"></script> 
+<!-- Easing --> 
+<script src="assets/vendor/jquery.easing/jquery.easing.min.js"></script> 
+<!-- Magnific Popup --> 
+<script src="assets/vendor/magnific-popup/jquery.magnific-popup.min.js"></script> 
+<!-- Custom Script -->
+<script src="assets/js/theme.js"></script>
+</body>
+</html>
