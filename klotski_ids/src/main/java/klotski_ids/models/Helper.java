@@ -252,7 +252,7 @@ public class Helper {
             System.out.println("Python program exited with code: " + exitCode);
         } catch (IOException | InterruptedException e) {
 
-            MyAlerts pythonAllert = new MyAlerts("Missing python?");
+            MyAlerts pythonAllert = new MyAlerts("Can't find python :/");
             pythonAllert.missingPythonAlert();
 
         }

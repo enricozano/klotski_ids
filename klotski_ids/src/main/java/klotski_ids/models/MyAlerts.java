@@ -40,7 +40,7 @@ public class MyAlerts {
         Alert alert = new Alert(Alert.AlertType.CONFIRMATION);
         alert.setTitle(allertType);
         alert.setHeaderText("");
-        alert.setContentText("Looks like you miss python!");
+        alert.setContentText("Check the documentation and download python!");
 
         ButtonType documentation = new ButtonType("Documentation");
         ButtonType python = new ButtonType("python website");
