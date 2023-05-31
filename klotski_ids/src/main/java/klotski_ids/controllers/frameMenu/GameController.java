@@ -379,51 +379,44 @@ public class GameController {
 
 
     public void nextBestMove(ActionEvent actionEvent) throws IOException {
-
         List<Components> levelComponents = new ArrayList<>(getComponents());
-
         Helper.writeToFile("src/main/resources/klotski_ids/data/levelSolutions/DefaultLayout.txt", Helper.levelToString(levelComponents));
 
-        if (!hasMoved) {
+        if (!hasMoved || Helper.isSameComponentsList(defaultComponentsList, getComponents())) {
             if (Helper.isSameComponentsList(defaultComponentsList, getComponents()) && nextBestMoveCounter != 0) {
                 nextBestMoveCounter = 0;
             }
+
             String levelName = getLevelTitle();
             String solutionFileName = Helper.getSolutionFileName(levelName);
             List<Pair<Integer, String>> separatedMoves = Helper.getSeparatedMoves(solutionFileName);
 
             if (nextBestMoveCounter < separatedMoves.size()) {
                 setComponents(Helper.performMoveAction(separatedMoves.get(nextBestMoveCounter), getComponents()));
-
             }
 
         } else {
             if (!Helper.isSameComponentsList(pythonNextBestMoveComponentsLists, getComponents())) {
-
                 Helper.executePythonProcess("src/main/resources/klotski_ids/pythonKlotskiSolver/Main.py");
-
                 nextMoveIterator = 0;
             }
 
             String solutionFileName = "Solutions.txt";
-
             List<Pair<Integer, String>> separatedMoves = Helper.getSeparatedMoves(solutionFileName);
 
             if (nextMoveIterator < separatedMoves.size()) {
                 setComponents(Helper.performMoveAction(separatedMoves.get(nextMoveIterator), getComponents()));
                 nextMoveIterator++;
             }
-
         }
+
         nextBestMoveCounter++;
         setnMosse(Integer.toString(nextBestMoveCounter));
         numMosse = nextBestMoveCounter;
 
         gridPane.getChildren().clear();
-
         setHystoryRectanglesMovements(getComponents());
         setPythonNextBestMoveComponentsLists(getComponents());
-
         Helper.setGridPaneElements(gridPane, getComponents(), rectangles);
     }
 
