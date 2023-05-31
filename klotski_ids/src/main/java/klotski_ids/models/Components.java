@@ -12,12 +12,14 @@ public class Components {
     private int colSpan;
     private int rowSpan;
 
-    public Components(String id, int row, int col, int colSpan, int rowSpan) {
+    public Components(String id, int row, int col, int colSpan, int rowSpan, int width, int height) {
         this.id = id;
         this.row = row;
         this.col = col;
         this.colSpan = colSpan;
         this.rowSpan = rowSpan;
+        this.width = width;
+        this.height = height;
     }
 
     /**

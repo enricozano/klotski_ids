@@ -203,7 +203,7 @@ public class Helper {
     public static List<Components> copyComponentsList(List<Components> originalList) {
         List<Components> copyList = new ArrayList<>();
         for (Components component : originalList) {
-            Components copy = new Components(component.getId(), component.getRow(), component.getCol(), component.getColSpan(), component.getRowSpan());
+            Components copy = new Components(component.getId(), component.getRow(), component.getCol(), component.getColSpan(), component.getRowSpan(), component.getWidth(), component.getHeight());
             copyList.add(copy);
         }
         return copyList;

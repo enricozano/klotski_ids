@@ -378,10 +378,11 @@ public class GameController {
 
 
     public void nextBestMove(ActionEvent actionEvent) throws IOException {
-        Helper.writeToFile("src/main/resources/klotski_ids/data/levelSolutions/DefaultLayout.txt", Helper.levelToString(getComponents()));
-        System.out.println("hasMoved " + hasMoved);
 
-        System.out.println("Components " + Helper.isSameComponentsList(defaultComponentsList, getComponents()));
+        List<Components> levelComponents = new ArrayList<>(getComponents());
+
+        Helper.writeToFile("src/main/resources/klotski_ids/data/levelSolutions/DefaultLayout.txt", Helper.levelToString(levelComponents));
+
         if (!hasMoved) {
             if (Helper.isSameComponentsList(defaultComponentsList, getComponents()) && nextBestMoveCounter!=0) {
                 nextBestMoveCounter = 0;
@@ -406,16 +407,20 @@ public class GameController {
 
             List<Pair<Integer, String>> separatedMoves = Helper.getSeparatedMoves(solutionFileName);
 
-            setComponents(Helper.performMoveAction(separatedMoves.get(nextMoveIterator), getComponents()));
+            if (nextMoveIterator < separatedMoves.size()) {
+                setComponents(Helper.performMoveAction(separatedMoves.get(nextMoveIterator), getComponents()));
+                nextMoveIterator++;
+                nextBestMoveCounter++;
+            }
 
-            nextMoveIterator++;
-            nextBestMoveCounter++;
         }
 
         setnMosse(Integer.toString(nextBestMoveCounter));
         gridPane.getChildren().clear();
+
         setHystoryRectanglesMovements(getComponents());
         setPythonNextBestMoveComponentsLists(getComponents());
+
         Helper.setGridPaneElements(gridPane, getComponents(), rectangles);
     }
 
@@ -431,7 +436,6 @@ public class GameController {
             if (nextBestMoveCounter > 0) {
                 nextBestMoveCounter--;
                 setnMosse(Integer.toString(nextBestMoveCounter));
-
             }
 
             if (numMosse > 0) {
@@ -439,8 +443,8 @@ public class GameController {
                 setnMosse(Integer.toString(numMosse));
             }
 
-
             List<Components> componentsList = new ArrayList<>(hystoryRectanglesMovements.get(lastIndex));
+
             gridPane.getChildren().clear();
             Helper.setGridPaneElements(gridPane, componentsList, rectangles);
 
