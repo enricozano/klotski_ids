@@ -244,7 +244,7 @@ public class GameController {
                     int deltaRow = Math.abs(GridPane.getRowIndex(rectangle) - newRow);
 
                     numMosse += (deltaRow + deltaCol);
-
+                    nextBestMoveCounter = numMosse;
                     GridPane.setRowIndex(rectangle, newRow);
                     GridPane.setColumnIndex(rectangle, newCol);
 
@@ -393,11 +393,10 @@ public class GameController {
 
             if (nextBestMoveCounter < separatedMoves.size()) {
                 setComponents(Helper.performMoveAction(separatedMoves.get(nextBestMoveCounter), getComponents()));
-                nextBestMoveCounter++;
+
             }
 
         } else {
-            nextBestMoveCounter = numMosse;
             if(!Helper.isSameComponentsList(pythonNextBestMoveComponentsLists, getComponents())){
                 Helper.executePythonProcess("src/main/resources/klotski_ids/pythonKlotskiSolver/Main.py");
                 nextMoveIterator = 0;
@@ -410,12 +409,13 @@ public class GameController {
             if (nextMoveIterator < separatedMoves.size()) {
                 setComponents(Helper.performMoveAction(separatedMoves.get(nextMoveIterator), getComponents()));
                 nextMoveIterator++;
-                nextBestMoveCounter++;
             }
 
         }
-
+        nextBestMoveCounter++;
         setnMosse(Integer.toString(nextBestMoveCounter));
+        numMosse=nextBestMoveCounter;
+
         gridPane.getChildren().clear();
 
         setHystoryRectanglesMovements(getComponents());
