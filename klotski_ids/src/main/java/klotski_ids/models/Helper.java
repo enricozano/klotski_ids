@@ -251,7 +251,10 @@ public class Helper {
             int exitCode = process.waitFor();
             System.out.println("Python program exited with code: " + exitCode);
         } catch (IOException | InterruptedException e) {
-            e.printStackTrace();
+
+            MyAlerts pythonAllert = new MyAlerts("Missing python?");
+            pythonAllert.missingPythonAlert();
+
         }
     }
 

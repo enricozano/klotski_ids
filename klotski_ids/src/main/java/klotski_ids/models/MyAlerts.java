@@ -35,4 +35,37 @@ public class MyAlerts {
 
             alert.showAndWait();
         }
+
+    public void missingPythonAlert() {
+        Alert alert = new Alert(Alert.AlertType.CONFIRMATION);
+        alert.setTitle(allertType);
+        alert.setHeaderText("");
+        alert.setContentText("Looks like you miss python!");
+
+        ButtonType documentation = new ButtonType("Documentation");
+        ButtonType python = new ButtonType("python website");
+        ButtonType cancelButton = new ButtonType("Cancel");
+
+        alert.getButtonTypes().setAll(documentation, python, cancelButton);
+
+        Optional<ButtonType> result = alert.showAndWait();
+        if (result.isPresent()) {
+            ButtonType buttonClicked = result.get();
+            if (buttonClicked == documentation) {
+                String documentationUrl = "https://enricozano.github.io/klotski_ids/";
+                openWebLink(documentationUrl);
+            } else if (buttonClicked == python) {
+                String pythonWebsiteUrl = "https://www.python.org/downloads/";
+                openWebLink(pythonWebsiteUrl);
+            }
+        }
+    }
+
+    private void openWebLink(String url) {
+        try {
+            java.awt.Desktop.getDesktop().browse(new java.net.URI(url));
+        } catch (Exception e) {
+            e.printStackTrace();
+        }
+    }
 }

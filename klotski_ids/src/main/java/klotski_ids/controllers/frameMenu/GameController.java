@@ -124,7 +124,7 @@ public class GameController {
 
     private static List<Components> defaultComponentsList = new ArrayList<>();
 
-    private static  List<Components> pythonNextBestMoveComponentsLists = new ArrayList<>();
+    private static List<Components> pythonNextBestMoveComponentsLists = new ArrayList<>();
     /**
      * A list of the rectangles currently in the grid.
      */
@@ -150,6 +150,7 @@ public class GameController {
     private boolean hasMoved = false;
 
     private int nextMoveIterator;
+
     /*******************************************************************************
      *                              SETTERS FUNCTIONS                              *
      *******************************************************************************/
@@ -384,7 +385,7 @@ public class GameController {
         Helper.writeToFile("src/main/resources/klotski_ids/data/levelSolutions/DefaultLayout.txt", Helper.levelToString(levelComponents));
 
         if (!hasMoved) {
-            if (Helper.isSameComponentsList(defaultComponentsList, getComponents()) && nextBestMoveCounter!=0) {
+            if (Helper.isSameComponentsList(defaultComponentsList, getComponents()) && nextBestMoveCounter != 0) {
                 nextBestMoveCounter = 0;
             }
             String levelName = getLevelTitle();
@@ -397,8 +398,10 @@ public class GameController {
             }
 
         } else {
-            if(!Helper.isSameComponentsList(pythonNextBestMoveComponentsLists, getComponents())){
+            if (!Helper.isSameComponentsList(pythonNextBestMoveComponentsLists, getComponents())) {
+
                 Helper.executePythonProcess("src/main/resources/klotski_ids/pythonKlotskiSolver/Main.py");
+
                 nextMoveIterator = 0;
             }
 
@@ -414,7 +417,7 @@ public class GameController {
         }
         nextBestMoveCounter++;
         setnMosse(Integer.toString(nextBestMoveCounter));
-        numMosse=nextBestMoveCounter;
+        numMosse = nextBestMoveCounter;
 
         gridPane.getChildren().clear();
 
