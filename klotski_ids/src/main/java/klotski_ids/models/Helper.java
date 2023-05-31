@@ -5,8 +5,6 @@ import com.google.gson.JsonSyntaxException;
 import com.google.gson.stream.JsonReader;
 import javafx.geometry.Point2D;
 import javafx.scene.Node;
-import javafx.scene.control.Alert;
-import javafx.scene.control.ButtonType;
 import javafx.scene.layout.GridPane;
 import javafx.scene.shape.Rectangle;
 import javafx.util.Pair;
@@ -14,19 +12,22 @@ import javafx.util.Pair;
 import java.io.*;
 import java.util.*;
 
+/**
+ * The Helper class provides utility methods for various operations.
+ */
 public class Helper {
     private static final int CELL_WIDTH = 50;
     private static final int CELL_HEIGHT = 50;
 
 
     /**
-     * Reads the JSON file from the specified path and returns a deserialized Level object.
+     * Reads a JSON file from the specified file path.
      *
-     * @param filePath The path of the JSON file to read
-     * @return A Level object deserialized from the JSON file
-     * @throws FileNotFoundException if the specified file does not exist
-     * @throws IOException           if an error occurs while reading the JSON file
-     * @throws JsonSyntaxException   if the JSON file is not formatted correctly
+     * @param filePath the file path of the JSON file
+     * @return the deserialized Level object
+     * @throws FileNotFoundException if the JSON file is not found
+     * @throws IOException           if an I/O error occurs while reading the file
+     * @throws JsonSyntaxException   if the JSON syntax is invalid
      */
     public static Level readJson(String filePath) throws FileNotFoundException, IOException, JsonSyntaxException {
         System.out.println("file path: " + filePath);
@@ -49,6 +50,15 @@ public class Helper {
         return level;
     }
 
+    /**
+     * Reads a JSON file from the absolute file path.
+     *
+     * @param filePath the absolute file path of the JSON file
+     * @return the deserialized Level object
+     * @throws FileNotFoundException if the JSON file is not found
+     * @throws IOException           if an I/O error occurs while reading the file
+     * @throws JsonSyntaxException   if the JSON syntax is invalid
+     */
     public static Level readJsonAbsolutePath(String filePath) throws FileNotFoundException, IOException, JsonSyntaxException {
         Level level = null;
         try (InputStream inputStream = new FileInputStream(filePath)) {
@@ -67,8 +77,6 @@ public class Helper {
         }
         return level;
     }
-
-
 
 
     /**
@@ -100,7 +108,6 @@ public class Helper {
 
         return points;
     }
-
 
 
     /**
@@ -200,6 +207,12 @@ public class Helper {
         }
     }
 
+    /**
+     * Creates a deep copy of a list of Components.
+     *
+     * @param originalList the original list of Components
+     * @return the copied list of Components
+     */
     public static List<Components> copyComponentsList(List<Components> originalList) {
         List<Components> copyList = new ArrayList<>();
         for (Components component : originalList) {
@@ -209,7 +222,14 @@ public class Helper {
         return copyList;
     }
 
-    public static boolean isSameComponentsList(List<Components> componentsList1, List<Components> componentsList2){
+    /**
+     * Checks if two lists of Components are the same.
+     *
+     * @param componentsList1 the first list of Components
+     * @param componentsList2 the second list of Components
+     * @return true if the lists are the same, false otherwise
+     */
+    public static boolean isSameComponentsList(List<Components> componentsList1, List<Components> componentsList2) {
         if (componentsList1.size() != componentsList2.size()) {
             return false;
         }
@@ -227,6 +247,11 @@ public class Helper {
 
     }
 
+    /**
+     * Executes a Python script as a separate process.
+     *
+     * @param pythonScriptPath the path to the Python script
+     */
     public static void executePythonProcess(String pythonScriptPath) {
         try {
             ProcessBuilder pb = new ProcessBuilder("python", pythonScriptPath);
@@ -258,7 +283,12 @@ public class Helper {
         }
     }
 
-
+    /**
+     * Converts a list of Components into a string representation of a level.
+     *
+     * @param rectangles the list of Components representing the level
+     * @return the string representation of the level
+     */
     public static String levelToString(List<Components> rectangles) {
         StringBuilder levelToStringBuilder = new StringBuilder();
 
@@ -285,20 +315,37 @@ public class Helper {
         return levelToStringBuilder.toString();
     }
 
-    public static String coordsToString(Components rectangle){
+    /**
+     * Converts the coordinates of a rectangle into a string representation.
+     *
+     * @param rectangle the rectangle
+     * @return the string representation of the rectangle's coordinates
+     */
+    public static String coordsToString(Components rectangle) {
         String X = Integer.toString(rectangle.getCol());
         String Y = Integer.toString(rectangle.getRow());
         return X + " " + Y + "\n";
     }
 
-
+    /**
+     * Writes content to a file.
+     *
+     * @param filename the name of the file
+     * @param content  the content to write
+     * @throws IOException if an I/O error occurs while writing the file
+     */
     public static void writeToFile(String filename, String content) throws IOException {
         BufferedWriter writer = new BufferedWriter(new FileWriter(filename));
         writer.write(content);
         writer.close();
     }
 
-
+    /**
+     * Separates the numeric value and action in a list of move strings.
+     *
+     * @param movesStrings the list of move strings
+     * @return a list of pairs, each containing the numeric value and action
+     */
     public static List<Pair<Integer, String>> separateNumericValue(List<String> movesStrings) {
         List<Pair<Integer, String>> separatedMoves = new ArrayList<>();
 
@@ -313,6 +360,12 @@ public class Helper {
         return separatedMoves;
     }
 
+    /**
+     * Retrieves the move strings from a file.
+     *
+     * @param filename the name of the file
+     * @return a list of move strings
+     */
     public static List<String> getMovesStringsFromFile(String filename) {
         List<String> movesStrings = new ArrayList<>();
 
@@ -339,6 +392,12 @@ public class Helper {
         return movesStrings;
     }
 
+    /**
+     * Parses a move string and returns a pair of numeric value and action.
+     *
+     * @param line the move string to parse
+     * @return a pair containing the numeric value and action
+     */
     public static Pair<Integer, String> parseMove(String line) {
         String[] parts = line.trim().split(" ", 2);
         int number = Integer.parseInt(parts[0].substring(1));
@@ -346,30 +405,40 @@ public class Helper {
         return new Pair<>(number, action);
     }
 
+    /**
+     * Generates the solution file name based on the level name.
+     *
+     * @param levelName the name of the level
+     * @return the solution file name
+     */
     public static String getSolutionFileName(String levelName) {
-        String solutionFileName = "";
-        switch (levelName) {
-            case "Level 1":
-                solutionFileName = "SolutionsLevel1.txt";
-                break;
-            case "Level 2":
-                solutionFileName = "SolutionsLevel2.txt";
-                break;
-            case "Level 3":
-                solutionFileName = "SolutionsLevel3.txt";
-                break;
-            case "Level 4":
-                solutionFileName = "SolutionsLevel4.txt";
-                break;
-        }
-        return solutionFileName;
+        return switch (levelName) {
+            case "Level 1" -> "SolutionsLevel1.txt";
+            case "Level 2" -> "SolutionsLevel2.txt";
+            case "Level 3" -> "SolutionsLevel3.txt";
+            case "Level 4" -> "SolutionsLevel4.txt";
+            default -> "";
+        };
     }
 
+    /**
+     * Retrieves the separated moves from a solution file.
+     *
+     * @param solutionFileName the name of the solution file
+     * @return a list of separated moves
+     */
     public static List<Pair<Integer, String>> getSeparatedMoves(String solutionFileName) {
         List<String> movesStrings = Helper.getMovesStringsFromFile("src/main/resources/klotski_ids/data/levelSolutions/" + solutionFileName);
         return Helper.separateNumericValue(movesStrings);
     }
 
+    /**
+     * Performs a move action on a list of Components.
+     *
+     * @param move       the move action to perform
+     * @param components the list of Components
+     * @return the updated list of Components after the move
+     */
     public static List<Components> performMoveAction(Pair<Integer, String> move, List<Components> components) {
         int rectangleNumber = move.getKey();
         String action = move.getValue();
@@ -381,26 +450,26 @@ public class Helper {
         System.out.println("Rectangle ID: " + component.getId() + "  Number: " + rectangleNumber + ", Action: " + action);
 
         switch (action) {
-            case "UP":
+            case "UP" -> {
                 System.out.println("up");
                 System.out.println("current Row " + currentRow + " current col " + currentCol);
                 component.setRow(currentRow - 1);
-                break;
-            case "DOWN":
+            }
+            case "DOWN" -> {
                 System.out.println("down");
                 System.out.println("current Row " + currentRow + " current col " + currentCol);
                 component.setRow(currentRow + 1);
-                break;
-            case "RIGHT":
+            }
+            case "RIGHT" -> {
                 System.out.println("right");
                 System.out.println("current Row " + currentRow + " current col " + currentCol);
                 component.setCol(currentCol + 1);
-                break;
-            case "LEFT":
+            }
+            case "LEFT" -> {
                 System.out.println("left");
                 System.out.println("current Row " + currentRow + " current col " + currentCol);
                 component.setCol(currentCol - 1);
-                break;
+            }
         }
 
         return componentsList;

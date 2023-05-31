@@ -20,6 +20,9 @@ import java.io.File;
 import java.io.IOException;
 import java.util.Objects;
 
+/**
+ * Controller class for the start menu in the user interface.
+ */
 public class StartMenuController {
     @FXML
     public Button resumeGame;
@@ -27,6 +30,14 @@ public class StartMenuController {
     private Parent root;
 
     MyAlerts alerts;
+
+    /**
+     * Action event handler for switching to the select level scene.
+     * Loads the level menu scene and switches to it.
+     *
+     * @param actionEvent the action event triggered by the button click
+     * @throws IOException if an I/O error occurs during loading the scene
+     */
     @FXML
     public void switchToSelectLevelScene(ActionEvent actionEvent) throws IOException {
         Parent root = FXMLLoader.load(Objects.requireNonNull(getClass().getResource("/klotski_ids/views/frameMenu/levelMenu.fxml")));
@@ -36,6 +47,12 @@ public class StartMenuController {
         stage.show();
     }
 
+    /**
+     * Action event handler for resuming a saved game.
+     * Prompts the user to select a saved game file, loads the game scene, and initializes the game controller.
+     *
+     * @param actionEvent the action event triggered by the button click
+     */
     @FXML
     private void resumeGame(ActionEvent actionEvent) {
         alerts = new MyAlerts("Error");
@@ -75,24 +92,33 @@ public class StartMenuController {
             System.err.println("JsonSyntaxException occurred: " + e.getMessage());
             e.printStackTrace();
             alerts.errorAlert();
-        } catch (IllegalStateException e){
+        } catch (IllegalStateException e) {
             System.err.println("IllegalStateException occurred: " + e.getMessage());
             e.printStackTrace();
             alerts.errorAlert();
-        } catch (IllegalArgumentException e){
+        } catch (IllegalArgumentException e) {
             System.err.println("IllegalArgumentException occurred: " + e.getMessage());
             e.printStackTrace();
             alerts.errorAlert();
         }
     }
 
-
+    /**
+     * Loads the game scene and initializes the game controller.
+     *
+     * @throws IOException if an I/O error occurs during loading the scene
+     */
     private void loadGameScene() throws IOException {
         FXMLLoader loader = new FXMLLoader(getClass().getResource("/klotski_ids/views/frameMenu/game.fxml"));
         root = loader.load();
         gameController = loader.getController();
     }
 
+    /**
+     * Sets the stage window to display the loaded game scene.
+     *
+     * @param button the button that triggered the action event
+     */
     private void setStageWindow(Button button) {
         Stage stage = (Stage) button.getScene().getWindow();
         Scene scene = new Scene(root);

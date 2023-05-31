@@ -1,7 +1,7 @@
 package klotski_ids.models;
 
 /**
- * This class represents a component in a grid, with its size and position information.
+ * This class represents a component in a grid, with its properties such as ID, position, size, and span.
  */
 public class Components {
     private String id;
@@ -12,6 +12,17 @@ public class Components {
     private int colSpan;
     private int rowSpan;
 
+    /**
+     * Constructs a new Components object with the specified properties.
+     *
+     * @param id      the ID of the component
+     * @param row     the row position of the component
+     * @param col     the column position of the component
+     * @param colSpan the column span of the component
+     * @param rowSpan the row span of the component
+     * @param width   the width of the component
+     * @param height  the height of the component
+     */
     public Components(String id, int row, int col, int colSpan, int rowSpan, int width, int height) {
         this.id = id;
         this.row = row;
@@ -148,7 +159,12 @@ public class Components {
         this.id = id;
     }
 
-
+    /**
+     * Checks if this Components object is equal to another object.
+     *
+     * @param obj the object to compare to
+     * @return true if the objects are equal, false otherwise
+     */
     public boolean equals(Object obj) {
         if (obj == null || getClass() != obj.getClass()) {
             return false;

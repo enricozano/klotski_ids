@@ -1,3 +1,6 @@
+/**
+ * The klotski_ids module contains classes and resources for the Klotski game.
+ */
 module klotski_ids {
     // Requires
     requires javafx.controls;

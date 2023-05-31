@@ -1,8 +1,6 @@
 package klotski_ids.models;
 
-
 import java.util.List;
-import java.util.Objects;
 
 /**
  * A representation of a Klotski level, consisting of a list of components (rectangles) and information on the minimum
@@ -39,19 +37,17 @@ public class Level {
      */
     private final List<klotski_ids.models.Components> rectangles;
 
-    /*******************************************************************************
-     *                              Constructors                                   *
-     *******************************************************************************/
-
 
     /**
-     * Constructs a level with the given components and playing area dimensions.
+     * Constructs a new Level object.
      *
-     * @param rectangles the list of components (rectangles) that make up the level
-     * @param maxWidth   the maximum width of the playing area
-     * @param maxHeight  the maximum height of the playing area
-     * @param minWidth   the minimum width of the playing area
-     * @param minHeight  the minimum height of the playing area
+     * @param rectangles    The list of components (rectangles) in the level.
+     * @param maxWidth      The maximum width of the level.
+     * @param maxHeight     The maximum height of the level.
+     * @param minWidth      The minimum width of the level.
+     * @param minHeight     The minimum height of the level.
+     * @param countedMoves  The number of moves counted for the level.
+     * @param levelTitle    The title of the level.
      */
     public Level(List<klotski_ids.models.Components> rectangles, int maxWidth, int maxHeight, int minWidth, int minHeight, int countedMoves, String levelTitle) {
         this.maxWidth = maxWidth;
@@ -72,11 +68,6 @@ public class Level {
         this.rectangles = rectangles;
     }
 
-
-
-    /*******************************************************************************
-     *                              Setter Functions                               *
-     *******************************************************************************/
 
     /**
      * Sets the maximum height of the playing area.
@@ -114,16 +105,23 @@ public class Level {
         this.minWidth = minWidth;
     }
 
-    public void setLevelTitle(String levelTitle){
+    /**
+     * Sets the title of the level.
+     *
+     * @param levelTitle the title of the level
+     */
+    public void setLevelTitle(String levelTitle) {
         this.levelTitle = levelTitle;
     }
 
-    public void setCountedMoves(int countedMoves){
+    /**
+     * Sets the number of counted moves.
+     *
+     * @param countedMoves the number of counted moves
+     */
+    public void setCountedMoves(int countedMoves) {
         this.countedMoves = countedMoves;
     }
-    /*******************************************************************************
-     *                              Getter Functions                               *
-     *******************************************************************************/
 
     /**
      * Returns the maximum height of the playing area.
@@ -170,14 +168,23 @@ public class Level {
         return rectangles;
     }
 
-    public String getLevelTitle(){
+    /**
+     * Returns the title of the level.
+     *
+     * @return the title of the level
+     */
+    public String getLevelTitle() {
         return this.levelTitle;
     }
 
-    public int getCountedMoves(){
+    /**
+     * Returns the number of counted moves.
+     *
+     * @return the number of counted moves
+     */
+    public int getCountedMoves() {
         return this.countedMoves;
     }
-
 
 
 }

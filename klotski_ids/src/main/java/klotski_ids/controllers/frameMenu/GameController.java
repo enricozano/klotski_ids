@@ -7,9 +7,7 @@ import javafx.fxml.FXMLLoader;
 import javafx.scene.Cursor;
 import javafx.scene.Parent;
 import javafx.scene.Scene;
-import javafx.scene.control.Alert;
 import javafx.scene.control.Button;
-import javafx.scene.control.ButtonType;
 import javafx.scene.control.Label;
 import javafx.scene.layout.GridPane;
 import javafx.scene.shape.Rectangle;
@@ -121,77 +119,142 @@ public class GameController {
      * A list of the components (rectangles) currently in the grid.
      */
     private List<Components> components = new ArrayList<>();
-
+    /**
+     * A list of default components.
+     */
     private static List<Components> defaultComponentsList = new ArrayList<>();
-
+    /**
+     * A list of components used for next best move.
+     */
     private static List<Components> pythonNextBestMoveComponentsLists = new ArrayList<>();
     /**
      * A list of the rectangles currently in the grid.
      */
     private List<Rectangle> rectangles = new ArrayList<>();
 
+    /**
+     * A list to store the movement history of the rectangles.
+     */
     private static List<List<Components>> hystoryRectanglesMovements = new ArrayList<>();
 
-
     /**
-     * An instance of the myAlerts class.
+     * An instance of the MyAlerts class for displaying alerts.
      */
     MyAlerts resetAlert = new MyAlerts("Reset");
 
     /**
-     * name of the level
+     * The name of the level.
      */
     private String levelName;
 
+    /**
+     * The title of the level.
+     */
     private String levelTitle;
 
+    /**
+     * Counter for the number of times the next best move has been selected.
+     */
     private static int nextBestMoveCounter = 0;
 
+    /**
+     * Flag to track if any movement has occurred.
+     */
     private boolean hasMoved = false;
 
+    /**
+     * Iterator for the next move in the list of best moves.
+     */
     private int nextMoveIterator;
 
-    /*******************************************************************************
-     *                              SETTERS FUNCTIONS                              *
-     *******************************************************************************/
+    /**
+     * Sets the components list.
+     *
+     * @param components The components list to set.
+     */
     public void setComponents(List<Components> components) {
         this.components = components;
     }
 
+    /**
+     * Sets the rectangles list.
+     *
+     * @param rectangles The rectangles list to set.
+     */
     public void setRectangles(List<Rectangle> rectangles) {
         this.rectangles = rectangles;
     }
 
+    /**
+     * Sets the title of the level and updates the title label.
+     *
+     * @param text The title text to set.
+     */
     public void setTitle(String text) {
         setLevelTitle(text);
         titlelabel.setText(text);
     }
 
+    /**
+     * Sets the level title.
+     *
+     * @param levelTitle The level title to set.
+     */
     public void setLevelTitle(String levelTitle) {
         this.levelTitle = levelTitle;
     }
 
+    /**
+     * Sets the number of moves.
+     *
+     * @param mosse The number of moves to set.
+     */
     public void setnMosse(String mosse) {
         this.nMosse.setText(mosse);
     }
 
+    /**
+     * Sets the level file path.
+     *
+     * @param level The level file path to set.
+     */
     public void setLevelFilePath(String level) {
         this.levelName = level;
     }
 
+    /**
+     * Sets the history of rectangle movements.
+     *
+     * @param componentsList The components list representing the history of rectangle movements to set.
+     */
     public void setHystoryRectanglesMovements(List<Components> componentsList) {
         hystoryRectanglesMovements.add(Helper.copyComponentsList(componentsList));
     }
 
+    /**
+     * Sets the default components list.
+     *
+     * @param componentsList The components list to set as the default components list.
+     */
     public void setDefaultComponentsList(List<Components> componentsList) {
         defaultComponentsList = Helper.copyComponentsList(componentsList);
     }
 
+    /**
+     * Sets the Python next best move components list.
+     *
+     * @param componentsList The components list to set as the Python next best move components list.
+     */
     public void setPythonNextBestMoveComponentsLists(List<Components> componentsList) {
         pythonNextBestMoveComponentsLists = Helper.copyComponentsList(componentsList);
     }
 
-
+    /**
+     * Sets the mouse pressed event handler for the given rectangle.
+     * Updates the initial values for mouse movement tracking and changes the cursor.
+     *
+     * @param rectangle The rectangle to set the mouse pressed event handler for.
+     */
     private void setMousePressed(Rectangle rectangle) {
         rectangle.setOnMousePressed(event -> {
 
@@ -208,7 +271,13 @@ public class GameController {
             System.out.println("RECTANGLE ID: " + rectangle.getId());
         });
     }
-
+    /**
+     * Sets the mouse dragged event handler for the given grid pane and rectangle.
+     * Handles the movement of the rectangle during mouse dragging.
+     *
+     * @param gridPane   The grid pane that contains the rectangle.
+     * @param rectangle  The rectangle to set the mouse dragged event handler for.
+     */
     private void setMouseDragged(GridPane gridPane, Rectangle rectangle) {
         rectangle.setOnMouseDragged(event -> {
             double offsetX = event.getSceneX() - startMouseX;
@@ -267,14 +336,24 @@ public class GameController {
             }
         });
     }
-
+    /**
+     * Sets the mouse released event handler for the given rectangle.
+     * Resets the cursor and updates the number of moves.
+     *
+     * @param rectangle The rectangle to set the mouse released event handler for.
+     */
     private void setMouseReleased(Rectangle rectangle) {
         rectangle.setOnMouseReleased(event -> {
             rectangle.setCursor(Cursor.DEFAULT);
             setnMosse(Integer.toString(numMosse));
         });
     }
-
+    /**
+     * Sets the mouse event handlers for the given grid pane and rectangle list.
+     *
+     * @param gridPane        The grid pane that contains the rectangles.
+     * @param rectangleList   The list of rectangles to set the mouse event handlers for.
+     */
     private void setMouseEvent(GridPane gridPane, List<Rectangle> rectangleList) {
         for (Rectangle rectangle : rectangleList) {
             setMousePressed(rectangle);
@@ -283,39 +362,70 @@ public class GameController {
         }
     }
 
-
-    /*******************************************************************************
-     *                              GETTERS FUNCTIONS                              *
-     *******************************************************************************/
+    /**
+     * Returns the list of components.
+     *
+     * @return The list of components.
+     */
     public List<Components> getComponents() {
         return components;
     }
 
+    /**
+     * Returns the list of rectangles.
+     *
+     * @return The list of rectangles.
+     */
     public List<Rectangle> getRectangles() {
         return rectangles;
     }
 
+    /**
+     * Returns the level file path.
+     *
+     * @return The level file path.
+     */
     public String getLevelFilePath() {
         return levelName;
     }
 
+    /**
+     * Returns the history of rectangle movements.
+     *
+     * @return The history of rectangle movements.
+     */
     public List<List<Components>> getHystoryRectanglesMovements() {
         return hystoryRectanglesMovements;
     }
 
-
+    /**
+     * Returns the level title.
+     *
+     * @return The level title.
+     */
     public String getLevelTitle() {
         return levelTitle;
     }
 
 
-    /*******************************************************************************
-     *                              FXML BUTTON FUNCTIONS                           *
-     *******************************************************************************/
-
+    /**
+     * Resets the variables to their initial values.
+     */
+    private void resetVariables() {
+        nextBestMoveCounter = 0;
+        numMosse = 0;
+        components = new ArrayList<>();
+        rectangles = new ArrayList<>();
+        hystoryRectanglesMovements = new ArrayList<>();
+    }
+    /**
+     * Resets the game state and navigates to the game screen.
+     *
+     * @throws IOException if an I/O error occurs.
+     */
     @FXML
-    private void reset(ActionEvent actionEvent) throws IOException {
-        if (resetAlert.confermationAlert()) {
+    private void reset() throws IOException {
+        if (resetAlert.confirmationAlert()) {
             System.out.println("Action confirmed");
 
             FXMLLoader loader = new FXMLLoader(getClass().getResource("/klotski_ids/views/frameMenu/game.fxml"));
@@ -337,16 +447,14 @@ public class GameController {
         }
     }
 
-    private void resetVariables() {
-        nextBestMoveCounter = 0;
-        numMosse = 0;
-        components = new ArrayList<>();
-        rectangles = new ArrayList<>();
-        hystoryRectanglesMovements = new ArrayList<>();
-    }
 
+    /**
+     * Saves the current game level to a JSON file.
+     *
+     * @throws IOException if an I/O error occurs.
+     */
     @FXML
-    public void save(ActionEvent actionEvent) throws IOException {
+    public void save() throws IOException {
         Gson gson = new Gson();
         int maxWidth = 100;
         int maxHeight = 100;
@@ -377,8 +485,12 @@ public class GameController {
         }
     }
 
-
-    public void nextBestMove(ActionEvent actionEvent) throws IOException {
+    /**
+     * Performs the next best move in the game.
+     *
+     * @throws IOException if an I/O error occurs.
+     */
+    public void nextBestMove() throws IOException {
         List<Components> levelComponents = new ArrayList<>(getComponents());
         Helper.writeToFile("src/main/resources/klotski_ids/data/levelSolutions/DefaultLayout.txt", Helper.levelToString(levelComponents));
 
@@ -420,9 +532,11 @@ public class GameController {
         Helper.setGridPaneElements(gridPane, getComponents(), rectangles);
     }
 
-
+    /**
+     * Reverts the last move and restores the previous game state.
+     */
     @FXML
-    public void undo(ActionEvent actionEvent) {
+    public void undo() {
         int lastIndex = hystoryRectanglesMovements.size() - 1;
 
         if (lastIndex >= 1) {
@@ -448,28 +562,47 @@ public class GameController {
         }
     }
 
-    /*******************************************************************************
-     *                              INITIALIZE FUNCTION                            *
-     *******************************************************************************/
-
+    /**
+     * Initializes the game with the provided level information.
+     *
+     * @param level      the Level object containing the level information.
+     * @param levelTitle the title of the level.
+     * @param filePath   the file path of the level.
+     * @throws IOException if an I/O error occurs.
+     */
     public void initialize(Level level, String levelTitle, String filePath) throws IOException {
+        // Reset variables
         resetVariables();
 
+        // Set level file path
         setLevelFilePath(filePath);
 
-        //Scritta per il pane
+        // Set title
         setTitle(levelTitle);
 
+        // Set number of moves
         numMosse = level.getCountedMoves();
 
+        // Set components and rectangles
         setComponents(level.getRectangles());
         setRectangles(Helper.createRectangle(components));
+
+        // Set history of rectangle movements
         setHystoryRectanglesMovements(components);
+
+        // Set default components list
         setDefaultComponentsList(components);
 
+        // Set grid pane elements
         Helper.setGridPaneElements(gridPane, components, rectangles);
+
+        // Set mouse event handlers
         setMouseEvent(gridPane, rectangles);
     }
 
+    //TODO controllare funzione nexbest move e undo
+    //TODO aggiungere win condition
+    //TODO controllare iteratori e counter mosse
+    //TODO aggiungere test junit
 
 }
