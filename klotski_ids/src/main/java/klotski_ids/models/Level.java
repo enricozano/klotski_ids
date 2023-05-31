@@ -2,6 +2,7 @@ package klotski_ids.models;
 
 
 import java.util.List;
+import java.util.Objects;
 
 /**
  * A representation of a Klotski level, consisting of a list of components (rectangles) and information on the minimum
@@ -176,4 +177,7 @@ public class Level {
     public int getCountedMoves(){
         return this.countedMoves;
     }
+
+
+
 }

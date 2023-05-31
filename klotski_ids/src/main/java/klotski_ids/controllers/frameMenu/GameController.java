@@ -122,6 +122,9 @@ public class GameController {
      */
     private List<Components> components = new ArrayList<>();
 
+    private static List<Components> defaultComponentsList = new ArrayList<>();
+
+    private static  List<Components> pythonNextBestMoveComponentsLists = new ArrayList<>();
     /**
      * A list of the rectangles currently in the grid.
      */
@@ -142,8 +145,11 @@ public class GameController {
 
     private String levelTitle;
 
-    static int nextBestMoveCounter = 0;
+    private static int nextBestMoveCounter = 0;
 
+    private boolean hasMoved = false;
+
+    private int nextMoveIterator;
     /*******************************************************************************
      *                              SETTERS FUNCTIONS                              *
      *******************************************************************************/
@@ -174,6 +180,14 @@ public class GameController {
 
     public void setHystoryRectanglesMovements(List<Components> componentsList) {
         hystoryRectanglesMovements.add(Helper.copyComponentsList(componentsList));
+    }
+
+    public void setDefaultComponentsList(List<Components> componentsList) {
+        defaultComponentsList = Helper.copyComponentsList(componentsList);
+    }
+
+    public void setPythonNextBestMoveComponentsLists(List<Components> componentsList) {
+        pythonNextBestMoveComponentsLists = Helper.copyComponentsList(componentsList);
     }
 
 
@@ -242,6 +256,7 @@ public class GameController {
                             x.setCol(newCol);
                         }
                     }
+                    hasMoved = !Helper.isSameComponentsList(defaultComponentsList, getComponents());
 
                     setComponents(updateList);
                     setHystoryRectanglesMovements(updateList);
@@ -362,95 +377,46 @@ public class GameController {
     }
 
 
-    //TODO implementare next best move
-    @FXML
     public void nextBestMove(ActionEvent actionEvent) throws IOException {
-        int rectangleNumber = 0;
-        String action = "";
-        int currentRow = 0;
-        int currentCol = 0;
-        //Helper.writeToFile("src/main/resources/klotski_ids/data/levelSolutions/DefaultLayout.txt", Helper.levelToString(getComponents()));
+        Helper.writeToFile("src/main/resources/klotski_ids/data/levelSolutions/DefaultLayout.txt", Helper.levelToString(getComponents()));
+        System.out.println("hasMoved " + hasMoved);
 
-        List<Components> componentsList = new ArrayList<>(getComponents());
+        System.out.println("Components " + Helper.isSameComponentsList(defaultComponentsList, getComponents()));
+        if (!hasMoved) {
+            if (Helper.isSameComponentsList(defaultComponentsList, getComponents()) && nextBestMoveCounter!=0) {
+                nextBestMoveCounter = 0;
+            }
+            String levelName = getLevelTitle();
+            String solutionFileName = Helper.getSolutionFileName(levelName);
+            List<Pair<Integer, String>> separatedMoves = Helper.getSeparatedMoves(solutionFileName);
 
-        String levelName = getLevelTitle();
-        String solutionFileName = switch (levelName) {
-            case "Level 1" -> "SolutionsLevel1.txt";
-            case "Level 2" -> "SolutionsLevel2.txt";
-            case "Level 3" -> "SolutionsLevel3.txt";
-            case "Level 4" -> "SolutionsLevel4.txt";
-            default -> "";
-        };
-
-        System.out.println(solutionFileName);
-        List<String> movesStrings = new ArrayList<>(Helper.getMovesStringsFromFile("src/main/resources/klotski_ids/data/levelSolutions/" + solutionFileName));
-        List<Pair<Integer, String>> separatedMoves = new ArrayList<>(Helper.separateNumericValue(movesStrings));
-
-        if (nextBestMoveCounter < separatedMoves.size()) {
-            rectangleNumber = separatedMoves.get(nextBestMoveCounter).getKey();
-            action = separatedMoves.get(nextBestMoveCounter).getValue();
-            currentRow = componentsList.get(rectangleNumber).getRow();
-            currentCol = componentsList.get(rectangleNumber).getCol();
-            System.out.println("Rectangle ID: " + componentsList.get(rectangleNumber).getId() + "  Number: " + rectangleNumber + ", Action: " + action);
-
-            switch (action) {
-                case "UP" -> {
-                    System.out.println("up");
-                    System.out.println("current Row " + currentRow + " current col " + currentCol);
-                    componentsList.get(rectangleNumber).setRow(currentRow - 1);
-                }
-                case "DOWN" -> {
-                    System.out.println("down");
-                    System.out.println("current Row " + currentRow + " current col " + currentCol);
-                    componentsList.get(rectangleNumber).setRow(currentRow + 1);
-                }
-                case "RIGHT" -> {
-                    System.out.println("right");
-                    System.out.println("current Row " + currentRow + " current col " + currentCol);
-                    componentsList.get(rectangleNumber).setCol(currentCol + 1);
-                }
-                case "LEFT" -> {
-                    System.out.println("left");
-                    System.out.println("current Row " + currentRow + " current col " + currentCol);
-                    componentsList.get(rectangleNumber).setCol(currentCol - 1);
-                }
+            if (nextBestMoveCounter < separatedMoves.size()) {
+                setComponents(Helper.performMoveAction(separatedMoves.get(nextBestMoveCounter), getComponents()));
+                nextBestMoveCounter++;
             }
 
+        } else {
+            nextBestMoveCounter = numMosse;
+            if(!Helper.isSameComponentsList(pythonNextBestMoveComponentsLists, getComponents())){
+                Helper.executePythonProcess("src/main/resources/klotski_ids/pythonKlotskiSolver/Main.py");
+                nextMoveIterator = 0;
+            }
+
+            String solutionFileName = "Solutions.txt";
+
+            List<Pair<Integer, String>> separatedMoves = Helper.getSeparatedMoves(solutionFileName);
+
+            setComponents(Helper.performMoveAction(separatedMoves.get(nextMoveIterator), getComponents()));
+
+            nextMoveIterator++;
             nextBestMoveCounter++;
         }
+
         setnMosse(Integer.toString(nextBestMoveCounter));
-        setComponents(componentsList);
         gridPane.getChildren().clear();
-        setHystoryRectanglesMovements(componentsList);
-        Helper.setGridPaneElements(gridPane, componentsList, rectangles);
-
-
-        /*try {
-            ProcessBuilder pb = new ProcessBuilder("python", "src/main/resources/klotski_ids/pythonKlotskiSolver/Main.py");
-            Process process = pb.start();
-
-            // Read the output stream
-            InputStream inputStream = process.getInputStream();
-            BufferedReader reader = new BufferedReader(new InputStreamReader(inputStream));
-            String line;
-            while ((line = reader.readLine()) != null) {
-                System.out.println(line);
-            }
-
-            // Read the error stream
-            InputStream errorStream = process.getErrorStream();
-            BufferedReader errorReader = new BufferedReader(new InputStreamReader(errorStream));
-            String errorLine;
-            while ((errorLine = errorReader.readLine()) != null) {
-                System.err.println(errorLine);
-            }
-
-            int exitCode = process.waitFor();
-            System.out.println("Python program exited with code: " + exitCode);
-        } catch (IOException | InterruptedException e) {
-            e.printStackTrace();
-        }
-*/
+        setHystoryRectanglesMovements(getComponents());
+        setPythonNextBestMoveComponentsLists(getComponents());
+        Helper.setGridPaneElements(gridPane, getComponents(), rectangles);
     }
 
 
@@ -487,10 +453,8 @@ public class GameController {
      *******************************************************************************/
 
     public void initialize(Level level, String levelTitle, String filePath) throws IOException {
-
         resetVariables();
 
-        System.out.println("level file name init: " + filePath);
         setLevelFilePath(filePath);
 
         //Scritta per il pane
@@ -500,8 +464,8 @@ public class GameController {
 
         setComponents(level.getRectangles());
         setRectangles(Helper.createRectangle(components));
-
         setHystoryRectanglesMovements(components);
+        setDefaultComponentsList(components);
 
         Helper.setGridPaneElements(gridPane, components, rectangles);
         setMouseEvent(gridPane, rectangles);

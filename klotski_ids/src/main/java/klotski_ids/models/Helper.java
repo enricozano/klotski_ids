@@ -209,6 +209,51 @@ public class Helper {
         return copyList;
     }
 
+    public static boolean isSameComponentsList(List<Components> componentsList1, List<Components> componentsList2){
+        if (componentsList1.size() != componentsList2.size()) {
+            return false;
+        }
+
+        for (int i = 0; i < componentsList1.size(); i++) {
+            Components comp1 = componentsList1.get(i);
+            Components comp2 = componentsList2.get(i);
+
+            if (!comp1.equals(comp2)) {
+                return false;
+            }
+        }
+
+        return true;
+
+    }
+
+    public static void executePythonProcess(String pythonScriptPath) {
+        try {
+            ProcessBuilder pb = new ProcessBuilder("python", pythonScriptPath);
+            Process process = pb.start();
+
+            // Read the output stream
+            InputStream inputStream = process.getInputStream();
+            BufferedReader reader = new BufferedReader(new InputStreamReader(inputStream));
+            String line;
+            while ((line = reader.readLine()) != null) {
+                System.out.println(line);
+            }
+
+            // Read the error stream
+            InputStream errorStream = process.getErrorStream();
+            BufferedReader errorReader = new BufferedReader(new InputStreamReader(errorStream));
+            String errorLine;
+            while ((errorLine = errorReader.readLine()) != null) {
+                System.err.println(errorLine);
+            }
+
+            int exitCode = process.waitFor();
+            System.out.println("Python program exited with code: " + exitCode);
+        } catch (IOException | InterruptedException e) {
+            e.printStackTrace();
+        }
+    }
 
 
     public static String levelToString(List<Components> rectangles) {
@@ -249,6 +294,7 @@ public class Helper {
         writer.write(content);
         writer.close();
     }
+
 
     public static List<Pair<Integer, String>> separateNumericValue(List<String> movesStrings) {
         List<Pair<Integer, String>> separatedMoves = new ArrayList<>();
@@ -295,6 +341,66 @@ public class Helper {
         int number = Integer.parseInt(parts[0].substring(1));
         String action = parts[1].trim();
         return new Pair<>(number, action);
+    }
+
+    public static String getSolutionFileName(String levelName) {
+        String solutionFileName = "";
+        switch (levelName) {
+            case "Level 1":
+                solutionFileName = "SolutionsLevel1.txt";
+                break;
+            case "Level 2":
+                solutionFileName = "SolutionsLevel2.txt";
+                break;
+            case "Level 3":
+                solutionFileName = "SolutionsLevel3.txt";
+                break;
+            case "Level 4":
+                solutionFileName = "SolutionsLevel4.txt";
+                break;
+        }
+        return solutionFileName;
+    }
+
+    public static List<Pair<Integer, String>> getSeparatedMoves(String solutionFileName) {
+        List<String> movesStrings = Helper.getMovesStringsFromFile("src/main/resources/klotski_ids/data/levelSolutions/" + solutionFileName);
+        return Helper.separateNumericValue(movesStrings);
+    }
+
+    public static List<Components> performMoveAction(Pair<Integer, String> move, List<Components> components) {
+        int rectangleNumber = move.getKey();
+        String action = move.getValue();
+        List<Components> componentsList = new ArrayList<>(components);
+        Components component = componentsList.get(rectangleNumber);
+        int currentRow = component.getRow();
+        int currentCol = component.getCol();
+
+        System.out.println("Rectangle ID: " + component.getId() + "  Number: " + rectangleNumber + ", Action: " + action);
+
+        switch (action) {
+            case "UP":
+                System.out.println("up");
+                System.out.println("current Row " + currentRow + " current col " + currentCol);
+                component.setRow(currentRow - 1);
+                break;
+            case "DOWN":
+                System.out.println("down");
+                System.out.println("current Row " + currentRow + " current col " + currentCol);
+                component.setRow(currentRow + 1);
+                break;
+            case "RIGHT":
+                System.out.println("right");
+                System.out.println("current Row " + currentRow + " current col " + currentCol);
+                component.setCol(currentCol + 1);
+                break;
+            case "LEFT":
+                System.out.println("left");
+                System.out.println("current Row " + currentRow + " current col " + currentCol);
+                component.setCol(currentCol - 1);
+                break;
+        }
+
+        return componentsList;
     }
 
 }

@@ -9,32 +9,13 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="6bfdf0fa-9483-4758-a1c0-5debc05e40e9" name="Changes" comment="improvements">
-      <change afterPath="$PROJECT_DIR$/src/main/resources/klotski_ids/data/levelSolutions/DefaultLayout.txt" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/resources/klotski_ids/data/levelSolutions/Solutions.txt" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/resources/klotski_ids/data/levelSolutions/SolutionsLevel1.txt" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/resources/klotski_ids/data/levelSolutions/SolutionsLevel2.txt" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/resources/klotski_ids/data/levelSolutions/SolutionsLevel3.txt" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/resources/klotski_ids/data/levelSolutions/SolutionsLevel4.txt" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/resources/klotski_ids/pythonKlotskiSolver/FiveGates.txt" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/resources/klotski_ids/pythonKlotskiSolver/HRBoard.py" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/resources/klotski_ids/pythonKlotskiSolver/HRConsts.py" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/resources/klotski_ids/pythonKlotskiSolver/HRException.py" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/resources/klotski_ids/pythonKlotskiSolver/HRGame.py" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/resources/klotski_ids/pythonKlotskiSolver/HRMove.py" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/resources/klotski_ids/pythonKlotskiSolver/HRNode.py" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/resources/klotski_ids/pythonKlotskiSolver/HRPiece.py" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/resources/klotski_ids/pythonKlotskiSolver/HRSolution.py" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/resources/klotski_ids/pythonKlotskiSolver/Main.py" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/resources/klotski_ids/pythonKlotskiSolver/README.md" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/resources/klotski_ids/pythonKlotskiSolver/TestLayout.txt" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/shelf/Uncommitted_changes_before_Update_at_5_6_23__4_04_PM__Changes_.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/shelf/Uncommitted_changes_before_Update_at_5_6_23__4_04_PM__Changes_.xml" afterDir="false" />
+    <list default="true" id="6bfdf0fa-9483-4758-a1c0-5debc05e40e9" name="Changes" comment="Added Default nextBestMove">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/java/klotski_ids/controllers/frameMenu/GameController.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/klotski_ids/controllers/frameMenu/GameController.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/klotski_ids/controllers/frameMenu/LevelMenuController.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/klotski_ids/controllers/frameMenu/LevelMenuController.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/klotski_ids/controllers/frameMenu/StartMenuController.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/klotski_ids/controllers/frameMenu/StartMenuController.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/klotski_ids/controllers/panes/TopBarController.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/klotski_ids/controllers/panes/TopBarController.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/klotski_ids/models/Components.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/klotski_ids/models/Components.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/java/klotski_ids/models/Helper.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/klotski_ids/models/Helper.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/klotski_ids/models/Level.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/klotski_ids/models/Level.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/resources/klotski_ids/data/levelSolutions/DefaultLayout.txt" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/resources/klotski_ids/data/levelSolutions/DefaultLayout.txt" afterDir="false" />
     </list>
     <list id="09855262-e7fe-4115-8869-69c02f2c6753" name="Changes by eris" comment="" />
     <option name="SHOW_DIALOG" value="false" />
@@ -143,6 +124,9 @@
     </key>
     <key name="CreateTestDialog.Recents.Supers">
       <recent name="" />
+    </key>
+    <key name="ExtractSuperBase.RECENT_KEYS">
+      <recent name="klotski_ids.models" />
     </key>
     <key name="CreateTestDialog.RecentsKey">
       <recent name="klotski_ids.models" />
@@ -448,7 +432,14 @@
       <option name="project" value="LOCAL" />
       <updated>1685453247176</updated>
     </task>
-    <option name="localTasksCounter" value="34" />
+    <task id="LOCAL-00034" summary="Added Default nextBestMove">
+      <created>1685527899544</created>
+      <option name="number" value="00034" />
+      <option name="presentableId" value="LOCAL-00034" />
+      <option name="project" value="LOCAL" />
+      <updated>1685527899544</updated>
+    </task>
+    <option name="localTasksCounter" value="35" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -483,7 +474,8 @@
     <MESSAGE value="fixes" />
     <MESSAGE value="style" />
     <MESSAGE value="improvements" />
-    <option name="LAST_COMMIT_MESSAGE" value="improvements" />
+    <MESSAGE value="Added Default nextBestMove" />
+    <option name="LAST_COMMIT_MESSAGE" value="Added Default nextBestMove" />
   </component>
   <component name="XSLT-Support.FileAssociations.UIState">
     <expand />
