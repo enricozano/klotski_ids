@@ -39,7 +39,7 @@ public class StartMenuController {
     @FXML
     private void resumeGame(ActionEvent actionEvent) {
         alerts = new MyAlerts("Error");
-        Helper helper = new Helper();
+
         Button button = (Button) actionEvent.getSource();
 
         FileChooser fileChooser = new FileChooser();
@@ -56,7 +56,7 @@ public class StartMenuController {
                 String filePath = selectedFile.getPath();
                 loadGameScene();
                 System.out.println("File path: " + filePath);
-                Level level = helper.readJsonAbsolutePath(filePath);
+                Level level = Helper.readJsonAbsolutePath(filePath);
 
                 if (level != null) {
                     System.out.println("Level: " + level.getLevelTitle());

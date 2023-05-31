@@ -14,6 +14,7 @@ import javafx.scene.control.Label;
 import javafx.scene.layout.GridPane;
 import javafx.scene.shape.Rectangle;
 import javafx.stage.FileChooser;
+import javafx.util.Pair;
 import klotski_ids.models.MyAlerts;
 import klotski_ids.models.Components;
 import klotski_ids.models.Level;
@@ -128,10 +129,6 @@ public class GameController {
 
     private static List<List<Components>> hystoryRectanglesMovements = new ArrayList<>();
 
-    /**
-     * An instance of the Helper class.
-     */
-    private final Helper helper = new Helper();
 
     /**
      * An instance of the myAlerts class.
@@ -145,7 +142,7 @@ public class GameController {
 
     private String levelTitle;
 
-
+    static int nextBestMoveCounter = 0;
 
     /*******************************************************************************
      *                              SETTERS FUNCTIONS                              *
@@ -163,7 +160,7 @@ public class GameController {
         titlelabel.setText(text);
     }
 
-    public void setLevelTitle(String levelTitle){
+    public void setLevelTitle(String levelTitle) {
         this.levelTitle = levelTitle;
     }
 
@@ -176,7 +173,7 @@ public class GameController {
     }
 
     public void setHystoryRectanglesMovements(List<Components> componentsList) {
-        hystoryRectanglesMovements.add(helper.copyComponentsList(componentsList));
+        hystoryRectanglesMovements.add(Helper.copyComponentsList(componentsList));
     }
 
 
@@ -227,7 +224,7 @@ public class GameController {
                     maxRow = NUM_ROWS - 1;
                 }
 
-                if ((newCol <= maxCol && newRow <= maxRow) && helper.isMoveValid(rectangle, newCol, newRow) && !helper.overlaps(gridPane, rectangle, newCol, newRow)) {
+                if ((newCol <= maxCol && newRow <= maxRow) && Helper.isMoveValid(rectangle, newCol, newRow) && !Helper.overlaps(gridPane, rectangle, newCol, newRow)) {
 
                     int deltaCol = Math.abs(GridPane.getColumnIndex(rectangle) - newCol);
                     int deltaRow = Math.abs(GridPane.getRowIndex(rectangle) - newRow);
@@ -291,7 +288,7 @@ public class GameController {
     }
 
 
-    public String getLevelTitle (){
+    public String getLevelTitle() {
         return levelTitle;
     }
 
@@ -310,10 +307,10 @@ public class GameController {
 
             GameController gameController = loader.getController();
             try {
-                Level level = helper.readJson(getLevelFilePath());
+                Level level = Helper.readJson(getLevelFilePath());
                 gameController.initialize(level, getLevelTitle(), getLevelFilePath());
-            } catch (NullPointerException e){
-                Level level = helper.readJsonAbsolutePath(getLevelFilePath());
+            } catch (NullPointerException e) {
+                Level level = Helper.readJsonAbsolutePath(getLevelFilePath());
                 gameController.initialize(level, getLevelTitle(), getLevelFilePath());
             }
 
@@ -323,7 +320,9 @@ public class GameController {
             System.out.println("Action canceled");
         }
     }
+
     private void resetVariables() {
+        nextBestMoveCounter = 0;
         numMosse = 0;
         components = new ArrayList<>();
         rectangles = new ArrayList<>();
@@ -365,9 +364,95 @@ public class GameController {
 
     //TODO implementare next best move
     @FXML
-    public void nextBestMove(ActionEvent actionEvent) {
+    public void nextBestMove(ActionEvent actionEvent) throws IOException {
+        int rectangleNumber = 0;
+        String action = "";
+        int currentRow = 0;
+        int currentCol = 0;
+        //Helper.writeToFile("src/main/resources/klotski_ids/data/levelSolutions/DefaultLayout.txt", Helper.levelToString(getComponents()));
 
+        List<Components> componentsList = new ArrayList<>(getComponents());
+
+        String levelName = getLevelTitle();
+        String solutionFileName = switch (levelName) {
+            case "Level 1" -> "SolutionsLevel1.txt";
+            case "Level 2" -> "SolutionsLevel2.txt";
+            case "Level 3" -> "SolutionsLevel3.txt";
+            case "Level 4" -> "SolutionsLevel4.txt";
+            default -> "";
+        };
+
+        System.out.println(solutionFileName);
+        List<String> movesStrings = new ArrayList<>(Helper.getMovesStringsFromFile("src/main/resources/klotski_ids/data/levelSolutions/" + solutionFileName));
+        List<Pair<Integer, String>> separatedMoves = new ArrayList<>(Helper.separateNumericValue(movesStrings));
+
+        if (nextBestMoveCounter < separatedMoves.size()) {
+            rectangleNumber = separatedMoves.get(nextBestMoveCounter).getKey();
+            action = separatedMoves.get(nextBestMoveCounter).getValue();
+            currentRow = componentsList.get(rectangleNumber).getRow();
+            currentCol = componentsList.get(rectangleNumber).getCol();
+            System.out.println("Rectangle ID: " + componentsList.get(rectangleNumber).getId() + "  Number: " + rectangleNumber + ", Action: " + action);
+
+            switch (action) {
+                case "UP" -> {
+                    System.out.println("up");
+                    System.out.println("current Row " + currentRow + " current col " + currentCol);
+                    componentsList.get(rectangleNumber).setRow(currentRow - 1);
+                }
+                case "DOWN" -> {
+                    System.out.println("down");
+                    System.out.println("current Row " + currentRow + " current col " + currentCol);
+                    componentsList.get(rectangleNumber).setRow(currentRow + 1);
+                }
+                case "RIGHT" -> {
+                    System.out.println("right");
+                    System.out.println("current Row " + currentRow + " current col " + currentCol);
+                    componentsList.get(rectangleNumber).setCol(currentCol + 1);
+                }
+                case "LEFT" -> {
+                    System.out.println("left");
+                    System.out.println("current Row " + currentRow + " current col " + currentCol);
+                    componentsList.get(rectangleNumber).setCol(currentCol - 1);
+                }
+            }
+
+            nextBestMoveCounter++;
+        }
+        setnMosse(Integer.toString(nextBestMoveCounter));
+        setComponents(componentsList);
+        gridPane.getChildren().clear();
+        setHystoryRectanglesMovements(componentsList);
+        Helper.setGridPaneElements(gridPane, componentsList, rectangles);
+
+
+        /*try {
+            ProcessBuilder pb = new ProcessBuilder("python", "src/main/resources/klotski_ids/pythonKlotskiSolver/Main.py");
+            Process process = pb.start();
+
+            // Read the output stream
+            InputStream inputStream = process.getInputStream();
+            BufferedReader reader = new BufferedReader(new InputStreamReader(inputStream));
+            String line;
+            while ((line = reader.readLine()) != null) {
+                System.out.println(line);
+            }
+
+            // Read the error stream
+            InputStream errorStream = process.getErrorStream();
+            BufferedReader errorReader = new BufferedReader(new InputStreamReader(errorStream));
+            String errorLine;
+            while ((errorLine = errorReader.readLine()) != null) {
+                System.err.println(errorLine);
+            }
+
+            int exitCode = process.waitFor();
+            System.out.println("Python program exited with code: " + exitCode);
+        } catch (IOException | InterruptedException e) {
+            e.printStackTrace();
+        }
+*/
     }
+
 
     @FXML
     public void undo(ActionEvent actionEvent) {
@@ -377,16 +462,23 @@ public class GameController {
             hystoryRectanglesMovements.remove(lastIndex);
             lastIndex--;
 
+            if (nextBestMoveCounter > 0) {
+                nextBestMoveCounter--;
+                setnMosse(Integer.toString(nextBestMoveCounter));
+
+            }
+
             if (numMosse > 0) {
                 numMosse--;
                 setnMosse(Integer.toString(numMosse));
             }
 
+
             List<Components> componentsList = new ArrayList<>(hystoryRectanglesMovements.get(lastIndex));
             gridPane.getChildren().clear();
-            helper.setGridPaneElements(gridPane, componentsList, rectangles);
+            Helper.setGridPaneElements(gridPane, componentsList, rectangles);
 
-            setComponents(helper.copyComponentsList(componentsList));
+            setComponents(Helper.copyComponentsList(componentsList));
         }
     }
 
@@ -395,6 +487,7 @@ public class GameController {
      *******************************************************************************/
 
     public void initialize(Level level, String levelTitle, String filePath) throws IOException {
+
         resetVariables();
 
         System.out.println("level file name init: " + filePath);
@@ -406,11 +499,11 @@ public class GameController {
         numMosse = level.getCountedMoves();
 
         setComponents(level.getRectangles());
-        setRectangles(helper.createRectangle(components));
+        setRectangles(Helper.createRectangle(components));
 
         setHystoryRectanglesMovements(components);
 
-        helper.setGridPaneElements(gridPane, components, rectangles);
+        Helper.setGridPaneElements(gridPane, components, rectangles);
         setMouseEvent(gridPane, rectangles);
     }
 

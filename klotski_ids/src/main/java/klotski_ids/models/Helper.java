@@ -9,11 +9,10 @@ import javafx.scene.control.Alert;
 import javafx.scene.control.ButtonType;
 import javafx.scene.layout.GridPane;
 import javafx.scene.shape.Rectangle;
+import javafx.util.Pair;
 
 import java.io.*;
-import java.util.ArrayList;
-import java.util.List;
-import java.util.Optional;
+import java.util.*;
 
 public class Helper {
     private static final int CELL_WIDTH = 50;
@@ -29,10 +28,10 @@ public class Helper {
      * @throws IOException           if an error occurs while reading the JSON file
      * @throws JsonSyntaxException   if the JSON file is not formatted correctly
      */
-    public Level readJson(String filePath) throws FileNotFoundException, IOException, JsonSyntaxException {
+    public static Level readJson(String filePath) throws FileNotFoundException, IOException, JsonSyntaxException {
         System.out.println("file path: " + filePath);
         Level level = null;
-        try (InputStream inputStream = getClass().getResourceAsStream(filePath)) {
+        try (InputStream inputStream = Helper.class.getResourceAsStream(filePath)) {
             assert inputStream != null;
             try (InputStreamReader reader = new InputStreamReader(inputStream)) {
                 Gson gson = new Gson();
@@ -50,7 +49,7 @@ public class Helper {
         return level;
     }
 
-    public Level readJsonAbsolutePath(String filePath) throws FileNotFoundException, IOException, JsonSyntaxException {
+    public static Level readJsonAbsolutePath(String filePath) throws FileNotFoundException, IOException, JsonSyntaxException {
         Level level = null;
         try (InputStream inputStream = new FileInputStream(filePath)) {
             try (InputStreamReader reader = new InputStreamReader(inputStream)) {
@@ -82,7 +81,7 @@ public class Helper {
      * @param rowIndex  the row index in the grid pane where the rectangle is located
      * @return a list of Point2D objects representing the area covered by the rectangle
      */
-    public List<Point2D> getRectangleAreaPoints(Rectangle rectangle, int colIndex, int rowIndex) {
+    public static List<Point2D> getRectangleAreaPoints(Rectangle rectangle, int colIndex, int rowIndex) {
         int height = (int) rectangle.getHeight();
         int width = (int) rectangle.getWidth();
 
@@ -102,6 +101,8 @@ public class Helper {
         return points;
     }
 
+
+
     /**
      * Checks if a move is valid for a given rectangle in the specified row and column.
      *
@@ -110,7 +111,7 @@ public class Helper {
      * @param row       the new row to move the rectangle to
      * @return {@code true} if the move is valid, {@code false} otherwise
      */
-    public boolean isMoveValid(Rectangle rectangle, int col, int row) {
+    public static boolean isMoveValid(Rectangle rectangle, int col, int row) {
         int rectangleRow = GridPane.getRowIndex(rectangle);
         int rectangleCol = GridPane.getColumnIndex(rectangle);
 
@@ -131,7 +132,7 @@ public class Helper {
      * @param newRow    The row index of the new position to check for overlaps.
      * @return True if the given rectangle overlaps with any other rectangles on the specified cell position, false otherwise.
      */
-    public boolean overlaps(GridPane gridPane, Rectangle rectangle, int newCol, int newRow) {
+    public static boolean overlaps(GridPane gridPane, Rectangle rectangle, int newCol, int newRow) {
 
         List<Point2D> newPoints = getRectangleAreaPoints(rectangle, newCol, newRow);
 
@@ -163,7 +164,7 @@ public class Helper {
      * @return a list of Rectangle objects created from the Components objects.
      * @throws IllegalArgumentException if the components list is null.
      */
-    public List<Rectangle> createRectangle(List<klotski_ids.models.Components> components) {
+    public static List<Rectangle> createRectangle(List<klotski_ids.models.Components> components) {
         List<Rectangle> rectangleList = new ArrayList<>();
 
         if (components == null) {
@@ -187,7 +188,7 @@ public class Helper {
      * @param components the list of components
      * @param rectangles the list of rectangles
      */
-    public void setGridPaneElements(GridPane gridPane, List<klotski_ids.models.Components> components, List<Rectangle> rectangles) {
+    public static void setGridPaneElements(GridPane gridPane, List<klotski_ids.models.Components> components, List<Rectangle> rectangles) {
         gridPane.getChildren().clear();
         int size = Math.min(components.size(), rectangles.size());
 
@@ -199,7 +200,7 @@ public class Helper {
         }
     }
 
-    public List<Components> copyComponentsList(List<Components> originalList) {
+    public static List<Components> copyComponentsList(List<Components> originalList) {
         List<Components> copyList = new ArrayList<>();
         for (Components component : originalList) {
             Components copy = new Components(component.getId(), component.getRow(), component.getCol(), component.getColSpan(), component.getRowSpan());
@@ -209,5 +210,91 @@ public class Helper {
     }
 
 
+
+    public static String levelToString(List<Components> rectangles) {
+        StringBuilder levelToStringBuilder = new StringBuilder();
+
+        for (Components rectangle : rectangles) {
+            int rectangleHeight = rectangle.getHeight();
+            int rectangleWidth = rectangle.getWidth();
+
+            int rectangleAreaDimension = (rectangleWidth * rectangleHeight) / 100;
+
+            String shape;
+            if (rectangleAreaDimension == 100) {
+                shape = "B";
+            } else if (rectangleAreaDimension == 50 && rectangleWidth == 100) {
+                shape = "H";
+            } else if (rectangleAreaDimension == 50 && rectangleHeight == 100) {
+                shape = "V";
+            } else {
+                shape = "S";
+            }
+
+            levelToStringBuilder.append(String.format("%s%n%s", shape, coordsToString(rectangle)));
+        }
+
+        return levelToStringBuilder.toString();
+    }
+
+    public static String coordsToString(Components rectangle){
+        String X = Integer.toString(rectangle.getCol());
+        String Y = Integer.toString(rectangle.getRow());
+        return X + " " + Y + "\n";
+    }
+
+
+    public static void writeToFile(String filename, String content) throws IOException {
+        BufferedWriter writer = new BufferedWriter(new FileWriter(filename));
+        writer.write(content);
+        writer.close();
+    }
+
+    public static List<Pair<Integer, String>> separateNumericValue(List<String> movesStrings) {
+        List<Pair<Integer, String>> separatedMoves = new ArrayList<>();
+
+        for (String movesString : movesStrings) {
+            String[] parts = movesString.split(" ", 2);
+            int number = Integer.parseInt(parts[0]);
+            String action = parts[1];
+
+            separatedMoves.add(new Pair<>(number, action));
+        }
+
+        return separatedMoves;
+    }
+
+    public static List<String> getMovesStringsFromFile(String filename) {
+        List<String> movesStrings = new ArrayList<>();
+
+        try (BufferedReader reader = new BufferedReader(new FileReader(filename))) {
+            String line;
+            while ((line = reader.readLine()) != null) {
+                Pair<Integer, String> move = parseMove(line);
+                int number = move.getKey();
+                String action = move.getValue();
+
+                if (action.contains(" ")) {
+                    String[] splitActions = action.split(" ");
+                    for (String splitAction : splitActions) {
+                        movesStrings.add(number + " " + splitAction);
+                    }
+                } else {
+                    movesStrings.add(number + " " + action);
+                }
+            }
+        } catch (IOException e) {
+            e.printStackTrace();
+        }
+
+        return movesStrings;
+    }
+
+    public static Pair<Integer, String> parseMove(String line) {
+        String[] parts = line.trim().split(" ", 2);
+        int number = Integer.parseInt(parts[0].substring(1));
+        String action = parts[1].trim();
+        return new Pair<>(number, action);
+    }
 
 }

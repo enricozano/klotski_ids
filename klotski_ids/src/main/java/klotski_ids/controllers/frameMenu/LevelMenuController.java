@@ -71,7 +71,6 @@ public class LevelMenuController implements Initializable{
 
     @FXML
     private void goToLevel(ActionEvent actionEvent) throws IOException {
-        Helper helper = new Helper();
         Button button = (Button) actionEvent.getSource();
         String levelTitle = button.getText();
         loadGameScene();
@@ -79,29 +78,10 @@ public class LevelMenuController implements Initializable{
         String levelFileName = button.getId();
         String filePath = "/klotski_ids/data/" + levelFileName + ".json";
 
-        Level level = helper.readJson(filePath);
+        Level level = Helper.readJson(filePath);
 
         gameController.initialize(level, levelTitle, filePath);
         setStageWindow(button);
-    }
-
-    private void updateAnchorPanePositions(double scrollPosition) {
-        double anchorPaneWidth = 200.0;
-        int numLevels = 4;
-
-        double gridPaneWidth = anchorPaneWidth * numLevels + 40;
-        gridPane.setPrefWidth(gridPaneWidth);
-        gridPane.setVgap(10);
-
-        int level1ColumnIndex = 0;
-        int level2ColumnIndex = 1;
-        int level3ColumnIndex = 2;
-        int level4ColumnIndex = 3;
-
-
-        GridPane.setColumnIndex(level2AnchorPane, level2ColumnIndex);
-        GridPane.setColumnIndex(level3AnchorPane, level3ColumnIndex);
-        GridPane.setColumnIndex(level4AnchorPane, level4ColumnIndex);
     }
 
     private int currentLevel = 1;

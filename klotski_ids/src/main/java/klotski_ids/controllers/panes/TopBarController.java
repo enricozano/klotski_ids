@@ -7,6 +7,7 @@ import javafx.scene.Node;
 import javafx.scene.Parent;
 import javafx.scene.Scene;
 import javafx.stage.Stage;
+import klotski_ids.controllers.frameMenu.GameController;
 import klotski_ids.models.MyAlerts;
 import klotski_ids.models.Helper;
 
