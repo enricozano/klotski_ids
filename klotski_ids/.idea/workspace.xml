@@ -9,7 +9,13 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="6bfdf0fa-9483-4758-a1c0-5debc05e40e9" name="Changes" comment="final fix to nextBestMove 2?" />
+    <list default="true" id="6bfdf0fa-9483-4758-a1c0-5debc05e40e9" name="Changes" comment="final fix to nextBestMove 3?">
+      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/klotski_ids/controllers/frameMenu/GameController.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/klotski_ids/controllers/frameMenu/GameController.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/klotski_ids/models/Helper.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/klotski_ids/models/Helper.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/resources/klotski_ids/data/levelSolutions/DefaultLayout.txt" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/resources/klotski_ids/data/levelSolutions/DefaultLayout.txt" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/resources/klotski_ids/data/levelSolutions/Solutions.txt" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/resources/klotski_ids/data/levelSolutions/Solutions.txt" afterDir="false" />
+    </list>
     <list id="09855262-e7fe-4115-8869-69c02f2c6753" name="Changes by eris" comment="" />
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -196,13 +202,6 @@
       <workItem from="1685546481295" duration="1937000" />
       <workItem from="1685548913896" duration="4192000" />
       <workItem from="1685605714128" duration="337000" />
-    </task>
-    <task id="LOCAL-00001" summary="Basic Structure">
-      <created>1683102485156</created>
-      <option name="number" value="00001" />
-      <option name="presentableId" value="LOCAL-00001" />
-      <option name="project" value="LOCAL" />
-      <updated>1683102485156</updated>
     </task>
     <task id="LOCAL-00002" summary="Basic Structure">
       <created>1683108650517</created>
@@ -540,7 +539,14 @@
       <option name="project" value="LOCAL" />
       <updated>1685635336555</updated>
     </task>
-    <option name="localTasksCounter" value="50" />
+    <task id="LOCAL-00050" summary="final fix to nextBestMove 3?">
+      <created>1685635842498</created>
+      <option name="number" value="00050" />
+      <option name="presentableId" value="LOCAL-00050" />
+      <option name="project" value="LOCAL" />
+      <updated>1685635842499</updated>
+    </task>
+    <option name="localTasksCounter" value="51" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -559,7 +565,6 @@
   </component>
   <component name="VcsManagerConfiguration">
     <option name="ADD_EXTERNAL_FILES_SILENTLY" value="true" />
-    <MESSAGE value="acdc" />
     <MESSAGE value="style and menu" />
     <MESSAGE value="levels" />
     <MESSAGE value="level controller" />
@@ -584,7 +589,8 @@
     <MESSAGE value="fixes" />
     <MESSAGE value="final fix to nextBestMove?" />
     <MESSAGE value="final fix to nextBestMove 2?" />
-    <option name="LAST_COMMIT_MESSAGE" value="final fix to nextBestMove 2?" />
+    <MESSAGE value="final fix to nextBestMove 3?" />
+    <option name="LAST_COMMIT_MESSAGE" value="final fix to nextBestMove 3?" />
   </component>
   <component name="XSLT-Support.FileAssociations.UIState">
     <expand />

@@ -262,7 +262,9 @@ public class Helper {
     public static boolean PythonInstallationChecker() throws IOException {
         boolean isPythoninstalled = false;
         try {
-            Process process = Runtime.getRuntime().exec("python --version");
+            ProcessBuilder processBuilder = new ProcessBuilder("python", "--version");
+            processBuilder.redirectErrorStream(true);
+            Process process = processBuilder.start();
 
             BufferedReader reader = new BufferedReader(new InputStreamReader(process.getInputStream()));
             String output = reader.readLine();
@@ -276,7 +278,7 @@ public class Helper {
                 System.out.println("python not found");
             }
         } catch (IOException e) {
-            e.printStackTrace();
+            //e.printStackTrace();
         }
         return isPythoninstalled;
     }

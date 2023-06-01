@@ -389,7 +389,7 @@ public class GameController {
                         if(hasMoved && !Helper.isSameComponentsList(defaultComponentsList, getComponents()) && !Helper.PythonInstallationChecker()){
                             nextBestMove.setDisable(true);
                         }
-                        if(Helper.isSameComponentsList(defaultComponentsList, getComponents())){
+                        if(Helper.isSameComponentsList(defaultComponentsList, getComponents()) && !isResumed){
                             nextBestMove.setDisable(false);
                         }
                     } catch (IOException e) {
@@ -588,7 +588,7 @@ public class GameController {
             if (nextBestMoveCounter < moveListSize) {
                 setComponents(Helper.performMoveAction(separatedMoves.get(nextBestMoveCounter), getComponents()));
             }
-        } else if(!Helper.PythonInstallationChecker()){
+        } else if(Helper.PythonInstallationChecker()){
             if (!Helper.isSameComponentsList(pythonNextBestMoveComponentsLists, getComponents())) {
                 Helper.executePythonProcess("src/main/resources/klotski_ids/pythonKlotskiSolver/Main.py");
                 nextMoveIterator = 0;
@@ -613,7 +613,6 @@ public class GameController {
         setPythonNextBestMoveComponentsLists(getComponents());
         Helper.setGridPaneElements(gridPane, getComponents(), rectangles);
         win = Helper.winCondition(getComponents());
-
         isWinSet();
     }
 
