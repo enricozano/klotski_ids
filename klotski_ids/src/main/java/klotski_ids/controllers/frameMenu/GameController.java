@@ -685,7 +685,9 @@ public class GameController {
 
         // Set grid pane elements
         Helper.setGridPaneElements(gridPane, components, rectangles);
-
+        if(!Helper.PythonInstallationChecker() && isResumed){
+            nextBestMove.setDisable(true);
+        }
         // Set mouse event handlers
         setMouseEvent(gridPane, rectangles);
     }
