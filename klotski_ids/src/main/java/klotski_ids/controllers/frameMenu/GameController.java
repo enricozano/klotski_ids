@@ -1,7 +1,6 @@
 package klotski_ids.controllers.frameMenu;
 
 import com.google.gson.Gson;
-import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
 import javafx.fxml.FXMLLoader;
 import javafx.scene.Cursor;
@@ -12,6 +11,7 @@ import javafx.scene.control.Label;
 import javafx.scene.layout.GridPane;
 import javafx.scene.shape.Rectangle;
 import javafx.stage.FileChooser;
+import javafx.stage.Stage;
 import javafx.util.Pair;
 import klotski_ids.models.MyAlerts;
 import klotski_ids.models.Components;
@@ -32,20 +32,46 @@ public class GameController {
     /*******************************************************************************
      *                              FXML VARIABLES                                 *
      *******************************************************************************/
+    /**
+     * The undo button for reversing the previous move.
+     */
     @FXML
     public Button undo;
+
+    /**
+     * The button for executing the next best move.
+     */
     @FXML
     public Button nextBestMove;
+
+    /**
+     * The button for resetting the game to its initial state.
+     */
     @FXML
     public Button reset;
+
+    /**
+     * The button for saving the current game state.
+     */
     @FXML
     public Button save;
+
+    /**
+     * The label for displaying the number of moves.
+     * It keeps track of the number of moves performed.
+     */
     @FXML
     public Label nMosse;
 
+    /**
+     * The GridPane that represents the game board.
+     */
     @FXML
     private GridPane gridPane;
 
+    /**
+     * The label for displaying the title of the level.
+     */
     @FXML
     private Label titlelabel;
 
@@ -168,6 +194,33 @@ public class GameController {
     private int nextMoveIterator;
 
     /**
+     * Flag for resumed games
+     */
+    private boolean isResumed;
+    /**
+     * Flag for the win condition
+     */
+    private boolean win;
+
+    /**
+     * Checks if the win condition is set and opens the main view if it is true.
+     */
+    private void isWinSet() {
+        if (win) {
+            try {
+                FXMLLoader loader = new FXMLLoader(getClass().getResource("/klotski_ids/mainView.fxml"));
+                Parent root = loader.load();
+                Scene scene = new Scene(root);
+                Stage stage = (Stage) gridPane.getScene().getWindow();
+                stage.setScene(scene);
+            } catch (IOException e) {
+                e.printStackTrace();
+            }
+        }
+    }
+
+
+    /**
      * Sets the components list.
      *
      * @param components The components list to set.
@@ -256,6 +309,7 @@ public class GameController {
      * @param rectangle The rectangle to set the mouse pressed event handler for.
      */
     private void setMousePressed(Rectangle rectangle) {
+
         rectangle.setOnMousePressed(event -> {
 
             startX = GridPane.getColumnIndex(rectangle);
@@ -270,16 +324,19 @@ public class GameController {
             rectangle.setCursor(Cursor.CLOSED_HAND);
             System.out.println("RECTANGLE ID: " + rectangle.getId());
         });
+
     }
+
     /**
      * Sets the mouse dragged event handler for the given grid pane and rectangle.
      * Handles the movement of the rectangle during mouse dragging.
      *
-     * @param gridPane   The grid pane that contains the rectangle.
-     * @param rectangle  The rectangle to set the mouse dragged event handler for.
+     * @param gridPane  The grid pane that contains the rectangle.
+     * @param rectangle The rectangle to set the mouse dragged event handler for.
      */
     private void setMouseDragged(GridPane gridPane, Rectangle rectangle) {
         rectangle.setOnMouseDragged(event -> {
+
             double offsetX = event.getSceneX() - startMouseX;
             double offsetY = event.getSceneY() - startMouseY;
 
@@ -330,12 +387,17 @@ public class GameController {
 
                     setComponents(updateList);
                     setHystoryRectanglesMovements(updateList);
-
+                    win = Helper.winCondition(updateList);
+                    isWinSet();
                 }
 
             }
+
+
         });
+
     }
+
     /**
      * Sets the mouse released event handler for the given rectangle.
      * Resets the cursor and updates the number of moves.
@@ -347,19 +409,24 @@ public class GameController {
             rectangle.setCursor(Cursor.DEFAULT);
             setnMosse(Integer.toString(numMosse));
         });
+
     }
+
+
     /**
      * Sets the mouse event handlers for the given grid pane and rectangle list.
      *
-     * @param gridPane        The grid pane that contains the rectangles.
-     * @param rectangleList   The list of rectangles to set the mouse event handlers for.
+     * @param gridPane      The grid pane that contains the rectangles.
+     * @param rectangleList The list of rectangles to set the mouse event handlers for.
      */
     private void setMouseEvent(GridPane gridPane, List<Rectangle> rectangleList) {
+
         for (Rectangle rectangle : rectangleList) {
             setMousePressed(rectangle);
             setMouseDragged(gridPane, rectangle);
             setMouseReleased(rectangle);
         }
+
     }
 
     /**
@@ -417,7 +484,11 @@ public class GameController {
         components = new ArrayList<>();
         rectangles = new ArrayList<>();
         hystoryRectanglesMovements = new ArrayList<>();
+        defaultComponentsList = new ArrayList<>();
+        pythonNextBestMoveComponentsLists = new ArrayList<>();
+        nextMoveIterator = 0;
     }
+
     /**
      * Resets the game state and navigates to the game screen.
      *
@@ -434,10 +505,10 @@ public class GameController {
             GameController gameController = loader.getController();
             try {
                 Level level = Helper.readJson(getLevelFilePath());
-                gameController.initialize(level, getLevelTitle(), getLevelFilePath());
+                gameController.initialize(level, getLevelTitle(), getLevelFilePath(), isResumed);
             } catch (NullPointerException e) {
                 Level level = Helper.readJsonAbsolutePath(getLevelFilePath());
-                gameController.initialize(level, getLevelTitle(), getLevelFilePath());
+                gameController.initialize(level, getLevelTitle(), getLevelFilePath(), isResumed);
             }
 
             Scene scene = gridPane.getScene();
@@ -491,10 +562,12 @@ public class GameController {
      * @throws IOException if an I/O error occurs.
      */
     public void nextBestMove() throws IOException {
+
+
         List<Components> levelComponents = new ArrayList<>(getComponents());
         Helper.writeToFile("src/main/resources/klotski_ids/data/levelSolutions/DefaultLayout.txt", Helper.levelToString(levelComponents));
 
-        if (!hasMoved || Helper.isSameComponentsList(defaultComponentsList, getComponents())) {
+        if ((!hasMoved || Helper.isSameComponentsList(defaultComponentsList, getComponents())) && !isResumed) {
             if (Helper.isSameComponentsList(defaultComponentsList, getComponents()) && nextBestMoveCounter != 0) {
                 nextBestMoveCounter = 0;
             }
@@ -502,11 +575,11 @@ public class GameController {
             String levelName = getLevelTitle();
             String solutionFileName = Helper.getSolutionFileName(levelName);
             List<Pair<Integer, String>> separatedMoves = Helper.getSeparatedMoves(solutionFileName);
+            int moveListSize = separatedMoves.size();
 
-            if (nextBestMoveCounter < separatedMoves.size()) {
+            if (nextBestMoveCounter < moveListSize) {
                 setComponents(Helper.performMoveAction(separatedMoves.get(nextBestMoveCounter), getComponents()));
             }
-
         } else {
             if (!Helper.isSameComponentsList(pythonNextBestMoveComponentsLists, getComponents())) {
                 Helper.executePythonProcess("src/main/resources/klotski_ids/pythonKlotskiSolver/Main.py");
@@ -515,8 +588,9 @@ public class GameController {
 
             String solutionFileName = "Solutions.txt";
             List<Pair<Integer, String>> separatedMoves = Helper.getSeparatedMoves(solutionFileName);
+            int moveListSize = separatedMoves.size();
 
-            if (nextMoveIterator < separatedMoves.size()) {
+            if (nextMoveIterator < moveListSize) {
                 setComponents(Helper.performMoveAction(separatedMoves.get(nextMoveIterator), getComponents()));
                 nextMoveIterator++;
             }
@@ -530,7 +604,11 @@ public class GameController {
         setHystoryRectanglesMovements(getComponents());
         setPythonNextBestMoveComponentsLists(getComponents());
         Helper.setGridPaneElements(gridPane, getComponents(), rectangles);
+        win = Helper.winCondition(getComponents());
+
+        isWinSet();
     }
+
 
     /**
      * Reverts the last move and restores the previous game state.
@@ -563,14 +641,19 @@ public class GameController {
     }
 
     /**
-     * Initializes the game with the provided level information.
+     * Initializes the game level with the specified parameters.
      *
-     * @param level      the Level object containing the level information.
-     * @param levelTitle the title of the level.
-     * @param filePath   the file path of the level.
-     * @throws IOException if an I/O error occurs.
+     * @param level      The Level object representing the game level.
+     * @param levelTitle The title of the game level.
+     * @param filePath   The file path of the game level data.
+     * @param isResumed  Indicates whether the game is being resumed from a saved state.
+     * @throws IOException If an error occurs during initialization.
      */
-    public void initialize(Level level, String levelTitle, String filePath) throws IOException {
+    public void initialize(Level level, String levelTitle, String filePath, boolean isResumed) throws IOException {
+
+        // check if is default level or resumed level
+        this.isResumed = isResumed;
+
         // Reset variables
         resetVariables();
 
@@ -583,7 +666,7 @@ public class GameController {
         // Set number of moves
         numMosse = level.getCountedMoves();
 
-        // Set components and rectangles
+        // Set components and create rectangles
         setComponents(level.getRectangles());
         setRectangles(Helper.createRectangle(components));
 

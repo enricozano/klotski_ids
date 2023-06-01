@@ -4,12 +4,33 @@ package klotski_ids.models;
  * This class represents a component in a grid, with its properties such as ID, position, size, and span.
  */
 public class Components {
+    /**
+     * The ID of the element
+     */
     private String id;
+    /**
+     * The width of the element
+     */
     private int width;
+    /**
+     * The heigth of the element
+     */
     private int height;
+    /**
+     * The row index of the element
+     */
     private int row;
+    /**
+     * The column index of the element
+     */
     private int col;
+    /**
+     * The column span of the element
+     */
     private int colSpan;
+    /**
+     * The row span of the element
+     */
     private int rowSpan;
 
     /**

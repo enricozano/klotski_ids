@@ -1,15 +1,26 @@
 package klotski_ids.models;
 
+import javafx.fxml.FXMLLoader;
+import javafx.scene.Node;
+import javafx.scene.Parent;
+import javafx.scene.Scene;
 import javafx.scene.control.Alert;
 import javafx.scene.control.ButtonType;
+import javafx.stage.Stage;
 
+import javax.swing.*;
+import java.awt.event.ActionEvent;
+import java.io.IOException;
+import java.util.Objects;
 import java.util.Optional;
 
 /**
  * This class provides utility methods for displaying custom alert dialogs.
  */
 public class MyAlerts {
-
+    /**
+     * The type of alert to be displayed.
+     */
     private final String alertType;
 
     /**
@@ -45,7 +56,7 @@ public class MyAlerts {
      * Displays an error alert dialog with a generic error message.
      */
     public void errorAlert() {
-        Alert alert = new Alert(Alert.AlertType.CONFIRMATION);
+        Alert alert = new Alert(Alert.AlertType.ERROR);
         alert.setTitle(alertType);
         alert.setHeaderText("");
         alert.setContentText("Something went wrong");
@@ -59,7 +70,7 @@ public class MyAlerts {
      * If the user clicks on the Python website button, it opens the Python website link in a web browser.
      */
     public void missingPythonAlert() {
-        Alert alert = new Alert(Alert.AlertType.CONFIRMATION);
+        Alert alert = new Alert(Alert.AlertType.WARNING);
         alert.setTitle(alertType);
         alert.setHeaderText("");
         alert.setContentText("Check the documentation and download Python!");
@@ -95,5 +106,26 @@ public class MyAlerts {
             e.printStackTrace();
         }
     }
+
+    /**
+     * Displays an alert to notify the user that they have completed the level.
+     * The alert includes a message indicating the completion of the level and
+     * informs the user that they will be taken back to the main screen.
+     */
+    public void winAlert() {
+        Alert alert = new Alert(Alert.AlertType.INFORMATION);
+        alert.setTitle(alertType);
+        alert.setHeaderText("");
+        alert.setContentText("GOOD JOB\nYOU HAVE COMPLETED THIS LEVEL\nYou will be taken back to the main screen!");
+
+        ButtonType confirmButton = new ButtonType("Confirm");
+
+        alert.getButtonTypes().setAll(confirmButton);
+
+        alert.showAndWait();
+
+    }
+
+
 }
 

@@ -16,7 +16,13 @@ import java.util.*;
  * The Helper class provides utility methods for various operations.
  */
 public class Helper {
+    /**
+     * The default grid cell width
+     */
     private static final int CELL_WIDTH = 50;
+    /**
+     * The default grid cell height
+     */
     private static final int CELL_HEIGHT = 50;
 
 
@@ -473,6 +479,25 @@ public class Helper {
         }
 
         return componentsList;
+    }
+
+    /**
+     * Checks if the win condition is met based on the provided list of components.
+     *
+     * @param componentsList the list of components to check for the win condition
+     * @return true if the win condition is met, false otherwise
+     */
+    public static boolean winCondition(List<Components> componentsList) {
+        for (Components elem : componentsList) {
+            if (elem.getWidth() == 100 && elem.getHeight() == 100) {
+                if (elem.getCol() == 1 && elem.getRow() == 3) {
+                    MyAlerts winAlert = new MyAlerts("LEVEL COMPLETE!");
+                    winAlert.winAlert();
+                    return true;
+                }
+            }
+        }
+        return false;
     }
 
 }

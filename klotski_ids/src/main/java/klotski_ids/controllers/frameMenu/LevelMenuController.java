@@ -16,45 +16,92 @@ import klotski_ids.models.Level;
 import java.io.IOException;
 import java.net.URL;
 import java.util.ResourceBundle;
+
 /**
  * Controller class for the level menu in the user interface.
  * Implements the Initializable interface.
  */
-public class LevelMenuController implements Initializable{
+public class LevelMenuController implements Initializable {
+    /**
+     * The button for navigating to the next page.
+     */
     @FXML
     public Button nextButton;
+
+    /**
+     * The button for navigating to the previous page.
+     */
     @FXML
     public Button previousButton;
+
+    /**
+     * The button for selecting level 1.
+     */
     @FXML
     Button level_1;
 
+    /**
+     * The button for selecting level 2.
+     */
     @FXML
     Button level_2;
 
+    /**
+     * The button for selecting level 3.
+     */
     @FXML
     Button level_3;
 
+    /**
+     * The button for selecting level 4.
+     */
     @FXML
     Button level_4;
 
+    /**
+     * The GridPane that represents the game board.
+     */
     @FXML
     private GridPane gridPane;
 
+    /**
+     * The anchor pane for level 1.
+     */
     @FXML
     private AnchorPane level1AnchorPane;
 
+    /**
+     * The anchor pane for level 2.
+     */
     @FXML
     private AnchorPane level2AnchorPane;
 
+    /**
+     * The anchor pane for level 3.
+     */
     @FXML
     private AnchorPane level3AnchorPane;
 
+    /**
+     * The anchor pane for level 4.
+     */
     @FXML
     private AnchorPane level4AnchorPane;
 
+    /**
+     * The root parent element of the scene.
+     */
     private Parent root;
-
+    /**
+     * The GameController instance responsible for managing the game logic and user interactions.
+     */
     private GameController gameController;
+
+    /**
+     * The current level number or identifier.
+     */
+    private int currentLevel = 1;
+
     /**
      * Sets the stage window to display the loaded game scene.
      *
@@ -77,6 +124,7 @@ public class LevelMenuController implements Initializable{
         root = loader.load();
         gameController = loader.getController();
     }
+
     /**
      * Action event handler for navigating to a specific level.
      * Loads the game scene, reads the level data from the corresponding JSON file, and initializes the game controller.
@@ -95,22 +143,24 @@ public class LevelMenuController implements Initializable{
 
         Level level = Helper.readJson(filePath);
 
-        gameController.initialize(level, levelTitle, filePath);
+        gameController.initialize(level, levelTitle, filePath, false);
         setStageWindow(button);
     }
 
-    private int currentLevel = 1;
+
+
     /**
      * Initializes the level menu.
      * Shows the initial level based on the currentLevel variable.
      *
-     * @param url the URL location of the FXML file
+     * @param url            the URL location of the FXML file
      * @param resourceBundle the resource bundle used by the FXML file
      */
     @Override
-    public void initialize(URL url, ResourceBundle resourceBundle){
+    public void initialize(URL url, ResourceBundle resourceBundle) {
         showLevel(currentLevel);
     }
+
     /**
      * Displays the previous level in the level menu.
      * Decrements the currentLevel variable and updates the visibility of level anchor panes and navigation buttons.
@@ -121,6 +171,7 @@ public class LevelMenuController implements Initializable{
             showLevel(currentLevel);
         }
     }
+
     /**
      * Displays the next level in the level menu.
      * Increments the currentLevel variable and updates the visibility of level anchor panes and navigation buttons.
@@ -131,6 +182,7 @@ public class LevelMenuController implements Initializable{
             showLevel(currentLevel);
         }
     }
+
     /**
      * Shows the specified level in the level menu.
      * Sets the visibility of level anchor panes and enables/disables navigation buttons accordingly.

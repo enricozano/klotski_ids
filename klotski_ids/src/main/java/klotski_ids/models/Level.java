@@ -29,8 +29,13 @@ public class Level {
      */
     private int minHeight;
 
+    /**
+     * Keeps track of the number of moves performed.
+     */
     private int countedMoves;
-
+    /**
+     * The level name
+     */
     private String levelTitle;
     /**
      * The list of components (rectangles) that make up the level.
@@ -41,13 +46,13 @@ public class Level {
     /**
      * Constructs a new Level object.
      *
-     * @param rectangles    The list of components (rectangles) in the level.
-     * @param maxWidth      The maximum width of the level.
-     * @param maxHeight     The maximum height of the level.
-     * @param minWidth      The minimum width of the level.
-     * @param minHeight     The minimum height of the level.
-     * @param countedMoves  The number of moves counted for the level.
-     * @param levelTitle    The title of the level.
+     * @param rectangles   The list of components (rectangles) in the level.
+     * @param maxWidth     The maximum width of the level.
+     * @param maxHeight    The maximum height of the level.
+     * @param minWidth     The minimum width of the level.
+     * @param minHeight    The minimum height of the level.
+     * @param countedMoves The number of moves counted for the level.
+     * @param levelTitle   The title of the level.
      */
     public Level(List<klotski_ids.models.Components> rectangles, int maxWidth, int maxHeight, int minWidth, int minHeight, int countedMoves, String levelTitle) {
         this.maxWidth = maxWidth;
@@ -57,6 +62,7 @@ public class Level {
         this.rectangles = rectangles;
         this.countedMoves = countedMoves;
         this.levelTitle = levelTitle;
+
     }
 
     /**

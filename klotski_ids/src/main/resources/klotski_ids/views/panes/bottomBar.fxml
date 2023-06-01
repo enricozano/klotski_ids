@@ -10,7 +10,7 @@
 <?import javafx.scene.image.Image?>
 
 <HBox fx:id="myHbox" alignment="CENTER_RIGHT"
-      stylesheets="@../../assets/styles/BarStyle.css" BorderPane.alignment="CENTER" xmlns="http://javafx.com/javafx/19"
+      stylesheets="@../../assets/styles/BarStyle.css" BorderPane.alignment="CENTER" xmlns="http://javafx.com/javafx/16"
       xmlns:fx="http://javafx.com/fxml/1" fx:controller="klotski_ids.controllers.panes.BottomBarController">
 
     <Button fx:id="wikiButton" alignment="CENTER_RIGHT" mnemonicParsing="false" onAction="#goToWiki" text="wiki">

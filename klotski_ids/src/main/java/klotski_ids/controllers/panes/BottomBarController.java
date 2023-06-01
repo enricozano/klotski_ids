@@ -9,8 +9,15 @@ import klotski_ids.mainApplication;
  */
 public class BottomBarController {
 
+    /**
+     * The button for accessing the project's documentation.
+     */
     @FXML
     public Button wikiButton;
+
+    /**
+     * The button for accessing the project's GitHub repository.
+     */
     @FXML
     public Button gitHubButton;
 

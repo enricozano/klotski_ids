@@ -24,12 +24,27 @@ import java.util.Objects;
  * Controller class for the start menu in the user interface.
  */
 public class StartMenuController {
+    /**
+     * The button for resuming the game.
+     */
     @FXML
     public Button resumeGame;
+
+    /**
+     * The GameController instance responsible for managing the game logic and user interactions.
+     */
     private GameController gameController;
+
+    /**
+     * The root parent element of the scene.
+     */
     private Parent root;
 
+    /**
+     * The MyAlerts instance used for displaying alert messages in the game.
+     */
     MyAlerts alerts;
+
 
     /**
      * Action event handler for switching to the select level scene.
@@ -77,7 +92,7 @@ public class StartMenuController {
 
                 if (level != null) {
                     System.out.println("Level: " + level.getLevelTitle());
-                    gameController.initialize(level, level.getLevelTitle(), filePath);
+                    gameController.initialize(level, level.getLevelTitle(), filePath, true);
                     setStageWindow(button);
                 } else {
                     System.err.println("Error loading the selected file.");
