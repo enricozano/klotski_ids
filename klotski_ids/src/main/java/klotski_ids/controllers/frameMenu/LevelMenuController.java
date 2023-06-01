@@ -12,6 +12,7 @@ import javafx.scene.layout.GridPane;
 import javafx.stage.Stage;
 import klotski_ids.models.Helper;
 import klotski_ids.models.Level;
+import klotski_ids.models.MyAlerts;
 
 import java.io.IOException;
 import java.net.URL;
@@ -142,6 +143,11 @@ public class LevelMenuController implements Initializable {
         String filePath = "/klotski_ids/data/" + levelFileName + ".json";
 
         Level level = Helper.readJson(filePath);
+
+        if(!Helper.PythonInstallationChecker()){
+            MyAlerts pythonAllert = new MyAlerts("Can't find python :/");
+            pythonAllert.missingPythonAlert();
+        }
 
         gameController.initialize(level, levelTitle, filePath, false);
         setStageWindow(button);

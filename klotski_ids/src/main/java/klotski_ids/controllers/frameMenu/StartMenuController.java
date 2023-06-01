@@ -124,6 +124,7 @@ public class StartMenuController {
      * @throws IOException if an I/O error occurs during loading the scene
      */
     private void loadGameScene() throws IOException {
+
         FXMLLoader loader = new FXMLLoader(getClass().getResource("/klotski_ids/views/frameMenu/game.fxml"));
         root = loader.load();
         gameController = loader.getController();

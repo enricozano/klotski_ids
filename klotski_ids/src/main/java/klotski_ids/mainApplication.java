@@ -5,6 +5,8 @@ import javafx.fxml.FXMLLoader;
 import javafx.scene.Parent;
 import javafx.scene.Scene;
 import javafx.stage.Stage;
+import klotski_ids.models.Helper;
+import klotski_ids.models.MyAlerts;
 
 import java.io.BufferedReader;
 import java.io.IOException;
@@ -29,6 +31,7 @@ public class mainApplication extends Application {
     @Override
     public void start(Stage stage) {
         mInstance = this;
+
         try {
             Parent root = FXMLLoader.load(Objects.requireNonNull(getClass().getResource("mainView.fxml")));
             Scene scene = new Scene(root);

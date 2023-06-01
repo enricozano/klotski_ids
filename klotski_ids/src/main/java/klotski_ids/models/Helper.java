@@ -268,10 +268,12 @@ public class Helper {
             String output = reader.readLine();
 
             if (output != null && output.contains("Python")) {
+                System.out.println("python found");
+
                 isPythoninstalled = true;
+
             } else {
-                MyAlerts pythonAllert = new MyAlerts("Can't find python :/");
-                pythonAllert.missingPythonAlert();
+                System.out.println("python not found");
             }
         } catch (IOException e) {
             e.printStackTrace();

@@ -385,6 +385,14 @@ public class GameController {
                     }
                     hasMoved = !Helper.isSameComponentsList(defaultComponentsList, getComponents());
 
+                    try {
+                        if(hasMoved && !Helper.isSameComponentsList(defaultComponentsList, getComponents()) && !Helper.PythonInstallationChecker()){
+                            nextBestMove.setDisable(true);
+                        }
+                    } catch (IOException e) {
+                        throw new RuntimeException(e);
+                    }
+
                     setComponents(updateList);
                     setHystoryRectanglesMovements(updateList);
                     win = Helper.winCondition(updateList);
@@ -392,7 +400,6 @@ public class GameController {
                 }
 
             }
-
 
         });
 
@@ -562,8 +569,6 @@ public class GameController {
      * @throws IOException if an I/O error occurs.
      */
     public void nextBestMove() throws IOException {
-
-
         List<Components> levelComponents = new ArrayList<>(getComponents());
         Helper.writeToFile("src/main/resources/klotski_ids/data/levelSolutions/DefaultLayout.txt", Helper.levelToString(levelComponents));
 
@@ -580,7 +585,7 @@ public class GameController {
             if (nextBestMoveCounter < moveListSize) {
                 setComponents(Helper.performMoveAction(separatedMoves.get(nextBestMoveCounter), getComponents()));
             }
-        } else if(Helper.PythonInstallationChecker()){
+        } else if(!Helper.PythonInstallationChecker()){
             if (!Helper.isSameComponentsList(pythonNextBestMoveComponentsLists, getComponents())) {
                 Helper.executePythonProcess("src/main/resources/klotski_ids/pythonKlotskiSolver/Main.py");
                 nextMoveIterator = 0;
@@ -594,8 +599,6 @@ public class GameController {
                 setComponents(Helper.performMoveAction(separatedMoves.get(nextMoveIterator), getComponents()));
                 nextMoveIterator++;
             }
-        } else{
-            nextBestMove.setDisable(true);
         }
 
         nextBestMoveCounter++;
@@ -652,7 +655,6 @@ public class GameController {
      * @throws IOException If an error occurs during initialization.
      */
     public void initialize(Level level, String levelTitle, String filePath, boolean isResumed) throws IOException {
-        Helper.PythonInstallationChecker();
         // check if is default level or resumed level
         this.isResumed = isResumed;
 
@@ -684,10 +686,5 @@ public class GameController {
         // Set mouse event handlers
         setMouseEvent(gridPane, rectangles);
     }
-
-    //TODO controllare funzione nexbest move e undo
-    //TODO aggiungere win condition
-    //TODO controllare iteratori e counter mosse
-    //TODO aggiungere test junit
 
 }
