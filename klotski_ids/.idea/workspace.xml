@@ -9,42 +9,76 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="6bfdf0fa-9483-4758-a1c0-5debc05e40e9" name="Changes" comment="added python allert">
-      <change afterPath="$PROJECT_DIR$/klotski_ids/Launcher.html" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/klotski_ids/controllers/frameMenu/GameController.html" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/klotski_ids/controllers/frameMenu/LevelMenuController.html" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/klotski_ids/controllers/frameMenu/StartMenuController.html" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/klotski_ids/controllers/frameMenu/package-summary.html" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/klotski_ids/controllers/frameMenu/package-tree.html" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/klotski_ids/controllers/panes/BottomBarController.html" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/klotski_ids/controllers/panes/TopBarController.html" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/klotski_ids/controllers/panes/package-summary.html" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/klotski_ids/controllers/panes/package-tree.html" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/klotski_ids/mainApplication.html" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/klotski_ids/models/Components.html" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/klotski_ids/models/Helper.html" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/klotski_ids/models/Level.html" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/klotski_ids/models/MyAlerts.html" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/klotski_ids/models/package-summary.html" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/klotski_ids/models/package-tree.html" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/klotski_ids/package-summary.html" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/klotski_ids/package-tree.html" afterDir="false" />
+    <list default="true" id="6bfdf0fa-9483-4758-a1c0-5debc05e40e9" name="Changes" comment="added partial javadoc">
+      <change afterPath="$PROJECT_DIR$/javadoc/constant-values.html" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/javadoc/index-files/index-18.html" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/javadoc/index-files/index-19.html" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/misc.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/misc.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/klotski_ids/Launcher.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/klotski_ids/Launcher.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/klotski_ids/controllers/frameMenu/GameController.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/klotski_ids/controllers/frameMenu/GameController.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/klotski_ids/controllers/frameMenu/LevelMenuController.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/klotski_ids/controllers/frameMenu/LevelMenuController.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/klotski_ids/controllers/frameMenu/StartMenuController.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/klotski_ids/controllers/frameMenu/StartMenuController.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/klotski_ids/controllers/panes/BottomBarController.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/klotski_ids/controllers/panes/BottomBarController.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/klotski_ids/controllers/panes/TopBarController.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/klotski_ids/controllers/panes/TopBarController.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/klotski_ids/mainApplication.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/klotski_ids/mainApplication.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/klotski_ids/models/Components.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/klotski_ids/models/Components.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/klotski_ids/models/Helper.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/klotski_ids/models/Helper.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/klotski_ids/models/Level.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/klotski_ids/models/Level.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/klotski_ids/models/MyAlerts.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/klotski_ids/models/MyAlerts.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/module-info.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/module-info.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/resources/klotski_ids/data/levelSolutions/DefaultLayout.txt" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/resources/klotski_ids/data/levelSolutions/DefaultLayout.txt" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/resources/klotski_ids/data/levelSolutions/Solutions.txt" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/resources/klotski_ids/data/levelSolutions/Solutions.txt" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/javadoc/allclasses-index.html" beforeDir="false" afterPath="$PROJECT_DIR$/javadoc/allclasses-index.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/javadoc/allpackages-index.html" beforeDir="false" afterPath="$PROJECT_DIR$/javadoc/allpackages-index.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/javadoc/help-doc.html" beforeDir="false" afterPath="$PROJECT_DIR$/javadoc/help-doc.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/javadoc/index-files/index-1.html" beforeDir="false" afterPath="$PROJECT_DIR$/javadoc/index-files/index-1.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/javadoc/index-files/index-10.html" beforeDir="false" afterPath="$PROJECT_DIR$/javadoc/index-files/index-10.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/javadoc/index-files/index-11.html" beforeDir="false" afterPath="$PROJECT_DIR$/javadoc/index-files/index-11.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/javadoc/index-files/index-12.html" beforeDir="false" afterPath="$PROJECT_DIR$/javadoc/index-files/index-12.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/javadoc/index-files/index-13.html" beforeDir="false" afterPath="$PROJECT_DIR$/javadoc/index-files/index-13.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/javadoc/index-files/index-14.html" beforeDir="false" afterPath="$PROJECT_DIR$/javadoc/index-files/index-14.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/javadoc/index-files/index-15.html" beforeDir="false" afterPath="$PROJECT_DIR$/javadoc/index-files/index-15.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/javadoc/index-files/index-16.html" beforeDir="false" afterPath="$PROJECT_DIR$/javadoc/index-files/index-16.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/javadoc/index-files/index-17.html" beforeDir="false" afterPath="$PROJECT_DIR$/javadoc/index-files/index-17.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/javadoc/index-files/index-2.html" beforeDir="false" afterPath="$PROJECT_DIR$/javadoc/index-files/index-2.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/javadoc/index-files/index-3.html" beforeDir="false" afterPath="$PROJECT_DIR$/javadoc/index-files/index-3.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/javadoc/index-files/index-4.html" beforeDir="false" afterPath="$PROJECT_DIR$/javadoc/index-files/index-4.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/javadoc/index-files/index-5.html" beforeDir="false" afterPath="$PROJECT_DIR$/javadoc/index-files/index-5.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/javadoc/index-files/index-6.html" beforeDir="false" afterPath="$PROJECT_DIR$/javadoc/index-files/index-6.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/javadoc/index-files/index-7.html" beforeDir="false" afterPath="$PROJECT_DIR$/javadoc/index-files/index-7.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/javadoc/index-files/index-8.html" beforeDir="false" afterPath="$PROJECT_DIR$/javadoc/index-files/index-8.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/javadoc/index-files/index-9.html" beforeDir="false" afterPath="$PROJECT_DIR$/javadoc/index-files/index-9.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/javadoc/index.html" beforeDir="false" afterPath="$PROJECT_DIR$/javadoc/index.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/javadoc/klotski_ids/klotski_ids/Launcher.html" beforeDir="false" afterPath="$PROJECT_DIR$/javadoc/klotski_ids/klotski_ids/Launcher.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/javadoc/klotski_ids/klotski_ids/controllers/frameMenu/GameController.html" beforeDir="false" afterPath="$PROJECT_DIR$/javadoc/klotski_ids/klotski_ids/controllers/frameMenu/GameController.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/javadoc/klotski_ids/klotski_ids/controllers/frameMenu/LevelMenuController.html" beforeDir="false" afterPath="$PROJECT_DIR$/javadoc/klotski_ids/klotski_ids/controllers/frameMenu/LevelMenuController.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/javadoc/klotski_ids/klotski_ids/controllers/frameMenu/StartMenuController.html" beforeDir="false" afterPath="$PROJECT_DIR$/javadoc/klotski_ids/klotski_ids/controllers/frameMenu/StartMenuController.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/javadoc/klotski_ids/klotski_ids/controllers/frameMenu/package-summary.html" beforeDir="false" afterPath="$PROJECT_DIR$/javadoc/klotski_ids/klotski_ids/controllers/frameMenu/package-summary.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/javadoc/klotski_ids/klotski_ids/controllers/frameMenu/package-tree.html" beforeDir="false" afterPath="$PROJECT_DIR$/javadoc/klotski_ids/klotski_ids/controllers/frameMenu/package-tree.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/javadoc/klotski_ids/klotski_ids/controllers/panes/BottomBarController.html" beforeDir="false" afterPath="$PROJECT_DIR$/javadoc/klotski_ids/klotski_ids/controllers/panes/BottomBarController.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/javadoc/klotski_ids/klotski_ids/controllers/panes/TopBarController.html" beforeDir="false" afterPath="$PROJECT_DIR$/javadoc/klotski_ids/klotski_ids/controllers/panes/TopBarController.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/javadoc/klotski_ids/klotski_ids/controllers/panes/package-summary.html" beforeDir="false" afterPath="$PROJECT_DIR$/javadoc/klotski_ids/klotski_ids/controllers/panes/package-summary.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/javadoc/klotski_ids/klotski_ids/controllers/panes/package-tree.html" beforeDir="false" afterPath="$PROJECT_DIR$/javadoc/klotski_ids/klotski_ids/controllers/panes/package-tree.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/javadoc/klotski_ids/klotski_ids/mainApplication.html" beforeDir="false" afterPath="$PROJECT_DIR$/javadoc/klotski_ids/klotski_ids/mainApplication.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/javadoc/klotski_ids/klotski_ids/models/Components.html" beforeDir="false" afterPath="$PROJECT_DIR$/javadoc/klotski_ids/klotski_ids/models/Components.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/javadoc/klotski_ids/klotski_ids/models/Helper.html" beforeDir="false" afterPath="$PROJECT_DIR$/javadoc/klotski_ids/klotski_ids/models/Helper.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/javadoc/klotski_ids/klotski_ids/models/Level.html" beforeDir="false" afterPath="$PROJECT_DIR$/javadoc/klotski_ids/klotski_ids/models/Level.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/javadoc/klotski_ids/klotski_ids/models/MyAlerts.html" beforeDir="false" afterPath="$PROJECT_DIR$/javadoc/klotski_ids/klotski_ids/models/MyAlerts.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/javadoc/klotski_ids/klotski_ids/models/package-summary.html" beforeDir="false" afterPath="$PROJECT_DIR$/javadoc/klotski_ids/klotski_ids/models/package-summary.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/javadoc/klotski_ids/klotski_ids/models/package-tree.html" beforeDir="false" afterPath="$PROJECT_DIR$/javadoc/klotski_ids/klotski_ids/models/package-tree.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/javadoc/klotski_ids/klotski_ids/package-summary.html" beforeDir="false" afterPath="$PROJECT_DIR$/javadoc/klotski_ids/klotski_ids/package-summary.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/javadoc/klotski_ids/klotski_ids/package-tree.html" beforeDir="false" afterPath="$PROJECT_DIR$/javadoc/klotski_ids/klotski_ids/package-tree.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/javadoc/klotski_ids/module-summary.html" beforeDir="false" afterPath="$PROJECT_DIR$/javadoc/klotski_ids/module-summary.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/javadoc/member-search-index.js" beforeDir="false" afterPath="$PROJECT_DIR$/javadoc/member-search-index.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/javadoc/overview-tree.html" beforeDir="false" afterPath="$PROJECT_DIR$/javadoc/overview-tree.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/javadoc/search.html" beforeDir="false" afterPath="$PROJECT_DIR$/javadoc/search.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/javadoc/tag-search-index.js" beforeDir="false" afterPath="$PROJECT_DIR$/javadoc/tag-search-index.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/klotski_ids/Launcher.html" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/klotski_ids/controllers/frameMenu/GameController.html" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/klotski_ids/controllers/frameMenu/LevelMenuController.html" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/klotski_ids/controllers/frameMenu/StartMenuController.html" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/klotski_ids/controllers/frameMenu/package-summary.html" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/klotski_ids/controllers/frameMenu/package-tree.html" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/klotski_ids/controllers/panes/BottomBarController.html" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/klotski_ids/controllers/panes/TopBarController.html" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/klotski_ids/controllers/panes/package-summary.html" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/klotski_ids/controllers/panes/package-tree.html" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/klotski_ids/mainApplication.html" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/klotski_ids/models/Components.html" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/klotski_ids/models/Helper.html" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/klotski_ids/models/Level.html" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/klotski_ids/models/MyAlerts.html" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/klotski_ids/models/package-summary.html" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/klotski_ids/models/package-tree.html" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/klotski_ids/package-summary.html" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/klotski_ids/package-tree.html" beforeDir="false" />
     </list>
     <list id="09855262-e7fe-4115-8869-69c02f2c6753" name="Changes by eris" comment="" />
     <option name="SHOW_DIALOG" value="false" />
@@ -231,6 +265,7 @@
       <workItem from="1685463689417" duration="1832000" />
       <workItem from="1685546481295" duration="1937000" />
       <workItem from="1685548913896" duration="4192000" />
+      <workItem from="1685605714128" duration="337000" />
     </task>
     <task id="LOCAL-00001" summary="Basic Structure">
       <created>1683102485156</created>
@@ -512,7 +547,21 @@
       <option name="project" value="LOCAL" />
       <updated>1685552512188</updated>
     </task>
-    <option name="localTasksCounter" value="41" />
+    <task id="LOCAL-00041" summary="added partial javadoc">
+      <created>1685559959034</created>
+      <option name="number" value="00041" />
+      <option name="presentableId" value="LOCAL-00041" />
+      <option name="project" value="LOCAL" />
+      <updated>1685559959034</updated>
+    </task>
+    <task id="LOCAL-00042" summary="added partial javadoc">
+      <created>1685560031316</created>
+      <option name="number" value="00042" />
+      <option name="presentableId" value="LOCAL-00042" />
+      <option name="project" value="LOCAL" />
+      <updated>1685560031316</updated>
+    </task>
+    <option name="localTasksCounter" value="43" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -553,7 +602,8 @@
     <MESSAGE value="partial fix" />
     <MESSAGE value="fixed counter(?)" />
     <MESSAGE value="added python allert" />
-    <option name="LAST_COMMIT_MESSAGE" value="added python allert" />
+    <MESSAGE value="added partial javadoc" />
+    <option name="LAST_COMMIT_MESSAGE" value="added partial javadoc" />
   </component>
   <component name="XSLT-Support.FileAssociations.UIState">
     <expand />
