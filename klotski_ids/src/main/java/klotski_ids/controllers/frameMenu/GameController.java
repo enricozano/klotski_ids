@@ -386,7 +386,7 @@ public class GameController {
                     hasMoved = !Helper.isSameComponentsList(defaultComponentsList, getComponents());
 
                     try {
-                        if(hasMoved && !Helper.isSameComponentsList(defaultComponentsList, getComponents()) && !Helper.PythonInstallationChecker()){
+                        if(hasMoved && !Helper.isSameComponentsList(defaultComponentsList, getComponents()) && !Helper.PythonInstallationChecker() && isResumed){
                             nextBestMove.setDisable(true);
                         }
                         if(Helper.isSameComponentsList(defaultComponentsList, getComponents())){
