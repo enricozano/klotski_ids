@@ -254,6 +254,32 @@ public class Helper {
     }
 
     /**
+     * Checks if Python is installed on the system.
+     *
+     * @return true if Python is installed, false otherwise.
+     * @throws IOException if an I/O error occurs.
+     */
+    public static boolean PythonInstallationChecker() throws IOException {
+        boolean isPythoninstalled = false;
+        try {
+            Process process = Runtime.getRuntime().exec("python --version");
+
+            BufferedReader reader = new BufferedReader(new InputStreamReader(process.getInputStream()));
+            String output = reader.readLine();
+
+            if (output != null && output.contains("Python")) {
+                isPythoninstalled = true;
+            } else {
+                MyAlerts pythonAllert = new MyAlerts("Can't find python :/");
+                pythonAllert.missingPythonAlert();
+            }
+        } catch (IOException e) {
+            e.printStackTrace();
+        }
+        return isPythoninstalled;
+    }
+
+    /**
      * Executes a Python script as a separate process.
      *
      * @param pythonScriptPath the path to the Python script
@@ -281,6 +307,7 @@ public class Helper {
 
             int exitCode = process.waitFor();
             System.out.println("Python program exited with code: " + exitCode);
+
         } catch (IOException | InterruptedException e) {
 
             MyAlerts pythonAllert = new MyAlerts("Can't find python :/");

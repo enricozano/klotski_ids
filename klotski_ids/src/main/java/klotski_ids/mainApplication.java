@@ -6,6 +6,9 @@ import javafx.scene.Parent;
 import javafx.scene.Scene;
 import javafx.stage.Stage;
 
+import java.io.BufferedReader;
+import java.io.IOException;
+import java.io.InputStreamReader;
 import java.util.Objects;
 
 /**
@@ -55,5 +58,8 @@ public class mainApplication extends Application {
     public static void main(String[] args) {
         launch(args);
     }
+
+
+
 }
 

@@ -580,7 +580,7 @@ public class GameController {
             if (nextBestMoveCounter < moveListSize) {
                 setComponents(Helper.performMoveAction(separatedMoves.get(nextBestMoveCounter), getComponents()));
             }
-        } else {
+        } else if(Helper.PythonInstallationChecker()){
             if (!Helper.isSameComponentsList(pythonNextBestMoveComponentsLists, getComponents())) {
                 Helper.executePythonProcess("src/main/resources/klotski_ids/pythonKlotskiSolver/Main.py");
                 nextMoveIterator = 0;
@@ -594,6 +594,8 @@ public class GameController {
                 setComponents(Helper.performMoveAction(separatedMoves.get(nextMoveIterator), getComponents()));
                 nextMoveIterator++;
             }
+        } else{
+            nextBestMove.setDisable(true);
         }
 
         nextBestMoveCounter++;
@@ -650,7 +652,7 @@ public class GameController {
      * @throws IOException If an error occurs during initialization.
      */
     public void initialize(Level level, String levelTitle, String filePath, boolean isResumed) throws IOException {
-
+        Helper.PythonInstallationChecker();
         // check if is default level or resumed level
         this.isResumed = isResumed;
 

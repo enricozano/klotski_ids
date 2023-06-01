@@ -1,1 +1,0 @@
-moduleSearchIndex = [{"l":"klotski_ids"}];updateSearchResults();
