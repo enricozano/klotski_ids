@@ -386,7 +386,7 @@ public class GameController {
                     hasMoved = !Helper.isSameComponentsList(defaultComponentsList, getComponents());
 
                     try {
-                        if(hasMoved && !Helper.isSameComponentsList(defaultComponentsList, getComponents()) && !Helper.PythonInstallationChecker() && isResumed){
+                        if(hasMoved && !Helper.isSameComponentsList(defaultComponentsList, getComponents()) && !Helper.PythonInstallationChecker()){
                             nextBestMove.setDisable(true);
                         }
                         if(Helper.isSameComponentsList(defaultComponentsList, getComponents())){
@@ -685,6 +685,7 @@ public class GameController {
 
         // Set grid pane elements
         Helper.setGridPaneElements(gridPane, components, rectangles);
+
         if(!Helper.PythonInstallationChecker() && isResumed){
             nextBestMove.setDisable(true);
         }
