@@ -51,7 +51,7 @@
 		    <button id="sidebarCollapse" class="navbar-toggler d-block d-md-none" type="button"><span></span><span class="w-75"></span><span class="w-50"></span></button>
       
 		<!-- Logo --> 
-        <a class="logo ml-md-3" href="index.html" title="klotski_logo"> <img src="" alt=" klotski logo"/> </a> 
+    <a class="logo ml-md-3" href="index.html" title="klotski_logo"> <img src="assets/images/favicon.png" alt=" klotski logo"/> </a> 
     <!-- Logo End -->
 
     <ul class="social-icons social-icons-sm ml-lg-2 mr-2">
@@ -94,7 +94,7 @@
     <div class="idocs-content">
       <div class="container"> 
 
-        <!--TODO next best move e tabelle+ testi-->
+        <!--TODO next best move e tabelle + testi + BEHAVIOR NON BEHAVIOUR-->
 
         <section id="kl_sequence">
             <h1>Sequence Diagrams</h1>
@@ -107,47 +107,81 @@
               <a class="popup-img" href="./assets/images/sequence/startgame-ext.png">
                 <img class="img-fluid" src="./assets/images/sequence/startgame-ext.png" width="800" height="800"  alt="Start a game ext sequence diagram">
               </a> 
-
-              <h5>Start a new game: Internal Sequence Diagram</h5>
-              <p> Lorem ipsum dolor sit amet consectetur adipisicing elit. Vero, laborum!
-              <a class="btn btn-primary popup-img" href="assets/images/sequence/newgame-int.png">New Game</a>
-              </p>
-
-              <h5>Resume Game: Internal Sequence Diagram</h5>
-              <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Ipsa, perferendis.
-              <a class="btn btn-primary popup-img" href="assets/images/sequence/resumegame-int.png">Resume Game</a>
-              </p>
+              
+              <h5>Internal Sequence Diagrams</h5>
+              <table class="table table-bordered">
+                <thead>
+                  <tr>
+                    <th scope="col">#</th>
+                    <th scope="col">Name</th>
+                    <th scope="col">Description</th>
+                    <th scope="col">Diagram</th>
+                  </tr>
+                </thead>
+                <tbody>
+                  <tr>
+                    <th scope="row">1</th>
+                    <td>Start a new game</td>
+                    <td>Internal behavior of the system when the user wants to create a new game clicking on "New Game" button and choosing from one of the default configurations</td>
+                    <td><a class="btn btn-primary popup-img" href="assets/images/sequence/newgame-int.png">Click here!</a></td>
+                  </tr>
+                  <tr>
+                    <th scope="row">2</th>
+                    <td>Resume Game</td>
+                    <td>Internal behavior of the system when the user wants to create a new game clicking on "Resume Game" button and choosing from one of the configuration saved</td>
+                    <td><a class="btn btn-primary popup-img" href="assets/images/sequence/resumegame-int.png">Click here!</a></td>
+                  </tr>
+                </tbody>
+              </table>
             </section>
 
             <hr>
 
             <section id="kl_playgame">
-              <h3>Start a game</h3>
+              <h3>Play a game</h3>
               <h5>System Sequence Diagram</h5>
               <p> Lorem ipsum dolor sit amet consectetur adipisicing elit. Vero, laborum!</p>
               <a class="popup-img" href="./assets/images/sequence/playgame-ext.png">
                 <img class="img-fluid" src="./assets/images/sequence/playgame-ext.png" width="800" height="800" alt="Play a game ext sequence diagram">
               </a> 
 
-              <h5>Drag Blocks: Internal Sequence Diagram</h5>
-              <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Ipsa, perferendis.
-                <a class="btn btn-primary popup-img" href="assets/images/sequence/man-int.png">Manually</a>
-              </p>
-              
-              <h5>Next Best Move: Internal Sequence Diagram</h5>
-              <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Ipsa, perferendis.
-                <a class="btn btn-primary popup-img" href="assets/images/sequence/next-int.png">Next Best Game</a>
-              </p>
-
-              <h5>Undo: Internal Sequence Diagram</h5>
-              <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Ipsa, perferendis.
-                <a class="btn btn-primary popup-img" href="assets/images/sequence/undo-int.png">Undo</a>
-              </p>
-
-              <h5>Reset: Internal Sequence Diagram</h5>
-              <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Ipsa, perferendis.
-                <a class="btn btn-primary popup-img" href="assets/images/sequence/reset-int.png">Reset</a>
-              </p>
+              <h5>Internal Sequence Diagrams</h5>
+              <table class="table table-bordered">
+                <thead>
+                  <tr>
+                    <th scope="col">#</th>
+                    <th scope="col">Name</th>
+                    <th scope="col">Description</th>
+                    <th scope="col">Diagram</th>
+                  </tr>
+                </thead>
+                <tbody>
+                  <tr>
+                    <th scope="row">1</th>
+                    <td>Drag Blocks</td>
+                    <td>Internal behavior of the system when the user drags a block around the board</td>
+                    <td> <a class="btn btn-primary popup-img" href="assets/images/sequence/man-int.png">Click here!</a></td>
+                  </tr>
+                  <tr>
+                    <th scope="row">2</th>
+                    <td>Next Best Move</td>
+                    <td>Internal behavior of the system when the user clicks on the "Next Best" button</td>
+                    <td><a class="btn btn-primary popup-img" href="assets/images/sequence/next-int.png">Click here!</a></td>
+                  </tr>
+                  <tr>
+                    <th scope="row">3</th>
+                    <td>Undo</td>
+                    <td>Internal behavior of the system when the user clicks on the "Undo" button</td>
+                    <td><a class="btn btn-primary popup-img" href="assets/images/sequence/undo-int.png">Click here!</a></td>
+                  </tr>
+                  <tr>
+                    <th scope="row">4</th>
+                    <td>Reset</td>
+                    <td>Internal behavior of the system when the user clicks on the "Reset Best" button</td>
+                    <td><a class="btn btn-primary popup-img" href="assets/images/sequence/reset-int.png">Click here!</a></td>
+                  </tr>
+                </tbody>
+              </table>
             
             </section>
 
@@ -163,10 +197,25 @@
             <section id="kl_utils">
               <h3>Utils</h3>
 
-              <h4>Initialize</h4>
-              <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Ipsa, perferendis.
-                <a class="btn btn-primary popup-img" href="assets/images/sequence/init-int.png">Initialize</a>
-              </p>
+              <h5>Internal Sequence Diagrams</h5>
+              <table class="table table-bordered">
+                <thead>
+                  <tr>
+                    <th scope="col">#</th>
+                    <th scope="col">Name</th>
+                    <th scope="col">Description</th>
+                    <th scope="col">Diagram</th>
+                  </tr>
+                </thead>
+                <tbody>
+                  <tr>
+                    <th scope="row">1</th>
+                    <td>Initialize</td>
+                    <td>Internal behavior of the system to initialize a game</td>
+                    <td><a class="btn btn-primary popup-img" href="assets/images/sequence/init-int.png">Click here!</a></td>
+                  </tr>
+                </tbody>
+              </table>
 
             </section>
 
