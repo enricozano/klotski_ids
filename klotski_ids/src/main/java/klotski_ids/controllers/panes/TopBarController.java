@@ -26,8 +26,9 @@ public class TopBarController {
      */
     @FXML
     public void goHome(ActionEvent actionEvent) throws IOException {
-        MyAlerts HomeAlert = new MyAlerts("Go Home");
-        if (HomeAlert.confirmationAlert()) {
+
+        MyAlerts homeAlert = new MyAlerts("Go Home");
+        if (homeAlert.confirmationAlert()) {
             Parent root = FXMLLoader.load(Objects.requireNonNull(getClass().getResource("/klotski_ids/mainView.fxml")));
             Stage stage = (Stage) ((Node) actionEvent.getSource()).getScene().getWindow();
             Scene scene = new Scene(root);

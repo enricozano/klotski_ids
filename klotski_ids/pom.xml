@@ -9,7 +9,7 @@
 
     <properties>
         <project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
-        <junit.version>5.8.2</junit.version>
+        <junit.version>5.9.3</junit.version>
         <maven.compiler.source>18</maven.compiler.source>
         <maven.compiler.target>18</maven.compiler.target>
     </properties>
@@ -20,7 +20,6 @@
             <groupId>org.sonarsource.scanner.maven</groupId>
             <artifactId>sonar-maven-plugin</artifactId>
             <version>3.9.1.2184</version>
-
         </dependency>
 
 
@@ -46,7 +45,7 @@
         <dependency>
             <groupId>org.junit.jupiter</groupId>
             <artifactId>junit-jupiter-api</artifactId>
-            <version>${junit.version}</version>
+            <version>5.9.2</version>
         </dependency>
 
 
@@ -90,9 +89,9 @@
             <version>11.5.1</version>
         </dependency>
 
-
     </dependencies>
     <build>
+
         <resources>
             <resource>
                 <directory>src/main/resources</directory>
@@ -107,6 +106,18 @@
             </resource>
         </resources>
         <plugins>
+
+            <plugin>
+                <groupId>org.apache.maven.plugins</groupId>
+                <artifactId>maven-surefire-plugin</artifactId>
+                <version>2.12.4</version>
+                <configuration>
+                    <includes>
+                        <include>**/*Test.java</include>
+                    </includes>
+                </configuration>
+            </plugin>
+
             <plugin>
                 <groupId>org.apache.maven.plugins</groupId>
                 <artifactId>maven-compiler-plugin</artifactId>
@@ -121,12 +132,6 @@
                 <groupId>org.apache.maven.plugins</groupId>
                 <artifactId>maven-javadoc-plugin</artifactId>
                 <version>3.3.0</version>
-            </plugin>
-
-            <plugin>
-                <groupId>org.apache.maven.plugins</groupId>
-                <artifactId>maven-surefire-plugin</artifactId>
-                <version>2.12.4</version>
             </plugin>
 
             <plugin>
@@ -161,7 +166,7 @@
                             <mainClass>klotski_ids.Launcher</mainClass>
                         </manifest>
                     </archive>
-                    <outputDirectory>${project.build.directory}/../out/artifacts/klotski_ids_jar/</outputDirectory>
+                    <outputDirectory>${project.build.directory}/../out/</outputDirectory>
                     <finalName>klotski</finalName>
                 </configuration>
                 <executions>

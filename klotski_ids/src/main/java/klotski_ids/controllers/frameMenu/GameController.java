@@ -29,9 +29,6 @@ import java.util.List;
  */
 public class GameController {
 
-    /*******************************************************************************
-     *                              FXML VARIABLES                                 *
-     *******************************************************************************/
     /**
      * The undo button for reversing the previous move.
      */
@@ -303,143 +300,6 @@ public class GameController {
     }
 
     /**
-     * Sets the mouse pressed event handler for the given rectangle.
-     * Updates the initial values for mouse movement tracking and changes the cursor.
-     *
-     * @param rectangle The rectangle to set the mouse pressed event handler for.
-     */
-    private void setMousePressed(Rectangle rectangle) {
-
-        rectangle.setOnMousePressed(event -> {
-
-            startX = GridPane.getColumnIndex(rectangle);
-            startY = GridPane.getRowIndex(rectangle);
-
-            startMouseX = event.getSceneX();
-            startMouseY = event.getSceneY();
-
-            startTranslateX = rectangle.getTranslateX();
-            startTranslateY = rectangle.getTranslateY();
-
-            rectangle.setCursor(Cursor.CLOSED_HAND);
-            System.out.println("RECTANGLE ID: " + rectangle.getId());
-        });
-
-    }
-
-    /**
-     * Sets the mouse dragged event handler for the given grid pane and rectangle.
-     * Handles the movement of the rectangle during mouse dragging.
-     *
-     * @param gridPane  The grid pane that contains the rectangle.
-     * @param rectangle The rectangle to set the mouse dragged event handler for.
-     */
-    private void setMouseDragged(GridPane gridPane, Rectangle rectangle) {
-        rectangle.setOnMouseDragged(event -> {
-
-            double offsetX = event.getSceneX() - startMouseX;
-            double offsetY = event.getSceneY() - startMouseY;
-
-            double newTranslateX = startTranslateX + offsetX;
-            double newTranslateY = startTranslateY + offsetY;
-
-            col = (int) Math.round(newTranslateX / (gridPane.getWidth() / NUM_COLS));
-            row = (int) Math.round(newTranslateY / (gridPane.getHeight() / NUM_ROWS));
-
-            int newCol = (int) (startX + col);
-            int newRow = (int) (startY + row);
-
-            if (newCol >= 0 && newRow >= 0) {
-                int maxCol, maxRow;
-                if (rectangle.getWidth() <= CELL_WIDTH && rectangle.getHeight() <= CELL_HEIGHT) {
-                    maxCol = NUM_COLS;
-                    maxRow = NUM_ROWS;
-                } else if (rectangle.getWidth() <= CELL_WIDTH && rectangle.getHeight() > CELL_HEIGHT) {
-                    maxCol = NUM_COLS;
-                    maxRow = NUM_ROWS - 1;
-                } else if (rectangle.getWidth() > CELL_WIDTH && rectangle.getHeight() <= CELL_HEIGHT) {
-                    maxCol = NUM_COLS - 1;
-                    maxRow = NUM_ROWS;
-                } else {
-                    maxCol = NUM_COLS - 1;
-                    maxRow = NUM_ROWS - 1;
-                }
-
-                if ((newCol <= maxCol && newRow <= maxRow) && Helper.isMoveValid(rectangle, newCol, newRow) && !Helper.overlaps(gridPane, rectangle, newCol, newRow)) {
-
-                    int deltaCol = Math.abs(GridPane.getColumnIndex(rectangle) - newCol);
-                    int deltaRow = Math.abs(GridPane.getRowIndex(rectangle) - newRow);
-
-                    numMosse += (deltaRow + deltaCol);
-                    nextBestMoveCounter = numMosse;
-                    GridPane.setRowIndex(rectangle, newRow);
-                    GridPane.setColumnIndex(rectangle, newCol);
-
-                    List<Components> updateList = getComponents();
-
-                    for (Components x : updateList) {
-                        if (x.getId().equals(rectangle.getId())) {
-                            x.setRow(newRow);
-                            x.setCol(newCol);
-                        }
-                    }
-                    hasMoved = !Helper.isSameComponentsList(defaultComponentsList, getComponents());
-
-                    try {
-                        if(hasMoved && !Helper.isSameComponentsList(defaultComponentsList, getComponents()) && !Helper.PythonInstallationChecker()){
-                            nextBestMove.setDisable(true);
-                        }
-                        if(Helper.isSameComponentsList(defaultComponentsList, getComponents()) && !isResumed){
-                            nextBestMove.setDisable(false);
-                        }
-                    } catch (IOException e) {
-                        throw new RuntimeException(e);
-                    }
-
-                    setComponents(updateList);
-                    setHystoryRectanglesMovements(updateList);
-                    win = Helper.winCondition(updateList);
-                    isWinSet();
-                }
-
-            }
-
-        });
-
-    }
-
-    /**
-     * Sets the mouse released event handler for the given rectangle.
-     * Resets the cursor and updates the number of moves.
-     *
-     * @param rectangle The rectangle to set the mouse released event handler for.
-     */
-    private void setMouseReleased(Rectangle rectangle) {
-        rectangle.setOnMouseReleased(event -> {
-            rectangle.setCursor(Cursor.DEFAULT);
-            setnMosse(Integer.toString(numMosse));
-        });
-
-    }
-
-
-    /**
-     * Sets the mouse event handlers for the given grid pane and rectangle list.
-     *
-     * @param gridPane      The grid pane that contains the rectangles.
-     * @param rectangleList The list of rectangles to set the mouse event handlers for.
-     */
-    private void setMouseEvent(GridPane gridPane, List<Rectangle> rectangleList) {
-
-        for (Rectangle rectangle : rectangleList) {
-            setMousePressed(rectangle);
-            setMouseDragged(gridPane, rectangle);
-            setMouseReleased(rectangle);
-        }
-
-    }
-
-    /**
      * Returns the list of components.
      *
      * @return The list of components.
@@ -482,6 +342,148 @@ public class GameController {
      */
     public String getLevelTitle() {
         return levelTitle;
+    }
+
+    /**
+     * Sets the mouse pressed event handler for the given rectangle.
+     * Updates the initial values for mouse movement tracking and changes the cursor.
+     *
+     * @param rectangle The rectangle to set the mouse pressed event handler for.
+     */
+    private void setMousePressed(Rectangle rectangle) {
+
+        rectangle.setOnMousePressed(event -> {
+
+            startX = GridPane.getColumnIndex(rectangle);
+            startY = GridPane.getRowIndex(rectangle);
+
+            startMouseX = event.getSceneX();
+            startMouseY = event.getSceneY();
+
+            startTranslateX = rectangle.getTranslateX();
+            startTranslateY = rectangle.getTranslateY();
+
+            rectangle.setCursor(Cursor.CLOSED_HAND);
+            System.out.println("RECTANGLE ID: " + rectangle.getId());
+        });
+
+    }
+
+    /**
+     * Sets the mouse dragged event handler for the given grid pane and rectangle.
+     * Handles the movement of the rectangle during mouse dragging.
+     *
+     * @param gridPane  The grid pane that contains the rectangle.
+     * @param rectangle The rectangle to set the mouse dragged event handler for.
+     */
+    private void setMouseDragged(GridPane gridPane, Rectangle rectangle) {
+        rectangle.setOnMouseDragged(event -> {
+            double offsetX = event.getSceneX() - startMouseX;
+            double offsetY = event.getSceneY() - startMouseY;
+
+            double newTranslateX = startTranslateX + offsetX;
+            double newTranslateY = startTranslateY + offsetY;
+
+            col = (int) Math.round(newTranslateX / (gridPane.getWidth() / NUM_COLS));
+            row = (int) Math.round(newTranslateY / (gridPane.getHeight() / NUM_ROWS));
+
+            int newCol = (int) (startX + col);
+            int newRow = (int) (startY + row);
+
+            int maxCol, maxRow;
+            double rectangleWidth = rectangle.getWidth();
+            double rectangleHeight = rectangle.getHeight();
+
+            if (rectangleWidth <= CELL_WIDTH && rectangleHeight <= CELL_HEIGHT) {
+                maxCol = NUM_COLS;
+                maxRow = NUM_ROWS;
+            } else if (rectangleWidth <= CELL_WIDTH && rectangleHeight > CELL_HEIGHT) {
+                maxCol = NUM_COLS;
+                maxRow = NUM_ROWS - 1;
+            } else if (rectangleWidth > CELL_WIDTH && rectangleHeight <= CELL_HEIGHT) {
+                maxCol = NUM_COLS - 1;
+                maxRow = NUM_ROWS;
+            } else {
+                maxCol = NUM_COLS - 1;
+                maxRow = NUM_ROWS - 1;
+            }
+
+            if (newCol < 0 || newRow < 0 || newCol > maxCol || newRow > maxRow) {
+                return;
+            }
+
+            if (!Helper.isMoveValid(rectangle, newCol, newRow) || Helper.overlaps(gridPane, rectangle, newCol, newRow)) {
+                return;
+            }
+
+            int deltaCol = Math.abs(GridPane.getColumnIndex(rectangle) - newCol);
+            int deltaRow = Math.abs(GridPane.getRowIndex(rectangle) - newRow);
+
+            numMosse += (deltaRow + deltaCol);
+            nextBestMoveCounter = numMosse;
+            GridPane.setRowIndex(rectangle, newRow);
+            GridPane.setColumnIndex(rectangle, newCol);
+
+            List<Components> updateList = getComponents();
+
+            for (Components component : updateList) {
+                if (component.getId().equals(rectangle.getId())) {
+                    component.setRow(newRow);
+                    component.setCol(newCol);
+                    break;
+                }
+            }
+
+            hasMoved = !Helper.isSameComponentsList(defaultComponentsList, getComponents());
+
+            try {
+                if (hasMoved && !Helper.isSameComponentsList(defaultComponentsList, getComponents()) && !Helper.PythonInstallationChecker()) {
+                    nextBestMove.setDisable(true);
+                }
+                if (Helper.isSameComponentsList(defaultComponentsList, getComponents()) && !isResumed) {
+                    nextBestMove.setDisable(false);
+                }
+            } catch (IOException e) {
+                throw new RuntimeException(e);
+            }
+
+            setComponents(updateList);
+            setHystoryRectanglesMovements(updateList);
+            win = Helper.winCondition(updateList);
+            isWinSet();
+        });
+    }
+
+
+    /**
+     * Sets the mouse released event handler for the given rectangle.
+     * Resets the cursor and updates the number of moves.
+     *
+     * @param rectangle The rectangle to set the mouse released event handler for.
+     */
+    private void setMouseReleased(Rectangle rectangle) {
+        rectangle.setOnMouseReleased(event -> {
+            rectangle.setCursor(Cursor.DEFAULT);
+            setnMosse(Integer.toString(numMosse));
+        });
+
+    }
+
+
+    /**
+     * Sets the mouse event handlers for the given grid pane and rectangle list.
+     *
+     * @param gridPane      The grid pane that contains the rectangles.
+     * @param rectangleList The list of rectangles to set the mouse event handlers for.
+     */
+    private void setMouseEvent(GridPane gridPane, List<Rectangle> rectangleList) {
+
+        for (Rectangle rectangle : rectangleList) {
+            setMousePressed(rectangle);
+            setMouseDragged(gridPane, rectangle);
+            setMouseReleased(rectangle);
+        }
+
     }
 
 
@@ -573,39 +575,17 @@ public class GameController {
      */
     public void nextBestMove() throws IOException {
         List<Components> levelComponents = new ArrayList<>(getComponents());
-        Helper.writeToFile("src/main/resources/klotski_ids/data/levelSolutions/DefaultLayout.txt", Helper.levelToString(levelComponents));
+        String defaultLayoutPath = "src/main/resources/klotski_ids/data/levelSolutions/DefaultLayout.txt";
+        Helper.writeToFile(defaultLayoutPath, Helper.levelToString(levelComponents));
 
         if ((!hasMoved || Helper.isSameComponentsList(defaultComponentsList, getComponents())) && !isResumed) {
-            if (Helper.isSameComponentsList(defaultComponentsList, getComponents()) && nextBestMoveCounter != 0) {
-                nextBestMoveCounter = 0;
-            }
-
-            String levelName = getLevelTitle();
-            String solutionFileName = Helper.getSolutionFileName(levelName);
-            List<Pair<Integer, String>> separatedMoves = Helper.getSeparatedMoves(solutionFileName);
-            int moveListSize = separatedMoves.size();
-
-            if (nextBestMoveCounter < moveListSize) {
-                setComponents(Helper.performMoveAction(separatedMoves.get(nextBestMoveCounter), getComponents()));
-            }
-        } else if(Helper.PythonInstallationChecker()){
-            if (!Helper.isSameComponentsList(pythonNextBestMoveComponentsLists, getComponents())) {
-                Helper.executePythonProcess("src/main/resources/klotski_ids/pythonKlotskiSolver/Main.py");
-                nextMoveIterator = 0;
-            }
-
-            String solutionFileName = "Solutions.txt";
-            List<Pair<Integer, String>> separatedMoves = Helper.getSeparatedMoves(solutionFileName);
-            int moveListSize = separatedMoves.size();
-
-            if (nextMoveIterator < moveListSize) {
-                setComponents(Helper.performMoveAction(separatedMoves.get(nextMoveIterator), getComponents()));
-                nextMoveIterator++;
-            }
+            handleDefaultLayout();
+        } else if (Helper.PythonInstallationChecker()) {
+            handlePythonSolver();
         }
 
         nextBestMoveCounter++;
-        setnMosse(Integer.toString(nextBestMoveCounter));
+        setnMosse(String.valueOf(nextBestMoveCounter));
         numMosse = nextBestMoveCounter;
 
         gridPane.getChildren().clear();
@@ -615,6 +595,49 @@ public class GameController {
         win = Helper.winCondition(getComponents());
         isWinSet();
     }
+
+    /**
+     * Handles the default layout for the next best move.
+     *
+     * @throws IOException if an I/O error occurs.
+     */
+    private void handleDefaultLayout() throws IOException {
+        if (Helper.isSameComponentsList(defaultComponentsList, getComponents()) && nextBestMoveCounter != 0) {
+            nextBestMoveCounter = 0;
+        }
+
+        String levelName = getLevelTitle();
+        String solutionFileName = Helper.getSolutionFileName(levelName);
+        List<Pair<Integer, String>> separatedMoves = Helper.getSeparatedMoves(solutionFileName);
+        int moveListSize = separatedMoves.size();
+
+        if (nextBestMoveCounter < moveListSize) {
+            setComponents(Helper.performMoveAction(separatedMoves.get(nextBestMoveCounter), getComponents()));
+        }
+    }
+    /**
+     * Handles the Python solver for the next best move.
+     *
+     * @throws IOException if an I/O error occurs.
+     */
+    private void handlePythonSolver() throws IOException {
+        if (!Helper.isSameComponentsList(pythonNextBestMoveComponentsLists, getComponents())) {
+            String pythonScriptPath = "src/main/resources/klotski_ids/pythonKlotskiSolver/Main.py";
+            Helper.executePythonProcess(pythonScriptPath);
+            nextMoveIterator = 0;
+        }
+
+        String solutionFileName = "Solutions.txt";
+        List<Pair<Integer, String>> separatedMoves = Helper.getSeparatedMoves(solutionFileName);
+        int moveListSize = separatedMoves.size();
+
+        if (nextMoveIterator < moveListSize) {
+            setComponents(Helper.performMoveAction(separatedMoves.get(nextMoveIterator), getComponents()));
+            nextMoveIterator++;
+        }
+    }
+
+
 
 
     /**
@@ -685,7 +708,7 @@ public class GameController {
         // Set grid pane elements
         Helper.setGridPaneElements(gridPane, components, rectangles);
 
-        if(!Helper.PythonInstallationChecker() && isResumed){
+        if (!Helper.PythonInstallationChecker() && isResumed) {
             nextBestMove.setDisable(true);
         }
         // Set mouse event handlers

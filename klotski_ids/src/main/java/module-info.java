@@ -7,7 +7,6 @@ module klotski_ids {
     requires javafx.fxml;
     requires com.google.gson;
     requires javafx.graphics;
-    requires org.junit.jupiter.api;
     requires java.desktop;
 
     // Opens
@@ -18,7 +17,6 @@ module klotski_ids {
 
     // Exports
     exports klotski_ids;
-    exports klotski_ids.controllers.panes to com.google.gson;
-    exports klotski_ids.models to com.google.gson;
-
+    exports klotski_ids.controllers.panes;
+    exports klotski_ids.models;
 }

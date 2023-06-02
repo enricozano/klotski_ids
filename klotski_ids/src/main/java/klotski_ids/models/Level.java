@@ -73,8 +73,7 @@ public class Level {
     public Level(List<klotski_ids.models.Components> rectangles) {
         this.rectangles = rectangles;
     }
-
-
+    
     /**
      * Sets the maximum height of the playing area.
      *
