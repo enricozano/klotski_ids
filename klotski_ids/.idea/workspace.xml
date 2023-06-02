@@ -4,7 +4,13 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="6bfdf0fa-9483-4758-a1c0-5debc05e40e9" name="Changes" comment="improvements" />
+    <list default="true" id="6bfdf0fa-9483-4758-a1c0-5debc05e40e9" name="Changes" comment="improvements">
+      <change beforePath="$PROJECT_DIR$/../docs/design.html" beforeDir="false" afterPath="$PROJECT_DIR$/../docs/design.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../docs/domain.html" beforeDir="false" afterPath="$PROJECT_DIR$/../docs/domain.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../docs/index.html" beforeDir="false" afterPath="$PROJECT_DIR$/../docs/index.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../docs/sequence.html" beforeDir="false" afterPath="$PROJECT_DIR$/../docs/sequence.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../docs/usecase.html" beforeDir="false" afterPath="$PROJECT_DIR$/../docs/usecase.html" afterDir="false" />
+    </list>
     <list id="09855262-e7fe-4115-8869-69c02f2c6753" name="Changes by eris" comment="" />
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -162,6 +168,7 @@
       <workItem from="1685086464333" duration="2074000" />
       <workItem from="1685089854367" duration="3276000" />
       <workItem from="1685196698408" duration="1455000" />
+      <workItem from="1685630906033" duration="603000" />
     </task>
     <task id="LOCAL-00001" summary="Basic Structure">
       <created>1683102485156</created>
