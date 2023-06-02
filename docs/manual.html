@@ -5,7 +5,7 @@
 <meta http-equiv="X-UA-Compatible" content="IE=edge">
 <meta name="viewport" content="width=device-width, initial-scale=1, minimum-scale=1.0, shrink-to-fit=no">
 <link href="assets/images/klotski_icon.png" rel="icon" />
-<title>Klotski | Class Design</title>
+<title>Klotski | Domain Model</title>
 <meta name="docs" content="klotski_ids documentation">
 <meta name="author" content="https://github.com/enricozano/klotski_ids">
 
@@ -53,7 +53,7 @@
 		<!-- Logo --> 
         <a class="logo ml-md-3" href="index.html" title="klotski_logo"> <img src="" alt=" klotski logo"/> </a> 
     <!-- Logo End -->
-      
+
     <ul class="social-icons social-icons-sm ml-lg-2 mr-2">
       <li class="social-icons-github"><a data-toggle="tooltip" href="https://github.com/enricozano/klotski_ids" target="_blank" title="GitHub" data-original-title="GitHub"><i class="fab fa-github"></i></a></li>
     </ul>
@@ -72,19 +72,22 @@
 	============================ -->
   <div class="idocs-navigation bg-dark">
     <ul class="nav flex-column ">
-      <li class="nav-item"><a class="nav-link disable-scroll" href="index.html">Introduction</a></li>
-      <li class="nav-item"><a class="nav-link disable-scroll" href="usecase.html">Use cases</a></li>
-      <li class="nav-item"><a class="nav-link disable-scroll" href="domain.html">Domain model</a></li>
-      <li class="nav-item"><a class="nav-link active" href="#kl_design">Design Model</a>
-        <ul class="nav flex-column">
-          <li class="nave-item"><a class="nav-link" href="#kl_packagedesign">Package Design</a></li>
-          <li class="nave-item"><a class="nav-link" href="#kl_modeldesign">Models</a></li>
-          <li class="nave-item"><a class="nav-link" href="#kl_viewdesign">Views</a></li>
-          <li class="nave-item"><a class="nav-link" href="#kl_controllerdesign">Controllers</a></li>
-        </ul>
-      </li>
-      <li class="nav-item"><a class="nav-link disable-scroll" href="sequence.html">Sequence Diagrams</a></li>
-      <li class="nav-item"><a class="nav-link disable-scroll" href="test.html">Tests</a>
+
+        <li class="nav-item"><a class="nav-link disable-scroll" href="index.html">Introduction</a></li>
+        <li class="nav-item"><a class="nav-link active" href="#kl_manual">Manual</a>
+          <ul class="nav flex-column">
+            <li class="nav-item"><a class="nav-link" href="#kl_download">Download</a></li> 
+            <li class="nav-item"><a class="nav-link" href="#kl_exe">Execute</a></li> 
+            <li class="nav-item"><a class="nav-link" href="#kl_requirements">Requirements</a></li>    
+            <li class="nav-item"><a class="nav-link" href="#kl_rules">Game Rules</a></li> 
+            <li class="nav-item"><a class="nav-link" href="#kl_libraries">Libraries</a></li> 
+          </ul>
+        </li>
+        <li class="nav-item"><a class="nav-link disable-scroll" href="usecase.html">Use cases</a></li>
+        <li class="nav-item"><a class="nav-link disable-scroll" href="domain.html">Domain model</a></li>
+        <li class="nav-item"><a class="nav-link disable-scroll" href="design.html">Design Model</a></li>
+        <li class="nav-item"><a class="nav-link disable-scroll" href="sequence.html">Sequence Diagrams</a></li>
+        <li class="nav-item"><a class="nav-link disable-scroll" href="test.html">Tests</a>
     </ul>
   </div>
     
@@ -93,47 +96,78 @@
     <div class="idocs-content">
       <div class="container"> 
 
-        <section id="kl_design">
+        <section id="kl_manual">
 
-          <!--TODO aggiornare grafici+ testi-->
-
-            <h1>Design model</h1>
-            
+            <h1>Manual</h1>
+      
             <p class="lead">
-              In the following section you will find all the information found during the design phase, identifying 
-              all the software entities that will eventually make up the program in its entirety
+              Lorem ipsum dolor sit, amet consectetur adipisicing elit. Recusandae, pariatur?
             </p>
+
+            <hr class="divider">
+
+            <!--TODO immagini, execute and libraries-->
+
+            <section id="kl_download">
+                <h3>Download</h3>
+                <p class="lead">Follow these steps to download the software:</p>
+                <ol>
+                  <li>Open our <a href="https://github.com/enricozano/klotski_ids" target="_blank">@GitHub</a> page.</li>
+                  <li>Click on the green button <strong>code</strong>
+                    <a class="popup-img" href="./assets/images/manual/down1.png">
+                      <img class="img-fluid" src="./assets/images/manual/down1.png" width="800" height="800"  alt="github code button image">
+                    </a> 
+                  </li>
+                  <li>Click on <strong>Download ZIP</strong>
+                    <a class="popup-img" href="./assets/images/manual/down1.png">
+                      <img class="img-fluid" src="./assets/images/manual/down1.png" width="800" height="800"  alt="github download zip image">
+                    </a> 
+                  </li>
+                </ol>
+              </section>
+
+              <hr class="divider">
+
+              <section id="kl_exe">
+                <h3>Execute</h3>
+                <p class="lead">Follow these steps to execute the software:</p>
+                <!--TODO-->
+
+              </section>
+
+              <hr class="divider">
+
+              <section id="kl_requirements">
+                <h3>Requirements</h3>
+                <p class="lead">
+                    Be aware that in order to execute the software <strong>Java</strong> must be installed on your computer. <br>
+                    It is important to notice that the project has been developed and tested using the JDK 20 therefore some bugs can appears if you run it
+                    with an older version of java. <br>
+                    If you want to be able to use the funcionality "Next Best Move", <strong>Python</strong> is required. <br>
+                    Download Java and Python following these links:
+                    <ul>
+                        <li> <a href="https://www.java.com/it/download/manual.jsp" target="_blank">Java</a></li>
+                        <li> <a href="https://www.python.org/downloads/" target="_blank">Python</a></li>
+                    </ul>
+                </p>
+              </section>
+
+              <hr class="divider">
             
-            <h4 id="kl_packagedesign" class="mt-5">Package design</h4>
-            <p>
-              Lorem ipsum dolor, sit amet consectetur adipisicing elit. Molestias exercitationem tempore delectus cum, eius illum dolor mollitia sapiente culpa iure? Excepturi vitae fugit optio quaerat unde laborum labore animi voluptatum!
-            </p>
-            <a class="popup-img" href="./assets/images/design/package-design.png">
-              <img class="img-fluid" src="./assets/images/design/package-design.png" width="400" height="300" alt="Packages model">
-            </a>  
-            <h4 id="kl_modeldesign" class="mt-5">Models design</h4>
-            <p>
-              Lorem ipsum dolor sit amet consectetur, adipisicing elit. Nobis, debitis?
-            </p>
-            <a class="popup-img" href="./assets/images/design/models-design.png">
-              <img class="img-fluid" src="./assets/images/design/models-design.png"  width="800" alt="Models model">
-            </a>  
-            <h4 id="kl_viewdesign" class="mt-5">Views design</h4>
-            <p>
-              Lorem, ipsum dolor sit amet consectetur adipisicing elit. Error, iure.
-            </p>
-            <a class="popup-img" href="./assets/images/design/views-design.png">
-              <img class="img-fluid" src="./assets/images/design/views-design.png"  width="800" alt="Views model">
-            </a>  
+              <section id="kl_rules">
+                <h3>Game Rules</h3>
+                <p class="lead">
+                    The rules of the game can be studied at the klotski page in <a href="https://en.wikipedia.org/wiki/Klotski" target="_blank">wikipedia</a>.
+                </p>
 
-            <h4 id="kl_controllerdesign" class="mt-5">Controllers design</h4>
-            <p>
-              Lorem ipsum dolor sit amet consectetur adipisicing elit. Tenetur, magni?
-            </p>
-            <a class="popup-img" href="./assets/images/design/controllers-design.png">
-              <img class="img-fluid" src="./assets/images/design/controllers-design.png"  width="800" alt="Controllers model">
-            </a>  
+              </section>
 
+              <hr class="divider">
+
+              <section id="kl_libraries">
+                <!--TODO tabella nome spiegazione link-->
+              </section>
+      
           </section>
 
       </div>
