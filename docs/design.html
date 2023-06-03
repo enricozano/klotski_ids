@@ -96,40 +96,45 @@
 
         <section id="kl_design">
 
-          <!--TODO aggiornare grafici+ testi-->
+          <!--TODO aggiornare grafici-->
 
             <h1>Design model</h1>
             
             <p class="lead">
-              In the following section you will find all the information found during the design phase, identifying 
-              all the software entities that will eventually make up the program in its entirety
+              The design model section provides all the informations identified during the designs phase meetings. The team focused on
+              developing all the software entities following a chosen architectural pattern to make up the program in its entirety.
             </p>
+
+            <hr class="divider">
             
             <h4 id="kl_packagedesign" class="mt-5">Package design</h4>
-            <p>
-              Lorem ipsum dolor, sit amet consectetur adipisicing elit. Molestias exercitationem tempore delectus cum, eius illum dolor mollitia sapiente culpa iure? Excepturi vitae fugit optio quaerat unde laborum labore animi voluptatum!
+            <p class="lead">
+              Using JavaFX as the main developed framework the team decided to apply the MVC (Models-Views-Controllers) design pattern to divide the different
+              packages that compose the system.
             </p>
             <a class="popup-img" href="./assets/images/design/package-design.png">
               <img class="img-fluid" src="./assets/images/design/package-design.png" width="400" height="300" alt="Packages model">
-            </a>  
+            </a> 
+
             <h4 id="kl_modeldesign" class="mt-5">Models design</h4>
-            <p>
-              Lorem ipsum dolor sit amet consectetur, adipisicing elit. Nobis, debitis?
+            <p class="lead">
+              The Model represents the data and business logic of the application. It encapsulates the state and behavior of the application's data, and it is responsible for data manipulation, validation, and storage.   
             </p>
             <a class="popup-img" href="./assets/images/design/models-design.png">
               <img class="img-fluid" src="./assets/images/design/models-design.png"  width="800" alt="Models model">
             </a>  
+
             <h4 id="kl_viewdesign" class="mt-5">Views design</h4>
             <p>
-              Lorem, ipsum dolor sit amet consectetur adipisicing elit. Error, iure.
+              The View represents the user interface components that display the data to the user. It is responsible for presenting the information from the Model in a visually understandable way. The View is passive and does not contain any business logic.
             </p>
             <a class="popup-img" href="./assets/images/design/views-design.png">
               <img class="img-fluid" src="./assets/images/design/views-design.png"  width="800" alt="Views model">
             </a>  
 
             <h4 id="kl_controllerdesign" class="mt-5">Controllers design</h4>
-            <p>
-              Lorem ipsum dolor sit amet consectetur adipisicing elit. Tenetur, magni?
+            <p class="lead">
+              The Controller acts as an intermediary between the Model and the View. It handles user interactions, such as mouse clicks or button presses, and translates them into actions that modify the Model or update the View. The Controller also listens for changes in the Model and updates the View accordingly
             </p>
             <a class="popup-img" href="./assets/images/design/controllers-design.png">
               <img class="img-fluid" src="./assets/images/design/controllers-design.png"  width="800" alt="Controllers model">
