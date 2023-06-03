@@ -1,6 +1,5 @@
 package klotski_ids.controllers.frameMenu;
 
-import com.google.gson.JsonSyntaxException;
 import javafx.event.ActionEvent;
 
 import javafx.fxml.FXML;
@@ -87,27 +86,21 @@ public class StartMenuController {
             if (selectedFile != null) {
                 String filePath = selectedFile.getPath();
                 loadGameScene();
-                System.out.println("File path: " + filePath);
                 Level level = Helper.readJsonAbsolutePath(filePath);
 
                 if (level != null) {
                     System.out.println("Level: " + level.getLevelTitle());
-                    gameController.initialize(level, level.getLevelTitle(), filePath, true);
+                    gameController.initialize(level, filePath, true);
                     setStageWindow(button);
                 } else {
                     System.err.println("Error loading the selected file.");
-                    alerts.errorAlert();
                 }
             }
         } catch (IOException e) {
             System.err.println("IOException occurred: " + e.getMessage());
             e.printStackTrace();
             alerts.errorAlert();
-        } catch (JsonSyntaxException e) {
-            System.err.println("JsonSyntaxException occurred: " + e.getMessage());
-            e.printStackTrace();
-            alerts.errorAlert();
-        } catch (IllegalStateException e) {
+        }  catch (IllegalStateException e) {
             System.err.println("IllegalStateException occurred: " + e.getMessage());
             e.printStackTrace();
             alerts.errorAlert();
@@ -117,6 +110,7 @@ public class StartMenuController {
             alerts.errorAlert();
         }
     }
+
 
     /**
      * Loads the game scene and initializes the game controller.

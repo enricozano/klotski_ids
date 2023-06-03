@@ -13,6 +13,7 @@ import javafx.stage.Stage;
 import klotski_ids.models.Helper;
 import klotski_ids.models.Level;
 import klotski_ids.models.MyAlerts;
+import org.json.JSONException;
 
 import java.io.IOException;
 import java.net.URL;
@@ -136,23 +137,28 @@ public class LevelMenuController implements Initializable {
     @FXML
     private void goToLevel(ActionEvent actionEvent) throws IOException {
         Button button = (Button) actionEvent.getSource();
-        String levelTitle = button.getText();
         loadGameScene();
 
         String levelFileName = button.getId();
         String filePath = "/klotski_ids/data/" + levelFileName + ".json";
 
-        Level level = Helper.readJson(filePath);
 
-        if(!Helper.PythonInstallationChecker()){
+        if (!Helper.PythonInstallationChecker()) {
             MyAlerts pythonAllert = new MyAlerts("Can't find python :/");
             pythonAllert.missingPythonAlert();
         }
 
-        gameController.initialize(level, levelTitle, filePath, false);
-        setStageWindow(button);
-    }
+        Level level = Helper.readJson(filePath);
 
+        if (level != null) {
+            gameController.initialize(level, filePath, true);
+            setStageWindow(button);
+        } else {
+            System.err.println("Error loading the selected file.");
+        }
+
+
+    }
 
 
     /**

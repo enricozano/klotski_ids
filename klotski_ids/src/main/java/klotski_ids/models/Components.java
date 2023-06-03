@@ -32,6 +32,19 @@ public class Components {
      * The row span of the element
      */
     private int rowSpan;
+    /**
+     * Constructs a new Components object with the default properties.
+     */
+    public Components(){
+        this.id = "";
+        this.row = 0;
+        this.col = 0;
+        this.colSpan = 0;
+        this.rowSpan = 0;
+        this.width = 0;
+        this.height = 0;
+    }
+
 
     /**
      * Constructs a new Components object with the specified properties.

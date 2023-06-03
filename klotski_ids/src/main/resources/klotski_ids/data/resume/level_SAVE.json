@@ -4,7 +4,7 @@
   "minWidth": 50,
   "minHeight": 50,
   "countedMoves": 3,
-  "levelTitle": "Livello 1",
+  "levelName": "Livello 1",
   "rectangles": [
     {
       "id": "rect1",

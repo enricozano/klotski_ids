@@ -1,5 +1,6 @@
 package klotski_ids.models;
 
+import java.util.ArrayList;
 import java.util.List;
 
 /**
@@ -34,15 +35,31 @@ public class Level {
      */
     private int countedMoves;
     /**
-     * The level name
+     * The level file name
+     */
+    private String levelFileName;
+    /**
+     * The level title
      */
     private String levelTitle;
     /**
      * The list of components (rectangles) that make up the level.
      */
-    private final List<klotski_ids.models.Components> rectangles;
+    private List<klotski_ids.models.Components> componentsList = new ArrayList<>();
 
-
+    /**
+     * Constructs a new Level object with default values.
+     */
+    public Level(){
+        this.maxWidth = 100;
+        this.maxHeight = 100;
+        this.minWidth = 50;
+        this.minHeight = 50;
+        this.countedMoves = 0;
+        this.levelFileName = "";
+        this.levelTitle = "";
+        this.componentsList = new ArrayList<>();
+    }
     /**
      * Constructs a new Level object.
      *
@@ -54,15 +71,15 @@ public class Level {
      * @param countedMoves The number of moves counted for the level.
      * @param levelTitle   The title of the level.
      */
-    public Level(List<klotski_ids.models.Components> rectangles, int maxWidth, int maxHeight, int minWidth, int minHeight, int countedMoves, String levelTitle) {
+    public Level(List<klotski_ids.models.Components> rectangles, int maxWidth, int maxHeight, int minWidth, int minHeight, int countedMoves, String levelFileName, String levelTitle) {
         this.maxWidth = maxWidth;
         this.maxHeight = maxHeight;
         this.minWidth = minWidth;
         this.minHeight = minHeight;
-        this.rectangles = rectangles;
+        this.componentsList = rectangles;
         this.countedMoves = countedMoves;
+        this.levelFileName = levelFileName;
         this.levelTitle = levelTitle;
-
     }
 
     /**
@@ -71,7 +88,7 @@ public class Level {
      * @param rectangles the list of components (rectangles) that make up the level
      */
     public Level(List<klotski_ids.models.Components> rectangles) {
-        this.rectangles = rectangles;
+        this.componentsList = rectangles;
     }
     
     /**
@@ -113,10 +130,13 @@ public class Level {
     /**
      * Sets the title of the level.
      *
-     * @param levelTitle the title of the level
+     * @param levelName the title of the level
      */
-    public void setLevelTitle(String levelTitle) {
-        this.levelTitle = levelTitle;
+    public void setLevelFileName(String levelName) {
+        this.levelFileName = levelName;
+    }
+    public void setLevelTitle(String levelName) {
+        this.levelTitle = levelName;
     }
 
     /**
@@ -170,7 +190,7 @@ public class Level {
      * @return the list of components (rectangles) that make up the level
      */
     public List<Components> getRectangles() {
-        return rectangles;
+        return componentsList;
     }
 
     /**
@@ -178,10 +198,11 @@ public class Level {
      *
      * @return the title of the level
      */
-    public String getLevelTitle() {
-        return this.levelTitle;
+    public String getLevelFileName() {
+        return this.levelFileName;
     }
 
+    public String getLevelTitle(){return this.levelTitle;}
     /**
      * Returns the number of counted moves.
      *

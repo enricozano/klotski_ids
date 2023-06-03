@@ -1,6 +1,5 @@
 package klotski_ids.controllers.frameMenu;
 
-import com.google.gson.Gson;
 import javafx.fxml.FXML;
 import javafx.fxml.FXMLLoader;
 import javafx.scene.Cursor;
@@ -17,6 +16,7 @@ import klotski_ids.models.MyAlerts;
 import klotski_ids.models.Components;
 import klotski_ids.models.Level;
 import klotski_ids.models.Helper;
+import org.json.JSONObject;
 
 import java.io.*;
 import java.util.ArrayList;
@@ -72,6 +72,16 @@ public class GameController {
     @FXML
     private Label titlelabel;
 
+    /**
+     * The number of columns in the grid.
+     */
+    private static final int NUM_COLS = 3;
+
+    /**
+     * The number of rows in the grid.
+     */
+    private static final int NUM_ROWS = 4;
+
 
     /**
      * The starting X coordinate of the mouse event.
@@ -113,30 +123,15 @@ public class GameController {
      */
     private double row;
 
-    /**
-     * The width of each cell in the grid.
-     */
-    private static final int CELL_WIDTH = 50;
-
-    /**
-     * The height of each cell in the grid.
-     */
-    private static final int CELL_HEIGHT = 50;
-
-    /**
-     * The number of columns in the grid.
-     */
-    private static final int NUM_COLS = 3;
-
-    /**
-     * The number of rows in the grid.
-     */
-    private static final int NUM_ROWS = 4;
 
     /**
      * The number of moves made by the player.
      */
     public int numMosse;
+    /**
+     * The json values of the level
+     */
+    private Level level;
 
     /**
      * A list of the components (rectangles) currently in the grid.
@@ -161,14 +156,9 @@ public class GameController {
     private static List<List<Components>> hystoryRectanglesMovements = new ArrayList<>();
 
     /**
-     * An instance of the MyAlerts class for displaying alerts.
+     * The path of the file
      */
-    MyAlerts resetAlert = new MyAlerts("Reset");
-
-    /**
-     * The name of the level.
-     */
-    private String levelName;
+    private String levelFilePath;
 
     /**
      * The title of the level.
@@ -178,7 +168,7 @@ public class GameController {
     /**
      * Counter for the number of times the next best move has been selected.
      */
-    private static int nextBestMoveCounter = 0;
+    private static int nextBestMoveCounter;
 
     /**
      * Flag to track if any movement has occurred.
@@ -198,6 +188,45 @@ public class GameController {
      * Flag for the win condition
      */
     private boolean win;
+    /**
+     * Sets the number of moves for the level.
+     *
+     * @param numberOfMoves The number of moves to set.
+     */
+    private void setNumberOfMoves(int numberOfMoves) {
+        numMosse = numberOfMoves;
+    }
+
+    /**
+     * Sets the components and rectangles for the level.
+     * The components are obtained from the level, and the rectangles are created using the Helper.createRectangle() method.
+     */
+    private void setComponentsAndRectangles() {
+        components = level.getRectangles();
+        rectangles = Helper.createRectangle(components);
+    }
+
+    /**
+     * Sets the elements of the GridPane.
+     * Uses the Helper.setGridPaneElements() method to set the elements of the GridPane using the components and rectangles.
+     */
+    private void setGridPaneElements() {
+        Helper.setGridPaneElements(gridPane, components, rectangles);
+    }
+
+    /**
+     * Sets the mouse event handlers for the GridPane.
+     * If the Python installation check using Helper.PythonInstallationChecker() returns false and the game is resumed, disables the nextBestMove button.
+     * Sets the mouse event handlers using the setMouseEvent() method for the GridPane and rectangles.
+     *
+     * @throws IOException If an input/output exception occurs while setting the mouse event handlers.
+     */
+    private void setMouseEventHandlers() throws IOException {
+        if (!Helper.PythonInstallationChecker() && isResumed) {
+            nextBestMove.setDisable(true);
+        }
+        setMouseEvent(gridPane, rectangles);
+    }
 
     /**
      * Checks if the win condition is set and opens the main view if it is true.
@@ -218,59 +247,15 @@ public class GameController {
 
 
     /**
-     * Sets the components list.
-     *
-     * @param components The components list to set.
-     */
-    public void setComponents(List<Components> components) {
-        this.components = components;
-    }
-
-    /**
-     * Sets the rectangles list.
-     *
-     * @param rectangles The rectangles list to set.
-     */
-    public void setRectangles(List<Rectangle> rectangles) {
-        this.rectangles = rectangles;
-    }
-
-    /**
      * Sets the title of the level and updates the title label.
      *
      * @param text The title text to set.
      */
     public void setTitle(String text) {
-        setLevelTitle(text);
+        this.levelTitle = text;
         titlelabel.setText(text);
     }
 
-    /**
-     * Sets the level title.
-     *
-     * @param levelTitle The level title to set.
-     */
-    public void setLevelTitle(String levelTitle) {
-        this.levelTitle = levelTitle;
-    }
-
-    /**
-     * Sets the number of moves.
-     *
-     * @param mosse The number of moves to set.
-     */
-    public void setnMosse(String mosse) {
-        this.nMosse.setText(mosse);
-    }
-
-    /**
-     * Sets the level file path.
-     *
-     * @param level The level file path to set.
-     */
-    public void setLevelFilePath(String level) {
-        this.levelName = level;
-    }
 
     /**
      * Sets the history of rectangle movements.
@@ -308,32 +293,6 @@ public class GameController {
         return components;
     }
 
-    /**
-     * Returns the list of rectangles.
-     *
-     * @return The list of rectangles.
-     */
-    public List<Rectangle> getRectangles() {
-        return rectangles;
-    }
-
-    /**
-     * Returns the level file path.
-     *
-     * @return The level file path.
-     */
-    public String getLevelFilePath() {
-        return levelName;
-    }
-
-    /**
-     * Returns the history of rectangle movements.
-     *
-     * @return The history of rectangle movements.
-     */
-    public List<List<Components>> getHystoryRectanglesMovements() {
-        return hystoryRectanglesMovements;
-    }
 
     /**
      * Returns the level title.
@@ -394,13 +353,13 @@ public class GameController {
             double rectangleWidth = rectangle.getWidth();
             double rectangleHeight = rectangle.getHeight();
 
-            if (rectangleWidth <= CELL_WIDTH && rectangleHeight <= CELL_HEIGHT) {
+            if (rectangleWidth <= level.getMinWidth() && rectangleHeight <= level.getMinHeight()) {
                 maxCol = NUM_COLS;
                 maxRow = NUM_ROWS;
-            } else if (rectangleWidth <= CELL_WIDTH && rectangleHeight > CELL_HEIGHT) {
+            } else if (rectangleWidth <= level.getMinWidth() && rectangleHeight > level.getMinHeight()) {
                 maxCol = NUM_COLS;
                 maxRow = NUM_ROWS - 1;
-            } else if (rectangleWidth > CELL_WIDTH && rectangleHeight <= CELL_HEIGHT) {
+            } else if (rectangleWidth > level.getMinWidth() && rectangleHeight <= level.getMinHeight()) {
                 maxCol = NUM_COLS - 1;
                 maxRow = NUM_ROWS;
             } else {
@@ -447,7 +406,7 @@ public class GameController {
                 throw new RuntimeException(e);
             }
 
-            setComponents(updateList);
+            components = updateList;
             setHystoryRectanglesMovements(updateList);
             win = Helper.winCondition(updateList);
             isWinSet();
@@ -464,7 +423,7 @@ public class GameController {
     private void setMouseReleased(Rectangle rectangle) {
         rectangle.setOnMouseReleased(event -> {
             rectangle.setCursor(Cursor.DEFAULT);
-            setnMosse(Integer.toString(numMosse));
+            nMosse.setText(Integer.toString(numMosse));
         });
 
     }
@@ -508,6 +467,7 @@ public class GameController {
      */
     @FXML
     private void reset() throws IOException {
+        MyAlerts resetAlert = new MyAlerts("Reset");
         if (resetAlert.confirmationAlert()) {
             System.out.println("Action confirmed");
 
@@ -516,11 +476,13 @@ public class GameController {
 
             GameController gameController = loader.getController();
             try {
-                Level level = Helper.readJson(getLevelFilePath());
-                gameController.initialize(level, getLevelTitle(), getLevelFilePath(), isResumed);
+                Level level = Helper.readJson(levelFilePath);
+                assert level != null;
+                gameController.initialize(level, levelFilePath, isResumed);
             } catch (NullPointerException e) {
-                Level level = Helper.readJsonAbsolutePath(getLevelFilePath());
-                gameController.initialize(level, getLevelTitle(), getLevelFilePath(), isResumed);
+                Level level = Helper.readJsonAbsolutePath(levelFilePath);
+                assert level != null;
+                gameController.initialize(level, levelFilePath, isResumed);
             }
 
             Scene scene = gridPane.getScene();
@@ -538,16 +500,20 @@ public class GameController {
      */
     @FXML
     public void save() throws IOException {
-        Gson gson = new Gson();
         int maxWidth = 100;
         int maxHeight = 100;
         int minWidth = 50;
         int minHeight = 50;
         int countedMoves = numMosse;
-        String levelTitle = getLevelTitle();
+        String levelFileName = level.getLevelFileName();
+        String levelTitle = level.getLevelTitle();
 
-        Level save = new Level(getComponents(), maxWidth, maxHeight, minWidth, minHeight, countedMoves, levelTitle);
-        String json = gson.toJson(save);
+        System.out.println("Level name: " + levelFileName);
+
+        Level save = new Level(getComponents(), maxWidth, maxHeight, minWidth, minHeight, countedMoves, levelFileName, levelTitle);
+
+        JSONObject jsonObject = Helper.createJSONObjectFromLevel(save);
+        String json = jsonObject.toString();
 
         FileChooser fileChooser = new FileChooser();
         fileChooser.setTitle("Salva file");
@@ -557,7 +523,7 @@ public class GameController {
         if (selectedFile != null) {
             String filePath = selectedFile.getAbsolutePath();
 
-            try (FileWriter writer = new FileWriter(selectedFile)) {
+            try (FileWriter writer = new FileWriter(filePath)) {
                 writer.write(json);
                 System.out.println("File salvato con successo.");
             } catch (IOException e) {
@@ -585,7 +551,7 @@ public class GameController {
         }
 
         nextBestMoveCounter++;
-        setnMosse(String.valueOf(nextBestMoveCounter));
+        nMosse.setText(String.valueOf(nextBestMoveCounter));
         numMosse = nextBestMoveCounter;
 
         gridPane.getChildren().clear();
@@ -606,15 +572,16 @@ public class GameController {
             nextBestMoveCounter = 0;
         }
 
-        String levelName = getLevelTitle();
+        String levelName = levelTitle;
         String solutionFileName = Helper.getSolutionFileName(levelName);
         List<Pair<Integer, String>> separatedMoves = Helper.getSeparatedMoves(solutionFileName);
         int moveListSize = separatedMoves.size();
 
         if (nextBestMoveCounter < moveListSize) {
-            setComponents(Helper.performMoveAction(separatedMoves.get(nextBestMoveCounter), getComponents()));
+            components = Helper.performMoveAction(separatedMoves.get(nextBestMoveCounter), getComponents());
         }
     }
+
     /**
      * Handles the Python solver for the next best move.
      *
@@ -632,12 +599,10 @@ public class GameController {
         int moveListSize = separatedMoves.size();
 
         if (nextMoveIterator < moveListSize) {
-            setComponents(Helper.performMoveAction(separatedMoves.get(nextMoveIterator), getComponents()));
+            components = Helper.performMoveAction(separatedMoves.get(nextMoveIterator), getComponents());
             nextMoveIterator++;
         }
     }
-
-
 
 
     /**
@@ -653,12 +618,12 @@ public class GameController {
 
             if (nextBestMoveCounter > 0) {
                 nextBestMoveCounter--;
-                setnMosse(Integer.toString(nextBestMoveCounter));
+                nMosse.setText(Integer.toString(nextBestMoveCounter));
             }
 
             if (numMosse > 0) {
                 numMosse--;
-                setnMosse(Integer.toString(numMosse));
+                nMosse.setText(Integer.toString(numMosse));
             }
 
             List<Components> componentsList = new ArrayList<>(hystoryRectanglesMovements.get(lastIndex));
@@ -666,53 +631,40 @@ public class GameController {
             gridPane.getChildren().clear();
             Helper.setGridPaneElements(gridPane, componentsList, rectangles);
 
-            setComponents(Helper.copyComponentsList(componentsList));
+            components = Helper.copyComponentsList(componentsList);
         }
     }
+
+
 
     /**
      * Initializes the game level with the specified parameters.
      *
-     * @param level      The Level object representing the game level.
-     * @param levelTitle The title of the game level.
-     * @param filePath   The file path of the game level data.
-     * @param isResumed  Indicates whether the game is being resumed from a saved state.
+     * @param filePath  The file path of the game level data.
+     * @param isResumed Indicates whether the game is being resumed from a saved state.
      * @throws IOException If an error occurs during initialization.
      */
-    public void initialize(Level level, String levelTitle, String filePath, boolean isResumed) throws IOException {
-        // check if is default level or resumed level
+
+    public void initialize(Level level, String filePath, boolean isResumed) throws IOException {
+        // Check if it's a default level or resumed level
         this.isResumed = isResumed;
 
         // Reset variables
         resetVariables();
 
-        // Set level file path
-        setLevelFilePath(filePath);
+        // Set level and file path
+        this.level = level;
+        levelFilePath = filePath;
 
-        // Set title
-        setTitle(levelTitle);
-
-        // Set number of moves
-        numMosse = level.getCountedMoves();
-
-        // Set components and create rectangles
-        setComponents(level.getRectangles());
-        setRectangles(Helper.createRectangle(components));
-
-        // Set history of rectangle movements
+        // Set UI elements
+        setTitle(level.getLevelTitle());
+        setNumberOfMoves(level.getCountedMoves());
+        setComponentsAndRectangles();
         setHystoryRectanglesMovements(components);
-
-        // Set default components list
         setDefaultComponentsList(components);
-
-        // Set grid pane elements
-        Helper.setGridPaneElements(gridPane, components, rectangles);
-
-        if (!Helper.PythonInstallationChecker() && isResumed) {
-            nextBestMove.setDisable(true);
-        }
-        // Set mouse event handlers
-        setMouseEvent(gridPane, rectangles);
+        setGridPaneElements();
+        setMouseEventHandlers();
     }
+
 
 }

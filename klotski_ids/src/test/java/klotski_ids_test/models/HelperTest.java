@@ -1,34 +1,45 @@
 package klotski_ids_test.models;
 
+import com.google.gson.JsonSyntaxException;
 import klotski_ids.models.Helper;
 import klotski_ids.models.Level;
 import klotski_ids.models.Components;
+import org.junit.jupiter.api.Assertions;
 import org.junit.jupiter.api.BeforeAll;
 import javafx.scene.shape.Rectangle;
 import org.junit.jupiter.api.Test;
 
 import org.junit.jupiter.api.DisplayName;
 
-import java.io.FileNotFoundException;
-import java.io.IOException;
-import java.util.concurrent.atomic.AtomicReference;
 
-import com.google.gson.Gson;
-import com.google.gson.JsonSyntaxException;
-import com.google.gson.stream.JsonReader;
-import javafx.geometry.Point2D;
-import javafx.scene.Node;
-import javafx.scene.layout.GridPane;
-import javafx.util.Pair;
+import java.io.ByteArrayInputStream;
+import java.io.IOException;
+import java.io.InputStream;
+import java.nio.charset.StandardCharsets;
+import java.util.List;
 
 import static org.junit.jupiter.api.Assertions.*;
 
-class HelperTest {
+public class HelperTest {
     @BeforeAll
     public static void setUp() {
 
     }
 
+    @Test
+    public void testReadJson() throws IOException, JsonSyntaxException {
+        // Test data
+        String filePath = "/klotski_ids_test/dataTest/levelTest.json";
+        // Test data
+        // Call the method to be tested
+        Level actualLevel = Helper.readJson(filePath);
+        List<Components> componentsList = actualLevel.getRectangles();
+        // Assertions
+        Assertions.assertNotNull(actualLevel);
+
+        Assertions.assertEquals("Level 1", actualLevel.getLevelTitle());
+        Assertions.assertEquals("rect1", componentsList.get(0).getId());
+    }
     @Test
     @DisplayName("Test getSolutionFileName")
     public void testGetSolutionFileName() {

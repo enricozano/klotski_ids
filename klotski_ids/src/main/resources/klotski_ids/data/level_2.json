@@ -1,6 +1,7 @@
 {
   "countedMoves": 0,
   "levelName": "level_2",
+  "levelTitle": "Level 2",
   "maxWidth": 100,
   "maxHeight": 100,
   "minWidth": 50,
