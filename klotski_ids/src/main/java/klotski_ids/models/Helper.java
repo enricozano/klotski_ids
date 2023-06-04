@@ -352,7 +352,6 @@ public class Helper {
             String output = reader.readLine();
 
             if (output != null && output.contains("Python")) {
-                System.out.println("python found");
 
                 isPythoninstalled = true;
 
@@ -567,27 +566,17 @@ public class Helper {
         int currentRow = component.getRow();
         int currentCol = component.getCol();
 
-        System.out.println("Rectangle ID: " + component.getId() + "  Number: " + rectangleNumber + ", Action: " + action);
-
         switch (action) {
             case "UP" -> {
-                System.out.println("up");
-                System.out.println("current Row " + currentRow + " current col " + currentCol);
                 component.setRow(currentRow - 1);
             }
             case "DOWN" -> {
-                System.out.println("down");
-                System.out.println("current Row " + currentRow + " current col " + currentCol);
                 component.setRow(currentRow + 1);
             }
             case "RIGHT" -> {
-                System.out.println("right");
-                System.out.println("current Row " + currentRow + " current col " + currentCol);
                 component.setCol(currentCol + 1);
             }
             case "LEFT" -> {
-                System.out.println("left");
-                System.out.println("current Row " + currentRow + " current col " + currentCol);
                 component.setCol(currentCol - 1);
             }
         }

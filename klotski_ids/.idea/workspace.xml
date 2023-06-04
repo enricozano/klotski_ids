@@ -9,22 +9,14 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="6bfdf0fa-9483-4758-a1c0-5debc05e40e9" name="Changes" comment="improvements">
-      <change afterPath="$PROJECT_DIR$/src/test/resources/klotski_ids_test/dataTest/SolutionTest.txt" afterDir="false" />
+    <list default="true" id="6bfdf0fa-9483-4758-a1c0-5debc05e40e9" name="Changes" comment="added helper tests">
+      <change afterPath="$PROJECT_DIR$/src/main/java/klotski_ids/models/KlotskiGame.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/java/klotski_ids/controllers/frameMenu/GameController.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/klotski_ids/controllers/frameMenu/GameController.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/klotski_ids/controllers/frameMenu/LevelMenuController.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/klotski_ids/controllers/frameMenu/LevelMenuController.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/klotski_ids/controllers/frameMenu/StartMenuController.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/klotski_ids/controllers/frameMenu/StartMenuController.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/java/klotski_ids/models/Helper.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/klotski_ids/models/Helper.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/klotski_ids/models/Level.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/klotski_ids/models/Level.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/klotski_ids/models/MyAlerts.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/klotski_ids/models/MyAlerts.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/resources/klotski_ids/data/levelSolutions/DefaultLayout.txt" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/resources/klotski_ids/data/levelSolutions/DefaultLayout.txt" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/resources/klotski_ids/data/levelSolutions/Solutions.txt" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/resources/klotski_ids/data/levelSolutions/Solutions.txt" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/test/java/klotski_ids_test/models/HelperTest.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/test/java/klotski_ids_test/models/HelperTest.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/test/java/module-info.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/test/java/module-info.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/test/resources/klotski_ids_test/dataTest/levelSolutionsDataTest/DefaultLayout.txt" beforeDir="false" afterPath="$PROJECT_DIR$/src/test/resources/klotski_ids_test/dataTest/DefaultLayout.txt" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/test/resources/klotski_ids_test/dataTest/levelSolutionsDataTest/SolutionsLevel1.txt" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/test/resources/klotski_ids_test/dataTest/levelTest.json" beforeDir="false" afterPath="$PROJECT_DIR$/src/test/resources/klotski_ids_test/dataTest/levelTest.json" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/resources/klotski_ids/pythonKlotskiSolver/Main.py" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/resources/klotski_ids/pythonKlotskiSolver/Main.py" afterDir="false" />
     </list>
     <list id="09855262-e7fe-4115-8869-69c02f2c6753" name="Changes by eris" comment="" />
     <option name="SHOW_DIALOG" value="false" />
@@ -39,10 +31,10 @@
         <option value="package-info" />
         <option value="FxmlFile" />
         <option value="JavaScript File" />
-        <option value="Class" />
         <option value="Python Script" />
         <option value="module-info" />
         <option value="JUnit5 Test Class" />
+        <option value="Class" />
       </list>
     </option>
   </component>
@@ -321,14 +313,7 @@
       <workItem from="1685791549706" duration="945000" />
       <workItem from="1685803910644" duration="12719000" />
       <workItem from="1685836809632" duration="1797000" />
-      <workItem from="1685867325758" duration="12210000" />
-    </task>
-    <task id="LOCAL-00004" summary="Basic Structure">
-      <created>1683110123675</created>
-      <option name="number" value="00004" />
-      <option name="presentableId" value="LOCAL-00004" />
-      <option name="project" value="LOCAL" />
-      <updated>1683110123675</updated>
+      <workItem from="1685867325758" duration="24577000" />
     </task>
     <task id="LOCAL-00005" summary="Basic Structure">
       <created>1683110170196</created>
@@ -666,7 +651,14 @@
       <option name="project" value="LOCAL" />
       <updated>1685817160756</updated>
     </task>
-    <option name="localTasksCounter" value="53" />
+    <task id="LOCAL-00053" summary="added helper tests">
+      <created>1685886626664</created>
+      <option name="number" value="00053" />
+      <option name="presentableId" value="LOCAL-00053" />
+      <option name="project" value="LOCAL" />
+      <updated>1685886626665</updated>
+    </task>
+    <option name="localTasksCounter" value="54" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -685,7 +677,6 @@
   </component>
   <component name="VcsManagerConfiguration">
     <option name="ADD_EXTERNAL_FILES_SILENTLY" value="true" />
-    <MESSAGE value="levels" />
     <MESSAGE value="level controller" />
     <MESSAGE value="styling" />
     <MESSAGE value="components from json" />
@@ -710,7 +701,8 @@
     <MESSAGE value="final fix to nextBestMove 3?" />
     <MESSAGE value="Tests" />
     <MESSAGE value="improvements" />
-    <option name="LAST_COMMIT_MESSAGE" value="improvements" />
+    <MESSAGE value="added helper tests" />
+    <option name="LAST_COMMIT_MESSAGE" value="added helper tests" />
   </component>
   <component name="XSLT-Support.FileAssociations.UIState">
     <expand />

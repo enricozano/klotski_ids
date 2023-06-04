@@ -10,12 +10,9 @@ import javafx.scene.control.Label;
 import javafx.scene.layout.GridPane;
 import javafx.scene.shape.Rectangle;
 import javafx.stage.FileChooser;
+
 import javafx.stage.Stage;
-import javafx.util.Pair;
-import klotski_ids.models.MyAlerts;
-import klotski_ids.models.Components;
-import klotski_ids.models.Level;
-import klotski_ids.models.Helper;
+import klotski_ids.models.*;
 import org.json.JSONObject;
 
 import java.io.*;
@@ -73,207 +70,23 @@ public class GameController {
     private Label titlelabel;
 
     /**
-     * The number of columns in the grid.
+     * Flag for resumed games
      */
-    private static final int NUM_COLS = 3;
-
-    /**
-     * The number of rows in the grid.
-     */
-    private static final int NUM_ROWS = 4;
-
-
-    /**
-     * The starting X coordinate of the mouse event.
-     */
-    private double startX;
-
-    /**
-     * The starting Y coordinate of the mouse event.
-     */
-    private double startY;
-
-    /**
-     * The starting translate X value of the rectangle being dragged.
-     */
-    private double startTranslateX;
-
-    /**
-     * The starting translate Y value of the rectangle being dragged.
-     */
-    private double startTranslateY;
-
-    /**
-     * The starting X coordinate of the mouse event relative to the rectangle being dragged.
-     */
-    private double startMouseX;
-
-    /**
-     * The starting Y coordinate of the mouse event relative to the rectangle being dragged.
-     */
-    private double startMouseY;
-
-    /**
-     * The column index of the grid cell containing the top-left corner of the rectangle being dragged.
-     */
-    private double col;
-
-    /**
-     * The row index of the grid cell containing the top-left corner of the rectangle being dragged.
-     */
-    private double row;
-
-
-    /**
-     * The number of moves made by the player.
-     */
-    public int numMosse;
-    /**
-     * The json values of the level
-     */
-    private Level level;
-
-    /**
-     * A list of the components (rectangles) currently in the grid.
-     */
-    private List<Components> components = new ArrayList<>();
-    /**
-     * A list of default components.
-     */
-    private static List<Components> defaultComponentsList = new ArrayList<>();
-    /**
-     * A list of components used for next best move.
-     */
-    private static List<Components> pythonNextBestMoveComponentsLists = new ArrayList<>();
-    /**
-     * A list of the rectangles currently in the grid.
-     */
-    private List<Rectangle> rectangles = new ArrayList<>();
-
-    /**
-     * A list to store the movement history of the rectangles.
-     */
-    private static List<List<Components>> historyRectanglesMovements = new ArrayList<>();
-
-    /**
-     * The path of the file
-     */
-    private String levelFilePath;
-
-    /**
-     * The title of the level.
-     */
-    private String levelTitle;
-
-    /**
-     * Counter for the number of times the next best move has been selected.
-     */
-    private static int nextBestMoveCounter;
-
+    private boolean isResumed;
     /**
      * Flag to track if any movement has occurred.
      */
     private boolean hasMoved = false;
 
-    /**
-     * Iterator for the next move in the list of best moves.
-     */
-    private int nextMoveIterator;
-
-    /**
-     * Flag for resumed games
-     */
-    private boolean isResumed;
-    /**
-     * Flag for the win condition
-     */
-    private boolean win;
+    private KlotskiGame klotskiGame;
 
 
-    /**
-     * Resets the variables to their initial values.
-     */
-    private void resetVariables() {
-        nextBestMoveCounter = 0;
-        numMosse = 0;
-        components = new ArrayList<>();
-        rectangles = new ArrayList<>();
-        historyRectanglesMovements = new ArrayList<>();
-        defaultComponentsList = new ArrayList<>();
-        pythonNextBestMoveComponentsLists = new ArrayList<>();
-        nextMoveIterator = 0;
+    public void setGridPaneElements() {
+        Helper.setGridPaneElements(gridPane, klotskiGame.getComponents(), klotskiGame.getRectangles());
     }
 
-    /**
-     * Sets the elements of the GridPane.
-     * Uses the Helper.setGridPaneElements() method to set the elements of the GridPane using the components and rectangles.
-     */
-    private void setGridPaneElements() {
-        Helper.setGridPaneElements(gridPane, components, rectangles);
-    }
-
-    /**
-     * Sets the history of rectangle movements.
-     *
-     * @param componentsList The components list representing the history of rectangle movements to set.
-     */
-    public void setHistoryRectanglesMovements(List<Components> componentsList) {
-        historyRectanglesMovements.add(Helper.copyComponentsList(componentsList));
-    }
-
-    /**
-     * Sets the default components list.
-     *
-     * @param componentsList The components list to set as the default components list.
-     */
-    public void setDefaultComponentsList(List<Components> componentsList) {
-        defaultComponentsList = Helper.copyComponentsList(componentsList);
-    }
-
-    /**
-     * Sets the Python next best move components list.
-     *
-     * @param componentsList The components list to set as the Python next best move components list.
-     */
-    public void setPythonNextBestMoveComponentsLists(List<Components> componentsList) {
-        pythonNextBestMoveComponentsLists = Helper.copyComponentsList(componentsList);
-    }
-
-    /**
-     * Sets the number of moves for the level.
-     *
-     * @param numberOfMoves The number of moves to set.
-     */
-    private void setNumberOfMoves(int numberOfMoves) {
-        numMosse = numberOfMoves;
-    }
-
-    /**
-     * Sets the title of the level and updates the title label.
-     *
-     * @param text The title text to set.
-     */
-    public void setTitle(String text) {
-        this.levelTitle = text;
-        titlelabel.setText(text);
-    }
-
-
-    /**
-     * Sets the components and rectangles for the level.
-     * The components are obtained from the level, and the rectangles are created using the Helper.createRectangle() method.
-     */
-    private void setComponentsAndRectangles() {
-        components = level.getRectangles();
-        rectangles = Helper.createRectangle(components);
-    }
-
-
-    /**
-     * Checks if the win condition is set and opens the main view if it is true.
-     */
-    private void isWinSet() {
-        if (win) {
+    public void isWinSet() {
+        if (klotskiGame.isWin()) {
             try {
                 FXMLLoader loader = new FXMLLoader(getClass().getResource("/klotski_ids/mainView.fxml"));
                 Parent root = loader.load();
@@ -298,19 +111,8 @@ public class GameController {
         if (!Helper.PythonInstallationChecker() && isResumed) {
             nextBestMove.setDisable(true);
         }
-        setMouseEvent(gridPane, rectangles);
+        setMouseEvent(gridPane, klotskiGame.getRectangles());
     }
-
-
-    /**
-     * Returns the list of components.
-     *
-     * @return The list of components.
-     */
-    public List<Components> getComponents() {
-        return components;
-    }
-
 
     /**
      * Sets the mouse pressed event handler for the given rectangle.
@@ -322,14 +124,14 @@ public class GameController {
 
         rectangle.setOnMousePressed(event -> {
 
-            startX = GridPane.getColumnIndex(rectangle);
-            startY = GridPane.getRowIndex(rectangle);
+            klotskiGame.setStartX(GridPane.getColumnIndex(rectangle));
+            klotskiGame.setStartY(GridPane.getRowIndex(rectangle));
 
-            startMouseX = event.getSceneX();
-            startMouseY = event.getSceneY();
+            klotskiGame.setStartMouseX(event.getSceneX());
+            klotskiGame.setStartMouseY(event.getSceneY());
 
-            startTranslateX = rectangle.getTranslateX();
-            startTranslateY = rectangle.getTranslateY();
+            klotskiGame.setStartTranslateX(rectangle.getTranslateX());
+            klotskiGame.setStartTranslateY(rectangle.getTranslateY());
 
             rectangle.setCursor(Cursor.CLOSED_HAND);
             System.out.println("RECTANGLE ID: " + rectangle.getId());
@@ -346,34 +148,34 @@ public class GameController {
      */
     private void setMouseDragged(GridPane gridPane, Rectangle rectangle) {
         rectangle.setOnMouseDragged(event -> {
-            double offsetX = event.getSceneX() - startMouseX;
-            double offsetY = event.getSceneY() - startMouseY;
+            double offsetX = event.getSceneX() - klotskiGame.getStartMouseX();
+            double offsetY = event.getSceneY() - klotskiGame.getStartMouseY();
 
-            double newTranslateX = startTranslateX + offsetX;
-            double newTranslateY = startTranslateY + offsetY;
+            double newTranslateX = klotskiGame.getStartTranslateX() + offsetX;
+            double newTranslateY = klotskiGame.getStartTranslateY() + offsetY;
 
-            col = (int) Math.round(newTranslateX / (gridPane.getWidth() / NUM_COLS));
-            row = (int) Math.round(newTranslateY / (gridPane.getHeight() / NUM_ROWS));
+            klotskiGame.setCol((int) Math.round(newTranslateX / (gridPane.getWidth() / klotskiGame.getNumCols())));
+            klotskiGame.setRow((int) Math.round(newTranslateY / (gridPane.getHeight() / klotskiGame.getNumRows())));
 
-            int newCol = (int) (startX + col);
-            int newRow = (int) (startY + row);
+            int newCol = (int) (klotskiGame.getStartX() + klotskiGame.getCol());
+            int newRow = (int) (klotskiGame.getStartY() + klotskiGame.getRow());
 
             int maxCol, maxRow;
             double rectangleWidth = rectangle.getWidth();
             double rectangleHeight = rectangle.getHeight();
 
-            if (rectangleWidth <= level.getMinWidth() && rectangleHeight <= level.getMinHeight()) {
-                maxCol = NUM_COLS;
-                maxRow = NUM_ROWS;
-            } else if (rectangleWidth <= level.getMinWidth() && rectangleHeight > level.getMinHeight()) {
-                maxCol = NUM_COLS;
-                maxRow = NUM_ROWS - 1;
-            } else if (rectangleWidth > level.getMinWidth() && rectangleHeight <= level.getMinHeight()) {
-                maxCol = NUM_COLS - 1;
-                maxRow = NUM_ROWS;
+            if (rectangleWidth <= klotskiGame.getLevel().getMinWidth() && rectangleHeight <= klotskiGame.getLevel().getMinHeight()) {
+                maxCol = klotskiGame.getNumCols();
+                maxRow = klotskiGame.getNumRows();
+            } else if (rectangleWidth <= klotskiGame.getLevel().getMinWidth() && rectangleHeight > klotskiGame.getLevel().getMinHeight()) {
+                maxCol = klotskiGame.getNumCols();
+                maxRow = klotskiGame.getNumRows() - 1;
+            } else if (rectangleWidth > klotskiGame.getLevel().getMinWidth() && rectangleHeight <= klotskiGame.getLevel().getMinHeight()) {
+                maxCol = klotskiGame.getNumCols() - 1;
+                maxRow = klotskiGame.getNumRows();
             } else {
-                maxCol = NUM_COLS - 1;
-                maxRow = NUM_ROWS - 1;
+                maxCol = klotskiGame.getNumCols() - 1;
+                maxRow = klotskiGame.getNumRows() - 1;
             }
 
             if (newCol < 0 || newRow < 0 || newCol > maxCol || newRow > maxRow) {
@@ -387,12 +189,14 @@ public class GameController {
             int deltaCol = Math.abs(GridPane.getColumnIndex(rectangle) - newCol);
             int deltaRow = Math.abs(GridPane.getRowIndex(rectangle) - newRow);
 
-            numMosse += (deltaRow + deltaCol);
-            nextBestMoveCounter = numMosse;
+
+            klotskiGame.numMosse += (deltaRow + deltaCol);
+
+            KlotskiGame.setNextBestMoveCounter(klotskiGame.numMosse);
             GridPane.setRowIndex(rectangle, newRow);
             GridPane.setColumnIndex(rectangle, newCol);
 
-            List<Components> updateList = getComponents();
+            List<Components> updateList = klotskiGame.getComponents();
 
             for (Components component : updateList) {
                 if (component.getId().equals(rectangle.getId())) {
@@ -402,22 +206,23 @@ public class GameController {
                 }
             }
 
-            hasMoved = !Helper.isSameComponentsList(defaultComponentsList, getComponents());
+            hasMoved = !Helper.isSameComponentsList(KlotskiGame.getDefaultComponentsList(), klotskiGame.getComponents());
 
             try {
-                if (hasMoved && !Helper.isSameComponentsList(defaultComponentsList, getComponents()) && !Helper.PythonInstallationChecker()) {
+                if (hasMoved && !Helper.isSameComponentsList(KlotskiGame.getDefaultComponentsList(), klotskiGame.getComponents()) && !Helper.PythonInstallationChecker()) {
                     nextBestMove.setDisable(true);
                 }
-                if (Helper.isSameComponentsList(defaultComponentsList, getComponents()) && !isResumed) {
+                if (Helper.isSameComponentsList(KlotskiGame.getDefaultComponentsList(), klotskiGame.getComponents()) && !isResumed) {
                     nextBestMove.setDisable(false);
                 }
             } catch (IOException e) {
                 throw new RuntimeException(e);
             }
 
-            components = updateList;
-            setHistoryRectanglesMovements(updateList);
-            win = Helper.winCondition(updateList);
+            klotskiGame.setComponents(updateList);
+            klotskiGame.setHistoryRectanglesMovements(updateList);
+            klotskiGame.setWin(Helper.winCondition(updateList));
+
             isWinSet();
         });
     }
@@ -432,7 +237,7 @@ public class GameController {
     private void setMouseReleased(Rectangle rectangle) {
         rectangle.setOnMouseReleased(event -> {
             rectangle.setCursor(Cursor.DEFAULT);
-            nMosse.setText(Integer.toString(numMosse));
+            nMosse.setText(Integer.toString(klotskiGame.getNumMosse()));
         });
 
     }
@@ -471,13 +276,13 @@ public class GameController {
 
             GameController gameController = loader.getController();
             try {
-                Level level = Helper.readJson(levelFilePath);
+                Level level = Helper.readJson(klotskiGame.getLevelFilePath());
                 assert level != null;
-                gameController.initialize(level, levelFilePath, isResumed);
+                gameController.initialize(level, klotskiGame.getLevelFilePath(), isResumed);
             } catch (NullPointerException e) {
-                Level level = Helper.readJsonAbsolutePath(levelFilePath);
+                Level level = Helper.readJsonAbsolutePath(klotskiGame.getLevelFilePath());
                 assert level != null;
-                gameController.initialize(level, levelFilePath, isResumed);
+                gameController.initialize(level, klotskiGame.getLevelFilePath(), isResumed);
             }
 
             Scene scene = gridPane.getScene();
@@ -497,13 +302,13 @@ public class GameController {
         int maxHeight = 100;
         int minWidth = 50;
         int minHeight = 50;
-        int countedMoves = numMosse;
-        String levelFileName = level.getLevelFileName();
-        String levelTitle = level.getLevelTitle();
+        int countedMoves = klotskiGame.getNumMosse();
+        String levelFileName = klotskiGame.getLevel().getLevelFileName();
+        String levelTitle = klotskiGame.getLevel().getLevelTitle();
 
         System.out.println("Level name: " + levelFileName);
 
-        Level save = new Level(getComponents(), maxWidth, maxHeight, minWidth, minHeight, countedMoves, levelFileName, levelTitle);
+        Level save = new Level(klotskiGame.getComponents(), maxWidth, maxHeight, minWidth, minHeight, countedMoves, levelFileName, levelTitle);
 
         JSONObject jsonObject = Helper.createJSONObjectFromLevel(save);
         String json = jsonObject.toString();
@@ -529,72 +334,35 @@ public class GameController {
 
 
     /**
-     * Handles the default layout for the next best move.
-     */
-    private void handleDefaultLayout() {
-        if (Helper.isSameComponentsList(defaultComponentsList, getComponents()) && nextBestMoveCounter != 0) {
-            nextBestMoveCounter = 0;
-        }
-
-        String levelName = levelTitle;
-
-        String solutionFileName = Helper.getSolutionFileName(levelName);
-        List<Pair<Integer, String>> separatedMoves = Helper.getSeparatedMoves(solutionFileName);
-        int moveListSize = separatedMoves.size();
-
-        if (nextBestMoveCounter < moveListSize) {
-            components = Helper.performMoveAction(separatedMoves.get(nextBestMoveCounter), getComponents());
-        }
-    }
-
-    /**
-     * Handles the Python solver for the next best move.
-     */
-    private void handlePythonSolver() {
-        if (!Helper.isSameComponentsList(pythonNextBestMoveComponentsLists, getComponents())) {
-            String pythonScriptPath = "src/main/resources/klotski_ids/pythonKlotskiSolver/Main.py";
-            Helper.executePythonProcess(pythonScriptPath);
-            nextMoveIterator = 0;
-        }
-
-        String solutionFileName = "Solutions.txt";
-        List<Pair<Integer, String>> separatedMoves = Helper.getSeparatedMoves(solutionFileName);
-        int moveListSize = separatedMoves.size();
-
-        System.out.println("iterator" + nextMoveIterator);
-        if (nextMoveIterator < moveListSize) {
-            components = Helper.performMoveAction(separatedMoves.get(nextMoveIterator), getComponents());
-            nextMoveIterator++;
-        }
-    }
-
-
-    /**
      * Performs the next best move in the game.
      *
      * @throws IOException if an I/O error occurs.
      */
     @FXML
     public void nextBestMove() throws IOException {
-        List<Components> levelComponents = new ArrayList<>(getComponents());
+
+        List<Components> levelComponents = new ArrayList<>(klotskiGame.getComponents());
         String defaultLayoutPath = "src/main/resources/klotski_ids/data/levelSolutions/DefaultLayout.txt";
         Helper.writeToFile(defaultLayoutPath, Helper.levelToString(levelComponents));
+        if ((!hasMoved || Helper.isSameComponentsList(KlotskiGame.getDefaultComponentsList(), klotskiGame.getComponents())) && !isResumed){
+            klotskiGame.handleDefaultLayout();
 
-        if ((!hasMoved || Helper.isSameComponentsList(defaultComponentsList, getComponents())) && !isResumed) {
-            handleDefaultLayout();
         } else if (Helper.PythonInstallationChecker()) {
-            handlePythonSolver();
+            klotskiGame.handlePythonSolver();
         }
 
-        nextBestMoveCounter++;
-        nMosse.setText(String.valueOf(nextBestMoveCounter));
-        numMosse = nextBestMoveCounter;
+        KlotskiGame.nextBestMoveCounter++;
+        nMosse.setText(String.valueOf(KlotskiGame.nextBestMoveCounter));
+        klotskiGame.setNumMosse(KlotskiGame.getNextBestMoveCounter());
 
         gridPane.getChildren().clear();
-        setHistoryRectanglesMovements(getComponents());
-        setPythonNextBestMoveComponentsLists(getComponents());
-        Helper.setGridPaneElements(gridPane, getComponents(), rectangles);
-        win = Helper.winCondition(getComponents());
+        klotskiGame.setHistoryRectanglesMovements(klotskiGame.getComponents());
+        KlotskiGame.setPythonNextBestMoveComponentsLists(klotskiGame.getComponents());
+
+        Helper.setGridPaneElements(gridPane, klotskiGame.getComponents(), klotskiGame.getRectangles());
+        klotskiGame.setWin(Helper.winCondition(klotskiGame.getComponents()));
+
+
         isWinSet();
     }
 
@@ -604,57 +372,50 @@ public class GameController {
      */
     @FXML
     public void undo() {
-        int lastIndex = historyRectanglesMovements.size() - 1;
+        int lastIndex = KlotskiGame.getHistoryRectanglesMovements().size() - 1;
 
         if (lastIndex >= 1) {
-            historyRectanglesMovements.remove(lastIndex);
+            KlotskiGame.getHistoryRectanglesMovements().remove(lastIndex);
             lastIndex--;
 
-            if (nextBestMoveCounter > 0) {
-                nextBestMoveCounter--;
-                nMosse.setText(Integer.toString(nextBestMoveCounter));
+
+            if (KlotskiGame.nextBestMoveCounter > 0) {
+                KlotskiGame.nextBestMoveCounter--;
+
+                nMosse.setText(String.valueOf(KlotskiGame.nextBestMoveCounter));
             }
 
-            if (numMosse > 0) {
-                numMosse--;
-                nMosse.setText(Integer.toString(numMosse));
+            if (klotskiGame.numMosse > 0) {
+                klotskiGame.numMosse--;
+                nMosse.setText(String.valueOf(klotskiGame.numMosse));
             }
 
-            List<Components> componentsList = new ArrayList<>(historyRectanglesMovements.get(lastIndex));
+            List<Components> componentsList = new ArrayList<>(KlotskiGame.getHistoryRectanglesMovements().get(lastIndex));
 
             gridPane.getChildren().clear();
-            Helper.setGridPaneElements(gridPane, componentsList, rectangles);
+            Helper.setGridPaneElements(gridPane, componentsList, klotskiGame.getRectangles());
 
-            components = Helper.copyComponentsList(componentsList);
+            klotskiGame.setComponents(Helper.copyComponentsList(componentsList));
+        } else {
+            hasMoved = false;
         }
     }
 
 
     /**
-     * Initializes the game level with the specified parameters.
+     * Initializes the game with the specified level, file path, and resume flag.
      *
-     * @param filePath  The file path of the game level data.
-     * @param isResumed Indicates whether the game is being resumed from a saved state.
+     * @param level     The level to initialize the game with.
+     * @param filePath  The file path of the level.
+     * @param isResumed A flag indicating if the game is being resumed.
      * @throws IOException If an error occurs during initialization.
      */
 
     public void initialize(Level level, String filePath, boolean isResumed) throws IOException {
-        // Check if it's a default level or resumed level
         this.isResumed = isResumed;
+        klotskiGame = new KlotskiGame(level, filePath);
 
-        // Reset variables
-        resetVariables();
-
-        // Set level and file path
-        this.level = level;
-        levelFilePath = filePath;
-
-        // Set UI elements
-        setTitle(level.getLevelTitle());
-        setNumberOfMoves(level.getCountedMoves());
-        setComponentsAndRectangles();
-        setHistoryRectanglesMovements(components);
-        setDefaultComponentsList(components);
+        this.titlelabel.setText(klotskiGame.getLevelTitle());
         setGridPaneElements();
         setMouseEventHandlers();
     }
