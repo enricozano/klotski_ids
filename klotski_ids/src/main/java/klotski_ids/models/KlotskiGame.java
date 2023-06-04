@@ -221,7 +221,7 @@ public class KlotskiGame {
      * @param componentsList The default components list.
      */
     public static void setDefaultComponentsList(List<Components> componentsList) {
-        defaultComponentsList = Helper.copyComponentsList(componentsList);
+        defaultComponentsList = copyComponentsList(componentsList);
     }
 
     /**
@@ -230,7 +230,7 @@ public class KlotskiGame {
      * @param componentsList The Python next best move components lists.
      */
     public static void setPythonNextBestMoveComponentsLists(List<Components> componentsList) {
-        pythonNextBestMoveComponentsLists = Helper.copyComponentsList(componentsList);
+        pythonNextBestMoveComponentsLists = copyComponentsList(componentsList);
     }
 
     /**
@@ -248,7 +248,7 @@ public class KlotskiGame {
      * @param componentsList The history of rectangle movements.
      */
     public void setHistoryRectanglesMovements(List<Components> componentsList) {
-        historyRectanglesMovements.add(Helper.copyComponentsList(componentsList));
+        historyRectanglesMovements.add(copyComponentsList(componentsList));
     }
 
     /**
@@ -524,6 +524,25 @@ public class KlotskiGame {
         defaultComponentsList = new ArrayList<>();
         pythonNextBestMoveComponentsLists = new ArrayList<>();
         nextMoveIterator = 0;
+    }
+
+    /**
+     * Creates a deep copy of a list of Components.
+     *
+     * @param originalList the original list of Components
+     * @return the copied list of Components
+     */
+    public static List<Components> copyComponentsList(List<Components> originalList) {
+        if (originalList == null) {
+            throw new IllegalArgumentException("The original list cannot be null.");
+        }
+
+        List<Components> copyList = new ArrayList<>();
+        for (Components component : originalList) {
+            Components copy = new Components(component.getId(), component.getRow(), component.getCol(), component.getColSpan(), component.getRowSpan(), component.getWidth(), component.getHeight());
+            copyList.add(copy);
+        }
+        return copyList;
     }
 
 

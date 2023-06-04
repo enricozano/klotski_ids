@@ -291,24 +291,7 @@ public class Helper {
         }
     }
 
-    /**
-     * Creates a deep copy of a list of Components.
-     *
-     * @param originalList the original list of Components
-     * @return the copied list of Components
-     */
-    public static List<Components> copyComponentsList(List<Components> originalList) {
-        if (originalList == null) {
-            throw new IllegalArgumentException("The original list cannot be null.");
-        }
 
-        List<Components> copyList = new ArrayList<>();
-        for (Components component : originalList) {
-            Components copy = new Components(component.getId(), component.getRow(), component.getCol(), component.getColSpan(), component.getRowSpan(), component.getWidth(), component.getHeight());
-            copyList.add(copy);
-        }
-        return copyList;
-    }
 
     /**
      * Checks if two lists of Components are the same.
@@ -464,7 +447,7 @@ public class Helper {
      * @param movesStrings the list of move strings
      * @return a list of pairs, each containing the numeric value and action
      */
-    public static List<Pair<Integer, String>> separateNumericValue(List<String> movesStrings) {
+    private static List<Pair<Integer, String>> separateNumericValue(List<String> movesStrings) {
         List<Pair<Integer, String>> separatedMoves = new ArrayList<>();
 
         for (String movesString : movesStrings) {

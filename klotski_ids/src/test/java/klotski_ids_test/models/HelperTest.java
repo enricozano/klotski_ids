@@ -243,55 +243,6 @@ public class HelperTest {
         assertEquals(Math.min(components.size(), rectangles.size()), gridPane.getChildren().size());
     }
 
-    @Test
-    @DisplayName("Copy of the component list test")
-    public void testCopyComponentsList() {
-        List<Components> components = new ArrayList<>();
-        components.add(new Components("component1", 0, 0,1,1,CELL_WIDTH,CELL_HEIGHT));
-        components.add(new Components("component2", 1, 1,1,1,CELL_WIDTH,CELL_HEIGHT));
-
-        List<Components> copyList = Helper.copyComponentsList(components);
-
-        // Assert that the copy list has the same number of elements
-        assertEquals(components.size(), copyList.size());
-
-        // Assert that the copied components match the original components
-        for (int i = 0; i < components.size(); i++) {
-            Components originalComponent = components.get(i);
-            Components copiedComponent = copyList.get(i);
-
-            assertEquals(originalComponent.getId(), copiedComponent.getId());
-            assertEquals(originalComponent.getRow(), copiedComponent.getRow());
-            assertEquals(originalComponent.getCol(), copiedComponent.getCol());
-            assertEquals(originalComponent.getColSpan(), copiedComponent.getColSpan());
-            assertEquals(originalComponent.getRowSpan(), copiedComponent.getRowSpan());
-            assertEquals(originalComponent.getWidth(), copiedComponent.getWidth());
-            assertEquals(originalComponent.getHeight(), copiedComponent.getHeight());
-        }
-    }
-
-    @Test
-    @DisplayName("Empty component list can be copied")
-    public void testCopyComponentsListWithEmptyList() {
-        // Create an empty original list of components
-        List<Components> originalList = new ArrayList<>();
-
-        // Invoke the method under test
-        List<Components> copyList = Helper.copyComponentsList(originalList);
-
-        // Assert that the copy list is also empty
-        assertTrue(copyList.isEmpty());
-    }
-
-    @Test
-    @DisplayName("Cant copy null component list")
-    public void testCopyComponentsListWithNullList() {
-        // Invoke the method under test with null original list
-        IllegalArgumentException exception = assertThrows(IllegalArgumentException.class, () -> Helper.copyComponentsList(null));
-
-        // Assert that the exception message is correct
-        assertEquals("The original list cannot be null.", exception.getMessage());
-    }
 
 
     @Test

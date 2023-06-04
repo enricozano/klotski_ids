@@ -394,7 +394,7 @@ public class GameController {
             gridPane.getChildren().clear();
             Helper.setGridPaneElements(gridPane, componentsList, klotskiGame.getRectangles());
 
-            klotskiGame.setComponents(Helper.copyComponentsList(componentsList));
+            klotskiGame.setComponents(KlotskiGame.copyComponentsList(componentsList));
         } else {
             hasMoved = false;
         }
