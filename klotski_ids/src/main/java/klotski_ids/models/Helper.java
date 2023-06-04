@@ -567,18 +567,10 @@ public class Helper {
         int currentCol = component.getCol();
 
         switch (action) {
-            case "UP" -> {
-                component.setRow(currentRow - 1);
-            }
-            case "DOWN" -> {
-                component.setRow(currentRow + 1);
-            }
-            case "RIGHT" -> {
-                component.setCol(currentCol + 1);
-            }
-            case "LEFT" -> {
-                component.setCol(currentCol - 1);
-            }
+            case "UP" -> component.setRow(currentRow - 1);
+            case "DOWN" -> component.setRow(currentRow + 1);
+            case "RIGHT" -> component.setCol(currentCol + 1);
+            case "LEFT" -> component.setCol(currentCol - 1);
         }
 
         return componentsList;
@@ -594,7 +586,7 @@ public class Helper {
         for (Components elem : componentsList) {
             if (elem.getWidth() == 100 && elem.getHeight() == 100) {
                 if (elem.getCol() == 1 && elem.getRow() == 3) {
-                    MyAlerts winAlert = new MyAlerts("LEVEL COMPLETE!");
+                    MyAlerts winAlert = new MyAlerts("Congratulations! Level complete!");
                     winAlert.winAlert();
                     return true;
                 }

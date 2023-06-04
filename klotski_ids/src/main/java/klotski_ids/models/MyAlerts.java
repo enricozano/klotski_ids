@@ -107,7 +107,7 @@ public class MyAlerts {
         Alert alert = new Alert(Alert.AlertType.INFORMATION);
         alert.setTitle(alertType);
         alert.setHeaderText("");
-        alert.setContentText("GOOD JOB\nYOU HAVE COMPLETED THIS LEVEL\nYou will be taken back to the main screen!");
+        alert.setContentText("\t\t\t\tGood job! \n\t\t\t\tlevel complete :)\n\nStart a new game!");
 
         ButtonType confirmButton = new ButtonType("Confirm");
 
