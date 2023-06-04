@@ -473,6 +473,18 @@ public class KlotskiGame {
 
 
     /**
+     * Sets the components and rectangles for the level.
+     * The components are obtained from the level, and the rectangles are created using the Helper.createRectangle() method.
+     */
+    public void setComponentsAndRectangles() {
+        components = level.getRectangles();
+        rectangles = Helper.createRectangle(components);
+        setHistoryRectanglesMovements(components);
+        setDefaultComponentsList(components);
+    }
+
+
+    /**
      * Constructs a new instance of the KlotskiGame class with default values.
      * This constructor is used to initialize variables.
      */
@@ -514,17 +526,6 @@ public class KlotskiGame {
         nextMoveIterator = 0;
     }
 
-
-    /**
-     * Sets the components and rectangles for the level.
-     * The components are obtained from the level, and the rectangles are created using the Helper.createRectangle() method.
-     */
-    public void setComponentsAndRectangles() {
-        components = level.getRectangles();
-        rectangles = Helper.createRectangle(components);
-        setHistoryRectanglesMovements(components);
-        setDefaultComponentsList(components);
-    }
 
     /**
      * Handles the default layout for the next best move.

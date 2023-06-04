@@ -81,11 +81,11 @@ public class GameController {
     private KlotskiGame klotskiGame;
 
 
-    public void setGridPaneElements() {
+    private void setGridPaneElements() {
         Helper.setGridPaneElements(gridPane, klotskiGame.getComponents(), klotskiGame.getRectangles());
     }
 
-    public void isWinSet() {
+    private void isWinSet() {
         if (klotskiGame.isWin()) {
             try {
                 FXMLLoader loader = new FXMLLoader(getClass().getResource("/klotski_ids/mainView.fxml"));
@@ -134,7 +134,6 @@ public class GameController {
             klotskiGame.setStartTranslateY(rectangle.getTranslateY());
 
             rectangle.setCursor(Cursor.CLOSED_HAND);
-            System.out.println("RECTANGLE ID: " + rectangle.getId());
         });
 
     }
@@ -297,7 +296,7 @@ public class GameController {
      * Saves the current game level to a JSON file.
      */
     @FXML
-    public void save() {
+    private void save() {
         int maxWidth = 100;
         int maxHeight = 100;
         int minWidth = 50;
@@ -339,12 +338,12 @@ public class GameController {
      * @throws IOException if an I/O error occurs.
      */
     @FXML
-    public void nextBestMove() throws IOException {
+    private void nextBestMove() throws IOException {
 
         List<Components> levelComponents = new ArrayList<>(klotskiGame.getComponents());
         String defaultLayoutPath = "src/main/resources/klotski_ids/data/levelSolutions/DefaultLayout.txt";
         Helper.writeToFile(defaultLayoutPath, Helper.levelToString(levelComponents));
-        if ((!hasMoved || Helper.isSameComponentsList(KlotskiGame.getDefaultComponentsList(), klotskiGame.getComponents())) && !isResumed){
+        if ((!hasMoved || Helper.isSameComponentsList(KlotskiGame.getDefaultComponentsList(), klotskiGame.getComponents())) && !isResumed) {
             klotskiGame.handleDefaultLayout();
 
         } else if (Helper.PythonInstallationChecker()) {
@@ -371,7 +370,7 @@ public class GameController {
      * Reverts the last move and restores the previous game state.
      */
     @FXML
-    public void undo() {
+    private void undo() {
         int lastIndex = KlotskiGame.getHistoryRectanglesMovements().size() - 1;
 
         if (lastIndex >= 1) {

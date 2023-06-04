@@ -100,7 +100,7 @@ public class StartMenuController {
             System.err.println("IOException occurred: " + e.getMessage());
             e.printStackTrace();
             alerts.errorAlert();
-        }  catch (IllegalStateException e) {
+        } catch (IllegalStateException e) {
             System.err.println("IllegalStateException occurred: " + e.getMessage());
             e.printStackTrace();
             alerts.errorAlert();

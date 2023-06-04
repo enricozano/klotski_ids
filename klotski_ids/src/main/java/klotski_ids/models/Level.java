@@ -50,7 +50,7 @@ public class Level {
     /**
      * Constructs a new Level object with default values.
      */
-    public Level(){
+    public Level() {
         this.maxWidth = 100;
         this.maxHeight = 100;
         this.minWidth = 50;
@@ -60,6 +60,7 @@ public class Level {
         this.levelTitle = "";
         this.componentsList = new ArrayList<>();
     }
+
     /**
      * Constructs a new Level object.
      *
@@ -90,7 +91,7 @@ public class Level {
     public Level(List<klotski_ids.models.Components> rectangles) {
         this.componentsList = rectangles;
     }
-    
+
     /**
      * Sets the maximum height of the playing area.
      *
@@ -135,6 +136,7 @@ public class Level {
     public void setLevelFileName(String levelName) {
         this.levelFileName = levelName;
     }
+
     public void setLevelTitle(String levelName) {
         this.levelTitle = levelName;
     }
@@ -202,7 +204,10 @@ public class Level {
         return this.levelFileName;
     }
 
-    public String getLevelTitle(){return this.levelTitle;}
+    public String getLevelTitle() {
+        return this.levelTitle;
+    }
+
     /**
      * Returns the number of counted moves.
      *

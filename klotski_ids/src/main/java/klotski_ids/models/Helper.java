@@ -24,6 +24,7 @@ public class Helper {
      * The default grid cell height
      */
     private static final int CELL_HEIGHT = 50;
+
     /**
      * Parses a JSON string and creates a Level object.
      *
@@ -121,14 +122,14 @@ public class Helper {
      *
      * @param filePath the file path of the JSON file
      * @return the deserialized Level object
-     * @throws IOException           if an I/O error occurs while reading the file
+     * @throws IOException if an I/O error occurs while reading the file
      */
     public static Level readJson(String filePath) throws IOException, JSONException {
         System.out.println("file path: " + filePath);
         Level level;
         try (InputStream inputStream = Helper.class.getResourceAsStream(filePath)) {
             level = readJsonFromStream(inputStream);
-        } catch (JSONException e){
+        } catch (JSONException e) {
             MyAlerts jsonError = new MyAlerts("Error reading Json");
             jsonError.errorAlert();
             return null;
@@ -152,7 +153,7 @@ public class Helper {
         Level level;
         try (InputStream inputStream = new FileInputStream(filePath)) {
             level = readJsonFromStream(inputStream);
-        }catch (JSONException e){
+        } catch (JSONException e) {
             MyAlerts jsonError = new MyAlerts("Error reading Json");
             jsonError.errorAlert();
             return null;
@@ -160,7 +161,6 @@ public class Helper {
 
         return level;
     }
-
 
 
     /**
