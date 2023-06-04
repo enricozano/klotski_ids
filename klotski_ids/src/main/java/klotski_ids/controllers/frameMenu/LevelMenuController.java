@@ -8,12 +8,10 @@ import javafx.scene.Parent;
 import javafx.scene.Scene;
 import javafx.scene.control.Button;
 import javafx.scene.layout.AnchorPane;
-import javafx.scene.layout.GridPane;
 import javafx.stage.Stage;
 import klotski_ids.models.Helper;
 import klotski_ids.models.Level;
 import klotski_ids.models.MyAlerts;
-import org.json.JSONException;
 
 import java.io.IOException;
 import java.net.URL;
@@ -59,12 +57,6 @@ public class LevelMenuController implements Initializable {
      */
     @FXML
     Button level_4;
-
-    /**
-     * The GridPane that represents the game board.
-     */
-    @FXML
-    private GridPane gridPane;
 
     /**
      * The anchor pane for level 1.
@@ -144,14 +136,14 @@ public class LevelMenuController implements Initializable {
 
 
         if (!Helper.PythonInstallationChecker()) {
-            MyAlerts pythonAllert = new MyAlerts("Can't find python :/");
-            pythonAllert.missingPythonAlert();
+            MyAlerts pythonAlert = new MyAlerts("Can't find python :/");
+            pythonAlert.missingPythonAlert();
         }
 
         Level level = Helper.readJson(filePath);
 
         if (level != null) {
-            gameController.initialize(level, filePath, true);
+            gameController.initialize(level, filePath, false);
             setStageWindow(button);
         } else {
             System.err.println("Error loading the selected file.");

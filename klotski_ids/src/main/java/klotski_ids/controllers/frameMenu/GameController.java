@@ -153,7 +153,7 @@ public class GameController {
     /**
      * A list to store the movement history of the rectangles.
      */
-    private static List<List<Components>> hystoryRectanglesMovements = new ArrayList<>();
+    private static List<List<Components>> historyRectanglesMovements = new ArrayList<>();
 
     /**
      * The path of the file
@@ -188,22 +188,20 @@ public class GameController {
      * Flag for the win condition
      */
     private boolean win;
-    /**
-     * Sets the number of moves for the level.
-     *
-     * @param numberOfMoves The number of moves to set.
-     */
-    private void setNumberOfMoves(int numberOfMoves) {
-        numMosse = numberOfMoves;
-    }
+
 
     /**
-     * Sets the components and rectangles for the level.
-     * The components are obtained from the level, and the rectangles are created using the Helper.createRectangle() method.
+     * Resets the variables to their initial values.
      */
-    private void setComponentsAndRectangles() {
-        components = level.getRectangles();
-        rectangles = Helper.createRectangle(components);
+    private void resetVariables() {
+        nextBestMoveCounter = 0;
+        numMosse = 0;
+        components = new ArrayList<>();
+        rectangles = new ArrayList<>();
+        historyRectanglesMovements = new ArrayList<>();
+        defaultComponentsList = new ArrayList<>();
+        pythonNextBestMoveComponentsLists = new ArrayList<>();
+        nextMoveIterator = 0;
     }
 
     /**
@@ -215,55 +213,12 @@ public class GameController {
     }
 
     /**
-     * Sets the mouse event handlers for the GridPane.
-     * If the Python installation check using Helper.PythonInstallationChecker() returns false and the game is resumed, disables the nextBestMove button.
-     * Sets the mouse event handlers using the setMouseEvent() method for the GridPane and rectangles.
-     *
-     * @throws IOException If an input/output exception occurs while setting the mouse event handlers.
-     */
-    private void setMouseEventHandlers() throws IOException {
-        if (!Helper.PythonInstallationChecker() && isResumed) {
-            nextBestMove.setDisable(true);
-        }
-        setMouseEvent(gridPane, rectangles);
-    }
-
-    /**
-     * Checks if the win condition is set and opens the main view if it is true.
-     */
-    private void isWinSet() {
-        if (win) {
-            try {
-                FXMLLoader loader = new FXMLLoader(getClass().getResource("/klotski_ids/mainView.fxml"));
-                Parent root = loader.load();
-                Scene scene = new Scene(root);
-                Stage stage = (Stage) gridPane.getScene().getWindow();
-                stage.setScene(scene);
-            } catch (IOException e) {
-                e.printStackTrace();
-            }
-        }
-    }
-
-
-    /**
-     * Sets the title of the level and updates the title label.
-     *
-     * @param text The title text to set.
-     */
-    public void setTitle(String text) {
-        this.levelTitle = text;
-        titlelabel.setText(text);
-    }
-
-
-    /**
      * Sets the history of rectangle movements.
      *
      * @param componentsList The components list representing the history of rectangle movements to set.
      */
-    public void setHystoryRectanglesMovements(List<Components> componentsList) {
-        hystoryRectanglesMovements.add(Helper.copyComponentsList(componentsList));
+    public void setHistoryRectanglesMovements(List<Components> componentsList) {
+        historyRectanglesMovements.add(Helper.copyComponentsList(componentsList));
     }
 
     /**
@@ -285,6 +240,69 @@ public class GameController {
     }
 
     /**
+     * Sets the number of moves for the level.
+     *
+     * @param numberOfMoves The number of moves to set.
+     */
+    private void setNumberOfMoves(int numberOfMoves) {
+        numMosse = numberOfMoves;
+    }
+
+    /**
+     * Sets the title of the level and updates the title label.
+     *
+     * @param text The title text to set.
+     */
+    public void setTitle(String text) {
+        this.levelTitle = text;
+        titlelabel.setText(text);
+    }
+
+
+    /**
+     * Sets the components and rectangles for the level.
+     * The components are obtained from the level, and the rectangles are created using the Helper.createRectangle() method.
+     */
+    private void setComponentsAndRectangles() {
+        components = level.getRectangles();
+        rectangles = Helper.createRectangle(components);
+    }
+
+
+    /**
+     * Checks if the win condition is set and opens the main view if it is true.
+     */
+    private void isWinSet() {
+        if (win) {
+            try {
+                FXMLLoader loader = new FXMLLoader(getClass().getResource("/klotski_ids/mainView.fxml"));
+                Parent root = loader.load();
+                Scene scene = new Scene(root);
+                Stage stage = (Stage) gridPane.getScene().getWindow();
+                stage.setScene(scene);
+            } catch (IOException e) {
+                e.printStackTrace();
+            }
+        }
+    }
+
+
+    /**
+     * Sets the mouse event handlers for the GridPane.
+     * If the Python installation check using Helper.PythonInstallationChecker() returns false and the game is resumed, disables the nextBestMove button.
+     * Sets the mouse event handlers using the setMouseEvent() method for the GridPane and rectangles.
+     *
+     * @throws IOException If an input/output exception occurs while setting the mouse event handlers.
+     */
+    private void setMouseEventHandlers() throws IOException {
+        if (!Helper.PythonInstallationChecker() && isResumed) {
+            nextBestMove.setDisable(true);
+        }
+        setMouseEvent(gridPane, rectangles);
+    }
+
+
+    /**
      * Returns the list of components.
      *
      * @return The list of components.
@@ -293,15 +311,6 @@ public class GameController {
         return components;
     }
 
-
-    /**
-     * Returns the level title.
-     *
-     * @return The level title.
-     */
-    public String getLevelTitle() {
-        return levelTitle;
-    }
 
     /**
      * Sets the mouse pressed event handler for the given rectangle.
@@ -407,7 +416,7 @@ public class GameController {
             }
 
             components = updateList;
-            setHystoryRectanglesMovements(updateList);
+            setHistoryRectanglesMovements(updateList);
             win = Helper.winCondition(updateList);
             isWinSet();
         });
@@ -447,20 +456,6 @@ public class GameController {
 
 
     /**
-     * Resets the variables to their initial values.
-     */
-    private void resetVariables() {
-        nextBestMoveCounter = 0;
-        numMosse = 0;
-        components = new ArrayList<>();
-        rectangles = new ArrayList<>();
-        hystoryRectanglesMovements = new ArrayList<>();
-        defaultComponentsList = new ArrayList<>();
-        pythonNextBestMoveComponentsLists = new ArrayList<>();
-        nextMoveIterator = 0;
-    }
-
-    /**
      * Resets the game state and navigates to the game screen.
      *
      * @throws IOException if an I/O error occurs.
@@ -495,11 +490,9 @@ public class GameController {
 
     /**
      * Saves the current game level to a JSON file.
-     *
-     * @throws IOException if an I/O error occurs.
      */
     @FXML
-    public void save() throws IOException {
+    public void save() {
         int maxWidth = 100;
         int maxHeight = 100;
         int minWidth = 50;
@@ -534,11 +527,54 @@ public class GameController {
         }
     }
 
+
+    /**
+     * Handles the default layout for the next best move.
+     */
+    private void handleDefaultLayout() {
+        if (Helper.isSameComponentsList(defaultComponentsList, getComponents()) && nextBestMoveCounter != 0) {
+            nextBestMoveCounter = 0;
+        }
+
+        String levelName = levelTitle;
+
+        String solutionFileName = Helper.getSolutionFileName(levelName);
+        List<Pair<Integer, String>> separatedMoves = Helper.getSeparatedMoves(solutionFileName);
+        int moveListSize = separatedMoves.size();
+
+        if (nextBestMoveCounter < moveListSize) {
+            components = Helper.performMoveAction(separatedMoves.get(nextBestMoveCounter), getComponents());
+        }
+    }
+
+    /**
+     * Handles the Python solver for the next best move.
+     */
+    private void handlePythonSolver() {
+        if (!Helper.isSameComponentsList(pythonNextBestMoveComponentsLists, getComponents())) {
+            String pythonScriptPath = "src/main/resources/klotski_ids/pythonKlotskiSolver/Main.py";
+            Helper.executePythonProcess(pythonScriptPath);
+            nextMoveIterator = 0;
+        }
+
+        String solutionFileName = "Solutions.txt";
+        List<Pair<Integer, String>> separatedMoves = Helper.getSeparatedMoves(solutionFileName);
+        int moveListSize = separatedMoves.size();
+
+        System.out.println("iterator" + nextMoveIterator);
+        if (nextMoveIterator < moveListSize) {
+            components = Helper.performMoveAction(separatedMoves.get(nextMoveIterator), getComponents());
+            nextMoveIterator++;
+        }
+    }
+
+
     /**
      * Performs the next best move in the game.
      *
      * @throws IOException if an I/O error occurs.
      */
+    @FXML
     public void nextBestMove() throws IOException {
         List<Components> levelComponents = new ArrayList<>(getComponents());
         String defaultLayoutPath = "src/main/resources/klotski_ids/data/levelSolutions/DefaultLayout.txt";
@@ -555,53 +591,11 @@ public class GameController {
         numMosse = nextBestMoveCounter;
 
         gridPane.getChildren().clear();
-        setHystoryRectanglesMovements(getComponents());
+        setHistoryRectanglesMovements(getComponents());
         setPythonNextBestMoveComponentsLists(getComponents());
         Helper.setGridPaneElements(gridPane, getComponents(), rectangles);
         win = Helper.winCondition(getComponents());
         isWinSet();
-    }
-
-    /**
-     * Handles the default layout for the next best move.
-     *
-     * @throws IOException if an I/O error occurs.
-     */
-    private void handleDefaultLayout() throws IOException {
-        if (Helper.isSameComponentsList(defaultComponentsList, getComponents()) && nextBestMoveCounter != 0) {
-            nextBestMoveCounter = 0;
-        }
-
-        String levelName = levelTitle;
-        String solutionFileName = Helper.getSolutionFileName(levelName);
-        List<Pair<Integer, String>> separatedMoves = Helper.getSeparatedMoves(solutionFileName);
-        int moveListSize = separatedMoves.size();
-
-        if (nextBestMoveCounter < moveListSize) {
-            components = Helper.performMoveAction(separatedMoves.get(nextBestMoveCounter), getComponents());
-        }
-    }
-
-    /**
-     * Handles the Python solver for the next best move.
-     *
-     * @throws IOException if an I/O error occurs.
-     */
-    private void handlePythonSolver() throws IOException {
-        if (!Helper.isSameComponentsList(pythonNextBestMoveComponentsLists, getComponents())) {
-            String pythonScriptPath = "src/main/resources/klotski_ids/pythonKlotskiSolver/Main.py";
-            Helper.executePythonProcess(pythonScriptPath);
-            nextMoveIterator = 0;
-        }
-
-        String solutionFileName = "Solutions.txt";
-        List<Pair<Integer, String>> separatedMoves = Helper.getSeparatedMoves(solutionFileName);
-        int moveListSize = separatedMoves.size();
-
-        if (nextMoveIterator < moveListSize) {
-            components = Helper.performMoveAction(separatedMoves.get(nextMoveIterator), getComponents());
-            nextMoveIterator++;
-        }
     }
 
 
@@ -610,10 +604,10 @@ public class GameController {
      */
     @FXML
     public void undo() {
-        int lastIndex = hystoryRectanglesMovements.size() - 1;
+        int lastIndex = historyRectanglesMovements.size() - 1;
 
         if (lastIndex >= 1) {
-            hystoryRectanglesMovements.remove(lastIndex);
+            historyRectanglesMovements.remove(lastIndex);
             lastIndex--;
 
             if (nextBestMoveCounter > 0) {
@@ -626,7 +620,7 @@ public class GameController {
                 nMosse.setText(Integer.toString(numMosse));
             }
 
-            List<Components> componentsList = new ArrayList<>(hystoryRectanglesMovements.get(lastIndex));
+            List<Components> componentsList = new ArrayList<>(historyRectanglesMovements.get(lastIndex));
 
             gridPane.getChildren().clear();
             Helper.setGridPaneElements(gridPane, componentsList, rectangles);
@@ -634,7 +628,6 @@ public class GameController {
             components = Helper.copyComponentsList(componentsList);
         }
     }
-
 
 
     /**
@@ -660,7 +653,7 @@ public class GameController {
         setTitle(level.getLevelTitle());
         setNumberOfMoves(level.getCountedMoves());
         setComponentsAndRectangles();
-        setHystoryRectanglesMovements(components);
+        setHistoryRectanglesMovements(components);
         setDefaultComponentsList(components);
         setGridPaneElements();
         setMouseEventHandlers();

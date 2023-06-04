@@ -74,7 +74,7 @@ public class StartMenuController {
         Button button = (Button) actionEvent.getSource();
 
         FileChooser fileChooser = new FileChooser();
-        fileChooser.setTitle("Carica file");
+        fileChooser.setTitle("Load file");
         fileChooser.setInitialFileName("level_SAVE.json");
 
         FileChooser.ExtensionFilter extensionFilter = new FileChooser.ExtensionFilter("JSON Files", "*.json");

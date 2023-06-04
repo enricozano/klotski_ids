@@ -102,7 +102,7 @@ public class Helper {
      * @throws JSONException if the JSON data is invalid
      */
     private static Level readJsonFromStream(InputStream inputStream) throws IOException, JSONException {
-        Level level = new Level();
+        Level level;
         try (BufferedReader reader = new BufferedReader(new InputStreamReader(inputStream))) {
             StringBuilder sb = new StringBuilder();
             String line;
@@ -125,7 +125,7 @@ public class Helper {
      */
     public static Level readJson(String filePath) throws IOException, JSONException {
         System.out.println("file path: " + filePath);
-        Level level = new Level();
+        Level level;
         try (InputStream inputStream = Helper.class.getResourceAsStream(filePath)) {
             level = readJsonFromStream(inputStream);
         } catch (JSONException e){
@@ -149,7 +149,7 @@ public class Helper {
      */
     public static Level readJsonAbsolutePath(String filePath) throws FileNotFoundException, IOException, JSONException {
         System.out.println("file path: " + filePath);
-        Level level = new Level();
+        Level level;
         try (InputStream inputStream = new FileInputStream(filePath)) {
             level = readJsonFromStream(inputStream);
         }catch (JSONException e){
@@ -259,7 +259,7 @@ public class Helper {
         List<Rectangle> rectangleList = new ArrayList<>();
 
         if (components == null) {
-            throw new IllegalArgumentException("La lista components non può essere null.");
+            throw new IllegalArgumentException("Component list cant be null");
         }
         for (klotski_ids.models.Components element : components) {
             Rectangle rectangle = new Rectangle(element.getWidth(), element.getHeight());
@@ -298,6 +298,10 @@ public class Helper {
      * @return the copied list of Components
      */
     public static List<Components> copyComponentsList(List<Components> originalList) {
+        if (originalList == null) {
+            throw new IllegalArgumentException("The original list cannot be null.");
+        }
+
         List<Components> copyList = new ArrayList<>();
         for (Components component : originalList) {
             Components copy = new Components(component.getId(), component.getRow(), component.getCol(), component.getColSpan(), component.getRowSpan(), component.getWidth(), component.getHeight());
@@ -481,7 +485,7 @@ public class Helper {
      * @param filename the name of the file
      * @return a list of move strings
      */
-    public static List<String> getMovesStringsFromFile(String filename) {
+    private static List<String> getMovesStringsFromFile(String filename) {
         List<String> movesStrings = new ArrayList<>();
 
         try (BufferedReader reader = new BufferedReader(new FileReader(filename))) {
@@ -543,7 +547,8 @@ public class Helper {
      * @return a list of separated moves
      */
     public static List<Pair<Integer, String>> getSeparatedMoves(String solutionFileName) {
-        List<String> movesStrings = Helper.getMovesStringsFromFile("src/main/resources/klotski_ids/data/levelSolutions/" + solutionFileName);
+        String filePath = "src/main/resources/klotski_ids/data/levelSolutions/" + solutionFileName;
+        List<String> movesStrings = Helper.getMovesStringsFromFile(filePath);
         return Helper.separateNumericValue(movesStrings);
     }
 

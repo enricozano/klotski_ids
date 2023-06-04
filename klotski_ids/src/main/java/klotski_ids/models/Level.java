@@ -45,7 +45,7 @@ public class Level {
     /**
      * The list of components (rectangles) that make up the level.
      */
-    private List<klotski_ids.models.Components> componentsList = new ArrayList<>();
+    private final List<klotski_ids.models.Components> componentsList;
 
     /**
      * Constructs a new Level object with default values.
