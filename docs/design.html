@@ -1,182 +1,206 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-<meta charset="UTF-8" />
-<meta http-equiv="X-UA-Compatible" content="IE=edge">
-<meta name="viewport" content="width=device-width, initial-scale=1, minimum-scale=1.0, shrink-to-fit=no">
-<link href="assets/images/klotski_icon.png" rel="icon" />
-<title>Klotski | Class Design</title>
-<meta name="docs" content="klotski_ids documentation">
-<meta name="author" content="https://github.com/enricozano/klotski_ids">
+    <meta charset="UTF-8"/>
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1, minimum-scale=1.0, shrink-to-fit=no">
+    <link href="assets/images/klotski_icon.png" rel="icon"/>
+    <title>Klotski | Class Design</title>
+    <meta name="docs" content="klotski_ids documentation">
+    <meta name="author" content="https://github.com/enricozano/klotski_ids">
 
-<!-- Stylesheet
-============================== -->
-<!-- Bootstrap -->
-<link rel="stylesheet" type="text/css" href="assets/vendor/bootstrap/css/bootstrap.min.css" />
-<!-- Font Awesome Icon -->
-<link rel="stylesheet" type="text/css" href="assets/vendor/font-awesome/css/all.min.css" />
-<!-- Magnific Popup -->
-<link rel="stylesheet" type="text/css" href="assets/vendor/magnific-popup/magnific-popup.min.css" />
-<!-- Highlight Syntax -->
-<link rel="stylesheet" type="text/css" href="assets/vendor/highlight.js/styles/github.css" />
-<!-- Custom Stylesheet -->
-<link rel="stylesheet" type="text/css" href="assets/css/stylesheet.css" />
-<link rel="stylesheet" type="text/css" href="assets/css/color-orange.css" />
+    <!-- Stylesheet
+    ============================== -->
+    <!-- Bootstrap -->
+    <link rel="stylesheet" type="text/css" href="assets/vendor/bootstrap/css/bootstrap.min.css"/>
+    <!-- Font Awesome Icon -->
+    <link rel="stylesheet" type="text/css" href="assets/vendor/font-awesome/css/all.min.css"/>
+    <!-- Magnific Popup -->
+    <link rel="stylesheet" type="text/css" href="assets/vendor/magnific-popup/magnific-popup.min.css"/>
+    <!-- Highlight Syntax -->
+    <link rel="stylesheet" type="text/css" href="assets/vendor/highlight.js/styles/github.css"/>
+    <!-- Custom Stylesheet -->
+    <link rel="stylesheet" type="text/css" href="assets/css/stylesheet.css"/>
+    <link rel="stylesheet" type="text/css" href="assets/css/color-orange.css"/>
 </head>
 
 <body data-spy="scroll" data-target=".idocs-navigation" data-offset="125">
 
 <!-- Preloader -->
 <div class="preloader">
-  <div class="lds-ellipsis">
-    <div></div>
-    <div></div>
-    <div></div>
-    <div></div>
-  </div>
+    <div class="lds-ellipsis">
+        <div></div>
+        <div></div>
+        <div></div>
+        <div></div>
+    </div>
 </div>
-<!-- Preloader End --> 
+<!-- Preloader End -->
 
 <!-- Document Wrapper   
 =============================== -->
-<div id="main-wrapper"> 
-  
-  <!-- Header
-  ============================ -->
-  <header id="header" class="sticky-top"> 
-    <!-- Navbar -->
-    <nav class="primary-menu navbar navbar-expand-lg bg-dark navbar-text-light navbar-dropdown-dark border-0">
-      <div class="container-fluid">
-        <!-- Sidebar Toggler -->
-		    <button id="sidebarCollapse" class="navbar-toggler d-block d-md-none" type="button"><span></span><span class="w-75"></span><span class="w-50"></span></button>
-      
-		<!-- Logo --> 
-    <a class="logo ml-md-3" href="index.html" title="klotski_logo"> <img src="assets/images/favicon.png" alt=" klotski logo"/> </a> 
-    <!-- Logo End -->
-      
-    <ul class="social-icons social-icons-sm ml-lg-2 mr-2">
-      <li class="social-icons-github"><a data-toggle="tooltip" href="https://github.com/enricozano/klotski_ids" target="_blank" title="GitHub" data-original-title="GitHub"><i class="fab fa-github"></i></a></li>
-    </ul>
+<div id="main-wrapper">
 
-      </div>  
-    </nav>
-    <!-- Navbar End --> 
-  </header>
-  <!-- Header End --> 
-  
-  <!-- Content
-  ============================ -->
-  <div id="content" role="main">
-    
-	<!-- Sidebar Navigation
-	============================ -->
-  <div class="idocs-navigation bg-dark">
-    <ul class="nav flex-column ">
-      <li class="nav-item"><a class="nav-link disable-scroll" href="index.html">Introduction</a></li>
-      <li class="nav-item"><a class="nav-link disable-scroll" href="manual.html">Manual</a></li>
-      <li class="nav-item"><a class="nav-link disable-scroll" href="usecase.html">Use cases</a></li>
-      <li class="nav-item"><a class="nav-link disable-scroll" href="domain.html">Domain model</a></li>
-      <li class="nav-item"><a class="nav-link active" href="#kl_design">Design model</a>
-        <ul class="nav flex-column">
-          <li class="nave-item"><a class="nav-link" href="#kl_packagedesign">Package Design</a></li>
-          <li class="nave-item"><a class="nav-link" href="#kl_modeldesign">Models</a></li>
-          <li class="nave-item"><a class="nav-link" href="#kl_viewdesign">Views</a></li>
-          <li class="nave-item"><a class="nav-link" href="#kl_controllerdesign">Controllers</a></li>
-        </ul>
-      </li>
-      <li class="nav-item"><a class="nav-link disable-scroll" href="sequence.html">Sequence diagrams</a></li>
-      <li class="nav-item"><a class="nav-link disable-scroll" href="test.html">Tests</a>
-    </ul>
-  </div>
-    
-    <!-- Docs Content
-	============================ -->
-    <div class="idocs-content">
-      <div class="container"> 
+    <!-- Header
+    ============================ -->
+    <header id="header" class="sticky-top">
+        <!-- Navbar -->
+        <nav class="primary-menu navbar navbar-expand-lg bg-dark navbar-text-light navbar-dropdown-dark border-0">
+            <div class="container-fluid">
+                <!-- Sidebar Toggler -->
+                <button id="sidebarCollapse" class="navbar-toggler d-block d-md-none" type="button"><span></span><span
+                        class="w-75"></span><span class="w-50"></span></button>
 
-        <section id="kl_design">
+                <!-- Logo -->
+                <a class="logo ml-md-3" href="index.html" title="klotski_logo"> <img src="assets/images/favicon.png"
+                                                                                     alt=" klotski logo"/> </a>
+                <!-- Logo End -->
 
-          <!--TODO aggiornare grafici-->
+                <ul class="social-icons social-icons-sm ml-lg-2 mr-2">
+                    <li class="social-icons-github"><a data-toggle="tooltip"
+                                                       href="https://github.com/enricozano/klotski_ids" target="_blank"
+                                                       title="GitHub" data-original-title="GitHub"><i
+                            class="fab fa-github"></i></a></li>
+                </ul>
 
-            <h1>Design model</h1>
-            
-            <p class="lead">
-              The design model section provides all the informations identified during the designs phase meetings. The team focused on
-              developing all the software entities following a chosen architectural pattern to make up the program in its entirety.
-            </p>
+            </div>
+        </nav>
+        <!-- Navbar End -->
+    </header>
+    <!-- Header End -->
 
-            <hr class="divider">
-            
-            <h4 id="kl_packagedesign" class="mt-5">Package design</h4>
-            <p class="lead">
-              Using JavaFX as the main developed framework the team decided to apply the MVC (Models-Views-Controllers) design pattern to divide the different
-              packages that compose the system.
-            </p>
-            <a class="popup-img" href="./assets/images/design/package-design.png">
-              <img class="img-fluid" src="./assets/images/design/package-design.png" width="400" height="300" alt="Packages model">
-            </a> 
+    <!-- Content
+    ============================ -->
+    <div id="content" role="main">
 
-            <h4 id="kl_modeldesign" class="mt-5">Models design</h4>
-            <p class="lead">
-              The <strong>Model</strong> represents the data and business logic of the application. It encapsulates the state and behavior of the application's data, and it is responsible for data manipulation, validation, and storage.   
-            </p>
-            <a class="popup-img" href="./assets/images/design/models-design.png">
-              <img class="img-fluid" src="./assets/images/design/models-design.png"  width="800" alt="Models model">
-            </a>  
+        <!-- Sidebar Navigation
+        ============================ -->
+        <div class="idocs-navigation bg-dark">
+            <ul class="nav flex-column ">
+                <li class="nav-item"><a class="nav-link disable-scroll" href="index.html">Introduction</a></li>
+                <li class="nav-item"><a class="nav-link disable-scroll" href="manual.html">Manual</a></li>
+                <li class="nav-item"><a class="nav-link disable-scroll" href="usecase.html">Use cases</a></li>
+                <li class="nav-item"><a class="nav-link disable-scroll" href="domain.html">Domain model</a></li>
+                <li class="nav-item"><a class="nav-link active" href="#kl_design">Design model</a>
+                    <ul class="nav flex-column">
+                        <li class="nave-item"><a class="nav-link" href="#kl_packagedesign">Package Design</a></li>
+                        <li class="nave-item"><a class="nav-link" href="#kl_modeldesign">Models</a></li>
+                        <li class="nave-item"><a class="nav-link" href="#kl_viewdesign">Views</a></li>
+                        <li class="nave-item"><a class="nav-link" href="#kl_controllerdesign">Controllers</a></li>
+                    </ul>
+                </li>
+                <li class="nav-item"><a class="nav-link disable-scroll" href="sequence.html">Sequence diagrams</a></li>
+                <li class="nav-item"><a class="nav-link disable-scroll" href="test.html">Tests</a>
+                <li class="nav-item"><a class="nav-link disable-scroll" target="_blank" href="javadoc/klotski_ids/module-summary.html">Javadoc</a>
+                </li>
+            </ul>
+        </div>
 
-            <h4 id="kl_viewdesign" class="mt-5">Views design</h4>
-            <p class="lead">
-              The <strong>View</strong> represents the user interface components that display the data to the user. It is responsible for presenting the information from the Model in a visually understandable way. The View is passive and does not contain any business logic.
-              Due to the use of scene builder the view package exists only abstractly. The interactions with the other packages were in fact managed directly in the creation of the views resources.
-            </p>
-            <a class="popup-img" href="./assets/images/design/views-design.png">
-              <img class="img-fluid" src="./assets/images/design/views-design.png"  width="800" alt="Views model">
-            </a>  
+        <!-- Docs Content
+        ============================ -->
+        <div class="idocs-content">
+            <div class="container">
 
-            <h4 id="kl_controllerdesign" class="mt-5">Controllers design</h4>
-            <p class="lead">
-              The <strong>Controller</strong> acts as an intermediary between the Model and the View. It handles user interactions, such as mouse clicks or button presses, and translates them into actions that modify the Model or update the View. The Controller also listens for changes in the Model and updates the View accordingly
-            </p>
-            <a class="popup-img" href="./assets/images/design/controllers-design.png">
-              <img class="img-fluid" src="./assets/images/design/controllers-design.png"  width="800" alt="Controllers model">
-            </a>  
+                <section id="kl_design">
 
-          </section>
+                    <!--TODO aggiornare grafici-->
 
-      </div>
+                    <h1>Design model</h1>
+
+                    <p class="lead">
+                        The design model section provides all the informations identified during the designs phase
+                        meetings. The team focused on
+                        developing all the software entities following a chosen architectural pattern to make up the
+                        program in its entirety.
+                    </p>
+
+                    <hr class="divider">
+
+                    <h4 id="kl_packagedesign" class="mt-5">Package design</h4>
+                    <p class="lead">
+                        Using JavaFX as the main developed framework the team decided to apply the MVC
+                        (Models-Views-Controllers) design pattern to divide the different
+                        packages that compose the system.
+                    </p>
+                    <a class="popup-img" href="./assets/images/design/package-design.png">
+                        <img class="img-fluid" src="./assets/images/design/package-design.png" width="400" height="300"
+                             alt="Packages model">
+                    </a>
+
+                    <h4 id="kl_modeldesign" class="mt-5">Models design</h4>
+                    <p class="lead">
+                        The <strong>Model</strong> represents the data and business logic of the application. It
+                        encapsulates the state and behavior of the application's data, and it is responsible for data
+                        manipulation, validation, and storage.
+                    </p>
+                    <a class="popup-img" href="./assets/images/design/models-design.png">
+                        <img class="img-fluid" src="./assets/images/design/models-design.png" width="800"
+                             alt="Models model">
+                    </a>
+
+                    <h4 id="kl_viewdesign" class="mt-5">Views design</h4>
+                    <p class="lead">
+                        The <strong>View</strong> represents the user interface components that display the data to the
+                        user. It is responsible for presenting the information from the Model in a visually
+                        understandable way. The View is passive and does not contain any business logic.
+                        Due to the use of scene builder the view package exists only abstractly. The interactions with
+                        the other packages were in fact managed directly in the creation of the views resources.
+                    </p>
+                    <a class="popup-img" href="./assets/images/design/views-design.png">
+                        <img class="img-fluid" src="./assets/images/design/views-design.png" width="800"
+                             alt="Views model">
+                    </a>
+
+                    <h4 id="kl_controllerdesign" class="mt-5">Controllers design</h4>
+                    <p class="lead">
+                        The <strong>Controller</strong> acts as an intermediary between the Model and the View. It
+                        handles user interactions, such as mouse clicks or button presses, and translates them into
+                        actions that modify the Model or update the View. The Controller also listens for changes in the
+                        Model and updates the View accordingly
+                    </p>
+                    <a class="popup-img" href="./assets/images/design/controllers-design.png">
+                        <img class="img-fluid" src="./assets/images/design/controllers-design.png" width="800"
+                             alt="Controllers model">
+                    </a>
+
+                </section>
+
+            </div>
+        </div>
     </div>
-  </div>
 
-   <!-- Content end --> 
-  
-  <!-- Footer
-  ============================ -->
-  <footer id="footer" class="section bg-dark footer-text-light">
-    <div class="container">
-      <ul class="social-icons social-icons-lg social-icons-muted justify-content-center mb-3">
-        <li><a data-toggle="tooltip" href="https://github.com/enricozano/klotski_ids" target="_blank" title="" data-original-title="GitHub"><i class="fab fa-github"></i></a></li>
-      </ul>
-      <p class="text-center">Copyright &copy; 2023 <a href="https://github.com/enricozano/klotski_ids">enricozano</a>. All Rights Reserved.</p>
-    </div>
-  </footer>
-  <!-- Footer end -->
+    <!-- Content end -->
+
+    <!-- Footer
+    ============================ -->
+    <footer id="footer" class="section bg-dark footer-text-light">
+        <div class="container">
+            <ul class="social-icons social-icons-lg social-icons-muted justify-content-center mb-3">
+                <li><a data-toggle="tooltip" href="https://github.com/enricozano/klotski_ids" target="_blank" title=""
+                       data-original-title="GitHub"><i class="fab fa-github"></i></a></li>
+            </ul>
+            <p class="text-center">Copyright &copy; 2023 <a
+                    href="https://github.com/enricozano/klotski_ids">enricozano</a>. All Rights Reserved.</p>
+        </div>
+    </footer>
+    <!-- Footer end -->
 
 </div>
-<!-- Document Wrapper end --> 
+<!-- Document Wrapper end -->
 
-<!-- Back To Top --> 
-<a id="back-to-top" data-toggle="tooltip" title="Back to Top" href="javascript:void(0)"><i class="fa fa-chevron-up"></i></a> 
+<!-- Back To Top -->
+<a id="back-to-top" data-toggle="tooltip" title="Back to Top" href="javascript:void(0)"><i class="fa fa-chevron-up"></i></a>
 
 <!-- JavaScript
 ============================ -->
-<script src="assets/vendor/jquery/jquery.min.js"></script> 
-<script src="assets/vendor/bootstrap/js/bootstrap.bundle.min.js"></script> 
+<script src="assets/vendor/jquery/jquery.min.js"></script>
+<script src="assets/vendor/bootstrap/js/bootstrap.bundle.min.js"></script>
 <!-- Highlight JS -->
-<script src="assets/vendor/highlight.js/highlight.min.js"></script> 
-<!-- Easing --> 
-<script src="assets/vendor/jquery.easing/jquery.easing.min.js"></script> 
-<!-- Magnific Popup --> 
-<script src="assets/vendor/magnific-popup/jquery.magnific-popup.min.js"></script> 
+<script src="assets/vendor/highlight.js/highlight.min.js"></script>
+<!-- Easing -->
+<script src="assets/vendor/jquery.easing/jquery.easing.min.js"></script>
+<!-- Magnific Popup -->
+<script src="assets/vendor/magnific-popup/jquery.magnific-popup.min.js"></script>
 <!-- Custom Script -->
 <script src="assets/js/theme.js"></script>
 </body>

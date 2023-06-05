@@ -70,6 +70,7 @@ public class Level {
      * @param minWidth     The minimum width of the level.
      * @param minHeight    The minimum height of the level.
      * @param countedMoves The number of moves counted for the level.
+     * @param levelFileName The name of the file
      * @param levelTitle   The title of the level.
      */
     public Level(List<klotski_ids.models.Components> rectangles, int maxWidth, int maxHeight, int minWidth, int minHeight, int countedMoves, String levelFileName, String levelTitle) {
@@ -129,14 +130,18 @@ public class Level {
     }
 
     /**
-     * Sets the title of the level.
+     * Sets the level file name.
      *
-     * @param levelName the title of the level
+     * @param levelName the level file name
      */
     public void setLevelFileName(String levelName) {
         this.levelFileName = levelName;
     }
-
+    /**
+     * Sets the title of the level.
+     *
+     * @param levelName the title of the level
+     */
     public void setLevelTitle(String levelName) {
         this.levelTitle = levelName;
     }
@@ -196,14 +201,18 @@ public class Level {
     }
 
     /**
-     * Returns the title of the level.
+     * Returns the level file name.
      *
-     * @return the title of the level
+     * @return the level file name
      */
     public String getLevelFileName() {
         return this.levelFileName;
     }
-
+    /**
+     * Returns the title of the level.
+     *
+     * @return the title of the level
+     */
     public String getLevelTitle() {
         return this.levelTitle;
     }

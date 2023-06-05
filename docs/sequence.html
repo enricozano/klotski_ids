@@ -1,263 +1,293 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-<meta charset="UTF-8" />
-<meta http-equiv="X-UA-Compatible" content="IE=edge">
-<meta name="viewport" content="width=device-width, initial-scale=1, minimum-scale=1.0, shrink-to-fit=no">
-<link href="assets/images/klotski_icon.png" rel="icon" />
-<title>Klotski | Sequence Diagrams</title>
-<meta name="docs" content="klotski_ids documentation">
-<meta name="author" content="https://github.com/enricozano/klotski_ids">
+    <meta charset="UTF-8"/>
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1, minimum-scale=1.0, shrink-to-fit=no">
+    <link href="assets/images/klotski_icon.png" rel="icon"/>
+    <title>Klotski | Sequence Diagrams</title>
+    <meta name="docs" content="klotski_ids documentation">
+    <meta name="author" content="https://github.com/enricozano/klotski_ids">
 
-<!-- Stylesheet
-============================== -->
-<!-- Bootstrap -->
-<link rel="stylesheet" type="text/css" href="assets/vendor/bootstrap/css/bootstrap.min.css" />
-<!-- Font Awesome Icon -->
-<link rel="stylesheet" type="text/css" href="assets/vendor/font-awesome/css/all.min.css" />
-<!-- Magnific Popup -->
-<link rel="stylesheet" type="text/css" href="assets/vendor/magnific-popup/magnific-popup.min.css" />
-<!-- Highlight Syntax -->
-<link rel="stylesheet" type="text/css" href="assets/vendor/highlight.js/styles/github.css" />
-<!-- Custom Stylesheet -->
-<link rel="stylesheet" type="text/css" href="assets/css/stylesheet.css" />
-<link rel="stylesheet" type="text/css" href="assets/css/color-orange.css" />
+    <!-- Stylesheet
+    ============================== -->
+    <!-- Bootstrap -->
+    <link rel="stylesheet" type="text/css" href="assets/vendor/bootstrap/css/bootstrap.min.css"/>
+    <!-- Font Awesome Icon -->
+    <link rel="stylesheet" type="text/css" href="assets/vendor/font-awesome/css/all.min.css"/>
+    <!-- Magnific Popup -->
+    <link rel="stylesheet" type="text/css" href="assets/vendor/magnific-popup/magnific-popup.min.css"/>
+    <!-- Highlight Syntax -->
+    <link rel="stylesheet" type="text/css" href="assets/vendor/highlight.js/styles/github.css"/>
+    <!-- Custom Stylesheet -->
+    <link rel="stylesheet" type="text/css" href="assets/css/stylesheet.css"/>
+    <link rel="stylesheet" type="text/css" href="assets/css/color-orange.css"/>
 </head>
 
 <body data-spy="scroll" data-target=".idocs-navigation" data-offset="125">
 
 <!-- Preloader -->
 <div class="preloader">
-  <div class="lds-ellipsis">
-    <div></div>
-    <div></div>
-    <div></div>
-    <div></div>
-  </div>
+    <div class="lds-ellipsis">
+        <div></div>
+        <div></div>
+        <div></div>
+        <div></div>
+    </div>
 </div>
-<!-- Preloader End --> 
+<!-- Preloader End -->
 
 <!-- Document Wrapper   
 =============================== -->
-<div id="main-wrapper"> 
-  
-  <!-- Header
-  ============================ -->
-  <header id="header" class="sticky-top"> 
-    <!-- Navbar -->
-    <nav class="primary-menu navbar navbar-expand-lg bg-dark navbar-text-light navbar-dropdown-dark border-0">
-      <div class="container-fluid">
-        <!-- Sidebar Toggler -->
-		    <button id="sidebarCollapse" class="navbar-toggler d-block d-md-none" type="button"><span></span><span class="w-75"></span><span class="w-50"></span></button>
-      
-		<!-- Logo --> 
-    <a class="logo ml-md-3" href="index.html" title="klotski_logo"> <img src="assets/images/favicon.png" alt=" klotski logo"/> </a> 
-    <!-- Logo End -->
+<div id="main-wrapper">
 
-    <ul class="social-icons social-icons-sm ml-lg-2 mr-2">
-      <li class="social-icons-github"><a data-toggle="tooltip" href="https://github.com/enricozano/klotski_ids" target="_blank" title="GitHub" data-original-title="GitHub"><i class="fab fa-github"></i></a></li>
-    </ul>
+    <!-- Header
+    ============================ -->
+    <header id="header" class="sticky-top">
+        <!-- Navbar -->
+        <nav class="primary-menu navbar navbar-expand-lg bg-dark navbar-text-light navbar-dropdown-dark border-0">
+            <div class="container-fluid">
+                <!-- Sidebar Toggler -->
+                <button id="sidebarCollapse" class="navbar-toggler d-block d-md-none" type="button"><span></span><span
+                        class="w-75"></span><span class="w-50"></span></button>
 
-      </div>  
-    </nav>
-    <!-- Navbar End --> 
-  </header>
-  <!-- Header End --> 
-  
-  <!-- Content
-  ============================ -->
-  <div id="content" role="main">
-    
-	<!-- Sidebar Navigation
-	============================ -->
+                <!-- Logo -->
+                <a class="logo ml-md-3" href="index.html" title="klotski_logo"> <img src="assets/images/favicon.png"
+                                                                                     alt=" klotski logo"/> </a>
+                <!-- Logo End -->
 
-  <div class="idocs-navigation bg-dark">
-    <ul class="nav flex-column ">
-        <li class="nav-item"><a class="nav-link disable-scroll" href="index.html">Introduction</a></li>
-        <li class="nav-item"><a class="nav-link disable-scroll" href="manual.html">Manual</a></li>
-        <li class="nav-item"><a class="nav-link disable-scroll" href="usecase.html">Use cases</a></li>
-        <li class="nav-item"><a class="nav-link disable-scroll" href="domain.html">Domain model</a></li>
-        <li class="nav-item"><a class="nav-link disable-scroll" href="design.html">Design model</a></li>
-        <li class="nav-item"><a class="nav-link active" href="#kl_sequence">Sequence diagrams</a>
-          <ul class="nav flex-column">
-            <li class="nav-item"><a class="nav-link" href="#kl_startgame">Start a game</a></li>
-            <li class="nav-item"><a class="nav-link" href="#kl_playgame">Play a game</a></li>
-            <li class="nav-item"><a class="nav-link" href="#kl_others">Others</a></li>
-          </ul>
-        </li>
-        <li class="nav-item"><a class="nav-link disable-scroll" href="test.html">Tests</a>
-    </ul>
-  </div>
-    
-    <!-- Docs Content
-	============================ -->
-    <div class="idocs-content">
-      <div class="container"> 
+                <ul class="social-icons social-icons-sm ml-lg-2 mr-2">
+                    <li class="social-icons-github"><a data-toggle="tooltip"
+                                                       href="https://github.com/enricozano/klotski_ids" target="_blank"
+                                                       title="GitHub" data-original-title="GitHub"><i
+                            class="fab fa-github"></i></a></li>
+                </ul>
 
-        <section id="kl_sequence">
-            <h1>Sequence Diagrams</h1>
-            <p class="lead">The sequence diagrams provide a visual representation of the system-user interactions and of the inner software workflow for each relevent use case scenarios.</p>
+            </div>
+        </nav>
+        <!-- Navbar End -->
+    </header>
+    <!-- Header End -->
 
-            <section id="kl_startgame">
-              <h3>Start a game</h3>
-              <h5>System Sequence Diagram</h5>
-              <p>User-System interaction when the the User wants either to start a new game or resume a saved one.</p>
-              <a class="popup-img" href="./assets/images/sequence/startgame-ext.png">
-                <img class="img-fluid" src="./assets/images/sequence/startgame-ext.png" width="800" height="800"  alt="Start a game ext sequence diagram">
-              </a> 
-              
-              <h5>Internal Sequence Diagrams</h5>
-              <table class="table table-bordered">
-                <thead>
-                  <tr>
-                    <th scope="col">#</th>
-                    <th scope="col">Name</th>
-                    <th scope="col">Description</th>
-                    <th scope="col">Diagram</th>
-                  </tr>
-                </thead>
-                <tbody>
-                  <tr>
-                    <th scope="row">1</th>
-                    <td>Start a new game</td>
-                    <td>Internal behavior of the system when the user wants to create a new game clicking on "New Game" button and choosing from one of the default configurations</td>
-                    <td><a class="btn btn-primary popup-img" href="assets/images/sequence/newgame-int.png">Click here!</a></td>
-                  </tr>
-                  <tr>
-                    <th scope="row">2</th>
-                    <td>Resume Game</td>
-                    <td>Internal behavior of the system when the user wants to create a new game clicking on "Resume Game" button and choosing from one of the configuration saved</td>
-                    <td><a class="btn btn-primary popup-img" href="assets/images/sequence/resume-int.png">Click here!</a></td>
-                  </tr>
-                </tbody>
-              </table>
-            </section>
+    <!-- Content
+    ============================ -->
+    <div id="content" role="main">
 
-            <hr>
+        <!-- Sidebar Navigation
+        ============================ -->
 
-            <section id="kl_playgame">
-              <h3>Play a game</h3>
-              <h5>System Sequence Diagram</h5>
-              <p>User-System interaction when the the User plays a game.</p>
-              <a class="popup-img" href="./assets/images/sequence/playgame-ext.png">
-                <img class="img-fluid" src="./assets/images/sequence/playgame-ext.png" width="800" height="800" alt="Play a game ext sequence diagram">
-              </a> 
+        <div class="idocs-navigation bg-dark">
+            <ul class="nav flex-column ">
+                <li class="nav-item"><a class="nav-link disable-scroll" href="index.html">Introduction</a></li>
+                <li class="nav-item"><a class="nav-link disable-scroll" href="manual.html">Manual</a></li>
+                <li class="nav-item"><a class="nav-link disable-scroll" href="usecase.html">Use cases</a></li>
+                <li class="nav-item"><a class="nav-link disable-scroll" href="domain.html">Domain model</a></li>
+                <li class="nav-item"><a class="nav-link disable-scroll" href="design.html">Design model</a></li>
+                <li class="nav-item"><a class="nav-link active" href="#kl_sequence">Sequence diagrams</a>
+                    <ul class="nav flex-column">
+                        <li class="nav-item"><a class="nav-link" href="#kl_startgame">Start a game</a></li>
+                        <li class="nav-item"><a class="nav-link" href="#kl_playgame">Play a game</a></li>
+                        <li class="nav-item"><a class="nav-link" href="#kl_others">Others</a></li>
+                    </ul>
+                </li>
+                <li class="nav-item"><a class="nav-link disable-scroll" href="test.html">Tests</a></li>
+                <li class="nav-item"><a class="nav-link disable-scroll" target="_blank" href="javadoc/klotski_ids/module-summary.html">Javadoc</a></li>
 
-              <h5>Internal Sequence Diagrams</h5>
-              <table class="table table-bordered">
-                <thead>
-                  <tr>
-                    <th scope="col">#</th>
-                    <th scope="col">Name</th>
-                    <th scope="col">Description</th>
-                    <th scope="col">Diagram</th>
-                  </tr>
-                </thead>
-                <tbody>
-                  <tr>
-                    <th scope="row">1</th>
-                    <td>Drag Blocks</td>
-                    <td>Internal behavior of the system when the user drags a block around the board</td>
-                    <td> <a class="btn btn-primary popup-img" href="assets/images/sequence/man-int.png">Click here!</a></td>
-                  </tr>
-                  <tr>
-                    <th scope="row">2</th>
-                    <td>Next Best Move</td>
-                    <td>Internal behavior of the system when the user clicks on the "Next Best" button</td>
-                    <td><a class="btn btn-primary popup-img" href="assets/images/sequence/nextbest-int.png">Click here!</a></td>
-                  </tr>
-                  <tr>
-                    <th scope="row">3</th>
-                    <td>Undo</td>
-                    <td>Internal behavior of the system when the user clicks on the "Undo" button</td>
-                    <td><a class="btn btn-primary popup-img" href="assets/images/sequence/undo-int.png">Click here!</a></td>
-                  </tr>
-                  <tr>
-                    <th scope="row">4</th>
-                    <td>Reset</td>
-                    <td>Internal behavior of the system when the user clicks on the "Reset Best" button</td>
-                    <td><a class="btn btn-primary popup-img" href="assets/images/sequence/reset-int.png">Click here!</a></td>
-                  </tr>
-                </tbody>
-              </table>
-            
-            </section>
-          
-            <hr>
+            </ul>
+        </div>
 
-            <section id="kl_others">
-              <h3>Others</h3>
+        <!-- Docs Content
+        ============================ -->
+        <div class="idocs-content">
+            <div class="container">
 
-              <h5>Internal Sequence Diagrams</h5>
-              <table class="table table-bordered">
-                <thead>
-                  <tr>
-                    <th scope="col">#</th>
-                    <th scope="col">Name</th>
-                    <th scope="col">Description</th>
-                    <th scope="col">Diagram</th>
-                  </tr>
-                </thead>
-                <tbody>
-                  <tr>
-                    <th scope="row">1</th>
-                    <td>Initialize</td>
-                    <td>Internal behavior of the system to initialize a game</td>
-                    <td><a class="btn btn-primary popup-img" href="assets/images/sequence/init-int.png">Click here!</a></td>
-                  </tr>
-                  <tr>
-                    <th scope="row">2</th>
-                    <td>Next Best Move: Default Layouts</td>
-                    <td>Internal behavior of the system to perform the next best moves on default layouts</td>
-                    <td><a class="btn btn-primary popup-img" href="assets/images/sequence/nextdef-int.png">Click here!</a></td>
-                  </tr>
-                  <tr>
-                    <th scope="row">3</th>
-                    <td>Next Best Move: Python Solver</td>
-                    <td>Internal behavior of the system to handle the python game solver. Check <a href="https://github.com/mza44/KlotskiSolver" target="_blank">here</a> for more information about the python program workflow!</td>
-                    <td><a class="btn btn-primary popup-img" href="assets/images/sequence/nextpy-int.png">Click here!</a></td>
-                  </tr>
-                </tbody>
-              </table>
+                <section id="kl_sequence">
+                    <h1>Sequence Diagrams</h1>
+                    <p class="lead">The sequence diagrams provide a visual representation of the system-user
+                        interactions and of the inner software workflow for each relevent use case scenarios.</p>
 
-            </section>
+                    <section id="kl_startgame">
+                        <h3>Start a game</h3>
+                        <h5>System Sequence Diagram</h5>
+                        <p>User-System interaction when the the User wants either to start a new game or resume a saved
+                            one.</p>
+                        <a class="popup-img" href="./assets/images/sequence/startgame-ext.png">
+                            <img class="img-fluid" src="./assets/images/sequence/startgame-ext.png" width="800"
+                                 height="800" alt="Start a game ext sequence diagram">
+                        </a>
 
-          </section>
+                        <h5>Internal Sequence Diagrams</h5>
+                        <table class="table table-bordered">
+                            <thead>
+                            <tr>
+                                <th scope="col">#</th>
+                                <th scope="col">Name</th>
+                                <th scope="col">Description</th>
+                                <th scope="col">Diagram</th>
+                            </tr>
+                            </thead>
+                            <tbody>
+                            <tr>
+                                <th scope="row">1</th>
+                                <td>Start a new game</td>
+                                <td>Internal behavior of the system when the user wants to create a new game clicking on
+                                    "New Game" button and choosing from one of the default configurations
+                                </td>
+                                <td><a class="btn btn-primary popup-img" href="assets/images/sequence/newgame-int.png">Click
+                                    here!</a></td>
+                            </tr>
+                            <tr>
+                                <th scope="row">2</th>
+                                <td>Resume Game</td>
+                                <td>Internal behavior of the system when the user wants to create a new game clicking on
+                                    "Resume Game" button and choosing from one of the configuration saved
+                                </td>
+                                <td><a class="btn btn-primary popup-img" href="assets/images/sequence/resume-int.png">Click
+                                    here!</a></td>
+                            </tr>
+                            </tbody>
+                        </table>
+                    </section>
 
-      </div>
+                    <hr>
+
+                    <section id="kl_playgame">
+                        <h3>Play a game</h3>
+                        <h5>System Sequence Diagram</h5>
+                        <p>User-System interaction when the the User plays a game.</p>
+                        <a class="popup-img" href="./assets/images/sequence/playgame-ext.png">
+                            <img class="img-fluid" src="./assets/images/sequence/playgame-ext.png" width="800"
+                                 height="800" alt="Play a game ext sequence diagram">
+                        </a>
+
+                        <h5>Internal Sequence Diagrams</h5>
+                        <table class="table table-bordered">
+                            <thead>
+                            <tr>
+                                <th scope="col">#</th>
+                                <th scope="col">Name</th>
+                                <th scope="col">Description</th>
+                                <th scope="col">Diagram</th>
+                            </tr>
+                            </thead>
+                            <tbody>
+                            <tr>
+                                <th scope="row">1</th>
+                                <td>Drag Blocks</td>
+                                <td>Internal behavior of the system when the user drags a block around the board</td>
+                                <td><a class="btn btn-primary popup-img" href="assets/images/sequence/man-int.png">Click
+                                    here!</a></td>
+                            </tr>
+                            <tr>
+                                <th scope="row">2</th>
+                                <td>Next Best Move</td>
+                                <td>Internal behavior of the system when the user clicks on the "Next Best" button</td>
+                                <td><a class="btn btn-primary popup-img" href="assets/images/sequence/nextbest-int.png">Click
+                                    here!</a></td>
+                            </tr>
+                            <tr>
+                                <th scope="row">3</th>
+                                <td>Undo</td>
+                                <td>Internal behavior of the system when the user clicks on the "Undo" button</td>
+                                <td><a class="btn btn-primary popup-img" href="assets/images/sequence/undo-int.png">Click
+                                    here!</a></td>
+                            </tr>
+                            <tr>
+                                <th scope="row">4</th>
+                                <td>Reset</td>
+                                <td>Internal behavior of the system when the user clicks on the "Reset Best" button</td>
+                                <td><a class="btn btn-primary popup-img" href="assets/images/sequence/reset-int.png">Click
+                                    here!</a></td>
+                            </tr>
+                            </tbody>
+                        </table>
+
+                    </section>
+
+                    <hr>
+
+                    <section id="kl_others">
+                        <h3>Others</h3>
+
+                        <h5>Internal Sequence Diagrams</h5>
+                        <table class="table table-bordered">
+                            <thead>
+                            <tr>
+                                <th scope="col">#</th>
+                                <th scope="col">Name</th>
+                                <th scope="col">Description</th>
+                                <th scope="col">Diagram</th>
+                            </tr>
+                            </thead>
+                            <tbody>
+                            <tr>
+                                <th scope="row">1</th>
+                                <td>Initialize</td>
+                                <td>Internal behavior of the system to initialize a game</td>
+                                <td><a class="btn btn-primary popup-img" href="assets/images/sequence/init-int.png">Click
+                                    here!</a></td>
+                            </tr>
+                            <tr>
+                                <th scope="row">2</th>
+                                <td>Next Best Move: Default Layouts</td>
+                                <td>Internal behavior of the system to perform the next best moves on default layouts
+                                </td>
+                                <td><a class="btn btn-primary popup-img" href="assets/images/sequence/nextdef-int.png">Click
+                                    here!</a></td>
+                            </tr>
+                            <tr>
+                                <th scope="row">3</th>
+                                <td>Next Best Move: Python Solver</td>
+                                <td>Internal behavior of the system to handle the python game solver. Check <a
+                                        href="https://github.com/mza44/KlotskiSolver" target="_blank">here</a> for more
+                                    information about the python program workflow!
+                                </td>
+                                <td><a class="btn btn-primary popup-img" href="assets/images/sequence/nextpy-int.png">Click
+                                    here!</a></td>
+                            </tr>
+                            </tbody>
+                        </table>
+
+                    </section>
+
+                </section>
+
+            </div>
+        </div>
     </div>
-  </div>
 
-   <!-- Content end --> 
-  
-  <!-- Footer
-  ============================ -->
-  <footer id="footer" class="section bg-dark footer-text-light">
-    <div class="container">
-      <ul class="social-icons social-icons-lg social-icons-muted justify-content-center mb-3">
-        <li><a data-toggle="tooltip" href="https://github.com/enricozano/klotski_ids" target="_blank" title="" data-original-title="GitHub"><i class="fab fa-github"></i></a></li>
-      </ul>
-      <p class="text-center">Copyright &copy; 2023 <a href="https://github.com/enricozano/klotski_ids">enricozano</a>. All Rights Reserved.</p>
-    </div>
-  </footer>
-  <!-- Footer end -->
+    <!-- Content end -->
+
+    <!-- Footer
+    ============================ -->
+    <footer id="footer" class="section bg-dark footer-text-light">
+        <div class="container">
+            <ul class="social-icons social-icons-lg social-icons-muted justify-content-center mb-3">
+                <li><a data-toggle="tooltip" href="https://github.com/enricozano/klotski_ids" target="_blank" title=""
+                       data-original-title="GitHub"><i class="fab fa-github"></i></a></li>
+            </ul>
+            <p class="text-center">Copyright &copy; 2023 <a
+                    href="https://github.com/enricozano/klotski_ids">enricozano</a>. All Rights Reserved.</p>
+        </div>
+    </footer>
+    <!-- Footer end -->
 
 </div>
-<!-- Document Wrapper end --> 
+<!-- Document Wrapper end -->
 
-<!-- Back To Top --> 
-<a id="back-to-top" data-toggle="tooltip" title="Back to Top" href="javascript:void(0)"><i class="fa fa-chevron-up"></i></a> 
+<!-- Back To Top -->
+<a id="back-to-top" data-toggle="tooltip" title="Back to Top" href="javascript:void(0)"><i class="fa fa-chevron-up"></i></a>
 
 <!-- JavaScript
 ============================ -->
-<script src="assets/vendor/jquery/jquery.min.js"></script> 
-<script src="assets/vendor/bootstrap/js/bootstrap.bundle.min.js"></script> 
+<script src="assets/vendor/jquery/jquery.min.js"></script>
+<script src="assets/vendor/bootstrap/js/bootstrap.bundle.min.js"></script>
 <!-- Highlight JS -->
-<script src="assets/vendor/highlight.js/highlight.min.js"></script> 
-<!-- Easing --> 
-<script src="assets/vendor/jquery.easing/jquery.easing.min.js"></script> 
-<!-- Magnific Popup --> 
-<script src="assets/vendor/magnific-popup/jquery.magnific-popup.min.js"></script> 
+<script src="assets/vendor/highlight.js/highlight.min.js"></script>
+<!-- Easing -->
+<script src="assets/vendor/jquery.easing/jquery.easing.min.js"></script>
+<!-- Magnific Popup -->
+<script src="assets/vendor/magnific-popup/jquery.magnific-popup.min.js"></script>
 <!-- Custom Script -->
 <script src="assets/js/theme.js"></script>
 </body>
