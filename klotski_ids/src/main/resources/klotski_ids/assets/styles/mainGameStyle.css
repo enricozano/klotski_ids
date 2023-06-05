@@ -39,3 +39,28 @@
     -fx-border-style: solid;
 }
 
+.button{
+    -fx-padding: 6px 12px;
+    -fx-font-size: 12px;
+    -fx-cursor: hand;
+    -fx-border-radius: 3px;
+    -fx-font-weight: bold;
+    -fx-alignment: center;
+    -fx-background-color: #FFA500;
+    -fx-background-radius: 5px;
+    -fx-border-color: transparent;
+    -fx-text-fill: black;
+    -fx-effect: dropshadow(gaussian, rgba(0, 0, 0, 0.2), 2, 0, 0, 1);
+}
+
+
+.button:hover {
+    -fx-background-color: #FF8C00;
+    -fx-effect: dropshadow(gaussian, rgba(0, 0, 0, 0.2), 5, 0, 0, 1);
+}
+
+.button:pressed {
+    -fx-background-color: #FF6600;
+    -fx-effect: dropshadow(gaussian, rgba(0, 0, 0, 0.2), 10, 0, 0, 1);
+}
+

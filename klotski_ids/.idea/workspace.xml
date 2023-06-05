@@ -1,10 +1,22 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project version="4">
+  <component name="ArtifactsWorkspaceSettings">
+    <artifacts-to-build>
+      <artifact name="klotski_ids:jar" />
+    </artifacts-to-build>
+  </component>
   <component name="AutoImportSettings">
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
+<<<<<<< HEAD
     <list default="true" id="6bfdf0fa-9483-4758-a1c0-5debc05e40e9" name="Changes" comment="improvements" />
+=======
+    <list default="true" id="6bfdf0fa-9483-4758-a1c0-5debc05e40e9" name="Changes" comment="TestReports">
+      <change beforePath="$PROJECT_DIR$/.gitignore" beforeDir="false" afterPath="$PROJECT_DIR$/.gitignore" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+    </list>
+>>>>>>> main
     <list id="09855262-e7fe-4115-8869-69c02f2c6753" name="Changes by eris" comment="" />
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -14,12 +26,14 @@
   <component name="FileTemplateManagerImpl">
     <option name="RECENT_TEMPLATES">
       <list>
-        <option value="JavaScript File" />
         <option value="CSS File" />
-        <option value="FxmlFile" />
-        <option value="Class" />
         <option value="package-info" />
+        <option value="FxmlFile" />
+        <option value="JavaScript File" />
+        <option value="Python Script" />
         <option value="module-info" />
+        <option value="Class" />
+        <option value="JUnit5 Test Class" />
       </list>
     </option>
   </component>
@@ -45,8 +59,11 @@
     </option>
   </component>
   <component name="HighlightingSettingsPerFile">
-    <setting file="jar://$USER_HOME$/.jdks/openjdk-20.0.1/lib/src.zip!/java.base/java/io/FileInputStream.java" root0="FORCE_HIGHLIGHTING" />
+    <setting file="jar://$APPLICATION_HOME_DIR$/plugins/maven/lib/maven3/lib/maven-model-builder-3.8.1.jar!/org/apache/maven/model/pom-4.0.0.xml" root0="FORCE_HIGHLIGHTING" />
     <setting file="file://$PROJECT_DIR$/pom.xml" root0="FORCE_HIGHLIGHTING" />
+  </component>
+  <component name="MarkdownSettingsMigration">
+    <option name="stateVersion" value="1" />
   </component>
   <component name="MavenImportPreferences">
     <option name="generalSettings">
@@ -79,8 +96,17 @@
     "RunOnceActivity.ShowReadmeOnStart": "true",
     "SHARE_PROJECT_CONFIGURATION_FILES": "true",
     "WebServerToolWindowFactoryState": "false",
+<<<<<<< HEAD
     "git-widget-placeholder": "docs",
     "last_opened_file_path": "C:/Users/zanon/Desktop/klotski_ids",
+=======
+    "com.intellij.testIntegration.createTest.CreateTestDialog.defaultLibrary": "JUnit5",
+    "com.intellij.testIntegration.createTest.CreateTestDialog.defaultLibrarySuperClass.JUnit5": "",
+    "git-widget-placeholder": "main",
+    "ignore.virus.scanning.warn.message": "true",
+    "last_directory_selection": "C:/Users/sanso/Documents/klotski_ids/klotski_ids/src/test/java/tests",
+    "last_opened_file_path": "C:/Users/sanso/Documents/klotski_ids/klotski_ids",
+>>>>>>> main
     "list.type.of.created.stylesheet": "CSS",
     "node.js.detected.package.eslint": "true",
     "node.js.detected.package.tslint": "true",
@@ -88,27 +114,138 @@
     "node.js.selected.package.tslint": "(autodetect)",
     "nodejs_package_manager_path": "npm",
     "project.structure.last.edited": "Modules",
-    "project.structure.proportion": "0.0",
+    "project.structure.proportion": "0.15",
     "project.structure.side.proportion": "0.2",
+<<<<<<< HEAD
     "settings.editor.selected.configurable": "MavenSettings",
+=======
+    "settings.editor.selected.configurable": "reference.settings.project.maven.importing",
+>>>>>>> main
     "vue.rearranger.settings.migration": "true"
   }
 }]]></component>
   <component name="RecentsManager">
     <key name="CopyFile.RECENT_KEYS">
+      <recent name="C:\Users\sanso\Documents\klotski_ids\klotski_ids\src\test\resources\klotski_ids_test\dataTest\levelSolutionsDataTest" />
+      <recent name="C:\Users\sanso\Documents\klotski_ids\klotski_ids\src\test\resources\klotski_ids_test\dataTest" />
+      <recent name="C:\Users\sanso\Documents\klotski_ids\klotski_ids\src\test\resources\data\levelSolutionTest" />
+      <recent name="C:\Users\sanso\Documents\klotski_ids\klotski_ids\src\test\resources\data" />
       <recent name="$PROJECT_DIR$/src/main/resources/klotski_ids/assets/fonts" />
-      <recent name="$PROJECT_DIR$/src/main/resources/klotski_ids/views/panes/stylesheet" />
-      <recent name="$PROJECT_DIR$/src/main/resources" />
-      <recent name="$PROJECT_DIR$/src/main/resources/klotski_ids/views/panes/levels" />
-      <recent name="$PROJECT_DIR$/src/main/resources/klotski_ids/json" />
     </key>
     <key name="MoveFile.RECENT_KEYS">
-      <recent name="$PROJECT_DIR$/src/main/resources/klotski_ids/assets/fonts" />
-      <recent name="$PROJECT_DIR$/src/main/resources/klotski_ids/data/resume" />
-      <recent name="$PROJECT_DIR$/src/main/resources/klotski_ids/assets/styles" />
-      <recent name="$PROJECT_DIR$/src/main/resources/klotski_ids/views/panes/stylesheets" />
-      <recent name="$PROJECT_DIR$/src/main/resources/klotski_ids/views/frameMenu/stylesheet" />
+      <recent name="C:\Users\sanso\Documents\klotski_ids\klotski_ids\src\test\resources\klotski_ids_test\dataTest" />
+      <recent name="C:\Users\sanso\Documents\klotski_ids\klotski_ids\src\test\java" />
+      <recent name="C:\Users\sanso\Documents\klotski_ids\klotski_ids\src\test\klotski_ids_test" />
+      <recent name="C:\Users\sanso\Documents\klotski_ids\klotski_ids\src\test\resources\dataTest\levelSolutionDataTest" />
+      <recent name="C:\Users\sanso\Documents\klotski_ids\klotski_ids\src\test\resources\dataTest" />
     </key>
+    <key name="CreateTestDialog.Recents.Supers">
+      <recent name="" />
+    </key>
+    <key name="ExtractSuperBase.RECENT_KEYS">
+      <recent name="klotski_ids.models" />
+    </key>
+    <key name="MoveClassesOrPackagesDialog.RECENTS_KEY">
+      <recent name="test" />
+      <recent name="" />
+    </key>
+    <key name="CreateTestDialog.RecentsKey">
+      <recent name="klotski_ids_test.models" />
+      <recent name="klotski_ids_test.controllers.frameMenu" />
+      <recent name="tests" />
+      <recent name="klotski_ids.controllers.frameMenu" />
+      <recent name="klotski_ids.models" />
+    </key>
+  </component>
+  <component name="RunManager">
+    <configuration name="HelperTest.testPerformMoveAction" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
+      <module name="klotski_ids" />
+      <extension name="coverage">
+        <pattern>
+          <option name="PATTERN" value="klotski_ids_test.models.*" />
+          <option name="ENABLED" value="true" />
+        </pattern>
+      </extension>
+      <option name="PACKAGE_NAME" value="klotski_ids_test.models" />
+      <option name="MAIN_CLASS_NAME" value="klotski_ids_test.models.HelperTest" />
+      <option name="METHOD_NAME" value="testPerformMoveAction" />
+      <option name="TEST_OBJECT" value="method" />
+      <method v="2">
+        <option name="Make" enabled="true" />
+      </method>
+    </configuration>
+    <configuration name="HelperTest.testReadJson" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
+      <module name="klotski_ids" />
+      <extension name="coverage">
+        <pattern>
+          <option name="PATTERN" value="klotski_ids_test.models.*" />
+          <option name="ENABLED" value="true" />
+        </pattern>
+      </extension>
+      <option name="PACKAGE_NAME" value="klotski_ids_test.models" />
+      <option name="MAIN_CLASS_NAME" value="klotski_ids_test.models.HelperTest" />
+      <option name="METHOD_NAME" value="testReadJson" />
+      <option name="TEST_OBJECT" value="method" />
+      <method v="2">
+        <option name="Make" enabled="true" />
+      </method>
+    </configuration>
+    <configuration name="HelperTest.testWinConditionMet" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
+      <module name="klotski_ids" />
+      <extension name="coverage">
+        <pattern>
+          <option name="PATTERN" value="klotski_ids_test.models.*" />
+          <option name="ENABLED" value="true" />
+        </pattern>
+      </extension>
+      <option name="PACKAGE_NAME" value="klotski_ids_test.models" />
+      <option name="MAIN_CLASS_NAME" value="klotski_ids_test.models.HelperTest" />
+      <option name="METHOD_NAME" value="testWinConditionMet" />
+      <option name="TEST_OBJECT" value="method" />
+      <method v="2">
+        <option name="Make" enabled="true" />
+      </method>
+    </configuration>
+    <configuration name="KlotskiGameTest" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
+      <module name="klotski_ids" />
+      <extension name="coverage">
+        <pattern>
+          <option name="PATTERN" value="klotski_ids_test.models.*" />
+          <option name="ENABLED" value="true" />
+        </pattern>
+      </extension>
+      <option name="PACKAGE_NAME" value="klotski_ids_test.models" />
+      <option name="MAIN_CLASS_NAME" value="klotski_ids_test.models.KlotskiGameTest" />
+      <option name="TEST_OBJECT" value="class" />
+      <method v="2">
+        <option name="Make" enabled="true" />
+      </method>
+    </configuration>
+    <configuration name="KlotskiGameTest.testCopyComponentsList" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
+      <module name="klotski_ids" />
+      <extension name="coverage">
+        <pattern>
+          <option name="PATTERN" value="klotski_ids_test.models.*" />
+          <option name="ENABLED" value="true" />
+        </pattern>
+      </extension>
+      <option name="PACKAGE_NAME" value="klotski_ids_test.models" />
+      <option name="MAIN_CLASS_NAME" value="klotski_ids_test.models.KlotskiGameTest" />
+      <option name="METHOD_NAME" value="testCopyComponentsList" />
+      <option name="TEST_OBJECT" value="method" />
+      <method v="2">
+        <option name="Make" enabled="true" />
+      </method>
+    </configuration>
+    <recent_temporary>
+      <list>
+        <item itemvalue="JUnit.HelperTest.testReadJson" />
+        <item itemvalue="JUnit.KlotskiGameTest" />
+        <item itemvalue="JUnit.KlotskiGameTest.testCopyComponentsList" />
+        <item itemvalue="JUnit.HelperTest.testWinConditionMet" />
+        <item itemvalue="JUnit.HelperTest.testPerformMoveAction" />
+      </list>
+    </recent_temporary>
   </component>
   <component name="SpellCheckerSettings" RuntimeDictionaries="0" Folders="0" CustomDictionaries="0" DefaultDictionary="application-level" UseSingleDictionary="true" transferred="true" />
   <component name="TaskManager">
@@ -166,6 +303,7 @@
       <workItem from="1685029157935" duration="2709000" />
       <workItem from="1685086464333" duration="2074000" />
       <workItem from="1685089854367" duration="3276000" />
+<<<<<<< HEAD
       <workItem from="1685196698408" duration="1455000" />
       <workItem from="1685630906033" duration="603000" />
       <workItem from="1685694010141" duration="123000" />
@@ -227,6 +365,34 @@
       <option name="presentableId" value="LOCAL-00008" />
       <option name="project" value="LOCAL" />
       <updated>1683187739098</updated>
+=======
+      <workItem from="1685289680771" duration="8351000" />
+      <workItem from="1685350304940" duration="470000" />
+      <workItem from="1685351761365" duration="383000" />
+      <workItem from="1685358149717" duration="4375000" />
+      <workItem from="1685383907637" duration="6180000" />
+      <workItem from="1685429988413" duration="22187000" />
+      <workItem from="1685457502092" duration="4904000" />
+      <workItem from="1685463300168" duration="371000" />
+      <workItem from="1685463689417" duration="1832000" />
+      <workItem from="1685546481295" duration="1937000" />
+      <workItem from="1685548913896" duration="4192000" />
+      <workItem from="1685605714128" duration="337000" />
+      <workItem from="1685700870015" duration="1818000" />
+      <workItem from="1685708653586" duration="139000" />
+      <workItem from="1685708864813" duration="943000" />
+      <workItem from="1685709921399" duration="785000" />
+      <workItem from="1685710750644" duration="2696000" />
+      <workItem from="1685713505342" duration="342000" />
+      <workItem from="1685713902298" duration="5424000" />
+      <workItem from="1685719446386" duration="1404000" />
+      <workItem from="1685791549706" duration="945000" />
+      <workItem from="1685803910644" duration="12719000" />
+      <workItem from="1685836809632" duration="1797000" />
+      <workItem from="1685867325758" duration="26088000" />
+      <workItem from="1685902742557" duration="816000" />
+      <workItem from="1685903570862" duration="344000" />
+>>>>>>> main
     </task>
     <task id="LOCAL-00009" summary="Basic Structure">
       <created>1683202577355</created>
@@ -347,7 +513,231 @@
       <option name="project" value="LOCAL" />
       <updated>1684063353860</updated>
     </task>
-    <option name="localTasksCounter" value="26" />
+    <task id="LOCAL-00026" summary="Merge remote-tracking branch 'origin/main'&#10;&#10;# Conflicts:&#10;#&#9;klotski_ids/.idea/workspace.xml">
+      <created>1685187803393</created>
+      <option name="number" value="00026" />
+      <option name="presentableId" value="LOCAL-00026" />
+      <option name="project" value="LOCAL" />
+      <updated>1685187803393</updated>
+    </task>
+    <task id="LOCAL-00027" summary="fixes">
+      <created>1685372655156</created>
+      <option name="number" value="00027" />
+      <option name="presentableId" value="LOCAL-00027" />
+      <option name="project" value="LOCAL" />
+      <updated>1685372655156</updated>
+    </task>
+    <task id="LOCAL-00028" summary="fixes">
+      <created>1685372672661</created>
+      <option name="number" value="00028" />
+      <option name="presentableId" value="LOCAL-00028" />
+      <option name="project" value="LOCAL" />
+      <updated>1685372672661</updated>
+    </task>
+    <task id="LOCAL-00029" summary="style">
+      <created>1685441475923</created>
+      <option name="number" value="00029" />
+      <option name="presentableId" value="LOCAL-00029" />
+      <option name="project" value="LOCAL" />
+      <updated>1685441475923</updated>
+    </task>
+    <task id="LOCAL-00030" summary="style">
+      <created>1685446409907</created>
+      <option name="number" value="00030" />
+      <option name="presentableId" value="LOCAL-00030" />
+      <option name="project" value="LOCAL" />
+      <updated>1685446409907</updated>
+    </task>
+    <task id="LOCAL-00031" summary="style">
+      <created>1685446433573</created>
+      <option name="number" value="00031" />
+      <option name="presentableId" value="LOCAL-00031" />
+      <option name="project" value="LOCAL" />
+      <updated>1685446433573</updated>
+    </task>
+    <task id="LOCAL-00032" summary="style">
+      <created>1685446786003</created>
+      <option name="number" value="00032" />
+      <option name="presentableId" value="LOCAL-00032" />
+      <option name="project" value="LOCAL" />
+      <updated>1685446786003</updated>
+    </task>
+    <task id="LOCAL-00033" summary="improvements">
+      <created>1685453247176</created>
+      <option name="number" value="00033" />
+      <option name="presentableId" value="LOCAL-00033" />
+      <option name="project" value="LOCAL" />
+      <updated>1685453247176</updated>
+    </task>
+    <task id="LOCAL-00034" summary="Added Default nextBestMove">
+      <created>1685527899544</created>
+      <option name="number" value="00034" />
+      <option name="presentableId" value="LOCAL-00034" />
+      <option name="project" value="LOCAL" />
+      <updated>1685527899544</updated>
+    </task>
+    <task id="LOCAL-00035" summary="improvements of nextBestMove">
+      <created>1685546267033</created>
+      <option name="number" value="00035" />
+      <option name="presentableId" value="LOCAL-00035" />
+      <option name="project" value="LOCAL" />
+      <updated>1685546267033</updated>
+    </task>
+    <task id="LOCAL-00036" summary="workspace">
+      <created>1685546341644</created>
+      <option name="number" value="00036" />
+      <option name="presentableId" value="LOCAL-00036" />
+      <option name="project" value="LOCAL" />
+      <updated>1685546341644</updated>
+    </task>
+    <task id="LOCAL-00037" summary="partial fix">
+      <created>1685549982536</created>
+      <option name="number" value="00037" />
+      <option name="presentableId" value="LOCAL-00037" />
+      <option name="project" value="LOCAL" />
+      <updated>1685549982536</updated>
+    </task>
+    <task id="LOCAL-00038" summary="fixed counter(?)">
+      <created>1685551290530</created>
+      <option name="number" value="00038" />
+      <option name="presentableId" value="LOCAL-00038" />
+      <option name="project" value="LOCAL" />
+      <updated>1685551290530</updated>
+    </task>
+    <task id="LOCAL-00039" summary="added python allert">
+      <created>1685552036327</created>
+      <option name="number" value="00039" />
+      <option name="presentableId" value="LOCAL-00039" />
+      <option name="project" value="LOCAL" />
+      <updated>1685552036327</updated>
+    </task>
+    <task id="LOCAL-00040" summary="added python allert">
+      <created>1685552512188</created>
+      <option name="number" value="00040" />
+      <option name="presentableId" value="LOCAL-00040" />
+      <option name="project" value="LOCAL" />
+      <updated>1685552512188</updated>
+    </task>
+    <task id="LOCAL-00041" summary="added partial javadoc">
+      <created>1685559959034</created>
+      <option name="number" value="00041" />
+      <option name="presentableId" value="LOCAL-00041" />
+      <option name="project" value="LOCAL" />
+      <updated>1685559959034</updated>
+    </task>
+    <task id="LOCAL-00042" summary="added partial javadoc">
+      <created>1685560031316</created>
+      <option name="number" value="00042" />
+      <option name="presentableId" value="LOCAL-00042" />
+      <option name="project" value="LOCAL" />
+      <updated>1685560031316</updated>
+    </task>
+    <task id="LOCAL-00043" summary="added partial javadoc + win condition + fixed resumed">
+      <created>1685626040625</created>
+      <option name="number" value="00043" />
+      <option name="presentableId" value="LOCAL-00043" />
+      <option name="project" value="LOCAL" />
+      <updated>1685626040625</updated>
+    </task>
+    <task id="LOCAL-00044" summary="fixes">
+      <created>1685631646743</created>
+      <option name="number" value="00044" />
+      <option name="presentableId" value="LOCAL-00044" />
+      <option name="project" value="LOCAL" />
+      <updated>1685631646743</updated>
+    </task>
+    <task id="LOCAL-00045" summary="fixes">
+      <created>1685633671950</created>
+      <option name="number" value="00045" />
+      <option name="presentableId" value="LOCAL-00045" />
+      <option name="project" value="LOCAL" />
+      <updated>1685633671950</updated>
+    </task>
+    <task id="LOCAL-00046" summary="fixes">
+      <created>1685634253211</created>
+      <option name="number" value="00046" />
+      <option name="presentableId" value="LOCAL-00046" />
+      <option name="project" value="LOCAL" />
+      <updated>1685634253211</updated>
+    </task>
+    <task id="LOCAL-00047" summary="fixes">
+      <created>1685634309755</created>
+      <option name="number" value="00047" />
+      <option name="presentableId" value="LOCAL-00047" />
+      <option name="project" value="LOCAL" />
+      <updated>1685634309755</updated>
+    </task>
+    <task id="LOCAL-00048" summary="final fix to nextBestMove?">
+      <created>1685635216490</created>
+      <option name="number" value="00048" />
+      <option name="presentableId" value="LOCAL-00048" />
+      <option name="project" value="LOCAL" />
+      <updated>1685635216490</updated>
+    </task>
+    <task id="LOCAL-00049" summary="final fix to nextBestMove 2?">
+      <created>1685635336555</created>
+      <option name="number" value="00049" />
+      <option name="presentableId" value="LOCAL-00049" />
+      <option name="project" value="LOCAL" />
+      <updated>1685635336555</updated>
+    </task>
+    <task id="LOCAL-00050" summary="final fix to nextBestMove 3?">
+      <created>1685635842498</created>
+      <option name="number" value="00050" />
+      <option name="presentableId" value="LOCAL-00050" />
+      <option name="project" value="LOCAL" />
+      <updated>1685635842499</updated>
+    </task>
+    <task id="LOCAL-00051" summary="Tests">
+      <created>1685720376666</created>
+      <option name="number" value="00051" />
+      <option name="presentableId" value="LOCAL-00051" />
+      <option name="project" value="LOCAL" />
+      <updated>1685720376666</updated>
+    </task>
+    <task id="LOCAL-00052" summary="improvements">
+      <created>1685817160756</created>
+      <option name="number" value="00052" />
+      <option name="presentableId" value="LOCAL-00052" />
+      <option name="project" value="LOCAL" />
+      <updated>1685817160756</updated>
+    </task>
+    <task id="LOCAL-00053" summary="added helper tests">
+      <created>1685886626664</created>
+      <option name="number" value="00053" />
+      <option name="presentableId" value="LOCAL-00053" />
+      <option name="project" value="LOCAL" />
+      <updated>1685886626665</updated>
+    </task>
+    <task id="LOCAL-00054" summary="KlotskiGame class">
+      <created>1685898632208</created>
+      <option name="number" value="00054" />
+      <option name="presentableId" value="LOCAL-00054" />
+      <option name="project" value="LOCAL" />
+      <updated>1685898632208</updated>
+    </task>
+    <task id="LOCAL-00055" summary="improvements">
+      <created>1685901290849</created>
+      <option name="number" value="00055" />
+      <option name="presentableId" value="LOCAL-00055" />
+      <option name="project" value="LOCAL" />
+      <updated>1685901290849</updated>
+    </task>
+    <task id="LOCAL-00056" summary="improvements">
+      <created>1685901559378</created>
+      <option name="number" value="00056" />
+      <option name="presentableId" value="LOCAL-00056" />
+      <option name="project" value="LOCAL" />
+      <updated>1685901559378</updated>
+    </task>
+    <task id="LOCAL-00057" summary="TestReports">
+      <created>1685974237977</created>
+      <option name="number" value="00057" />
+      <option name="presentableId" value="LOCAL-00057" />
+      <option name="project" value="LOCAL" />
+      <updated>1685974237977</updated>
+    </task>
+    <option name="localTasksCounter" value="58" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -366,19 +756,32 @@
   </component>
   <component name="VcsManagerConfiguration">
     <option name="ADD_EXTERNAL_FILES_SILENTLY" value="true" />
-    <MESSAGE value="Basic Structure" />
-    <MESSAGE value="acdc" />
-    <MESSAGE value="style and menu" />
-    <MESSAGE value="levels" />
-    <MESSAGE value="level controller" />
-    <MESSAGE value="styling" />
     <MESSAGE value="components from json" />
     <MESSAGE value="components from json (final?)" />
     <MESSAGE value="overlaps v1" />
     <MESSAGE value="overlaps Completo" />
     <MESSAGE value="implemented Save function" />
+    <MESSAGE value="aggiunto undo" />
+    <MESSAGE value="Merge remote-tracking branch 'origin/main'&#10;&#10;# Conflicts:&#10;#&#9;klotski_ids/.idea/workspace.xml" />
+    <MESSAGE value="style" />
+    <MESSAGE value="Added Default nextBestMove" />
+    <MESSAGE value="improvements of nextBestMove" />
+    <MESSAGE value="workspace" />
+    <MESSAGE value="partial fix" />
+    <MESSAGE value="fixed counter(?)" />
+    <MESSAGE value="added python allert" />
+    <MESSAGE value="added partial javadoc" />
+    <MESSAGE value="added partial javadoc + win condition + fixed resumed" />
+    <MESSAGE value="fixes" />
+    <MESSAGE value="final fix to nextBestMove?" />
+    <MESSAGE value="final fix to nextBestMove 2?" />
+    <MESSAGE value="final fix to nextBestMove 3?" />
+    <MESSAGE value="Tests" />
+    <MESSAGE value="added helper tests" />
+    <MESSAGE value="KlotskiGame class" />
     <MESSAGE value="improvements" />
-    <option name="LAST_COMMIT_MESSAGE" value="improvements" />
+    <MESSAGE value="TestReports" />
+    <option name="LAST_COMMIT_MESSAGE" value="TestReports" />
   </component>
   <component name="XSLT-Support.FileAssociations.UIState">
     <expand />

@@ -1,6 +1,9 @@
 module klotski.ids {
+    requires org.junit.platform.commons;
     requires org.junit.jupiter.api;
     requires klotski_ids;
+    requires org.json;
+    requires javafx.graphics;
 
-    opens tests;
+    opens klotski_ids_test.models;
 }
