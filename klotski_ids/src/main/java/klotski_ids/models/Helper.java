@@ -125,8 +125,8 @@ public class Helper {
      * @throws IOException if an I/O error occurs while reading the file
      */
     public static Level readJson(String filePath) throws IOException, JSONException {
-        System.out.println("file path: " + filePath);
         Level level;
+
         try (InputStream inputStream = Helper.class.getResourceAsStream(filePath)) {
             level = readJsonFromStream(inputStream);
         } catch (JSONException e) {
@@ -290,7 +290,6 @@ public class Helper {
             gridPane.getChildren().add(rectangle);
         }
     }
-
 
 
     /**

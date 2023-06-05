@@ -78,13 +78,21 @@ public class GameController {
      */
     private boolean hasMoved = false;
 
+    /**
+     * The instance of KlotskiGame representing the current game.
+     */
     private KlotskiGame klotskiGame;
 
-
+    /**
+     * Sets the elements in the GridPane using the components and rectangles from the KlotskiGame.
+     */
     private void setGridPaneElements() {
         Helper.setGridPaneElements(gridPane, klotskiGame.getComponents(), klotskiGame.getRectangles());
     }
 
+    /**
+     * Checks if the KlotskiGame has reached a winning state. If so, loads the mainView.fxml and sets it as the scene.
+     */
     private void isWinSet() {
         if (klotskiGame.isWin()) {
             try {
@@ -98,7 +106,6 @@ public class GameController {
             }
         }
     }
-
 
     /**
      * Sets the mouse event handlers for the GridPane.

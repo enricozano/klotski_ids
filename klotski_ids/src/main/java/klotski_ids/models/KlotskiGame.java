@@ -6,6 +6,10 @@ import javafx.util.Pair;
 import java.util.ArrayList;
 import java.util.List;
 
+/**
+ * The KlotskiGame class represents a game of Klotski
+ * It manages the game state and provides methods to interact with the game.
+ */
 public class KlotskiGame {
     /**
      * The number of columns in the grid.
