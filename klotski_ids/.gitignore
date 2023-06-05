@@ -37,3 +37,7 @@ build/
 
 ### Mac OS ###
 .DS_Store
+
+/klotski_ids/.idea/workspace.xml
+
+/src/main/resources/data/resume

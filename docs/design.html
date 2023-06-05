@@ -5,7 +5,7 @@
 <meta http-equiv="X-UA-Compatible" content="IE=edge">
 <meta name="viewport" content="width=device-width, initial-scale=1, minimum-scale=1.0, shrink-to-fit=no">
 <link href="assets/images/klotski_icon.png" rel="icon" />
-<title>Klotski | Documentation</title>
+<title>Klotski | Class Design</title>
 <meta name="docs" content="klotski_ids documentation">
 <meta name="author" content="https://github.com/enricozano/klotski_ids">
 
@@ -48,17 +48,17 @@
     <nav class="primary-menu navbar navbar-expand-lg bg-dark navbar-text-light navbar-dropdown-dark border-0">
       <div class="container-fluid">
         <!-- Sidebar Toggler -->
-		<button id="sidebarCollapse" class="navbar-toggler d-block d-md-none" type="button"><span></span><span class="w-75"></span><span class="w-50"></span></button>
+		    <button id="sidebarCollapse" class="navbar-toggler d-block d-md-none" type="button"><span></span><span class="w-75"></span><span class="w-50"></span></button>
       
 		<!-- Logo --> 
     <a class="logo ml-md-3" href="index.html" title="klotski_logo"> <img src="assets/images/favicon.png" alt=" klotski logo"/> </a> 
     <!-- Logo End -->
-
+      
     <ul class="social-icons social-icons-sm ml-lg-2 mr-2">
       <li class="social-icons-github"><a data-toggle="tooltip" href="https://github.com/enricozano/klotski_ids" target="_blank" title="GitHub" data-original-title="GitHub"><i class="fab fa-github"></i></a></li>
     </ul>
 
-    </div>
+      </div>  
     </nav>
     <!-- Navbar End --> 
   </header>
@@ -72,12 +72,18 @@
 	============================ -->
   <div class="idocs-navigation bg-dark">
     <ul class="nav flex-column ">
-
-      <li class="nav-item"><a class="nav-link active" href="#kl_introduction">Introduction</a></li>
+      <li class="nav-item"><a class="nav-link disable-scroll" href="index.html">Introduction</a></li>
       <li class="nav-item"><a class="nav-link disable-scroll" href="manual.html">Manual</a></li>
       <li class="nav-item"><a class="nav-link disable-scroll" href="usecase.html">Use cases</a></li>
       <li class="nav-item"><a class="nav-link disable-scroll" href="domain.html">Domain model</a></li>
-      <li class="nav-item"><a class="nav-link disable-scroll" href="design.html">Design model</a></li>
+      <li class="nav-item"><a class="nav-link active" href="#kl_design">Design model</a>
+        <ul class="nav flex-column">
+          <li class="nave-item"><a class="nav-link" href="#kl_packagedesign">Package Design</a></li>
+          <li class="nave-item"><a class="nav-link" href="#kl_modeldesign">Models</a></li>
+          <li class="nave-item"><a class="nav-link" href="#kl_viewdesign">Views</a></li>
+          <li class="nave-item"><a class="nav-link" href="#kl_controllerdesign">Controllers</a></li>
+        </ul>
+      </li>
       <li class="nav-item"><a class="nav-link disable-scroll" href="sequence.html">Sequence diagrams</a></li>
       <li class="nav-item"><a class="nav-link disable-scroll" href="test.html">Tests</a>
     </ul>
@@ -87,32 +93,61 @@
 	============================ -->
     <div class="idocs-content">
       <div class="container"> 
-        
-        <!-- kl_introduction
-		============================ -->
-        <section id="kl_introduction">
-        <h1 class="my-2">Introduction</h1>
-        <p class="lead">This is the official website for the klotski project for the <a href="https://didattica.unipd.it/off/2021/LT/IN/IN0508/000ZZ/INN1030562/G2GR2" target="_blank">Elements Of Software Engineering</a> final exam! 
-        <br>
-        The aim of this work was to create a Java application for the game of klotski. <br>
-        Take a look at the requirements <a href="assets/pdf/SE_ExamProject.pdf" target="_blank">here</a>! <br>
-        Check the sidebar for the whole project documentation.<br>
-        </p>
-        <hr class="divider">
-        <p class="lead">
-        Software developed by:
-          <ul>
-            <li><p class="lead">Sanson Eris</p></li>
-            <li><p class="lead">Zanoni Enrico</p></li>
-            <li><p class="lead">Pavarin Pierpaolo Maria</p></li>
-            <li><p class="lead">Pomaro Davide</p></li>
-          </ul>
-        </p>
-        </section>
+
+        <section id="kl_design">
+
+          <!--TODO aggiornare grafici-->
+
+            <h1>Design model</h1>
+            
+            <p class="lead">
+              The design model section provides all the informations identified during the designs phase meetings. The team focused on
+              developing all the software entities following a chosen architectural pattern to make up the program in its entirety.
+            </p>
+
+            <hr class="divider">
+            
+            <h4 id="kl_packagedesign" class="mt-5">Package design</h4>
+            <p class="lead">
+              Using JavaFX as the main developed framework the team decided to apply the MVC (Models-Views-Controllers) design pattern to divide the different
+              packages that compose the system.
+            </p>
+            <a class="popup-img" href="./assets/images/design/package-design.png">
+              <img class="img-fluid" src="./assets/images/design/package-design.png" width="400" height="300" alt="Packages model">
+            </a> 
+
+            <h4 id="kl_modeldesign" class="mt-5">Models design</h4>
+            <p class="lead">
+              The <strong>Model</strong> represents the data and business logic of the application. It encapsulates the state and behavior of the application's data, and it is responsible for data manipulation, validation, and storage.   
+            </p>
+            <a class="popup-img" href="./assets/images/design/models-design.png">
+              <img class="img-fluid" src="./assets/images/design/models-design.png"  width="800" alt="Models model">
+            </a>  
+
+            <h4 id="kl_viewdesign" class="mt-5">Views design</h4>
+            <p class="lead">
+              The <strong>View</strong> represents the user interface components that display the data to the user. It is responsible for presenting the information from the Model in a visually understandable way. The View is passive and does not contain any business logic.
+              Due to the use of scene builder the view package exists only abstractly. The interactions with the other packages were in fact managed directly in the creation of the views resources.
+            </p>
+            <a class="popup-img" href="./assets/images/design/views-design.png">
+              <img class="img-fluid" src="./assets/images/design/views-design.png"  width="800" alt="Views model">
+            </a>  
+
+            <h4 id="kl_controllerdesign" class="mt-5">Controllers design</h4>
+            <p class="lead">
+              The <strong>Controller</strong> acts as an intermediary between the Model and the View. It handles user interactions, such as mouse clicks or button presses, and translates them into actions that modify the Model or update the View. The Controller also listens for changes in the Model and updates the View accordingly
+            </p>
+            <a class="popup-img" href="./assets/images/design/controllers-design.png">
+              <img class="img-fluid" src="./assets/images/design/controllers-design.png"  width="800" alt="Controllers model">
+            </a>  
+
+          </section>
+
       </div>
     </div>
-  
-  <!-- Content end --> 
+  </div>
+
+   <!-- Content end --> 
   
   <!-- Footer
   ============================ -->
@@ -125,7 +160,6 @@
     </div>
   </footer>
   <!-- Footer end -->
-
 
 </div>
 <!-- Document Wrapper end --> 

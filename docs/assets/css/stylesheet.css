@@ -1937,7 +1937,7 @@ hr {
 
 /* 5.4 Nav */
 .nav .nav-item .nav-link {
-  color: #222222;
+  color: #ffffff;
 }
 
 .nav.nav-light .nav-item .nav-link {
@@ -2399,7 +2399,40 @@ hr {
     margin-left: 0px;
   }
 }
-/*=== 6.1 Social Icons ===*/
+/*=== 6.1 Social Icons and Text Elements===*/
+.text-elements {
+  margin: 0;
+  padding: 0;
+  display: -ms-flexbox;
+  display: flex;
+  -ms-flex-wrap: wrap;
+  flex-wrap: wrap;
+  list-style: none;
+}
+
+.text-elements li {
+  margin: 0 6px;
+  padding: 0;
+  overflow: visible;
+}
+
+.text-elements li a {
+  display: block;
+  height: auto;
+  line-height: normal;
+  width: auto;
+  font-size: 14px;
+  text-align: center;
+  color: #4d555a;
+  text-decoration: none;
+  -webkit-transition: all 0.2s ease;
+  transition: all 0.2s ease;
+}
+
+.text-elements li:hover a {
+  color: #999;
+}
+
 .social-icons {
   margin: 0;
   padding: 0;
@@ -2451,6 +2484,7 @@ hr {
 .social-icons li:hover a {
   color: #999;
 }
+
 
 /*=== 6.2 Back to Top ===*/
 #back-to-top {

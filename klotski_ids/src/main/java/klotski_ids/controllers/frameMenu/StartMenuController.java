@@ -19,6 +19,9 @@ import java.io.File;
 import java.io.IOException;
 import java.util.Objects;
 
+<<<<<<< HEAD
+public class    StartMenuController {
+=======
 /**
  * Controller class for the start menu in the user interface.
  */
@@ -26,6 +29,7 @@ public class StartMenuController {
     /**
      * The button for resuming the game.
      */
+>>>>>>> main
     @FXML
     public Button resumeGame;
 
