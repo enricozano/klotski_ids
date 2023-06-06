@@ -13,6 +13,12 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="6bfdf0fa-9483-4758-a1c0-5debc05e40e9" name="Changes" comment="merged">
+      <change beforePath="$PROJECT_DIR$/../docs/assets/images/design/models-design.png" beforeDir="false" afterPath="$PROJECT_DIR$/../docs/assets/images/design/models-design.png" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../docs/assets/images/test/systemtest.jpg" beforeDir="false" afterPath="$PROJECT_DIR$/../docs/assets/images/test/systemtest.jpg" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../docs/design.html" beforeDir="false" afterPath="$PROJECT_DIR$/../docs/design.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../docs/manual.html" beforeDir="false" afterPath="$PROJECT_DIR$/../docs/manual.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../docs/test.html" beforeDir="false" afterPath="$PROJECT_DIR$/../docs/test.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/shelf/Uncommitted_changes_before_Update_at_5_6_23__4_04_PM__Changes_.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/shelf/Uncommitted_changes_before_Update_at_5_6_23__4_04_PM__Changes_.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
     </list>
     <list id="09855262-e7fe-4115-8869-69c02f2c6753" name="Changes by eris" comment="" />
@@ -139,7 +145,7 @@
       <recent name="klotski_ids.models" />
     </key>
   </component>
-  <component name="RunManager" selected="JUnit.HelperTest.testPerformMoveAction">
+  <component name="RunManager">
     <configuration name="HelperTest.testPerformMoveAction" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
       <module name="klotski_ids" />
       <extension name="coverage">
@@ -312,6 +318,7 @@
       <workItem from="1685902742557" duration="816000" />
       <workItem from="1685903570862" duration="344000" />
       <workItem from="1685977648967" duration="169000" />
+      <workItem from="1685991463096" duration="573000" />
     </task>
     <task id="LOCAL-00010" summary="acdc">
       <created>1683301579727</created>
