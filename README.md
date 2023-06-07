@@ -1,12 +1,12 @@
 # klotski_ids
-Progetto Klotksi ingegneria del software unipd
+ Klotski project for the UniPd Elements Of Software Engineering 2023 final exam.
 
-## link per documentazione
-    
-   https://enricozano.github.io/klotski_ids/
+## Authors:
+- Sanson Eris
+- Zanoni Enrico
+- Pavarin Pierpaolo Maria
+- Pomaro Davide
 
-### Specifiche codice github
-    • Codice, files di compilazione, etc.
-    • opportunamente commentato
-    • Leggibile e compilabile con un IDE
-    • All’interno del codice ci devono essere anche le classi di test (junit)
+## Documentation
+   Click [here](https://enricozano.github.io/klotski_ids/) to read the documentation!
+
