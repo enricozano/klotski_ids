@@ -140,19 +140,58 @@
                     <hr class="divider">
 
                     <section id="kl_exe">
-                                                <!--TODO-->
                         <h3>Execute</h3>
-                        <p class="lead">Follow these steps to execute the software:</p>
-                        <ol>
-                            <li>Unzip the downloaded folder.</li>
-                                <img src="" alt="unzip folder">
+                        <p class="lead">Follow these steps to execute the software on your system:</p>
+
+                        <div class="accordion" id="accordionDefault">
+                            <div class="card">
+                                <div class="card">
+                                    <div class="card-header" id="headingOne">
+                                        <h5 class="mb-0">
+                                            <a href="#" class="collapsed" data-toggle="collapse" data-target="#collapseOne" aria-expanded="false" aria-controls="collapseOne">Windows</a>
+                                        </h5>
+                                    </div>
+                                    <div id="collapseOne" class="collapse" aria-labelledby="headingOne" data-parent="#accordionDefault">
+                                        <div class="card-body">
+                                            <ol>
+                                                <li>Unzip the downloaded folder.</li>
+                                                <a class="popup-img" href="./assets/images/manual/exe1.jpeg">
+                                                    <img class="img-fluid" src="assets/images/manual/exe1.jpeg" width="600" height="600" alt="unzip folder">
+                                                </a>
+                                                <li>Open the folder on your IDE the <strong>klotski_ids-main/klotski_ids</strong> directory as a Maven project (many IDEs automatically recognize the program as a Maven project)</li>
+                                                <li>Run the file: <strong>.\src\main\java\klotski_ids\Launcher.java</strong> or <strong>.\src\main\java\klotski_ids\mainApplication.java</strong></li>
+                                                <a class="popup-img" href="./assets/images/manual/exe2.png">
+                                                    <img class="img-fluid" src="assets/images/manual/exe2.png" width="800" height="800" alt="run Launcher">
+                                                </a>
+                                            </ol>
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="card-header" id="headingTwo">
+                                    <h5 class="mb-0">
+                                        <a href="#" class="collapsed" data-toggle="collapse" data-target="#collapseTwo" aria-expanded="false" aria-controls="collapseTwo">Linux</a>
+                                    </h5>
+                                </div>
+                                <div id="collapseTwo" class="collapse" aria-labelledby="headingTwo" data-parent="#accordionDefault">
+                                    <div class="card-body">
+                                        <ol>
+                                            <li>Open the terminal in the directory where the zip folder is located.</li>
+                                            <li>Run this command: <br> <code>>unzip klotski_ids-main.zip && cd klotski_ids-main</code></li>
+                                            <li>Open the folder on your IDE the <strong>./klotski_ids</strong> directory as a Maven project (many IDEs automatically recognize the program as a Maven project)</li>
+                                            <li>Run the file: <strong>.\src\main\java\klotski_ids\Launcher.java</strong> or <strong>.\src\main\java\klotski_ids\mainApplication.java</strong></li>
+                                            <a class="popup-img" href="./assets/images/manual/exe2.png">
+                                                <img class="img-fluid" src="assets/images/manual/exe2.png" width="800" height="800" alt="run Launcher">
+                                            </a>
+                                        </ol>
+                                    </div>
+                                </div>
+                            </div>
+                           
+                        </div>
+                        
+                        
                             
-                            <li>Open the folder on your IDE the <strong>klotski_ids/klotski_ids</strong> directory as a Maven project (many IDEs automatically recognize the program as a Maven project)</li>
-                            <li>Run the file: <strong>.\src\main\java\klotski_ids\Launcher.java</strong> or <strong>.\src\main\java\klotski_ids\mainApplication.java</strong></li>
-                                <img src="" alt="run Launcher">
-                            
-                            
-                        </ol>
+                        
 
 
                     </section>
@@ -170,10 +209,16 @@
                             If you want to be able to use the funcionality "Next Best Move", <strong>Python</strong> is
                             required. <br>
                             Download Java and Python following these links:
-                        <ul>
-                            <li><a href="https://www.java.com/it/download/manual.jsp" target="_blank">Java</a></li>
-                            <li><a href="https://www.python.org/downloads/" target="_blank">Python</a></li>
-                        </ul>
+                            <ul>
+                                <li><a href="https://www.java.com/it/download/manual.jsp" target="_blank">Java</a></li>
+                                <li><a href="https://www.python.org/downloads/" target="_blank">Python</a></li>
+                            </ul>
+                            To use this release version of the software you need to build the project locally on your system. An IDE with maven such as Intellij IDEA or Eclipse is therefore required.
+                            Download Java and Python following these links:
+                            <ul>
+                                <li><a href="https://www.jetbrains.com/idea/download/#section=windows" target="_blank">Intellij IDEA</a></li>
+                                <li><a href="https://www.eclipse.org/downloads/" target="_blank">Eclipse</a></li>
+                            </ul>
                         </p>
                     </section>
 
