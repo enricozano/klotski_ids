@@ -172,7 +172,7 @@
                             <mainClass>klotski_ids.Launcher</mainClass>
                         </manifest>
                     </archive>
-                    <outputDirectory>${project.build.directory}/../out/</outputDirectory>
+                    <outputDirectory>${project.build.directory}/../../out/</outputDirectory>
                     <finalName>klotski</finalName>
                 </configuration>
                 <executions>
