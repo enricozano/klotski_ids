@@ -348,12 +348,15 @@ public class GameController {
     private void nextBestMove() throws IOException {
 
         List<Components> levelComponents = new ArrayList<>(klotskiGame.getComponents());
-        String defaultLayoutPath = "src/main/resources/klotski_ids/data/levelSolutions/DefaultLayout.txt";
-        Helper.writeToFile(defaultLayoutPath, Helper.levelToString(levelComponents));
+
         if ((!hasMoved || Helper.isSameComponentsList(KlotskiGame.getDefaultComponentsList(), klotskiGame.getComponents())) && !isResumed) {
             klotskiGame.handleDefaultLayout();
 
         } else if (Helper.PythonInstallationChecker()) {
+            String defaultLayoutPath = "src/main/resources/klotski_ids/data/levelSolutions/DefaultLayout.txt";
+            if(Helper.writeToFile(defaultLayoutPath, Helper.levelToString(levelComponents))){
+                nextBestMove.setDisable(true);
+            }
             klotskiGame.handlePythonSolver();
         }
 

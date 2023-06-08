@@ -428,16 +428,22 @@ public class Helper {
     }
 
     /**
-     * Writes content to a file.
+     * Writes the given content to a file specified by the file path.
      *
-     * @param filename the name of the file
-     * @param content  the content to write
-     * @throws IOException if an I/O error occurs while writing the file
+     * @param filePath the path of the file to write
+     * @param content  the content to write to the file
+     * @return true if an error occurred while writing the file, false otherwise
      */
-    public static void writeToFile(String filename, String content) throws IOException {
-        BufferedWriter writer = new BufferedWriter(new FileWriter(filename));
-        writer.write(content);
-        writer.close();
+    public static boolean writeToFile(String filePath, String content) {
+        MyAlerts error;
+        try (BufferedWriter writer = new BufferedWriter(new FileWriter(filePath))) {
+            writer.write(content);
+        } catch (Exception e){
+            error = new MyAlerts("File Not Found");
+            error.errorAlert();
+            return true;
+        }
+        return false;
     }
 
     /**
@@ -463,13 +469,13 @@ public class Helper {
     /**
      * Retrieves the move strings from a file.
      *
-     * @param filename the name of the file
+     * @param filePath path of the file
      * @return a list of move strings
      */
-    private static List<String> getMovesStringsFromFile(String filename) {
+    private static List<String> getMovesStringsFromFile(String filePath) {
         List<String> movesStrings = new ArrayList<>();
 
-        try (BufferedReader reader = new BufferedReader(new FileReader(filename))) {
+        try (BufferedReader reader = createBufferedReader(filePath)) {
             String line;
             while ((line = reader.readLine()) != null) {
                 Pair<Integer, String> move = parseMove(line);
@@ -491,6 +497,26 @@ public class Helper {
 
         return movesStrings;
     }
+
+    /**
+     * Creates a BufferedReader based on the file path.
+     *
+     * @param filePath the file path
+     * @return the created BufferedReader
+     * @throws IOException if an error occurs while creating the BufferedReader
+     */
+    private static BufferedReader createBufferedReader(String filePath) throws IOException {
+        if (filePath.contains("src")) {
+            return new BufferedReader(new FileReader(filePath));
+        } else {
+            InputStream inputStream = Helper.class.getResourceAsStream(filePath);
+            assert inputStream != null;
+            InputStreamReader reader = new InputStreamReader(inputStream);
+            return new BufferedReader(reader);
+        }
+    }
+
+
 
     /**
      * Parses a move string and returns a pair of numeric value and action.
@@ -528,8 +554,15 @@ public class Helper {
      * @return a list of separated moves
      */
     public static List<Pair<Integer, String>> getSeparatedMoves(String solutionFileName) {
-        String filePath = "src/main/resources/klotski_ids/data/levelSolutions/" + solutionFileName;
-        List<String> movesStrings = Helper.getMovesStringsFromFile(filePath);
+        String filePath = "/klotski_ids/data/levelSolutions/" + solutionFileName;
+        String filePathAbsolute = "src/main/resources/klotski_ids/data/levelSolutions/" + solutionFileName;
+        List<String> movesStrings;
+        if(solutionFileName.equals("Solutions.txt")){
+            movesStrings = Helper.getMovesStringsFromFile(filePathAbsolute);
+        }else{
+            movesStrings = Helper.getMovesStringsFromFile(filePath);
+        }
+
         return Helper.separateNumericValue(movesStrings);
     }
 
