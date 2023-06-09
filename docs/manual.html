@@ -81,9 +81,9 @@
                 <li class="nav-item"><a class="nav-link disable-scroll" href="index.html">Introduction</a></li>
                 <li class="nav-item"><a class="nav-link active" href="#kl_manual">Manual</a>
                     <ul class="nav flex-column">
+                        <li class="nav-item"><a class="nav-link" href="#kl_requirements">Requirements</a></li>
                         <li class="nav-item"><a class="nav-link" href="#kl_download">Download</a></li>
                         <li class="nav-item"><a class="nav-link" href="#kl_exe">Execute</a></li>
-                        <li class="nav-item"><a class="nav-link" href="#kl_requirements">Requirements</a></li>
                         <li class="nav-item"><a class="nav-link" href="#kl_rules">Game Rules</a></li>
                         <li class="nav-item"><a class="nav-link" href="#kl_libraries">Libraries</a></li>
                     </ul>
@@ -115,6 +115,31 @@
 
                     <hr class="divider">
 
+                    <section id="kl_requirements">
+                        <h3>Requirements</h3>
+                        <p class="lead">
+                            Be aware that in order to use the software, <strong>Java</strong> must be installed on
+                            your computer. <br>
+                            It is also important to notice that the project has been developed and tested using the JDK 20
+                            therefore some bugs may appear if you run it
+                            with an older version of java. <br>
+                            Download Java <a href="https://www.java.com/it/download/manual.jsp" target="_blank">here</a>!
+                           
+                        </p>
+                         <div class="alert alert-info">   If you want to be able to use the funcionality "Smart Next Best Move", <strong>Python</strong> is
+                            required. <br>
+                            Download Python <a href="https://www.python.org/downloads/" target="_blank">here</a>! <br>
+                            To use the version of the software with the "Smart Next Best Move" you need to build the project locally on your system. An IDE with maven such as Intellij IDEA or Eclipse is therefore required.
+                            Download an IDE following these links:
+                            <ul>
+                                <li><a href="https://www.jetbrains.com/idea/download/#section=windows" target="_blank">Intellij IDEA</a></li>
+                                <li><a href="https://www.eclipse.org/downloads/" target="_blank">Eclipse</a></li>
+                            </ul>
+                        </div>
+                    </section>
+
+                    <hr class="divider">
+
                     <section id="kl_download">
                         <h3>Download</h3>
                         <p class="lead">Follow these steps to download the software:</p>
@@ -123,16 +148,16 @@
                                 page.
                             </li>
                             <li>Click on the green button <strong>code</strong>.
-                                <a class="popup-img" href="./assets/images/manual/down1.jpeg"></a></li>
-                            <img class="img-fluid" src="./assets/images/manual/down1.jpeg" width="800" height="800"
+                                <a class="popup-img" href="./assets/images/manual/down1.jpeg">
+                                <img class="img-fluid" src="./assets/images/manual/down1.jpeg" width="800" height="800"
                                  alt="github code button image">
-                            </a>
+                            </a></li>
 
                             <li>Click on <strong>Download ZIP</strong>.</li>
                             <a class="popup-img" href="./assets/images/manual/down2.jpeg">
                                 <img class="img-fluid" src="./assets/images/manual/down2.jpeg" width="800" height="800"
                                      alt="github download zip image">
-                            </a>
+                            </a></li>
 
                         </ol>
                     </section>
@@ -141,8 +166,8 @@
 
                     <section id="kl_exe">
                         <h3>Execute</h3>
-                        <p class="lead">Follow these steps to execute the software on your system:</p>
 
+                        <p class="lead"> Follow these steps to execute the software without the complete "Next Best Move":</p>
                         <div class="accordion" id="accordionDefault">
                             <div class="card">
                                 <div class="card">
@@ -158,6 +183,36 @@
                                                 <a class="popup-img" href="./assets/images/manual/exe1.jpeg">
                                                     <img class="img-fluid" src="assets/images/manual/exe1.jpeg" width="600" height="600" alt="unzip folder">
                                                 </a>
+                                                <li>Open the <strong>klotski_ids-main/out directory</strong></li>
+                                                <li>Double click on <strong>klotski_ids.jar</strong></li>
+                                                <a class="popup-img" href="./assets/images/manual/exe3.png">
+                                                    <img class="img-fluid" src="assets/images/manual/exe3.png" width="600" height="600" alt="unzip folder">
+                                                </a>
+                                            </ol>
+                                        </div>
+                                    </div>
+                                </div>                           
+                        </div>
+
+
+
+                        <p class="lead">Follow these steps to execute the software with the "Next Best Move" on your system:</p>
+
+                        <div class="accordion" id="accordionDefault">
+                            <div class="card">
+                                <div class="card">
+                                    <div class="card-header" id="headingThree">
+                                        <h5 class="mb-0">
+                                            <a href="#" class="collapsed" data-toggle="collapse" data-target="#collapseThree" aria-expanded="false" aria-controls="collapseThree">Windows</a>
+                                        </h5>
+                                    </div>
+                                    <div id="collapseThree" class="collapse" aria-labelledby="headingThree" data-parent="#accordionDefault">
+                                        <div class="card-body">
+                                            <ol>
+                                                <li>Unzip the downloaded folder.</li>
+                                                <a class="popup-img" href="./assets/images/manual/exe1.jpeg">
+                                                    <img class="img-fluid" src="assets/images/manual/exe1.jpeg" width="600" height="600" alt="unzip folder">
+                                                </a>
                                                 <li>Open the folder on your IDE the <strong>klotski_ids-main/klotski_ids</strong> directory as a Maven project (many IDEs automatically recognize the program as a Maven project)</li>
                                                 <li>Run the file: <strong>.\src\main\java\klotski_ids\Launcher.java</strong> or <strong>.\src\main\java\klotski_ids\mainApplication.java</strong></li>
                                                 <a class="popup-img" href="./assets/images/manual/exe2.png">
@@ -167,12 +222,12 @@
                                         </div>
                                     </div>
                                 </div>
-                                <div class="card-header" id="headingTwo">
+                                <div class="card-header" id="headingFour">
                                     <h5 class="mb-0">
-                                        <a href="#" class="collapsed" data-toggle="collapse" data-target="#collapseTwo" aria-expanded="false" aria-controls="collapseTwo">Linux</a>
+                                        <a href="#" class="collapsed" data-toggle="collapse" data-target="#collapseFour" aria-expanded="false" aria-controls="collapseFour">Linux</a>
                                     </h5>
                                 </div>
-                                <div id="collapseTwo" class="collapse" aria-labelledby="headingTwo" data-parent="#accordionDefault">
+                                <div id="collapseFour" class="collapse" aria-labelledby="headingFour" data-parent="#accordionDefault">
                                     <div class="card-body">
                                         <ol>
                                             <li>Open the terminal in the directory where the zip folder is located.</li>
@@ -198,32 +253,7 @@
 
                     <hr class="divider">
 
-                    <section id="kl_requirements">
-                        <h3>Requirements</h3>
-                        <p class="lead">
-                            Be aware that in order to execute the software, <strong>Java</strong> must be installed on
-                            your computer. <br>
-                            It is also important to notice that the project has been developed and tested using the JDK 20
-                            therefore some bugs may appear if you run it
-                            with an older version of java. <br>
-                            If you want to be able to use the funcionality "Next Best Move", <strong>Python</strong> is
-                            required. <br>
-                            Download Java and Python following these links:
-                            <ul>
-                                <li><a href="https://www.java.com/it/download/manual.jsp" target="_blank">Java</a></li>
-                                <li><a href="https://www.python.org/downloads/" target="_blank">Python</a></li>
-                            </ul>
-                        </p>
-                        <p class="lead">To use this release version of the software you need to build the project locally on your system. An IDE with maven such as Intellij IDEA or Eclipse is therefore required.
-                            Download an IDE following these links:
-                            <ul>
-                                <li><a href="https://www.jetbrains.com/idea/download/#section=windows" target="_blank">Intellij IDEA</a></li>
-                                <li><a href="https://www.eclipse.org/downloads/" target="_blank">Eclipse</a></li>
-                            </ul>
-                        </p>
-                    </section>
-
-                    <hr class="divider">
+                    
 
                     <section id="kl_rules">
                         <h3>Game Rules</h3>
