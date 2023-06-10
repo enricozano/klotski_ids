@@ -4,7 +4,6 @@ import javafx.geometry.Point2D;
 import javafx.scene.Node;
 import javafx.scene.layout.GridPane;
 import javafx.scene.shape.Rectangle;
-import javafx.util.Pair;
 
 import java.io.*;
 import java.util.*;
@@ -106,26 +105,6 @@ public class Helper {
         return false;
     }
 
-    /**
-     * Creates a list of rectangles based on the components passed as argument.
-     *
-     * @param components a list of Components objects from which to create the rectangles.
-     * @return a list of Rectangle objects created from the Components objects.
-     * @throws IllegalArgumentException if the components list is null.
-     */
-    public static List<Rectangle> createRectangle(List<klotski_ids.models.Components> components) {
-        List<Rectangle> rectangleList = new ArrayList<>();
-
-        if (components == null) {
-            throw new IllegalArgumentException("Component list cant be null");
-        }
-        for (klotski_ids.models.Components element : components) {
-            Rectangle rectangle = new Rectangle(element.getWidth(), element.getHeight());
-            rectangle.setId(element.getId());
-            rectangleList.add(rectangle);
-        }
-        return rectangleList;
-    }
 
 
     /**
@@ -137,42 +116,16 @@ public class Helper {
      * @param components the list of components
      * @param rectangles the list of rectangles
      */
-    public static void setGridPaneElements(GridPane gridPane, List<klotski_ids.models.Components> components, List<Rectangle> rectangles) {
+    public static void setGridPaneElements(GridPane gridPane, List<Component> components, List<Rectangle> rectangles) {
         gridPane.getChildren().clear();
         int size = Math.min(components.size(), rectangles.size());
 
         for (int i = 0; i < size; i++) {
-            Components component = components.get(i);
+            Component component = components.get(i);
             Rectangle rectangle = rectangles.get(i);
             GridPane.setConstraints(rectangle, component.getCol(), component.getRow(), component.getColSpan(), component.getRowSpan());
             gridPane.getChildren().add(rectangle);
         }
-    }
-
-
-    /**
-     * Checks if two lists of Components are the same.
-     *
-     * @param componentsList1 the first list of Components
-     * @param componentsList2 the second list of Components
-     * @return true if the lists are the same, false otherwise
-     */
-    public static boolean isSameComponentsList(List<Components> componentsList1, List<Components> componentsList2) {
-        if (componentsList1.size() != componentsList2.size()) {
-            return false;
-        }
-
-        for (int i = 0; i < componentsList1.size(); i++) {
-            Components comp1 = componentsList1.get(i);
-            Components comp2 = componentsList2.get(i);
-
-            if (!comp1.equals(comp2)) {
-                return false;
-            }
-        }
-
-        return true;
-
     }
 
 
@@ -195,51 +148,5 @@ public class Helper {
         return false;
     }
 
-
-
-
-
-    /**
-     * Generates the solution file name based on the level name.
-     *
-     * @param levelName the name of the level
-     * @return the solution file name
-     */
-    public static String getSolutionFileName(String levelName) {
-        return switch (levelName) {
-            case "Level 1" -> "SolutionsLevel1.txt";
-            case "Level 2" -> "SolutionsLevel2.txt";
-            case "Level 3" -> "SolutionsLevel3.txt";
-            case "Level 4" -> "SolutionsLevel4.txt";
-            default -> "";
-        };
-    }
-
-
-
-    /**
-     * Performs a move action on a list of Components.
-     *
-     * @param move       the move action to perform
-     * @param components the list of Components
-     * @return the updated list of Components after the move
-     */
-    public static List<Components> performMoveAction(Pair<Integer, String> move, List<Components> components) {
-        int rectangleNumber = move.getKey();
-        String action = move.getValue();
-        List<Components> componentsList = new ArrayList<>(components);
-        Components component = componentsList.get(rectangleNumber);
-        int currentRow = component.getRow();
-        int currentCol = component.getCol();
-
-        switch (action) {
-            case "UP" -> component.setRow(currentRow - 1);
-            case "DOWN" -> component.setRow(currentRow + 1);
-            case "RIGHT" -> component.setCol(currentCol + 1);
-            case "LEFT" -> component.setCol(currentCol - 1);
-        }
-
-        return componentsList;
-    }
 
 }

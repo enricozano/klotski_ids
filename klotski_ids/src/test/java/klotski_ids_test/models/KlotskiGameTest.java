@@ -1,6 +1,6 @@
 package klotski_ids_test.models;
 
-import klotski_ids.models.Components;
+import klotski_ids.models.Component;
 
 import klotski_ids.models.KlotskiGame;
 import org.junit.jupiter.api.DisplayName;
@@ -17,19 +17,19 @@ public class KlotskiGameTest {
     @DisplayName("Copy of the component list test")
     public void testCopyComponentsList() {
 
-        List<Components> components = new ArrayList<>();
-        components.add(new Components("component1", 0, 0,1,1, 50,50));
-        components.add(new Components("component2", 1, 1,1,1,50,50));
+        List<Component> components = new ArrayList<>();
+        components.add(new Component("component1", 0, 0,1,1, 50,50));
+        components.add(new Component("component2", 1, 1,1,1,50,50));
 
-        List<Components> copyList = KlotskiGame.copyComponentsList(components);
+        List<Component> copyList = KlotskiGame.copyComponentsList(components);
 
         // Assert that the copy list has the same number of elements
         assertEquals(components.size(), copyList.size());
 
         // Assert that the copied components match the original components
         for (int i = 0; i < components.size(); i++) {
-            Components originalComponent = components.get(i);
-            Components copiedComponent = copyList.get(i);
+            Component originalComponent = components.get(i);
+            Component copiedComponent = copyList.get(i);
 
             assertEquals(originalComponent.getId(), copiedComponent.getId());
             assertEquals(originalComponent.getRow(), copiedComponent.getRow());
@@ -45,10 +45,10 @@ public class KlotskiGameTest {
     @DisplayName("Empty component list can be copied")
     public void testCopyComponentsListWithEmptyList() {
         // Create an empty original list of components
-        List<Components> originalList = new ArrayList<>();
+        List<Component> originalList = new ArrayList<>();
 
         // Invoke the method under test
-        List<Components> copyList = KlotskiGame.copyComponentsList(originalList);
+        List<Component> copyList = KlotskiGame.copyComponentsList(originalList);
 
         // Assert that the copy list is also empty
         assertTrue(copyList.isEmpty());
@@ -68,15 +68,15 @@ public class KlotskiGameTest {
     @DisplayName("Testing winCondition with winning components")
     public void testWinCondition() {
         // Create a list of components for testing
-        List<Components> componentsList = new ArrayList<>();
+        List<Component> componentsList = new ArrayList<>();
 
         // Add a component that satisfies the win condition
-        Components winComponent = new Components("1", 3, 1, 2, 2, 100, 100);
+        Component winComponent = new Component("1", 3, 1, 2, 2, 100, 100);
         componentsList.add(winComponent);
 
         // Add some other components
-        Components component1 = new Components("2", 0, 0, 1, 1, 50, 50);
-        Components component2 = new Components("3", 2, 2, 1, 1, 50, 50);
+        Component component1 = new Component("2", 0, 0, 1, 1, 50, 50);
+        Component component2 = new Component("3", 2, 2, 1, 1, 50, 50);
         componentsList.add(component1);
         componentsList.add(component2);
 
@@ -91,11 +91,11 @@ public class KlotskiGameTest {
     @DisplayName("Testing winCondition with non-winning components")
     public void testWinCondition_NoWin() {
         // Create a list of components for testing
-        List<Components> componentsList = new ArrayList<>();
+        List<Component> componentsList = new ArrayList<>();
 
         // Add some components that do not satisfy the win condition
-        Components component1 = new Components("1", 0, 0, 1, 1, 50, 50);
-        Components component2 = new Components("2", 2, 2, 1, 1, 50, 50);
+        Component component1 = new Component("1", 0, 0, 1, 1, 50, 50);
+        Component component2 = new Component("2", 2, 2, 1, 1, 50, 50);
         componentsList.add(component1);
         componentsList.add(component2);
 
@@ -105,5 +105,6 @@ public class KlotskiGameTest {
         // Call the winCondition method and assert that it returns false
         assertFalse(klotskiGame.winCondition(componentsList));
     }
+
 
 }

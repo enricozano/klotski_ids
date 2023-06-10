@@ -1,6 +1,11 @@
 package klotski_ids.models;
 
+import org.json.JSONArray;
+import org.json.JSONException;
+import org.json.JSONObject;
+
 import java.util.ArrayList;
+import java.util.LinkedHashMap;
 import java.util.List;
 
 /**
@@ -45,7 +50,7 @@ public class Level {
     /**
      * The list of components (rectangles) that make up the level.
      */
-    private final List<klotski_ids.models.Components> componentsList;
+    private final List<Component> componentsList;
 
     /**
      * Constructs a new Level object with default values.
@@ -73,7 +78,7 @@ public class Level {
      * @param levelFileName The name of the file
      * @param levelTitle   The title of the level.
      */
-    public Level(List<klotski_ids.models.Components> rectangles, int maxWidth, int maxHeight, int minWidth, int minHeight, int countedMoves, String levelFileName, String levelTitle) {
+    public Level(List<Component> rectangles, int maxWidth, int maxHeight, int minWidth, int minHeight, int countedMoves, String levelFileName, String levelTitle) {
         this.maxWidth = maxWidth;
         this.maxHeight = maxHeight;
         this.minWidth = minWidth;
@@ -89,7 +94,7 @@ public class Level {
      *
      * @param rectangles the list of components (rectangles) that make up the level
      */
-    public Level(List<klotski_ids.models.Components> rectangles) {
+    public Level(List<Component> rectangles) {
         this.componentsList = rectangles;
     }
 
@@ -196,7 +201,7 @@ public class Level {
      *
      * @return the list of components (rectangles) that make up the level
      */
-    public List<Components> getRectangles() {
+    public List<Component> getRectangles() {
         return componentsList;
     }
 
@@ -225,6 +230,29 @@ public class Level {
     public int getCountedMoves() {
         return this.countedMoves;
     }
+    /**
+     * Converts the Level object to a JSONObject.
+     *
+     * @return the JSONObject representing the Level
+     * @throws JSONException if there is an error during JSON conversion
+     */
+    public JSONObject toJsonObject() throws JSONException {
+        JSONObject jsonObject = new JSONObject(new LinkedHashMap<>());
+        jsonObject.put("maxWidth", maxWidth);
+        jsonObject.put("maxHeight", maxHeight);
+        jsonObject.put("minWidth", minWidth);
+        jsonObject.put("minHeight", minHeight);
+        jsonObject.put("countedMoves", countedMoves);
+        jsonObject.put("levelName", levelFileName);
+        jsonObject.put("levelTitle", levelTitle);
 
+        JSONArray rectanglesJsonArray = new JSONArray();
+        for (Component rectangle : componentsList) {
+            rectanglesJsonArray.put(rectangle.toJsonObject());
+        }
+        jsonObject.put("rectangles", rectanglesJsonArray);
+
+        return jsonObject;
+    }
 
 }

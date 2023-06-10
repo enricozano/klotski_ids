@@ -18,6 +18,7 @@ import org.json.JSONObject;
 import java.io.*;
 import java.util.ArrayList;
 import java.util.List;
+import java.util.Objects;
 
 /**
  * The GameController class controls the behavior of the game. It handles mouse events to allow
@@ -247,9 +248,9 @@ public class GameController {
             GridPane.setRowIndex(rectangle, newRow);
             GridPane.setColumnIndex(rectangle, newCol);
 
-            List<Components> updateList = klotskiGame.getComponents();
+            List<Component> updateList = klotskiGame.getComponents();
 
-            for (Components component : updateList) {
+            for (Component component : updateList) {
                 if (component.getId().equals(rectangle.getId())) {
                     component.setRow(newRow);
                     component.setCol(newCol);
@@ -257,13 +258,13 @@ public class GameController {
                 }
             }
 
-            hasMoved = !Helper.isSameComponentsList(KlotskiGame.getDefaultComponentsList(), klotskiGame.getComponents());
+            hasMoved = !Objects.equals(KlotskiGame.getDefaultComponentsList(), klotskiGame.getComponents());
 
             try {
-                if (hasMoved && !Helper.isSameComponentsList(KlotskiGame.getDefaultComponentsList(), klotskiGame.getComponents()) && !PythonHandler.isPythonInstalled()) {
+                if (hasMoved && !Objects.equals(KlotskiGame.getDefaultComponentsList(), klotskiGame.getComponents()) && !PythonHandler.isPythonInstalled()) {
                     nextBestMoveButton.setDisable(true);
                 }
-                if (Helper.isSameComponentsList(KlotskiGame.getDefaultComponentsList(), klotskiGame.getComponents()) && !isResumed) {
+                if (Objects.equals(KlotskiGame.getDefaultComponentsList(), klotskiGame.getComponents()) && !isResumed) {
                     nextBestMoveButton.setDisable(false);
                 }
             } catch (IOException e) {
@@ -361,8 +362,7 @@ public class GameController {
 
         Level save = new Level(klotskiGame.getComponents(), maxWidth, maxHeight, minWidth, minHeight, countedMoves, levelFileName, levelTitle);
 
-        JSONObject jsonObject = LevelManager.createJSONObjectFromLevel(save);
-        String json = jsonObject.toString();
+        JSONObject jsonObject = save.toJsonObject();
 
         FileChooser fileChooser = new FileChooser();
         fileChooser.setTitle("Salva file");
@@ -371,13 +371,7 @@ public class GameController {
 
         if (selectedFile != null) {
             String filePath = selectedFile.getAbsolutePath();
-
-            try (FileWriter writer = new FileWriter(filePath)) {
-                writer.write(json);
-                System.out.println("File salvato con successo.");
-            } catch (IOException e) {
-                System.err.println("Errore durante la scrittura del file: " + e.getMessage());
-            }
+            Helper.writeToFile(filePath,jsonObject.toString());
         } else {
             System.out.println("Operazione di salvataggio annullata.");
         }
@@ -392,16 +386,18 @@ public class GameController {
     @FXML
     private void nextBestMove() throws IOException {
 
-        List<Components> levelComponents = new ArrayList<>(klotskiGame.getComponents());
+        List<Component> levelComponents = new ArrayList<>(klotskiGame.getComponents());
 
-        if ((!hasMoved || Helper.isSameComponentsList(KlotskiGame.getDefaultComponentsList(), klotskiGame.getComponents())) && !isResumed) {
-            System.out.println(nextBestMoveCounter);
+        if ((!hasMoved || Objects.equals(KlotskiGame.getDefaultComponentsList(), klotskiGame.getComponents())) && !isResumed) {
+            if (Objects.equals(KlotskiGame.getDefaultComponentsList(), klotskiGame.getComponents()) && nextBestMoveCounter != 0) {
+                nextBestMoveCounter = 0;
+            }
             klotskiGame.handleDefaultLayout(nextBestMoveCounter);
 
         } else if (PythonHandler.isPythonInstalled()) {
             String defaultLayoutPath = "src/main/resources/klotski_ids/data/levelSolutions/DefaultLayout.txt";
 
-            if (Helper.writeToFile(defaultLayoutPath, levelComponents.stream().map(Components::toSolverFormatString).reduce("",String::concat))) {
+            if (Helper.writeToFile(defaultLayoutPath, levelComponents.stream().map(Component::toSolverFormatString).reduce("",String::concat))) {
                 nextBestMoveButton.setDisable(true);
             }
             klotskiGame.handlePythonSolver();
@@ -418,7 +414,6 @@ public class GameController {
         Helper.setGridPaneElements(gridPane, klotskiGame.getComponents(), klotskiGame.getRectangles());
         klotskiGame.setWin(klotskiGame.winCondition(klotskiGame.getComponents()));
 
-
         isWinSet();
     }
 
@@ -431,6 +426,7 @@ public class GameController {
         int lastIndex = KlotskiGame.getHistoryRectanglesMovements().size() - 1;
 
         if (lastIndex >= 1) {
+
             KlotskiGame.getHistoryRectanglesMovements().remove(lastIndex);
             lastIndex--;
 
@@ -446,7 +442,7 @@ public class GameController {
                 movesLabel.setText(String.valueOf(totalMoves));
             }
 
-            List<Components> componentsList = new ArrayList<>(KlotskiGame.getHistoryRectanglesMovements().get(lastIndex));
+            List<Component> componentsList = new ArrayList<>(KlotskiGame.getHistoryRectanglesMovements().get(lastIndex));
 
             gridPane.getChildren().clear();
             Helper.setGridPaneElements(gridPane, componentsList, klotskiGame.getRectangles());
@@ -454,6 +450,7 @@ public class GameController {
             klotskiGame.setComponents(KlotskiGame.copyComponentsList(componentsList));
         } else {
             hasMoved = false;
+            nextBestMoveButton.setDisable(false);
         }
     }
 

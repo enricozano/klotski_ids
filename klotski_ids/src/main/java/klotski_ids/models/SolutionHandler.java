@@ -9,20 +9,22 @@ import java.util.List;
 import java.util.stream.Collectors;
 
 /**
- * The Helper class provides utility methods for various operations.
+ * The SolutionHandler class provides utility methods for handling solutions in the Klotski game.
+ * It includes methods to read solution files, parse solution data, and retrieve solutions as a list of moves.
  */
 public class SolutionHandler {
 
     /**
-     * Retrieves the separated moves from a solution file.
+     * Reads the solutions for the specified level from a file and returns them as a list of move pairs.
      *
-     * @param solutionFileName the name of the solution file
-     * @return a list of separated moves
+     * @param levelName the name of the level to read solutions for
+     * @return a list of move pairs representing the solutions for the level
      */
-    public static List<Pair<Integer, String>> readSolutions(String solutionFileName) {
+    public static List<Pair<Integer, String>> readSolutions(String levelName) {
+        String solutionFileName = getSolutionFileName(levelName);
         String solutionPath = solutionFileName.equals("Solutions.txt")
                 ? "src/main/resources/klotski_ids/data/levelSolutions/"
-                : "/klotski_ids/data/levelSolutions/" ;
+                : "/klotski_ids/data/levelSolutions/";
 
         return getSolutionsFromFile(solutionPath + solutionFileName);
     }
@@ -49,26 +51,6 @@ public class SolutionHandler {
         return movesStrings;
     }
 
-    /**
-     * Separates the numeric value and action in a list of move strings.
-     *
-     * @param movesStrings the list of move strings
-     * @return a list of pairs, each containing the numeric value and action
-     */
-    private static List<Pair<Integer, String>> separateNumericValue(List<String> movesStrings) {
-        List<Pair<Integer, String>> separatedMoves = new ArrayList<>();
-
-        for (String movesString : movesStrings) {
-            String[] parts = movesString.split(" ", 2);
-            int number = Integer.parseInt(parts[0]);
-            String action = parts[1];
-
-            separatedMoves.add(new Pair<>(number, action));
-        }
-
-        return separatedMoves;
-    }
-
 
     /**
      * Parses a move string and returns a pair of numeric value and action.
@@ -79,7 +61,7 @@ public class SolutionHandler {
     private static List<Pair<Integer, String>> parseSolution(String line) {
         String[] parts = line.trim().split(" ");
         int number = Integer.parseInt(parts[0].substring(1));
-        return Arrays.stream(parts).skip(1).map(s -> new Pair<>(number,s.trim())).collect(Collectors.toList());
+        return Arrays.stream(parts).skip(1).map(s -> new Pair<>(number, s.trim())).collect(Collectors.toList());
     }
 
     /**
@@ -98,6 +80,22 @@ public class SolutionHandler {
         assert inputStream != null;
         InputStreamReader reader = new InputStreamReader(inputStream);
         return new BufferedReader(reader);
+    }
+
+    /**
+     * Generates the solution file name based on the level name.
+     *
+     * @param levelName the name of the level
+     * @return the solution file name
+     */
+    private static String getSolutionFileName(String levelName) {
+        return switch (levelName) {
+            case "Level 1" -> "SolutionsLevel1.txt";
+            case "Level 2" -> "SolutionsLevel2.txt";
+            case "Level 3" -> "SolutionsLevel3.txt";
+            case "Level 4" -> "SolutionsLevel4.txt";
+            default -> "Solutions.txt";
+        };
     }
 
 

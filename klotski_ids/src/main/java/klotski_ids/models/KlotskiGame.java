@@ -5,6 +5,8 @@ import javafx.util.Pair;
 
 import java.util.ArrayList;
 import java.util.List;
+import java.util.Objects;
+import java.util.stream.Collectors;
 
 /**
  * The KlotskiGame class represents a game of Klotski
@@ -30,15 +32,15 @@ public class KlotskiGame {
     /**
      * A list of the components (rectangles) currently in the grid.
      */
-    private List<Components> components = new ArrayList<>();
+    private List<Component> components = new ArrayList<>();
     /**
      * A list of default components.
      */
-    private static List<Components> defaultComponentsList = new ArrayList<>();
+    private static List<Component> defaultComponentsList = new ArrayList<>();
     /**
      * A list of components used for next best move.
      */
-    private static List<Components> pythonNextBestMoveComponentsLists = new ArrayList<>();
+    private static List<Component> pythonNextBestMoveComponentsLists = new ArrayList<>();
     /**
      * A list of the rectangles currently in the grid.
      */
@@ -47,7 +49,7 @@ public class KlotskiGame {
     /**
      * A list to store the movement history of the rectangles.
      */
-    private static List<List<Components>> historyRectanglesMovements = new ArrayList<>();
+    private static List<List<Component>> historyRectanglesMovements = new ArrayList<>();
 
     /**
      * The path of the file
@@ -86,7 +88,7 @@ public class KlotskiGame {
      *
      * @param components The list of components.
      */
-    public void setComponents(List<Components> components) {
+    public void setComponents(List<Component> components) {
         this.components = components;
     }
 
@@ -95,7 +97,7 @@ public class KlotskiGame {
      *
      * @param componentsList The default components list.
      */
-    public static void setDefaultComponentsList(List<Components> componentsList) {
+    public static void setDefaultComponentsList(List<Component> componentsList) {
         defaultComponentsList = copyComponentsList(componentsList);
     }
 
@@ -104,7 +106,7 @@ public class KlotskiGame {
      *
      * @param componentsList The Python next best move components lists.
      */
-    public static void setPythonNextBestMoveComponentsLists(List<Components> componentsList) {
+    public static void setPythonNextBestMoveComponentsLists(List<Component> componentsList) {
         pythonNextBestMoveComponentsLists = copyComponentsList(componentsList);
     }
 
@@ -122,7 +124,7 @@ public class KlotskiGame {
      *
      * @param componentsList The history of rectangle movements.
      */
-    public void setHistoryRectanglesMovements(List<Components> componentsList) {
+    public void setHistoryRectanglesMovements(List<Component> componentsList) {
         historyRectanglesMovements.add(copyComponentsList(componentsList));
     }
 
@@ -187,7 +189,7 @@ public class KlotskiGame {
      *
      * @return The list of components.
      */
-    public List<Components> getComponents() {
+    public List<Component> getComponents() {
         return components;
     }
 
@@ -196,7 +198,7 @@ public class KlotskiGame {
      *
      * @return The default components list.
      */
-    public static List<Components> getDefaultComponentsList() {
+    public static List<Component> getDefaultComponentsList() {
         return defaultComponentsList;
     }
 
@@ -215,7 +217,7 @@ public class KlotskiGame {
      *
      * @return The history of rectangle movements.
      */
-    public static List<List<Components>> getHistoryRectanglesMovements() {
+    public static List<List<Component>> getHistoryRectanglesMovements() {
         return historyRectanglesMovements;
     }
 
@@ -254,7 +256,7 @@ public class KlotskiGame {
      */
     public void setComponentsAndRectangles() {
         components = level.getRectangles();
-        rectangles = Helper.createRectangle(components);
+        rectangles = components.stream().map(Component::toRectangle).collect(Collectors.toList());
         setHistoryRectanglesMovements(components);
         setDefaultComponentsList(components);
     }
@@ -305,19 +307,53 @@ public class KlotskiGame {
      * @param originalList the original list of Components
      * @return the copied list of Components
      */
-    public static List<Components> copyComponentsList(List<Components> originalList) {
+    public static List<Component> copyComponentsList(List<Component> originalList) {
         if (originalList == null) {
             throw new IllegalArgumentException("The original list cannot be null.");
         }
 
-        List<Components> copyList = new ArrayList<>();
-        for (Components component : originalList) {
-            Components copy = new Components(component.getId(), component.getRow(), component.getCol(), component.getColSpan(), component.getRowSpan(), component.getWidth(), component.getHeight());
+        List<Component> copyList = new ArrayList<>();
+        for (Component component : originalList) {
+            Component copy = new Component(component.getId(), component.getRow(), component.getCol(), component.getColSpan(), component.getRowSpan(), component.getWidth(), component.getHeight());
             copyList.add(copy);
         }
         return copyList;
     }
 
+    /**
+     * Performs a move action on a list of Components.
+     *
+     * @param move       the move action to perform
+     * @param components the list of Components
+     * @return the updated list of Components after the move
+     */
+    private static List<Component> performMoveAction(Pair<Integer, String> move, List<Component> components) {
+        int rectangleNumber = move.getKey();
+        String action = move.getValue();
+        List<Component> componentsList = new ArrayList<>(components);
+        Component component = componentsList.get(rectangleNumber);
+        int currentRow = component.getRow();
+        int currentCol = component.getCol();
+
+        switch (action) {
+            case "UP" -> component.setRow(currentRow - 1);
+            case "DOWN" -> component.setRow(currentRow + 1);
+            case "RIGHT" -> component.setCol(currentCol + 1);
+            case "LEFT" -> component.setCol(currentCol - 1);
+        }
+
+        return componentsList;
+    }
+
+    /**
+
+     Checks if the given component is the big orange rectangle.
+     @param element the component to check
+     @return true if the component is the big orange rectangle, false otherwise
+     */
+    private static boolean isTheBigOrangeRectangle(Component element) {
+        return element.getWidth() == 100 && element.getHeight() == 100;
+    }
 
     /**
      * Checks if the win condition is met based on the provided list of components.
@@ -325,37 +361,26 @@ public class KlotskiGame {
      * @param componentsList the list of components to check for the win condition
      * @return true if the win condition is met, false otherwise
      */
-    public boolean winCondition(List<Components> componentsList) {
-        for (Components elem : componentsList) {
-            if (elem.getWidth() == 100 && elem.getHeight() == 100) {
-                if (elem.getCol() == 1 && elem.getRow() == 3) {
-
-                    return true;
-                }
-            }
-        }
-        return false;
+    public boolean winCondition(List<Component> componentsList) {
+        return componentsList.stream()
+                .anyMatch(elem -> isTheBigOrangeRectangle(elem)
+                        && elem.getCol() == 1 && elem.getRow() == 3);
     }
 
-
     /**
-     * Handles the default layout for the next best move.
+     * Handles the default layout by performing the next best move action.
+     *
+     * @param nextBestMoveCounter the counter for the next best move
      */
     public void handleDefaultLayout(int nextBestMoveCounter) {
-        if (Helper.isSameComponentsList(defaultComponentsList, components) && nextBestMoveCounter != 0) {
-            nextBestMoveCounter = 0;
-        }
 
-        String levelName = levelTitle;
 
-        String solutionFileName = Helper.getSolutionFileName(levelName);
-        List<Pair<Integer, String>> separatedMoves = SolutionHandler.readSolutions(solutionFileName);
+        List<Pair<Integer, String>> separatedMoves = SolutionHandler.readSolutions(levelTitle);
 
         int moveListSize = separatedMoves.size();
 
         if (nextBestMoveCounter < moveListSize) {
-            System.out.println(separatedMoves.get(nextBestMoveCounter) + "\n");
-            components = Helper.performMoveAction(separatedMoves.get(nextBestMoveCounter), getComponents());
+            components = performMoveAction(separatedMoves.get(nextBestMoveCounter), getComponents());
         }
 
     }
@@ -364,7 +389,7 @@ public class KlotskiGame {
      * Handles the Python solver for the next best move.
      */
     public void handlePythonSolver() {
-        if (!Helper.isSameComponentsList(pythonNextBestMoveComponentsLists, getComponents())) {
+        if (!Objects.equals(pythonNextBestMoveComponentsLists, getComponents())) {
             String pythonScriptPath = "src/main/resources/klotski_ids/pythonKlotskiSolver/Main.py";
             PythonHandler.runPythonScript(pythonScriptPath);
             nextMoveIterator = 0;
@@ -376,7 +401,7 @@ public class KlotskiGame {
 
 
         if (nextMoveIterator < moveListSize) {
-            components = Helper.performMoveAction(separatedMoves.get(nextMoveIterator), getComponents());
+            components = performMoveAction(separatedMoves.get(nextMoveIterator), getComponents());
             nextMoveIterator++;
         }
     }

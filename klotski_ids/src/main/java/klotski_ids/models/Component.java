@@ -1,9 +1,17 @@
 package klotski_ids.models;
 
+import javafx.scene.shape.Rectangle;
+import org.json.JSONException;
+import org.json.JSONObject;
+
+import java.util.LinkedHashMap;
+
 /**
  * This class represents a component in a grid, with its properties such as ID, position, size, and span.
  */
-public class Components {
+
+//TODO add validation to setter
+public class Component {
     /**
      * The ID of the element
      */
@@ -36,7 +44,7 @@ public class Components {
     /**
      * Constructs a new Components object with the default properties.
      */
-    public Components() {
+    public Component() {
         this.id = "";
         this.row = 0;
         this.col = 0;
@@ -58,7 +66,7 @@ public class Components {
      * @param width   the width of the component
      * @param height  the height of the component
      */
-    public Components(String id, int row, int col, int colSpan, int rowSpan, int width, int height) {
+    public Component(String id, int row, int col, int colSpan, int rowSpan, int width, int height) {
         this.id = id;
         this.row = row;
         this.col = col;
@@ -194,24 +202,34 @@ public class Components {
         this.id = id;
     }
 
-
+    /**
+     * Converts the Component to a string representation in the solver format.
+     * The solver format represents the shape and coordinates of the Component.
+     *
+     * @return the string representation of the Component in the solver format
+     */
     public String toSolverFormatString() {
-            int rectangleAreaDimension = (width * height) / 100;
+        int rectangleAreaDimension = (width * height) / 100;
 
-            String shape;
-            if (rectangleAreaDimension == 100) {
-                shape = "B";
-            } else if (rectangleAreaDimension == 50 && width == 100) {
-                shape = "H";
-            } else if (rectangleAreaDimension == 50 && height == 100) {
-                shape = "V";
-            } else {
-                shape = "S";
-            }
+        String shape;
+        if (rectangleAreaDimension == 100) {
+            shape = "B";
+        } else if (rectangleAreaDimension == 50 && width == 100) {
+            shape = "H";
+        } else if (rectangleAreaDimension == 50 && height == 100) {
+            shape = "V";
+        } else {
+            shape = "S";
+        }
 
-         return String.format("%s%n%s", shape, coordsToString());
+        return String.format("%s%n%s", shape, coordsToString());
     }
 
+    /**
+     * Converts the row and column coordinates of the Component to a string representation.
+     *
+     * @return the string representation of the coordinates in the format "X Y\n"
+     */
     private String coordsToString() {
         String X = Integer.toString(col);
         String Y = Integer.toString(row);
@@ -219,7 +237,37 @@ public class Components {
     }
 
     /**
-     * Checks if this Components object is equal to another object.
+     * Converts the Component object to a Rectangle object.
+     *
+     * @return the Rectangle object representing the Component
+     */
+    public Rectangle toRectangle() {
+        Rectangle rectangle = new Rectangle(width, height);
+        rectangle.setId(id);
+
+        return rectangle;
+    }
+
+    /**
+     * Converts the Component object to a JSONObject representation.
+     *
+     * @return the JSONObject representing the Component object
+     * @throws JSONException if an error occurs while creating the JSONObject
+     */
+    public JSONObject toJsonObject() throws JSONException {
+        JSONObject rectangleJson = new JSONObject(new LinkedHashMap<>());
+        rectangleJson.put("id", id);
+        rectangleJson.put("width", width);
+        rectangleJson.put("height", height);
+        rectangleJson.put("row", row);
+        rectangleJson.put("col", col);
+        rectangleJson.put("colSpan", colSpan);
+        rectangleJson.put("rowSpan", rowSpan);
+        return rectangleJson;
+    }
+
+    /**
+     * Checks if this Component object is equal to another object.
      *
      * @param obj the object to compare to
      * @return true if the objects are equal, false otherwise
@@ -229,7 +277,7 @@ public class Components {
             return false;
         }
 
-        Components component = (Components) obj;
+        Component component = (Component) obj;
 
         return row == component.getRow()
                 && col == component.getCol()

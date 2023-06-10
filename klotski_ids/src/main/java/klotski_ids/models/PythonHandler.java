@@ -1,13 +1,11 @@
 package klotski_ids.models;
 
-import javafx.util.Pair;
-
 import java.io.*;
-import java.util.ArrayList;
-import java.util.List;
 
 /**
- * The Helper class provides utility methods for various operations.
+ * The PythonHandler class is responsible for executing Python code and handling the interaction
+ * between Java and Python in a seamless manner.
+ * It provides methods to execute Python scripts, pass arguments, and retrieve the output.
  */
 public class PythonHandler {
 

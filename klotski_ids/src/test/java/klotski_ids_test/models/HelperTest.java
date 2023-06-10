@@ -1,20 +1,16 @@
 package klotski_ids_test.models;
 
-
 import javafx.geometry.Point2D;
 import javafx.scene.layout.GridPane;
-import javafx.util.Pair;
 import klotski_ids.models.Helper;
 import klotski_ids.models.Level;
-import klotski_ids.models.Components;
-import org.json.JSONException;
+import klotski_ids.models.Component;
 import org.junit.jupiter.api.BeforeAll;
 import javafx.scene.shape.Rectangle;
 import org.junit.jupiter.api.Test;
 
 import org.junit.jupiter.api.DisplayName;
 
-import java.io.IOException;
 import java.util.ArrayList;
 import java.util.List;
 
@@ -22,17 +18,8 @@ import java.util.List;
 import static org.junit.jupiter.api.Assertions.*;
 
 public class HelperTest {
-   /* private static Level expectedLevel;
     private static final int CELL_WIDTH = 50;
     private static final int CELL_HEIGHT = 50;
-
-
-    @BeforeAll
-    public static void setUp() {
-        expectedLevel = new Level();
-        expectedLevel.setLevelTitle("Level 1");
-        expectedLevel.setLevelFileName("level_1");
-    }
 
 
     @Test
@@ -108,50 +95,11 @@ public class HelperTest {
     }
 
     @Test
-    @DisplayName("Create rectangle test")
-    public void testCreateRectangle() {
-        List<Components> components = new ArrayList<>();
-        components.add(new Components("component1", 0, 0,1,1,CELL_WIDTH,CELL_HEIGHT));
-        components.add(new Components("component2", 1, 1,1,1,CELL_WIDTH,CELL_HEIGHT));
-        List<Rectangle> rectangles = Helper.createRectangle(components);
-
-        // Assert that the created rectangles match the expected number and properties
-        assertEquals(components.size(), rectangles.size());
-
-        for (int i = 0; i < components.size(); i++) {
-            Components component = components.get(i);
-            Rectangle rectangle = rectangles.get(i);
-
-            assertEquals(component.getId(), rectangle.getId());
-            assertEquals(component.getWidth(), rectangle.getWidth());
-            assertEquals(component.getHeight(), rectangle.getHeight());
-        }
-    }
-
-    @Test
-    @DisplayName("Test create rectangle with empty component list")
-    public void testCreateRectangleWithEmptyComponents() {
-        List<Components> components = new ArrayList<>();
-
-        List<Rectangle> rectangles = Helper.createRectangle(components);
-
-        assertTrue(rectangles.isEmpty());
-    }
-
-    @Test
-    @DisplayName("Test create rectangle with null component list")
-    public void testCreateRectangleWithNullComponents() {
-        IllegalArgumentException exception = assertThrows(IllegalArgumentException.class, () -> Helper.createRectangle(null));
-
-        assertEquals("Component list cant be null", exception.getMessage());
-    }
-
-    @Test
     @DisplayName("Test set Grid Pane elements")
     public void testSetGridPaneElements() {
-        List<Components> components = new ArrayList<>();
-        components.add(new Components("component1", 0, 0,1,1,CELL_WIDTH,CELL_HEIGHT));
-        components.add(new Components("component2", 1, 1,1,1,CELL_WIDTH,CELL_HEIGHT));
+        List<Component> components = new ArrayList<>();
+        components.add(new Component("component1", 0, 0,1,1,CELL_WIDTH,CELL_HEIGHT));
+        components.add(new Component("component2", 1, 1,1,1,CELL_WIDTH,CELL_HEIGHT));
 
         List<Rectangle> rectangles = new ArrayList<>();
         rectangles.add(new Rectangle(50, 50));
@@ -168,7 +116,7 @@ public class HelperTest {
 
         // Assert that the children of the GridPane match the expected components and rectangles
         for (int i = 0; i < components.size(); i++) {
-            Components component = components.get(i);
+            Component component = components.get(i);
             Rectangle rectangle = rectangles.get(i);
 
             assertTrue(gridPane.getChildren().contains(rectangle));
@@ -183,7 +131,7 @@ public class HelperTest {
     @DisplayName("Test set Grid Pane elements with empty lists")
     public void testSetGridPaneElementsWithEmptyLists() {
         // Create empty lists of components and rectangles
-        List<Components> components = new ArrayList<>();
+        List<Component> components = new ArrayList<>();
         List<Rectangle> rectangles = new ArrayList<>();
 
         // Create a sample GridPane
@@ -199,9 +147,9 @@ public class HelperTest {
     @Test
     @DisplayName("Test set Grid Pane elements with different list size")
     public void testSetGridPaneElementsWithMismatchedSizes() {
-        List<Components> components = new ArrayList<>();
-        components.add(new Components("component1", 0, 0,1,1,CELL_WIDTH,CELL_HEIGHT));
-        components.add(new Components("component2", 1, 1,1,1,CELL_WIDTH,CELL_HEIGHT));
+        List<Component> components = new ArrayList<>();
+        components.add(new Component("component1", 0, 0,1,1,CELL_WIDTH,CELL_HEIGHT));
+        components.add(new Component("component2", 1, 1,1,1,CELL_WIDTH,CELL_HEIGHT));
 
         List<Rectangle> rectangles = new ArrayList<>();
         rectangles.add(new Rectangle(50, 50));
@@ -218,145 +166,5 @@ public class HelperTest {
         assertEquals(Math.min(components.size(), rectangles.size()), gridPane.getChildren().size());
     }
 
-
-
-    @Test
-    @DisplayName("Test if two components lists are the same")
-    public void testIsSameComponentsList() {
-        // Create sample components lists
-        List<Components> componentsList1 = new ArrayList<>();
-        componentsList1.add(new Components("component1", 0, 0, 1, 1, CELL_WIDTH, CELL_HEIGHT));
-        componentsList1.add(new Components("component2", 1, 1, 1, 1, CELL_WIDTH, CELL_HEIGHT));
-
-
-        List<Components> componentsList2 = new ArrayList<>();
-        componentsList2.add(new Components("component1", 0, 0, 1, 1, CELL_WIDTH, CELL_HEIGHT));
-        componentsList2.add(new Components("component2", 1, 1, 1, 1, CELL_WIDTH, CELL_HEIGHT));
-
-        // Invoke the method under test
-        boolean result = Helper.isSameComponentsList(componentsList1, componentsList2);
-
-        // Assert that the two components lists are considered the same
-        assertTrue(result);
-    }
-
-    @Test
-    @DisplayName("Test if two components lists are different")
-    public void testIsDifferentComponentsList() {
-        List<Components> componentsList1 = new ArrayList<>();
-        componentsList1.add(new Components("component1", 0, 0,1,1,CELL_WIDTH,CELL_HEIGHT));
-        componentsList1.add(new Components("component2", 1, 1,1,1,CELL_WIDTH,CELL_HEIGHT));
-
-        List<Components> componentsList2 = new ArrayList<>();
-        componentsList2.add(new Components("component1", 0, 0, 2, 1, 2*CELL_WIDTH, CELL_HEIGHT));
-        componentsList2.add(new Components("component3", 1, 1, 1, 1, CELL_WIDTH, CELL_HEIGHT));
-
-        // Invoke the method under test
-        boolean result = Helper.isSameComponentsList(componentsList1, componentsList2);
-
-        // Assert that the two components lists are considered different
-        assertFalse(result);
-    }
-
-    @Test
-    @DisplayName("Test if components lists with different sizes are considered different")
-    public void testIsDifferentSizeComponentsList() {
-        // Create sample components lists with different sizes
-        List<Components> componentsList1 = new ArrayList<>();
-        componentsList1.add(new Components("component1", 0, 0, 1, 1, CELL_WIDTH, CELL_HEIGHT));
-
-        List<Components> componentsList2 = new ArrayList<>();
-        componentsList2.add(new Components("component1", 0, 0, 2, 2, 2*CELL_WIDTH, 2*CELL_HEIGHT));
-        componentsList2.add(new Components("component2", 1, 1, 1, 1, CELL_WIDTH, CELL_HEIGHT));
-
-        // Invoke the method under test
-        boolean result = Helper.isSameComponentsList(componentsList1, componentsList2);
-
-        // Assert that the two components lists with different sizes are considered different
-        assertFalse(result);
-    }
-
-    @Test
-    @DisplayName("Test converting level to string")
-    public void testLevelToString() {
-        List<Components> components = new ArrayList<>();
-        components.add(new Components("component1", 0, 0,1,1,CELL_WIDTH,CELL_HEIGHT));
-        components.add(new Components("component2", 1, 1,1,1,CELL_WIDTH,CELL_HEIGHT));
-
-        // Expected string representation of the level
-        String coordsComponent1 = "0" + " " + "0" + "\n";
-        String expectedComponent1 = String.format("%s%n%s", "S", coordsComponent1);
-        String coordsComponent2 = "1" + " " + "1" + "\n";
-        String expectedComponent2 = String.format("%s%n%s", "S", coordsComponent2);
-
-        String expected = expectedComponent1 + expectedComponent2;
-
-        // Invoke the method under test
-        String result = Helper.levelToString(components);
-
-        // Assert the result matches the expected string
-        assertEquals(expected, result);
-    }
-    @Test
-    @DisplayName("Test converting coordinates to string")
-    public void testCoordsToString() {
-        // Create a sample Components object
-        Components rectangle = new Components("A", 0, 0, 1, 1, CELL_WIDTH, CELL_HEIGHT);
-
-        // Expected string representation of the coordinates
-        String expected = "0 0\n";
-
-        // Invoke the method under test
-        String result = Helper.coordsToString(rectangle);
-
-        // Assert the result matches the expected string
-        assertEquals(expected, result);
-    }
-
-    @Test
-    @DisplayName("Parsing a move string")
-    public void testParseMove() {
-        String moveString = "#6 DOWN";
-        Pair<Integer, String> expectedPair = new Pair<>(6, "DOWN");
-
-        Pair<Integer, String> actualPair = Helper.parseMove(moveString);
-
-        assertEquals(expectedPair, actualPair, "Parsed move does not match expected result.");
-    }
-
-    @Test
-    @DisplayName("Testing performMoveAction")
-    public void testPerformMoveAction() {
-        List<Components> components = new ArrayList<>();
-        components.add(new Components("A", 0, 0, 1, 1, 100, 100));
-
-        Pair<Integer, String> move = new Pair<>(0, "RIGHT");
-        List<Components> expectedComponents = new ArrayList<>();
-        expectedComponents.add(new Components("A", 0, 1, 1, 1, 100, 100));
-
-        List<Components> actualComponents = Helper.performMoveAction(move, components);
-
-        assertEquals(expectedComponents, actualComponents, "Components after move do not match expected result.");
-    }
-
-    @Test
-    @DisplayName("Test getSolutionFileName")
-    public void testGetSolutionFileName() {
-        String level1FileName = Helper.getSolutionFileName("Level 1");
-        assertEquals("SolutionsLevel1.txt", level1FileName);
-
-        String level2FileName = Helper.getSolutionFileName("Level 2");
-        assertEquals("SolutionsLevel2.txt", level2FileName);
-
-        String level3FileName = Helper.getSolutionFileName("Level 3");
-        assertEquals("SolutionsLevel3.txt", level3FileName);
-
-        String level4FileName = Helper.getSolutionFileName("Level 4");
-        assertEquals("SolutionsLevel4.txt", level4FileName);
-
-        String defaultFileName = Helper.getSolutionFileName("Level 5");
-        assertEquals("", defaultFileName);
-    }
-*/
 
 }
