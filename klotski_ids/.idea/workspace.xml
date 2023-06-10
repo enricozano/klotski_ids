@@ -13,8 +13,11 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="6bfdf0fa-9483-4758-a1c0-5debc05e40e9" name="Changes" comment="refactor">
-      <change afterPath="$PROJECT_DIR$/src/test/java/klotski_ids_test/models/LevelManagerTest.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/test/java/klotski_ids_test/models/SolutionHandlerTest.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../.idea/vcs.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../docs/javadoc/klotski_ids/klotski_ids/models/Component.html" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../docs/javadoc/klotski_ids/klotski_ids/models/LevelManager.html" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../docs/javadoc/klotski_ids/klotski_ids/models/PythonHandler.html" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../docs/javadoc/klotski_ids/klotski_ids/models/SolutionHandler.html" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/../.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/../.idea/workspace.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/../docs/assets/testsite/surefire-report.html" beforeDir="false" afterPath="$PROJECT_DIR$/../docs/assets/testsite/surefire-report.html" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/../docs/javadoc/allclasses-index.html" beforeDir="false" afterPath="$PROJECT_DIR$/../docs/javadoc/allclasses-index.html" afterDir="false" />
@@ -65,23 +68,6 @@
       <change beforePath="$PROJECT_DIR$/../docs/javadoc/overview-tree.html" beforeDir="false" afterPath="$PROJECT_DIR$/../docs/javadoc/overview-tree.html" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/../docs/javadoc/search.html" beforeDir="false" afterPath="$PROJECT_DIR$/../docs/javadoc/search.html" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/../docs/javadoc/type-search-index.js" beforeDir="false" afterPath="$PROJECT_DIR$/../docs/javadoc/type-search-index.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/inspectionProfiles/Project_Default.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/inspectionProfiles/Project_Default.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/pom.xml" beforeDir="false" afterPath="$PROJECT_DIR$/pom.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/klotski_ids/controllers/frameMenu/GameController.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/klotski_ids/controllers/frameMenu/GameController.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/klotski_ids/models/Components.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/klotski_ids/models/Component.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/klotski_ids/models/Helper.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/klotski_ids/models/Helper.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/klotski_ids/models/KlotskiGame.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/klotski_ids/models/KlotskiGame.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/klotski_ids/models/Level.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/klotski_ids/models/Level.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/klotski_ids/models/LevelManager.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/klotski_ids/models/LevelManager.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/klotski_ids/models/PythonHandler.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/klotski_ids/models/PythonHandler.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/klotski_ids/models/SolutionHandler.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/klotski_ids/models/SolutionHandler.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/resources/klotski_ids/data/levelSolutions/DefaultLayout.txt" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/resources/klotski_ids/data/levelSolutions/DefaultLayout.txt" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/resources/klotski_ids/data/levelSolutions/Solutions.txt" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/resources/klotski_ids/data/levelSolutions/Solutions.txt" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/test/java/klotski_ids_test/models/ComponentsTest.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/test/java/klotski_ids_test/models/ComponentTest.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/test/java/klotski_ids_test/models/HelperTest.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/test/java/klotski_ids_test/models/HelperTest.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/test/java/klotski_ids_test/models/KlotskiGameTest.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/test/java/klotski_ids_test/models/KlotskiGameTest.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/test/java/klotski_ids_test/models/LevelTest.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/test/java/klotski_ids_test/models/LevelTest.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/../out/klotski-jar-with-dependencies.jar" beforeDir="false" />
       <change beforePath="$PROJECT_DIR$/../out/klotski_ids.jar" beforeDir="false" afterPath="$PROJECT_DIR$/../out/klotski_ids.jar" afterDir="false" />
     </list>
@@ -386,7 +372,7 @@
       <workItem from="1686253425956" duration="85000" />
       <workItem from="1686253563426" duration="357000" />
       <workItem from="1686416554887" duration="3795000" />
-      <workItem from="1686421258331" duration="995000" />
+      <workItem from="1686421258331" duration="1322000" />
     </task>
     <task id="LOCAL-00011" summary="style and menu">
       <created>1683372645706</created>
