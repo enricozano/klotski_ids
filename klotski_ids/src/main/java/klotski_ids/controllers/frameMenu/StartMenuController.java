@@ -10,9 +10,9 @@ import javafx.scene.Scene;
 import javafx.scene.control.Button;
 import javafx.stage.FileChooser;
 import javafx.stage.Stage;
-import klotski_ids.models.Helper;
 import klotski_ids.models.Level;
 import klotski_ids.models.MyAlerts;
+import klotski_ids.models.LevelManager;
 
 
 import java.io.File;
@@ -86,7 +86,7 @@ public class StartMenuController {
             if (selectedFile != null) {
                 String filePath = selectedFile.getPath();
                 loadGameScene();
-                Level level = Helper.readJsonAbsolutePath(filePath);
+                Level level = LevelManager.getLevel(filePath);
 
                 if (level != null) {
                     System.out.println("Level: " + level.getLevelTitle());

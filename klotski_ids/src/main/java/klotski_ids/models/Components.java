@@ -194,6 +194,30 @@ public class Components {
         this.id = id;
     }
 
+
+    public String toSolverFormatString() {
+            int rectangleAreaDimension = (width * height) / 100;
+
+            String shape;
+            if (rectangleAreaDimension == 100) {
+                shape = "B";
+            } else if (rectangleAreaDimension == 50 && width == 100) {
+                shape = "H";
+            } else if (rectangleAreaDimension == 50 && height == 100) {
+                shape = "V";
+            } else {
+                shape = "S";
+            }
+
+         return String.format("%s%n%s", shape, coordsToString());
+    }
+
+    private String coordsToString() {
+        String X = Integer.toString(col);
+        String Y = Integer.toString(row);
+        return X + " " + Y + "\n";
+    }
+
     /**
      * Checks if this Components object is equal to another object.
      *

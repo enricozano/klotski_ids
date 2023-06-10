@@ -16,4 +16,3 @@ if __name__ == "__main__":
     game = HRGame('src/main/resources/klotski_ids/data/levelSolutions/DefaultLayout.txt')
     game.solve()
     game.solution.outputToFile("src/main/resources/klotski_ids/data/levelSolutions/Solutions.txt")
-

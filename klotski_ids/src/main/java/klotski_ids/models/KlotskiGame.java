@@ -23,51 +23,6 @@ public class KlotskiGame {
 
 
     /**
-     * The starting X coordinate of the mouse event.
-     */
-    private double startX;
-
-    /**
-     * The starting Y coordinate of the mouse event.
-     */
-    private double startY;
-
-    /**
-     * The starting translate X value of the rectangle being dragged.
-     */
-    private double startTranslateX;
-
-    /**
-     * The starting translate Y value of the rectangle being dragged.
-     */
-    private double startTranslateY;
-
-    /**
-     * The starting X coordinate of the mouse event relative to the rectangle being dragged.
-     */
-    private double startMouseX;
-
-    /**
-     * The starting Y coordinate of the mouse event relative to the rectangle being dragged.
-     */
-    private double startMouseY;
-
-    /**
-     * The column index of the grid cell containing the top-left corner of the rectangle being dragged.
-     */
-    private double col;
-
-    /**
-     * The row index of the grid cell containing the top-left corner of the rectangle being dragged.
-     */
-    private double row;
-
-
-    /**
-     * The number of moves made by the player.
-     */
-    public int numMosse;
-    /**
      * The json values of the level
      */
     private Level level;
@@ -104,10 +59,6 @@ public class KlotskiGame {
      */
     private String levelTitle;
 
-    /**
-     * Counter for the number of times the next best move has been selected.
-     */
-    public static int nextBestMoveCounter;
 
     /**
      * Iterator for the next move in the list of best moves.
@@ -120,86 +71,6 @@ public class KlotskiGame {
      */
     private boolean win;
 
-    /**
-     * Sets the X-coordinate of the starting position.
-     *
-     * @param startX The X-coordinate of the starting position.
-     */
-    public void setStartX(double startX) {
-        this.startX = startX;
-    }
-
-    /**
-     * Sets the Y-coordinate of the starting position.
-     *
-     * @param startY The Y-coordinate of the starting position.
-     */
-    public void setStartY(double startY) {
-        this.startY = startY;
-    }
-
-    /**
-     * Sets the X translation of the starting position.
-     *
-     * @param startTranslateX The X translation of the starting position.
-     */
-    public void setStartTranslateX(double startTranslateX) {
-        this.startTranslateX = startTranslateX;
-    }
-
-    /**
-     * Sets the Y translation of the starting position.
-     *
-     * @param startTranslateY The Y translation of the starting position.
-     */
-    public void setStartTranslateY(double startTranslateY) {
-        this.startTranslateY = startTranslateY;
-    }
-
-    /**
-     * Sets the X-coordinate of the mouse position when dragging starts.
-     *
-     * @param startMouseX The X-coordinate of the mouse position when dragging starts.
-     */
-    public void setStartMouseX(double startMouseX) {
-        this.startMouseX = startMouseX;
-    }
-
-    /**
-     * Sets the Y-coordinate of the mouse position when dragging starts.
-     *
-     * @param startMouseY The Y-coordinate of the mouse position when dragging starts.
-     */
-    public void setStartMouseY(double startMouseY) {
-        this.startMouseY = startMouseY;
-    }
-
-    /**
-     * Sets the column index.
-     *
-     * @param col The column index.
-     */
-    public void setCol(double col) {
-        this.col = col;
-    }
-
-    /**
-     * Sets the row index.
-     *
-     * @param row The row index.
-     */
-    public void setRow(double row) {
-        this.row = row;
-    }
-
-    /**
-     * Sets the number of moves.
-     *
-     * @param numMosse The number of moves.
-     */
-    public void setNumMosse(int numMosse) {
-        this.numMosse = numMosse;
-    }
 
     /**
      * Sets the level.
@@ -266,16 +137,6 @@ public class KlotskiGame {
 
 
     /**
-     * Sets the counter for the next best move.
-     *
-     * @param nextBestMoveCounter The counter for the next best move.
-     */
-    public static void setNextBestMoveCounter(int nextBestMoveCounter) {
-        KlotskiGame.nextBestMoveCounter = nextBestMoveCounter;
-    }
-
-
-    /**
      * Sets the flag indicating if the game has been won.
      *
      * @param win The flag indicating if the game has been won.
@@ -311,86 +172,6 @@ public class KlotskiGame {
         return NUM_ROWS;
     }
 
-    /**
-     * Returns the X-coordinate of the starting position.
-     *
-     * @return The X-coordinate of the starting position.
-     */
-    public double getStartX() {
-        return startX;
-    }
-
-    /**
-     * Returns the Y-coordinate of the starting position.
-     *
-     * @return The Y-coordinate of the starting position.
-     */
-    public double getStartY() {
-        return startY;
-    }
-
-    /**
-     * Returns the X translation of the starting position.
-     *
-     * @return The X translation of the starting position.
-     */
-    public double getStartTranslateX() {
-        return startTranslateX;
-    }
-
-    /**
-     * Returns the Y translation of the starting position.
-     *
-     * @return The Y translation of the starting position.
-     */
-    public double getStartTranslateY() {
-        return startTranslateY;
-    }
-
-    /**
-     * Returns the X-coordinate of the mouse position when dragging starts.
-     *
-     * @return The X-coordinate of the mouse position when dragging starts.
-     */
-    public double getStartMouseX() {
-        return startMouseX;
-    }
-
-    /**
-     * Returns the Y-coordinate of the mouse position when dragging starts.
-     *
-     * @return The Y-coordinate of the mouse position when dragging starts.
-     */
-    public double getStartMouseY() {
-        return startMouseY;
-    }
-
-    /**
-     * Returns the column index.
-     *
-     * @return The column index.
-     */
-    public double getCol() {
-        return col;
-    }
-
-    /**
-     * Returns the row index.
-     *
-     * @return The row index.
-     */
-    public double getRow() {
-        return row;
-    }
-
-    /**
-     * Returns the number of moves.
-     *
-     * @return The number of moves.
-     */
-    public int getNumMosse() {
-        return numMosse;
-    }
 
     /**
      * Returns the level.
@@ -456,15 +237,6 @@ public class KlotskiGame {
         return levelTitle;
     }
 
-    /**
-     * Returns the counter for the next best move.
-     *
-     * @return The counter for the next best move.
-     */
-    public static int getNextBestMoveCounter() {
-        return nextBestMoveCounter;
-    }
-
 
     /**
      * Returns whether the game has been won.
@@ -512,7 +284,6 @@ public class KlotskiGame {
 
         // Set UI elements
         setTitle(level.getLevelTitle());
-        setNumMosse(level.getCountedMoves());
         setComponentsAndRectangles();
     }
 
@@ -520,8 +291,6 @@ public class KlotskiGame {
      * Resets the variables to their initial values.
      */
     public void resetVariables() {
-        nextBestMoveCounter = 0;
-        numMosse = 0;
         components = new ArrayList<>();
         rectangles = new ArrayList<>();
         historyRectanglesMovements = new ArrayList<>();
@@ -551,9 +320,28 @@ public class KlotskiGame {
 
 
     /**
+     * Checks if the win condition is met based on the provided list of components.
+     *
+     * @param componentsList the list of components to check for the win condition
+     * @return true if the win condition is met, false otherwise
+     */
+    public boolean winCondition(List<Components> componentsList) {
+        for (Components elem : componentsList) {
+            if (elem.getWidth() == 100 && elem.getHeight() == 100) {
+                if (elem.getCol() == 1 && elem.getRow() == 3) {
+
+                    return true;
+                }
+            }
+        }
+        return false;
+    }
+
+
+    /**
      * Handles the default layout for the next best move.
      */
-    public void handleDefaultLayout() {
+    public void handleDefaultLayout(int nextBestMoveCounter) {
         if (Helper.isSameComponentsList(defaultComponentsList, components) && nextBestMoveCounter != 0) {
             nextBestMoveCounter = 0;
         }
@@ -561,10 +349,12 @@ public class KlotskiGame {
         String levelName = levelTitle;
 
         String solutionFileName = Helper.getSolutionFileName(levelName);
-        List<Pair<Integer, String>> separatedMoves = Helper.getSeparatedMoves(solutionFileName);
+        List<Pair<Integer, String>> separatedMoves = SolutionHandler.readSolutions(solutionFileName);
+
         int moveListSize = separatedMoves.size();
 
         if (nextBestMoveCounter < moveListSize) {
+            System.out.println(separatedMoves.get(nextBestMoveCounter) + "\n");
             components = Helper.performMoveAction(separatedMoves.get(nextBestMoveCounter), getComponents());
         }
 
@@ -576,12 +366,12 @@ public class KlotskiGame {
     public void handlePythonSolver() {
         if (!Helper.isSameComponentsList(pythonNextBestMoveComponentsLists, getComponents())) {
             String pythonScriptPath = "src/main/resources/klotski_ids/pythonKlotskiSolver/Main.py";
-            Helper.executePythonProcess(pythonScriptPath);
+            PythonHandler.runPythonScript(pythonScriptPath);
             nextMoveIterator = 0;
         }
 
         String solutionFileName = "Solutions.txt";
-        List<Pair<Integer, String>> separatedMoves = Helper.getSeparatedMoves(solutionFileName);
+        List<Pair<Integer, String>> separatedMoves = SolutionHandler.readSolutions(solutionFileName);
         int moveListSize = separatedMoves.size();
 
 

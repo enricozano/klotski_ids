@@ -64,4 +64,46 @@ public class KlotskiGameTest {
         assertEquals("The original list cannot be null.", exception.getMessage());
     }
 
+    @Test
+    @DisplayName("Testing winCondition with winning components")
+    public void testWinCondition() {
+        // Create a list of components for testing
+        List<Components> componentsList = new ArrayList<>();
+
+        // Add a component that satisfies the win condition
+        Components winComponent = new Components("1", 3, 1, 2, 2, 100, 100);
+        componentsList.add(winComponent);
+
+        // Add some other components
+        Components component1 = new Components("2", 0, 0, 1, 1, 50, 50);
+        Components component2 = new Components("3", 2, 2, 1, 1, 50, 50);
+        componentsList.add(component1);
+        componentsList.add(component2);
+
+        // Create an instance of KlotskiGame
+        KlotskiGame klotskiGame = new KlotskiGame();
+
+        // Call the winCondition method and assert that it returns true
+        assertTrue(klotskiGame.winCondition(componentsList));
+    }
+
+    @Test
+    @DisplayName("Testing winCondition with non-winning components")
+    public void testWinCondition_NoWin() {
+        // Create a list of components for testing
+        List<Components> componentsList = new ArrayList<>();
+
+        // Add some components that do not satisfy the win condition
+        Components component1 = new Components("1", 0, 0, 1, 1, 50, 50);
+        Components component2 = new Components("2", 2, 2, 1, 1, 50, 50);
+        componentsList.add(component1);
+        componentsList.add(component2);
+
+        // Create an instance of KlotskiGame
+        KlotskiGame klotskiGame = new KlotskiGame();
+
+        // Call the winCondition method and assert that it returns false
+        assertFalse(klotskiGame.winCondition(componentsList));
+    }
+
 }

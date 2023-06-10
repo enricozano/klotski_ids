@@ -8,7 +8,6 @@ import klotski_ids.models.Helper;
 import klotski_ids.models.Level;
 import klotski_ids.models.Components;
 import org.json.JSONException;
-import org.junit.jupiter.api.Assertions;
 import org.junit.jupiter.api.BeforeAll;
 import javafx.scene.shape.Rectangle;
 import org.junit.jupiter.api.Test;
@@ -23,7 +22,7 @@ import java.util.List;
 import static org.junit.jupiter.api.Assertions.*;
 
 public class HelperTest {
-    private static Level expectedLevel;
+   /* private static Level expectedLevel;
     private static final int CELL_WIDTH = 50;
     private static final int CELL_HEIGHT = 50;
 
@@ -35,30 +34,6 @@ public class HelperTest {
         expectedLevel.setLevelFileName("level_1");
     }
 
-    @Test
-    @DisplayName("Read json and parse it in a Level object")
-    public void testReadJson() throws IOException, JSONException {
-        String testFilePath = "/klotski_ids_test/dataTest/levelTest.json";
-
-        Level actualLevel = Helper.readJson(testFilePath);
-
-        Assertions.assertNotNull(actualLevel);
-        Assertions.assertEquals(expectedLevel.getLevelTitle(), actualLevel.getLevelTitle());
-        Assertions.assertEquals(expectedLevel.getMinWidth(), actualLevel.getMinWidth());
-        Assertions.assertEquals(expectedLevel.getMaxHeight(), actualLevel.getMaxHeight());
-        Assertions.assertEquals(expectedLevel.getMaxWidth(), actualLevel.getMaxWidth());
-        Assertions.assertEquals(expectedLevel.getMinHeight(), actualLevel.getMinHeight());
-        Assertions.assertEquals(expectedLevel.getCountedMoves(), actualLevel.getCountedMoves());
-        Assertions.assertEquals(expectedLevel.getLevelFileName(), actualLevel.getLevelFileName());
-
-        Assertions.assertEquals(actualLevel.getRectangles().get(0).getId(), "rect1");
-        Assertions.assertEquals(actualLevel.getRectangles().get(0).getCol(), 1);
-        Assertions.assertEquals(actualLevel.getRectangles().get(0).getRow(), 0);
-        Assertions.assertEquals(actualLevel.getRectangles().get(0).getHeight(), 100);
-        Assertions.assertEquals(actualLevel.getRectangles().get(0).getWidth(), 100);
-        Assertions.assertEquals(actualLevel.getRectangles().get(0).getColSpan(), 2);
-        Assertions.assertEquals(actualLevel.getRectangles().get(0).getRowSpan(), 2);
-    }
 
     @Test
     @DisplayName("Test the expected area points of a given rectangle")
@@ -382,6 +357,6 @@ public class HelperTest {
         String defaultFileName = Helper.getSolutionFileName("Level 5");
         assertEquals("", defaultFileName);
     }
-
+*/
 
 }

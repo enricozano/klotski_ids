@@ -13,9 +13,33 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="6bfdf0fa-9483-4758-a1c0-5debc05e40e9" name="Changes" comment="merged">
+      <change afterPath="$PROJECT_DIR$/src/main/java/klotski_ids/models/LevelManager.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/klotski_ids/models/PythonHandler.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/klotski_ids/models/SolutionHandler.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/test/java/klotski_ids_test/models/ComponentsTest.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/test/java/klotski_ids_test/models/LevelTest.java" afterDir="false" />
       <change afterPath="$PROJECT_DIR$/../out/klotski-jar-with-dependencies.jar" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../docs/assets/testsite/dependencies.html" beforeDir="false" afterPath="$PROJECT_DIR$/../docs/assets/testsite/dependencies.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../docs/assets/testsite/dependency-info.html" beforeDir="false" afterPath="$PROJECT_DIR$/../docs/assets/testsite/dependency-info.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../docs/assets/testsite/index.html" beforeDir="false" afterPath="$PROJECT_DIR$/../docs/assets/testsite/index.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../docs/assets/testsite/plugin-management.html" beforeDir="false" afterPath="$PROJECT_DIR$/../docs/assets/testsite/plugin-management.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../docs/assets/testsite/plugins.html" beforeDir="false" afterPath="$PROJECT_DIR$/../docs/assets/testsite/plugins.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../docs/assets/testsite/project-info.html" beforeDir="false" afterPath="$PROJECT_DIR$/../docs/assets/testsite/project-info.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../docs/assets/testsite/summary.html" beforeDir="false" afterPath="$PROJECT_DIR$/../docs/assets/testsite/summary.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../docs/assets/testsite/surefire-report.html" beforeDir="false" afterPath="$PROJECT_DIR$/../docs/assets/testsite/surefire-report.html" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/pom.xml" beforeDir="false" afterPath="$PROJECT_DIR$/pom.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/klotski_ids/controllers/frameMenu/GameController.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/klotski_ids/controllers/frameMenu/GameController.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/klotski_ids/controllers/frameMenu/LevelMenuController.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/klotski_ids/controllers/frameMenu/LevelMenuController.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/klotski_ids/controllers/frameMenu/StartMenuController.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/klotski_ids/controllers/frameMenu/StartMenuController.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/klotski_ids/models/Components.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/klotski_ids/models/Components.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/klotski_ids/models/Helper.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/klotski_ids/models/Helper.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/klotski_ids/models/KlotskiGame.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/klotski_ids/models/KlotskiGame.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/resources/klotski_ids/data/levelSolutions/DefaultLayout.txt" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/resources/klotski_ids/data/levelSolutions/DefaultLayout.txt" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/resources/klotski_ids/data/levelSolutions/Solutions.txt" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/resources/klotski_ids/data/levelSolutions/Solutions.txt" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/resources/klotski_ids/pythonKlotskiSolver/Main.py" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/resources/klotski_ids/pythonKlotskiSolver/Main.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/resources/klotski_ids/views/frameMenu/game.fxml" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/resources/klotski_ids/views/frameMenu/game.fxml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/test/java/klotski_ids_test/models/HelperTest.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/test/java/klotski_ids_test/models/HelperTest.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/test/java/klotski_ids_test/models/KlotskiGameTest.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/test/java/klotski_ids_test/models/KlotskiGameTest.java" afterDir="false" />
     </list>
     <list id="09855262-e7fe-4115-8869-69c02f2c6753" name="Changes by eris" comment="" />
     <option name="SHOW_DIALOG" value="false" />
@@ -135,14 +159,17 @@
     </key>
     <key name="CreateTestDialog.RecentsKey">
       <recent name="klotski_ids_test.models" />
+      <recent name="klotski_ids.models" />
       <recent name="klotski_ids_test.controllers.frameMenu" />
       <recent name="tests" />
       <recent name="klotski_ids.controllers.frameMenu" />
+    </key>
+    <key name="CopyClassDialog.RECENTS_KEY">
       <recent name="klotski_ids.models" />
     </key>
   </component>
-  <component name="RunManager" selected="JUnit.HelperTest.testPerformMoveAction">
-    <configuration name="HelperTest.testPerformMoveAction" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
+  <component name="RunManager">
+    <configuration name="ComponentsTest.testConstructorAndGetters" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
       <module name="klotski_ids" />
       <extension name="coverage">
         <pattern>
@@ -151,14 +178,14 @@
         </pattern>
       </extension>
       <option name="PACKAGE_NAME" value="klotski_ids_test.models" />
-      <option name="MAIN_CLASS_NAME" value="klotski_ids_test.models.HelperTest" />
-      <option name="METHOD_NAME" value="testPerformMoveAction" />
+      <option name="MAIN_CLASS_NAME" value="klotski_ids_test.models.ComponentsTest" />
+      <option name="METHOD_NAME" value="testConstructorAndGetters" />
       <option name="TEST_OBJECT" value="method" />
       <method v="2">
         <option name="Make" enabled="true" />
       </method>
     </configuration>
-    <configuration name="HelperTest.testReadJson" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
+    <configuration name="ComponentsTest.testEquals" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
       <module name="klotski_ids" />
       <extension name="coverage">
         <pattern>
@@ -167,14 +194,14 @@
         </pattern>
       </extension>
       <option name="PACKAGE_NAME" value="klotski_ids_test.models" />
-      <option name="MAIN_CLASS_NAME" value="klotski_ids_test.models.HelperTest" />
-      <option name="METHOD_NAME" value="testReadJson" />
+      <option name="MAIN_CLASS_NAME" value="klotski_ids_test.models.ComponentsTest" />
+      <option name="METHOD_NAME" value="testEquals" />
       <option name="TEST_OBJECT" value="method" />
       <method v="2">
         <option name="Make" enabled="true" />
       </method>
     </configuration>
-    <configuration name="HelperTest.testWinConditionMet" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
+    <configuration name="ComponentsTest.testSetters" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
       <module name="klotski_ids" />
       <extension name="coverage">
         <pattern>
@@ -183,14 +210,14 @@
         </pattern>
       </extension>
       <option name="PACKAGE_NAME" value="klotski_ids_test.models" />
-      <option name="MAIN_CLASS_NAME" value="klotski_ids_test.models.HelperTest" />
-      <option name="METHOD_NAME" value="testWinConditionMet" />
+      <option name="MAIN_CLASS_NAME" value="klotski_ids_test.models.ComponentsTest" />
+      <option name="METHOD_NAME" value="testSetters" />
       <option name="TEST_OBJECT" value="method" />
       <method v="2">
         <option name="Make" enabled="true" />
       </method>
     </configuration>
-    <configuration name="KlotskiGameTest" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
+    <configuration name="KlotskiGameTest.testWinCondition" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
       <module name="klotski_ids" />
       <extension name="coverage">
         <pattern>
@@ -200,12 +227,13 @@
       </extension>
       <option name="PACKAGE_NAME" value="klotski_ids_test.models" />
       <option name="MAIN_CLASS_NAME" value="klotski_ids_test.models.KlotskiGameTest" />
-      <option name="TEST_OBJECT" value="class" />
+      <option name="METHOD_NAME" value="testWinCondition" />
+      <option name="TEST_OBJECT" value="method" />
       <method v="2">
         <option name="Make" enabled="true" />
       </method>
     </configuration>
-    <configuration name="KlotskiGameTest.testCopyComponentsList" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
+    <configuration name="KlotskiGameTest.testWinCondition_NoWin" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
       <module name="klotski_ids" />
       <extension name="coverage">
         <pattern>
@@ -215,7 +243,7 @@
       </extension>
       <option name="PACKAGE_NAME" value="klotski_ids_test.models" />
       <option name="MAIN_CLASS_NAME" value="klotski_ids_test.models.KlotskiGameTest" />
-      <option name="METHOD_NAME" value="testCopyComponentsList" />
+      <option name="METHOD_NAME" value="testWinCondition_NoWin" />
       <option name="TEST_OBJECT" value="method" />
       <method v="2">
         <option name="Make" enabled="true" />
@@ -223,11 +251,11 @@
     </configuration>
     <recent_temporary>
       <list>
-        <item itemvalue="JUnit.HelperTest.testPerformMoveAction" />
-        <item itemvalue="JUnit.HelperTest.testReadJson" />
-        <item itemvalue="JUnit.KlotskiGameTest" />
-        <item itemvalue="JUnit.KlotskiGameTest.testCopyComponentsList" />
-        <item itemvalue="JUnit.HelperTest.testWinConditionMet" />
+        <item itemvalue="JUnit.KlotskiGameTest.testWinCondition_NoWin" />
+        <item itemvalue="JUnit.KlotskiGameTest.testWinCondition" />
+        <item itemvalue="JUnit.ComponentsTest.testEquals" />
+        <item itemvalue="JUnit.ComponentsTest.testSetters" />
+        <item itemvalue="JUnit.ComponentsTest.testConstructorAndGetters" />
       </list>
     </recent_temporary>
   </component>
