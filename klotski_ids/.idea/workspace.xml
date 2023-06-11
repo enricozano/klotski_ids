@@ -14,7 +14,6 @@
   <component name="ChangeListManager">
     <list default="true" id="6bfdf0fa-9483-4758-a1c0-5debc05e40e9" name="Changes" comment="refactor">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/klotski_ids/controllers/frameMenu/GameController.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/klotski_ids/controllers/frameMenu/GameController.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/resources/klotski_ids/data/levelSolutions/DefaultLayout.txt" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/resources/klotski_ids/data/levelSolutions/DefaultLayout.txt" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/resources/klotski_ids/data/levelSolutions/Solutions.txt" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/resources/klotski_ids/data/levelSolutions/Solutions.txt" afterDir="false" />
     </list>
@@ -145,7 +144,7 @@
       <recent name="klotski_ids.models" />
     </key>
   </component>
-  <component name="RunManager">
+  <component name="RunManager" selected="JUnit.ComponentTest">
     <configuration name="ComponentTest" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
       <module name="klotski_ids" />
       <extension name="coverage">
@@ -324,7 +323,8 @@
       <workItem from="1686469576413" duration="2709000" />
       <workItem from="1686474086922" duration="14013000" />
       <workItem from="1686498025688" duration="769000" />
-      <workItem from="1686508397940" duration="2167000" />
+      <workItem from="1686508397940" duration="2843000" />
+      <workItem from="1686579805753" duration="5125000" />
     </task>
     <task id="LOCAL-00011" summary="style and menu">
       <created>1683372645706</created>
