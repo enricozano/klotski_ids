@@ -12,7 +12,12 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="6bfdf0fa-9483-4758-a1c0-5debc05e40e9" name="Changes" comment="refactor" />
+    <list default="true" id="6bfdf0fa-9483-4758-a1c0-5debc05e40e9" name="Changes" comment="refactor">
+      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/klotski_ids/controllers/frameMenu/GameController.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/klotski_ids/controllers/frameMenu/GameController.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/resources/klotski_ids/data/levelSolutions/DefaultLayout.txt" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/resources/klotski_ids/data/levelSolutions/DefaultLayout.txt" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/resources/klotski_ids/data/levelSolutions/Solutions.txt" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/resources/klotski_ids/data/levelSolutions/Solutions.txt" afterDir="false" />
+    </list>
     <list id="09855262-e7fe-4115-8869-69c02f2c6753" name="Changes by eris" comment="" />
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -318,6 +323,8 @@
       <workItem from="1686444079017" duration="2034000" />
       <workItem from="1686469576413" duration="2709000" />
       <workItem from="1686474086922" duration="14013000" />
+      <workItem from="1686498025688" duration="769000" />
+      <workItem from="1686508397940" duration="2167000" />
     </task>
     <task id="LOCAL-00011" summary="style and menu">
       <created>1683372645706</created>

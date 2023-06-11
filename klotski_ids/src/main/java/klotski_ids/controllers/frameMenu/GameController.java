@@ -244,7 +244,7 @@ public class GameController {
 
             totalMoves += (deltaRow + deltaCol);
 
-            nextBestMoveCounter = totalMoves;
+            nextBestMoveCounter++;
             GridPane.setRowIndex(rectangle, newRow);
             GridPane.setColumnIndex(rectangle, newCol);
 
@@ -371,7 +371,7 @@ public class GameController {
 
         if (selectedFile != null) {
             String filePath = selectedFile.getAbsolutePath();
-            Helper.writeToFile(filePath,jsonObject.toString());
+            Helper.writeToFile(filePath, jsonObject.toString());
         } else {
             System.out.println("Operazione di salvataggio annullata.");
         }
@@ -385,7 +385,7 @@ public class GameController {
      */
     @FXML
     private void nextBestMove() throws IOException {
-
+        boolean operationSuccess = false;
         List<Component> levelComponents = new ArrayList<>(klotskiGame.getComponents());
 
         if ((!hasMoved || Objects.equals(KlotskiGame.getDefaultComponentsList(), klotskiGame.getComponents())) && !isResumed) {
@@ -393,28 +393,32 @@ public class GameController {
                 nextBestMoveCounter = 0;
             }
             klotskiGame.handleDefaultLayout(nextBestMoveCounter);
+            operationSuccess = true;
 
         } else if (PythonHandler.isPythonInstalled()) {
             String defaultLayoutPath = "src/main/resources/klotski_ids/data/levelSolutions/DefaultLayout.txt";
-
-            if (Helper.writeToFile(defaultLayoutPath, levelComponents.stream().map(Component::toSolverFormatString).reduce("",String::concat))) {
+            operationSuccess = true;
+            if (Helper.writeToFile(defaultLayoutPath, levelComponents.stream().map(Component::toSolverFormatString).reduce("", String::concat))) {
                 nextBestMoveButton.setDisable(true);
+                operationSuccess = false;
             }
             klotskiGame.handlePythonSolver();
         }
 
-        nextBestMoveCounter++;
-        movesLabel.setText(String.valueOf(nextBestMoveCounter));
-        totalMoves = nextBestMoveCounter;
+        if (operationSuccess) {
+            nextBestMoveCounter++;
+            totalMoves++;
+            movesLabel.setText(String.valueOf(totalMoves));
 
-        gridPane.getChildren().clear();
-        klotskiGame.setHistoryRectanglesMovements(klotskiGame.getComponents());
-        KlotskiGame.setPythonNextBestMoveComponentsLists(klotskiGame.getComponents());
+            gridPane.getChildren().clear();
+            klotskiGame.setHistoryRectanglesMovements(klotskiGame.getComponents());
+            KlotskiGame.setPythonNextBestMoveComponentsLists(klotskiGame.getComponents());
 
-        Helper.setGridPaneElements(gridPane, klotskiGame.getComponents(), klotskiGame.getRectangles());
-        klotskiGame.setWin(klotskiGame.winCondition(klotskiGame.getComponents()));
+            Helper.setGridPaneElements(gridPane, klotskiGame.getComponents(), klotskiGame.getRectangles());
+            klotskiGame.setWin(klotskiGame.winCondition(klotskiGame.getComponents()));
+            isWinSet();
+        }
 
-        isWinSet();
     }
 
 
@@ -425,6 +429,8 @@ public class GameController {
     private void undo() {
         int lastIndex = KlotskiGame.getHistoryRectanglesMovements().size() - 1;
 
+        if (lastIndex == 1) nextBestMoveButton.setDisable(false);
+
         if (lastIndex >= 1) {
 
             KlotskiGame.getHistoryRectanglesMovements().remove(lastIndex);
@@ -433,8 +439,6 @@ public class GameController {
 
             if (nextBestMoveCounter > 0) {
                 nextBestMoveCounter--;
-
-                movesLabel.setText(String.valueOf(nextBestMoveCounter));
             }
 
             if (totalMoves > 0) {
@@ -445,6 +449,7 @@ public class GameController {
             List<Component> componentsList = new ArrayList<>(KlotskiGame.getHistoryRectanglesMovements().get(lastIndex));
 
             gridPane.getChildren().clear();
+
             Helper.setGridPaneElements(gridPane, componentsList, klotskiGame.getRectangles());
 
             klotskiGame.setComponents(KlotskiGame.copyComponentsList(componentsList));
