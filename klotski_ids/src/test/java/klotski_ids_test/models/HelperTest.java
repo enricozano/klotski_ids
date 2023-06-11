@@ -3,9 +3,7 @@ package klotski_ids_test.models;
 import javafx.geometry.Point2D;
 import javafx.scene.layout.GridPane;
 import klotski_ids.models.Helper;
-import klotski_ids.models.Level;
 import klotski_ids.models.Component;
-import org.junit.jupiter.api.BeforeAll;
 import javafx.scene.shape.Rectangle;
 import org.junit.jupiter.api.Test;
 

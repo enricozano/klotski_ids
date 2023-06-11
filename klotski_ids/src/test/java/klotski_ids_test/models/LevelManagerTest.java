@@ -1,16 +1,13 @@
 package klotski_ids_test.models;
 
-import klotski_ids.models.Component;
+
 import klotski_ids.models.Level;
 import klotski_ids.models.LevelManager;
-import org.json.JSONException;
-import org.junit.jupiter.api.Assertions;
 import org.junit.jupiter.api.DisplayName;
 import org.junit.jupiter.api.Test;
 
 import java.io.IOException;
-import java.util.ArrayList;
-import java.util.List;
+
 
 import static org.junit.jupiter.api.Assertions.*;
 

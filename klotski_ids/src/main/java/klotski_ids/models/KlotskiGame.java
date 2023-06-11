@@ -374,7 +374,6 @@ public class KlotskiGame {
      */
     public void handleDefaultLayout(int nextBestMoveCounter) {
 
-
         List<Pair<Integer, String>> separatedMoves = SolutionHandler.readSolutions(levelTitle);
 
         int moveListSize = separatedMoves.size();

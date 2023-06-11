@@ -2,6 +2,7 @@ package klotski_ids_test.models;
 
 import javafx.util.Pair;
 import klotski_ids.models.SolutionHandler;
+import org.junit.jupiter.api.DisplayName;
 import org.junit.jupiter.api.Test;
 
 import java.util.ArrayList;
@@ -12,6 +13,7 @@ import static org.junit.jupiter.api.Assertions.*;
 public class SolutionHandlerTest {
 
     @Test
+    @DisplayName("read solutions test")
     public void testReadSolutions() {
         String levelName = "Level 1";
         List<Pair<Integer,String>> actual = SolutionHandler.readSolutions(levelName);

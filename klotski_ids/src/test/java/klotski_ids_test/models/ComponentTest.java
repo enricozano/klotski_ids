@@ -46,7 +46,7 @@ public class ComponentTest {
 
 
     @Test
-    @DisplayName("")
+    @DisplayName("Test the solver format string function")
     public void testToSolverFormatString() {
         Component component = new Component("id", 1, 2, 1, 1, 50, 50);
         var actual = component.toSolverFormatString();
@@ -55,6 +55,7 @@ public class ComponentTest {
     }
 
     @Test
+    @DisplayName("Convert component to rectangle")
     public void testToRectangle() {
         Component component = new Component("id", 1, 2, 1, 1, 50, 50);
         var actual = component.toRectangle();
@@ -68,6 +69,7 @@ public class ComponentTest {
     }
 
     @Test
+    @DisplayName("Covert a component to JsonObject")
     public void testToJsonObject(){
         Component component = new Component("id", 1, 2, 1, 1, 50,50);
         String actual = component.toJsonObject().toString();
