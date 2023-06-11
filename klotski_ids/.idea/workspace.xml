@@ -13,22 +13,8 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="6bfdf0fa-9483-4758-a1c0-5debc05e40e9" name="Changes" comment="refactor">
-      <change beforePath="$PROJECT_DIR$/../.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/../.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../docs/assets/images/design/models-design.png" beforeDir="false" afterPath="$PROJECT_DIR$/../docs/assets/images/design/models-design.png" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../docs/assets/images/sequence/init-int.png" beforeDir="false" afterPath="$PROJECT_DIR$/../docs/assets/images/sequence/init-int.png" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../docs/assets/images/sequence/newgame-int.png" beforeDir="false" afterPath="$PROJECT_DIR$/../docs/assets/images/sequence/newgame-int.png" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../docs/assets/images/sequence/nextbest-int.png" beforeDir="false" afterPath="$PROJECT_DIR$/../docs/assets/images/sequence/nextbest-int.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../docs/assets/images/sequence/nextdef-int.xcf" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/../docs/assets/images/sequence/nextdef-int.png" beforeDir="false" afterPath="$PROJECT_DIR$/../docs/assets/images/sequence/nextdef-int.png" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../docs/assets/images/sequence/nextpy-int.png" beforeDir="false" afterPath="$PROJECT_DIR$/../docs/assets/images/sequence/nextpy-int.png" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../docs/assets/images/sequence/reset-int.png" beforeDir="false" afterPath="$PROJECT_DIR$/../docs/assets/images/sequence/reset-int.png" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../docs/assets/images/sequence/resume-int.png" beforeDir="false" afterPath="$PROJECT_DIR$/../docs/assets/images/sequence/resume-int.png" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../docs/assets/images/sequence/undo-int.png" beforeDir="false" afterPath="$PROJECT_DIR$/../docs/assets/images/sequence/undo-int.png" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/klotski_ids/models/KlotskiGame.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/klotski_ids/models/KlotskiGame.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/test/java/klotski_ids_test/models/ComponentTest.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/test/java/klotski_ids_test/models/ComponentTest.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/test/java/klotski_ids_test/models/HelperTest.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/test/java/klotski_ids_test/models/HelperTest.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/test/java/klotski_ids_test/models/LevelManagerTest.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/test/java/klotski_ids_test/models/LevelManagerTest.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/test/java/klotski_ids_test/models/SolutionHandlerTest.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/test/java/klotski_ids_test/models/SolutionHandlerTest.java" afterDir="false" />
     </list>
     <list id="09855262-e7fe-4115-8869-69c02f2c6753" name="Changes by eris" comment="" />
     <option name="SHOW_DIALOG" value="false" />
@@ -334,7 +320,7 @@
       <workItem from="1686421258331" duration="2752000" />
       <workItem from="1686444079017" duration="2034000" />
       <workItem from="1686469576413" duration="2709000" />
-      <workItem from="1686474086922" duration="13155000" />
+      <workItem from="1686474086922" duration="13915000" />
     </task>
     <task id="LOCAL-00011" summary="style and menu">
       <created>1683372645706</created>
