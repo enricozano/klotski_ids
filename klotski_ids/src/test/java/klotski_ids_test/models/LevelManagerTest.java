@@ -3,6 +3,7 @@ package klotski_ids_test.models;
 
 import klotski_ids.models.Level;
 import klotski_ids.models.LevelManager;
+import org.json.JSONPropertyIgnore;
 import org.junit.jupiter.api.DisplayName;
 import org.junit.jupiter.api.Test;
 

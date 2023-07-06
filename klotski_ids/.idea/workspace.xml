@@ -13,9 +13,13 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="6bfdf0fa-9483-4758-a1c0-5debc05e40e9" name="Changes" comment="refactor">
+      <change beforePath="$PROJECT_DIR$/../docs/assets/images/DomainModel.jpg" beforeDir="false" afterPath="$PROJECT_DIR$/../docs/assets/images/DomainModel.jpg" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../docs/manual.html" beforeDir="false" afterPath="$PROJECT_DIR$/../docs/manual.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/shelf/Uncommitted_changes_before_Update_at_5_6_23__4_04_PM__Changes_.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/shelf/Uncommitted_changes_before_Update_at_5_6_23__4_04_PM__Changes_.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/resources/klotski_ids/data/levelSolutions/DefaultLayout.txt" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/resources/klotski_ids/data/levelSolutions/DefaultLayout.txt" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/resources/klotski_ids/data/levelSolutions/Solutions.txt" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/resources/klotski_ids/data/levelSolutions/Solutions.txt" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/test/java/klotski_ids_test/models/LevelManagerTest.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/test/java/klotski_ids_test/models/LevelManagerTest.java" afterDir="false" />
     </list>
     <list id="09855262-e7fe-4115-8869-69c02f2c6753" name="Changes by eris" comment="" />
     <option name="SHOW_DIALOG" value="false" />
@@ -144,7 +148,7 @@
       <recent name="klotski_ids.models" />
     </key>
   </component>
-  <component name="RunManager" selected="JUnit.ComponentTest">
+  <component name="RunManager">
     <configuration name="ComponentTest" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
       <module name="klotski_ids" />
       <extension name="coverage">
@@ -155,21 +159,6 @@
       </extension>
       <option name="PACKAGE_NAME" value="klotski_ids_test.models" />
       <option name="MAIN_CLASS_NAME" value="klotski_ids_test.models.ComponentTest" />
-      <option name="TEST_OBJECT" value="class" />
-      <method v="2">
-        <option name="Make" enabled="true" />
-      </method>
-    </configuration>
-    <configuration name="KlotskiGameTest" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
-      <module name="klotski_ids" />
-      <extension name="coverage">
-        <pattern>
-          <option name="PATTERN" value="klotski_ids_test.models.*" />
-          <option name="ENABLED" value="true" />
-        </pattern>
-      </extension>
-      <option name="PACKAGE_NAME" value="klotski_ids_test.models" />
-      <option name="MAIN_CLASS_NAME" value="klotski_ids_test.models.KlotskiGameTest" />
       <option name="TEST_OBJECT" value="class" />
       <method v="2">
         <option name="Make" enabled="true" />
@@ -221,13 +210,29 @@
         <option name="Make" enabled="true" />
       </method>
     </configuration>
+    <configuration name="SolutionHandlerTest.testReadSolutions" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
+      <module name="klotski_ids" />
+      <extension name="coverage">
+        <pattern>
+          <option name="PATTERN" value="klotski_ids_test.models.*" />
+          <option name="ENABLED" value="true" />
+        </pattern>
+      </extension>
+      <option name="PACKAGE_NAME" value="klotski_ids_test.models" />
+      <option name="MAIN_CLASS_NAME" value="klotski_ids_test.models.SolutionHandlerTest" />
+      <option name="METHOD_NAME" value="testReadSolutions" />
+      <option name="TEST_OBJECT" value="method" />
+      <method v="2">
+        <option name="Make" enabled="true" />
+      </method>
+    </configuration>
     <recent_temporary>
       <list>
+        <item itemvalue="JUnit.SolutionHandlerTest.testReadSolutions" />
         <item itemvalue="JUnit.ComponentTest" />
         <item itemvalue="JUnit.SolutionHandlerTest" />
         <item itemvalue="JUnit.LevelManagerTest" />
         <item itemvalue="JUnit.SolutionHandlerTest.readSolutionsTest" />
-        <item itemvalue="JUnit.KlotskiGameTest" />
       </list>
     </recent_temporary>
   </component>
@@ -325,6 +330,9 @@
       <workItem from="1686498025688" duration="769000" />
       <workItem from="1686508397940" duration="2843000" />
       <workItem from="1686579805753" duration="5125000" />
+      <workItem from="1687445416775" duration="292000" />
+      <workItem from="1687467306981" duration="624000" />
+      <workItem from="1687511241803" duration="1586000" />
     </task>
     <task id="LOCAL-00011" summary="style and menu">
       <created>1683372645706</created>
